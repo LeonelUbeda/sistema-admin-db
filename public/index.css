@@ -1,0 +1,29 @@
+#contenedor[data-v-12368a] {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.texto[data-v-12368a] {
+  color: white;
+}
+a[data-v-12368a] {
+  text-decoration: none;
+}
+#contenedora[data-v-1cec8b]{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: red;
+}
+#sidebar[data-v-1cec8b]{
+  background-color: green;
+  height: 100vh;
+  width: 10vw;
+}
+#main[data-v-1cec8b]{
+  width: 100%;
+  background-color: yellow;
+}
