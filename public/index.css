@@ -1,38 +1,79 @@
-#contenedor[data-v-65481f] {
-  background-color: #ffffff;
+.colorPrincipal{
+    background-color: #ffffff;
+    color: black;
+}
+
+
+.colorSecundario{
+    
+}
+
+.seleccionado{
+    color: red
+}
+
+.bordeSeleccionado{
+    border-bottom:2px solid #76c4f5 
+}
+#contenedor[data-v-12368a] {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.texto[data-v-65481f] {
+.texto[data-v-12368a] {
   color: black;
 }
-a[data-v-65481f] {
+a[data-v-12368a] {
   text-decoration: none;
 }
-.boton[data-v-65481f] {
+.boton[data-v-12368a] {
   margin: 10px 0;
 }
-#contenedora[data-v-52f010]{
+*[data-v-1cec8b]{
+  font-family: 'Montserrat'
+}
+#contenedora[data-v-1cec8b]{
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-wrap: nowrap;
   background-color: #f8f8f8;
 }
-#sidebar[data-v-52f010]{
+#sidebar[data-v-1cec8b]{
   background-color: green;
   height: 100vh;
   position: fixed;
   width: 150px;
 }
-#main[data-v-52f010]{
+#main[data-v-1cec8b]{
   width: 100%;
 
   margin-left: 150px;
 }
-#contenedor[data-v-1b7dc3] {
+#contenedor[data-v-a48455] {
+  width: 100%;
+  height: 50px;
+  border-bottom: 0.5px solid #f8f8f8;
+  box-shadow: 0 1px 20px -2px #dbdbdb;
+}
+#opciones[data-v-a48455] {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 100%;
+}
+#opciones > div[data-v-a48455] {
+  margin: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+}
+#main[data-v-2acc8d] {
   padding: 20px 20px;
 }
+
+/*# sourceMappingURL=/index.css.map */

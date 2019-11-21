@@ -1,5 +1,5 @@
 <template>
-    <div id="contenedor">
+    <div id="contenedor" class="colorPrincipal">
         <router-link to="/">
             <div class="boton">
                 <span class="texto">Inicio</span>
@@ -19,6 +19,11 @@
 </template>
 
 <script>
+
+import themeColors from '../../assets/css/themeColors.css'
+
+
+
 export default {
     data: () => {
         return{
@@ -29,10 +34,11 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
+
+
 #contenedor{
-    background-color: #ffffff;
+    
     width: 100%;
     height: 100%;
     display: flex;

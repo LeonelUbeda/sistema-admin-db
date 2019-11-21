@@ -1,6 +1,7 @@
 
 <template>
     <div>
+        
             <h1>Bienvenido</h1>
 
             <table>
@@ -21,6 +22,7 @@
 <script>
 import axios from 'axios'
 import 'babel-polyfill'
+import TopSection from '../Components/TopSection'
 export default {
     data: () => {
         return{
@@ -42,6 +44,9 @@ export default {
     },
     created(){
         this.ObtenerClientes();
+    },
+    components:{
+
     }
 }
 </script>

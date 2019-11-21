@@ -1,0 +1,17 @@
+.colorPrincipal{
+    background-color: #ffffff;
+    color: black;
+}
+
+
+.colorSecundario{
+    
+}
+
+.seleccionado{
+    color: red
+}
+
+.bordeSeleccionado{
+    border-bottom:2px solid #76c4f5 
+}
