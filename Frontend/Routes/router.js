@@ -1,9 +1,11 @@
 
+// Componentes "seccion"
 import Inicio from '../Sections/Inicio'
 import Login from '../Sections/Login'
+import Cliente from '../Sections/Cliente'
 
 
-
+// Cada objeto es una ruta, se le pasa un componente, una url y el nombre :D
 export default [
     {
         path: '/',
@@ -14,5 +16,10 @@ export default [
         path: '/login',
         component: Login,
         name: 'login'
+    },
+    {
+        path: '/cliente',
+        component: Cliente,
+        name: 'cliente'
     }
 ]

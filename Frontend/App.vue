@@ -26,18 +26,22 @@ export default {
 <style scoped>
 #contenedora{
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-wrap: nowrap;
-  background-color: red;
+  background-color: #f8f8f8;
+  
 }
 #sidebar{
   background-color: green;
   height: 100vh;
-  width: 10vw;
+  position: fixed;
+  width: 150px;
 }
 
 #main{
   width: 100%;
-  background-color: yellow;
+
+  margin-left: 150px;
 }
 </style>
