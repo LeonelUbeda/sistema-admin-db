@@ -32,15 +32,7 @@ export default {
         }
     },
     methods:{
-        ObtenerClientes: async function(){
-            try {
-                const response = await axios.get('/api/clientes')
-                this.cliente = response.data
-                console.log(response)
-            } catch (error) {
-                
-            }
-        }
+        
     },
     created(){
         this.ObtenerClientes();

@@ -21750,36 +21750,7 @@ var _default = {
       cliente: Array
     };
   },
-  methods: {
-    ObtenerClientes: function ObtenerClientes() {
-      var response;
-      return regeneratorRuntime.async(function ObtenerClientes$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes'));
-
-            case 3:
-              response = _context.sent;
-              this.cliente = response.data;
-              console.log(response);
-              _context.next = 10;
-              break;
-
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](0);
-
-            case 10:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, null, this, [[0, 8]]);
-    }
-  },
+  methods: {},
   created: function created() {
     this.ObtenerClientes();
   },
@@ -21931,6 +21902,148 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"assets/css/clasesUtiles.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Tabla.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {};
+  },
+  props: {
+    elementos: Array,
+    titulos: Array
+  }
+};
+exports.default = _default;
+        var $75911e = exports.default || module.exports;
+      
+      if (typeof $75911e === 'function') {
+        $75911e = $75911e.options;
+      }
+    
+        /* template */
+        Object.assign($75911e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("table", [
+    _c("caption"),
+    _vm._v(" "),
+    _c("thead", [
+      _c(
+        "tr",
+        _vm._l(_vm.titulos, function(titulo) {
+          return _c("th", { key: titulo.propiedad }, [
+            _vm._v(" " + _vm._s(titulo.titulo) + " ")
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "tbody",
+      _vm._l(_vm.elementos, function(elemento, index) {
+        return _c(
+          "tr",
+          { key: index },
+          _vm._l(_vm.titulos, function(titulo) {
+            return _c("td", { key: titulo.propiedad }, [
+              _vm._v(_vm._s(elemento[titulo.propiedad]))
+            ])
+          }),
+          0
+        )
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-75911e",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$75911e', $75911e);
+          } else {
+            api.reload('$75911e', $75911e);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
 "use strict";
 
@@ -21939,7 +22052,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _clasesUtiles = _interopRequireDefault(require("../assets/css/clasesUtiles"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+require("babel-polyfill");
+
 var _TopSection = _interopRequireDefault(require("../Components/TopSection"));
+
+var _Tabla = _interopRequireDefault(require("../Components/Tabla"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21966,20 +22087,70 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      opciones: ['Crear', 'Buscar', 'Actualizar'],
-      opcionSeleccionada: 'Buscar'
+      opciones: ['Buscar', 'Crear'],
+      opcionSeleccionada: 'Buscar',
+      clienteDatos: [],
+      clienteTitulos: [{
+        propiedad: 'nombre',
+        titulo: 'Nombre'
+      }, {
+        propiedad: 'apellido',
+        titulo: 'Apellido'
+      }, {
+        propiedad: 'direccion',
+        titulo: 'Direccion'
+      }]
     };
   },
   components: {
-    TopSection: _TopSection.default
+    TopSection: _TopSection.default,
+    Tabla: _Tabla.default
   },
   methods: {
     clickOpciones: function clickOpciones(dato) {
       this.opcionSeleccionada = dato;
+    },
+    obtenerClientes: function obtenerClientes() {
+      var response;
+      return regeneratorRuntime.async(function obtenerClientes$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes'));
+
+            case 3:
+              response = _context.sent;
+              this.clienteDatos = response.data;
+              _context.next = 9;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this, [[0, 7]]);
     }
+  },
+  created: function created() {
+    this.obtenerClientes();
   }
 };
 exports.default = _default;
@@ -22008,22 +22179,7 @@ exports.default = _default;
       }),
       _vm._v(" "),
       _c("div", { attrs: { id: "main" } }, [
-        _c("h2", [_vm._v("Clientes")]),
-        _vm._v(" "),
-        _c(
-          "h1",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.opcionSeleccionada === "Crear",
-                expression: "opcionSeleccionada === 'Crear'"
-              }
-            ]
-          },
-          [_vm._v("CREAR CLIENTES")]
-        ),
+        _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
         _vm._v(" "),
         _c("br"),
         _c("br"),
@@ -22034,7 +22190,23 @@ exports.default = _default;
         _c("br"),
         _c("br"),
         _c("br"),
-        _c("br")
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "contenedor-tabla" },
+          [
+            _vm.opcionSeleccionada === "Buscar"
+              ? _c("Tabla", {
+                  attrs: {
+                    elementos: _vm.clienteDatos,
+                    titulos: _vm.clienteTitulos
+                  }
+                })
+              : _vm._e()
+          ],
+          1
+        )
       ])
     ],
     1
@@ -22073,7 +22245,7 @@ render._withStripped = true
       
       }
     })();
-},{"../Components/TopSection":"Components/TopSection.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22159,7 +22331,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "16369" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37673" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
