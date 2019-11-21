@@ -102,17 +102,5 @@ table{
 
 
 }
-/*
-.table100.ver1 th {
-  font-family: Lato-Bold;
-  font-size: 18px;
-  color: #fff;
-  line-height: 1.4;
 
-  
-}
-.table100.ver1 .table100-body tr:nth-child(even) {
-  background-color: #f8f6ff;
-}
-*/
 </style>

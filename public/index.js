@@ -9043,11 +9043,15 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "contenedora" } }, [
-    _c("div", { attrs: { id: "sidebar" } }, [_c("Sidebar")], 1),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "main" } }, [_c("router-view")], 1)
-  ])
+  return _c(
+    "div",
+    { staticClass: "colorSecundario", attrs: { id: "contenedora" } },
+    [
+      _c("div", { attrs: { id: "sidebar" } }, [_c("Sidebar")], 1),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "main" } }, [_c("router-view")], 1)
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22044,7 +22048,111 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"assets/img/recargar.svg":[function(require,module,exports) {
+module.exports = "/recargar.57927ccf.svg";
+},{}],"Components/TablaTitulo.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("../assets/css/clasesUtiles.css");
+
+var _recargar = _interopRequireDefault(require("../assets/img/recargar.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {};
+  },
+  props: {
+    titulo: String
+  }
+};
+exports.default = _default;
+        var $372339 = exports.default || module.exports;
+      
+      if (typeof $372339 === 'function') {
+        $372339 = $372339.options;
+      }
+    
+        /* template */
+        Object.assign($372339, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "titulo" } }, [
+    _c("h2", [_vm._v(_vm._s(_vm.titulo))]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Nuevo")])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex margin-left-auto cursor-pointer" }, [
+      _c("img", {
+        staticClass: "width-40px margin-right-10",
+        attrs: { src: "/recargar.57927ccf.svg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("h4", { staticClass: " margin-right-30" }, [_vm._v("Refrescar")])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-372339",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$372339', $372339);
+          } else {
+            api.reload('$372339', $372339);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../assets/css/clasesUtiles.css":"assets/css/clasesUtiles.css","../assets/img/recargar.svg":"assets/img/recargar.svg","./..\\assets\\img\\recargar.svg":[["recargar.57927ccf.svg","assets/img/recargar.svg"],"assets/img/recargar.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22062,8 +22170,11 @@ var _TopSection = _interopRequireDefault(require("../Components/TopSection"));
 
 var _Tabla = _interopRequireDefault(require("../Components/Tabla"));
 
+var _TablaTitulo = _interopRequireDefault(require("../Components/TablaTitulo"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
 //
 //
 //
@@ -22115,7 +22226,8 @@ var _default = {
   },
   components: {
     TopSection: _TopSection.default,
-    Tabla: _Tabla.default
+    Tabla: _Tabla.default,
+    TablaTitulo: _TablaTitulo.default
   },
   methods: {
     clickOpciones: function clickOpciones(dato) {
@@ -22196,6 +22308,8 @@ exports.default = _default;
           "div",
           { staticClass: "contenedor-tabla" },
           [
+            _c("TablaTitulo", { attrs: { titulo: "Cliente" } }),
+            _vm._v(" "),
             _vm.opcionSeleccionada === "Buscar"
               ? _c("Tabla", {
                   attrs: {
@@ -22245,7 +22359,7 @@ render._withStripped = true
       
       }
     })();
-},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

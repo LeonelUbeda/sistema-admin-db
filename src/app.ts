@@ -69,3 +69,25 @@ database.authenticate()
 
 
 export default app;
+
+
+let inputs = [
+    {
+        name: 'nombre',
+        titulo: 'Nombre del cliente',
+        restriccion: {
+            type: String,
+            length: 10,
+            required: true
+        }
+    },
+    {
+        name: 'Edad',
+        titulo: 'Edad del cliente',
+        restriccion: {
+            type: Number,
+            length: 2,
+            required: false
+        }
+    }
+]

@@ -15,6 +15,7 @@
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?
         <br><br><br><br><br>
         <div class="contenedor-tabla">
+            <TablaTitulo :titulo="'Cliente'"></TablaTitulo>
             <Tabla v-if="opcionSeleccionada === 'Buscar'"
             :elementos="clienteDatos"
             :titulos="clienteTitulos"></Tabla>
@@ -35,6 +36,7 @@ import axios from 'axios'
 import 'babel-polyfill'
 import TopSection from '../Components/TopSection'
 import Tabla from '../Components/Tabla'
+import TablaTitulo from '../Components/TablaTitulo'
 export default {
     data: () => {
         return {
@@ -59,7 +61,8 @@ export default {
     },
     components:{
         TopSection,
-        Tabla
+        Tabla,
+        TablaTitulo
     },
     methods: {
         clickOpciones: function (dato){

@@ -1,5 +1,5 @@
 <template>
-  <div id="contenedora">
+  <div id="contenedora" class="colorSecundario">
     <div id="sidebar">
       <Sidebar>
     </div>
@@ -25,7 +25,8 @@ export default {
 
 <style scoped>
 *{
-  font-family: 'Montserrat'
+  font-family: 'Montserrat';
+  box-sizing: border-box !important;
 }
 
 #contenedora{
@@ -33,7 +34,7 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-wrap: nowrap;
-  background-color: #f8f8f8;
+  
   
 }
 #sidebar{
