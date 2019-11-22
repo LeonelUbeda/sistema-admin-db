@@ -64,17 +64,17 @@ export default {
             ],
             nameForm: 'Clientes',
             inputs: [
-                  [
-                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10},
-                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10}
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10, validacion: false, valor:''},
+                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10,  validacion: false, valor:''}
                   ],
                   [
-                      {titulo: 'Edad', name:'edad', type:'number', length: 10}
+                      {titulo: 'Edad', name:'edad', type:'number', length: 99, validacion: false, valor:''}
                   ],
                   [
-                      {titulo: 'Telefono', name:'telefono', type:'text', length: 10},
-                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 10},
-                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 10}
+                      {titulo: 'Telefono', name:'telefono', type:'number', length: 9999999999, validacion: false, valor:''},
+                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 9999, validacion: false, valor:''},
+                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 9999999999999, validacion: false, valor:''}
                   ]
                   
             ]   
@@ -100,6 +100,7 @@ export default {
                 // INSERTAR ALERTA DE ERROR
             }
         }
+       
     },
     created(){
         this.obtenerClientes();

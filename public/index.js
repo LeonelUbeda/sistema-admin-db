@@ -22176,6 +22176,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   props: {
     inputs: {
@@ -22184,7 +22186,12 @@ var _default = {
     },
     nameForm: String
   },
-  data: function data() {}
+  data: function data() {},
+  methods: {
+    numeroInvalido: function numeroInvalido(f) {
+      alert(f);
+    }
+  }
 };
 exports.default = _default;
         var $10e949 = exports.default || module.exports;
@@ -22200,7 +22207,7 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "form",
     { staticClass: "contenedor-tabla" },
     [
       _c("h2", [_vm._v(_vm._s(_vm.nameForm))]),
@@ -22213,14 +22220,118 @@ exports.default = _default;
             return _c("div", { key: unit, staticClass: "contenedor-fila" }, [
               _c("p", [_vm._v(_vm._s(unit.titulo))]),
               _vm._v(" "),
-              _c("input", {
-                staticClass: "inputUnit",
-                attrs: {
-                  placeholder: unit.titulo,
-                  type: unit.type,
-                  maxlength: unit.length
-                }
-              })
+              unit.type === "checkbox"
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: unit.valor,
+                        expression: "unit.valor"
+                      }
+                    ],
+                    class: [
+                      unit.valor > unit.length || unit.valor < 0
+                        ? "validado" /*true*/
+                        : "validadoVerde" /*false*/
+                    ],
+                    attrs: {
+                      placeholder: unit.titulo,
+                      maxlength: unit.length,
+                      min: "1",
+                      max: unit.length,
+                      type: "checkbox"
+                    },
+                    domProps: {
+                      checked: Array.isArray(unit.valor)
+                        ? _vm._i(unit.valor, null) > -1
+                        : unit.valor
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = unit.valor,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(unit, "valor", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                unit,
+                                "valor",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(unit, "valor", $$c)
+                        }
+                      }
+                    }
+                  })
+                : unit.type === "radio"
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: unit.valor,
+                        expression: "unit.valor"
+                      }
+                    ],
+                    class: [
+                      unit.valor > unit.length || unit.valor < 0
+                        ? "validado" /*true*/
+                        : "validadoVerde" /*false*/
+                    ],
+                    attrs: {
+                      placeholder: unit.titulo,
+                      maxlength: unit.length,
+                      min: "1",
+                      max: unit.length,
+                      type: "radio"
+                    },
+                    domProps: { checked: _vm._q(unit.valor, null) },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(unit, "valor", null)
+                      }
+                    }
+                  })
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: unit.valor,
+                        expression: "unit.valor"
+                      }
+                    ],
+                    class: [
+                      unit.valor > unit.length || unit.valor < 0
+                        ? "validado" /*true*/
+                        : "validadoVerde" /*false*/
+                    ],
+                    attrs: {
+                      placeholder: unit.titulo,
+                      maxlength: unit.length,
+                      min: "1",
+                      max: unit.length,
+                      type: unit.type
+                    },
+                    domProps: { value: unit.valor },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(unit, "valor", $event.target.value)
+                      }
+                    }
+                  })
             ])
           }),
           0
@@ -22352,36 +22463,50 @@ var _default = {
         titulo: 'Direccion'
       }],
       nameForm: 'Clientes',
-      inputs: [[{
+      inputs: [[
+      /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
+      {
         titulo: 'Nombre',
         name: 'nombre',
         type: 'text',
-        length: 10
+        length: 10,
+        validacion: false,
+        valor: ''
       }, {
         titulo: 'Apellido',
         name: 'apellido',
         type: 'text',
-        length: 10
+        length: 10,
+        validacion: false,
+        valor: ''
       }], [{
         titulo: 'Edad',
         name: 'edad',
         type: 'number',
-        length: 10
+        length: 99,
+        validacion: false,
+        valor: ''
       }], [{
         titulo: 'Telefono',
         name: 'telefono',
-        type: 'text',
-        length: 10
+        type: 'number',
+        length: 9999999999,
+        validacion: false,
+        valor: ''
       }, {
         titulo: 'ZIP Code',
         name: 'zipcode',
         type: 'number',
-        length: 10
+        length: 9999,
+        validacion: false,
+        valor: ''
       }, {
         titulo: 'Tarjeta',
         name: 'tarjeta',
         type: 'number',
-        length: 10
+        length: 9999999999999,
+        validacion: false,
+        valor: ''
       }]]
     };
   },
@@ -22622,7 +22747,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49807" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50970" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

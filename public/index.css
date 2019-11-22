@@ -218,11 +218,31 @@ table tbody tr[data-v-c92a3d]:nth-child(even) {
 }
 .contenedor-tabla[data-v-10e949]{
 }
-.inputUnit[data-v-10e949]{
+.validado[data-v-10e949]{
+     -webkit-appearance: none;
+  border-radius: 25px;
+  margin: 5px;   
+  height: 25px;  
+  outline-width: 0;
+}
+.validado[data-v-10e949]:focus{
+     -webkit-appearance: none;
+    border-color: red;
+}
+.validadoVerde[data-v-10e949]{
+     -webkit-appearance: none;
+    border-radius: 25px;
     margin: 5px;   
-    border-radius: 4px;
     height: 25px;
-    border: solid rgb(79, 70, 105);
+   outline-width: 0;
+}
+.validadoVerde[data-v-10e949]:focus{
+   -webkit-appearance: none;
+     border-color:green;
+}
+input[type="number"][data-v-10e949]::-webkit-outer-spin-button, input[type="number"][data-v-10e949]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 #main[data-v-f884e7] {
   padding: 20px 20px;
