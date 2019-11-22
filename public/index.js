@@ -8929,14 +8929,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3c8ff4 = exports.default || module.exports;
+        var $12368a = exports.default || module.exports;
       
-      if (typeof $3c8ff4 === 'function') {
-        $3c8ff4 = $3c8ff4.options;
+      if (typeof $12368a === 'function') {
+        $12368a = $12368a.options;
       }
     
         /* template */
-        Object.assign($3c8ff4, (function () {
+        Object.assign($12368a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8973,7 +8973,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3c8ff4",
+            _scopeId: "data-v-12368a",
             functional: undefined
           };
         })());
@@ -8986,9 +8986,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3c8ff4', $3c8ff4);
+            api.createRecord('$12368a', $12368a);
           } else {
-            api.reload('$3c8ff4', $3c8ff4);
+            api.reload('$12368a', $12368a);
           }
         }
 
@@ -9031,14 +9031,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $549ed5 = exports.default || module.exports;
+        var $1cec8b = exports.default || module.exports;
       
-      if (typeof $549ed5 === 'function') {
-        $549ed5 = $549ed5.options;
+      if (typeof $1cec8b === 'function') {
+        $1cec8b = $1cec8b.options;
       }
     
         /* template */
-        Object.assign($549ed5, (function () {
+        Object.assign($1cec8b, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9060,7 +9060,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-549ed5",
+            _scopeId: "data-v-1cec8b",
             functional: undefined
           };
         })());
@@ -9073,9 +9073,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$549ed5', $549ed5);
+            api.createRecord('$1cec8b', $1cec8b);
           } else {
-            api.reload('$549ed5', $549ed5);
+            api.reload('$1cec8b', $1cec8b);
           }
         }
 
@@ -21642,14 +21642,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1f47a9 = exports.default || module.exports;
+        var $a48455 = exports.default || module.exports;
       
-      if (typeof $1f47a9 === 'function') {
-        $1f47a9 = $1f47a9.options;
+      if (typeof $a48455 === 'function') {
+        $a48455 = $a48455.options;
       }
     
         /* template */
-        Object.assign($1f47a9, (function () {
+        Object.assign($a48455, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21688,7 +21688,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1f47a9",
+            _scopeId: "data-v-a48455",
             functional: undefined
           };
         })());
@@ -21701,9 +21701,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1f47a9', $1f47a9);
+            api.createRecord('$a48455', $a48455);
           } else {
-            api.reload('$1f47a9', $1f47a9);
+            api.reload('$a48455', $a48455);
           }
         }
 
@@ -21759,20 +21759,17 @@ var _default = {
     };
   },
   methods: {},
-  created: function created() {
-    this.ObtenerClientes();
-  },
   components: {}
 };
 exports.default = _default;
-        var $fd2c8e = exports.default || module.exports;
+        var $eabc7a = exports.default || module.exports;
       
-      if (typeof $fd2c8e === 'function') {
-        $fd2c8e = $fd2c8e.options;
+      if (typeof $eabc7a === 'function') {
+        $eabc7a = $eabc7a.options;
       }
     
         /* template */
-        Object.assign($fd2c8e, (function () {
+        Object.assign($eabc7a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21813,7 +21810,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-fd2c8e",
+            _scopeId: "data-v-eabc7a",
             functional: undefined
           };
         })());
@@ -21826,9 +21823,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$fd2c8e', $fd2c8e);
+            api.createRecord('$eabc7a', $eabc7a);
           } else {
-            api.reload('$fd2c8e', $fd2c8e);
+            api.reload('$eabc7a', $eabc7a);
           }
         }
 
@@ -21863,14 +21860,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $925787 = exports.default || module.exports;
+        var $087bd5 = exports.default || module.exports;
       
-      if (typeof $925787 === 'function') {
-        $925787 = $925787.options;
+      if (typeof $087bd5 === 'function') {
+        $087bd5 = $087bd5.options;
       }
     
         /* template */
-        Object.assign($925787, (function () {
+        Object.assign($087bd5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21884,7 +21881,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-925787",
+            _scopeId: "data-v-087bd5",
             functional: undefined
           };
         })());
@@ -21897,9 +21894,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$925787', $925787);
+            api.createRecord('$087bd5', $087bd5);
           } else {
-            api.reload('$925787', $925787);
+            api.reload('$087bd5', $087bd5);
           }
         }
 
@@ -21962,59 +21959,90 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {};
   },
   props: {
     elementos: Array,
-    titulos: Array
+    titulos: Array,
+    paginacion: {
+      type: Object,
+      required: false
+    }
+  },
+  methods: {
+    atras: function atras() {
+      this.$emit('atras');
+    },
+    siguiente: function siguiente() {
+      this.$emit('siguiente');
+    }
   }
 };
 exports.default = _default;
-        var $c92a3d = exports.default || module.exports;
+        var $75911e = exports.default || module.exports;
       
-      if (typeof $c92a3d === 'function') {
-        $c92a3d = $c92a3d.options;
+      if (typeof $75911e === 'function') {
+        $75911e = $75911e.options;
       }
     
         /* template */
-        Object.assign($c92a3d, (function () {
+        Object.assign($75911e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", [
-    _c("caption"),
-    _vm._v(" "),
-    _c("thead", [
-      _c(
-        "tr",
-        _vm._l(_vm.titulos, function(titulo) {
-          return _c("th", { key: titulo.propiedad }, [
-            _vm._v(_vm._s(titulo.titulo))
-          ])
-        }),
-        0
-      )
+  return _c("div", { attrs: { id: "contenedor" } }, [
+    _c("div", { attrs: { id: "paginacion" } }, [
+      _c("h4", { on: { click: _vm.atras } }, [_vm._v("Atras")]),
+      _vm._v(" "),
+      _c("h4", { on: { click: _vm.siguiente } }, [_vm._v("Siguiente")])
     ]),
     _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.elementos, function(elemento, index) {
-        return _c(
+    _c("table", [
+      _c("caption"),
+      _vm._v(" "),
+      _c("thead", [
+        _c(
           "tr",
-          { key: index },
           _vm._l(_vm.titulos, function(titulo) {
-            return _c("td", { key: titulo.propiedad }, [
-              _vm._v(_vm._s(elemento[titulo.propiedad]))
+            return _c("th", { key: titulo.propiedad }, [
+              _vm._v(_vm._s(titulo.titulo))
             ])
           }),
           0
         )
-      }),
-      0
-    )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.elementos, function(elemento, index) {
+          return _c(
+            "tr",
+            { key: index },
+            _vm._l(_vm.titulos, function(titulo) {
+              return _c("td", { key: titulo.propiedad }, [
+                _vm._v(_vm._s(elemento[titulo.propiedad]))
+              ])
+            }),
+            0
+          )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -22024,7 +22052,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-c92a3d",
+            _scopeId: "data-v-75911e",
             functional: undefined
           };
         })());
@@ -22037,9 +22065,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c92a3d', $c92a3d);
+            api.createRecord('$75911e', $75911e);
           } else {
-            api.reload('$c92a3d', $c92a3d);
+            api.reload('$75911e', $75911e);
           }
         }
 
@@ -22092,66 +22120,50 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1e1c2e = exports.default || module.exports;
+        var $372339 = exports.default || module.exports;
       
-      if (typeof $1e1c2e === 'function') {
-        $1e1c2e = $1e1c2e.options;
+      if (typeof $372339 === 'function') {
+        $372339 = $372339.options;
       }
     
         /* template */
-        Object.assign($1e1c2e, (function () {
+        Object.assign($372339, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "titulo" } }, [
-    _c("h2", [_vm._v(_vm._s(_vm.titulo))]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "flex margin-left-auto cursor-pointer",
-        on: { click: _vm.recargar }
-      },
-      [
-        _c("img", {
-          staticClass: "width-40px margin-right-10",
-          attrs: { src: "/recargar.57927ccf.svg", alt: "" }
-        }),
-        _vm._v(" "),
-        _c("h4", { staticClass: " margin-right-30" }, [_vm._v("Refrescar")])
-      ]
-    ),
-    _vm._v(" "),
-    _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Crear")])
-  ])
-}
-<<<<<<< HEAD
-var staticRenderFns = []
-=======
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex margin-left-auto cursor-pointer" }, [
-      _c("img", {
-        staticClass: "width-40px margin-right-10",
-        attrs: { src: "/recargar.57927ccf.svg", alt: "" }
-      }),
+  return _c(
+    "div",
+    { staticClass: "flex items-center", attrs: { id: "titulo" } },
+    [
+      _c("h2", { staticClass: "text-2xl" }, [_vm._v(_vm._s(_vm.titulo))]),
       _vm._v(" "),
-      _c("h4", { staticClass: "margin-right-30" }, [_vm._v("Refrescar")])
-    ])
-  }
-]
->>>>>>> a30c9d958ad314c164f044e3484dc66cf270c5bb
+      _c(
+        "div",
+        {
+          staticClass: "flex margin-left-auto items-center cursor-pointer",
+          on: { click: _vm.recargar }
+        },
+        [
+          _c("img", {
+            staticClass: "width-40px margin-right-10",
+            attrs: { src: "/recargar.57927ccf.svg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("h4", { staticClass: "mr-30" }, [_vm._v("Refrescar")])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1e1c2e",
+            _scopeId: "data-v-372339",
             functional: undefined
           };
         })());
@@ -22164,9 +22176,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1e1c2e', $1e1c2e);
+            api.createRecord('$372339', $372339);
           } else {
-            api.reload('$1e1c2e', $1e1c2e);
+            api.reload('$372339', $372339);
           }
         }
 
@@ -22194,13 +22206,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   props: {
     inputs: {
@@ -22208,17 +22213,19 @@ var _default = {
       required: true
     }
   },
-  data: function data() {}
+  data: function data() {
+    return {};
+  }
 };
 exports.default = _default;
-        var $10e949 = exports.default || module.exports;
+        var $33e561 = exports.default || module.exports;
       
-      if (typeof $10e949 === 'function') {
-        $10e949 = $10e949.options;
+      if (typeof $33e561 === 'function') {
+        $33e561 = $33e561.options;
       }
     
         /* template */
-        Object.assign($10e949, (function () {
+        Object.assign($33e561, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22226,41 +22233,29 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "contenedor-tabla" },
-    [
-      _vm._l(_vm.inputs, function(input) {
-        return _c("div", { key: input }, [
-          _c("p", [_vm._v(_vm._s(input.titulo))]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "contenedor-input" } }, [
-            _c("input", { attrs: { placeholder: input.titulo } })
+    _vm._l(_vm.inputs, function(input, index) {
+      return _c(
+        "div",
+        { key: index, attrs: { id: "contenedor-inputs" } },
+        _vm._l(input, function(unit, index2) {
+          return _c("div", { key: index2, staticClass: "input" }, [
+            _c("input", { attrs: { placeholder: unit.titulo } })
           ])
-        ])
-      }),
-      _vm._v(" "),
-      _vm._m(0)
-    ],
-    2
+        }),
+        0
+      )
+    }),
+    0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "submit", value: "Enviar" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-10e949",
+            _scopeId: "data-v-33e561",
             functional: undefined
           };
         })());
@@ -22273,9 +22268,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$10e949', $10e949);
+            api.createRecord('$33e561', $33e561);
           } else {
-            api.reload('$10e949', $10e949);
+            api.reload('$33e561', $33e561);
           }
         }
 
@@ -22339,18 +22334,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
 //
 //
 //
->>>>>>> a30c9d958ad314c164f044e3484dc66cf270c5bb
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      busqueda: {
+        limite: 10,
+        offset: 0
+      },
       opciones: ['Buscar', 'Crear'],
       opcionSeleccionada: 'Buscar',
       clienteDatos: [],
@@ -22364,22 +22368,42 @@ var _default = {
         propiedad: 'direccion',
         titulo: 'Direccion'
       }],
-      inputs: [{
+      inputs: [[{
         titulo: 'Nombre',
         name: 'nombre',
         type: 'text',
         length: 10
-      }, {
+      }], [{
         titulo: 'Apellido',
         name: 'apellido',
         type: 'text',
         length: 10
+      }], [{
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 3
       }, {
         titulo: 'Edad',
         name: 'edad',
         type: 'number',
         length: 3
-      }]
+      }], [{
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 3
+      }, {
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 3
+      }, {
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 3
+      }]]
     };
   },
   components: {
@@ -22396,31 +22420,53 @@ var _default = {
       this.opcionSeleccionada = dato;
     },
     obtenerClientes: function obtenerClientes() {
-      var response;
+      var params, response;
       return regeneratorRuntime.async(function obtenerClientes$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              _context.next = 3;
-              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes'));
+              params = {
+                limite: this.busqueda.limite
+              };
 
-            case 3:
+              if (this.busqueda.offset !== 0) {
+                params.offset = this.busqueda.limite * this.busqueda.offset;
+              }
+
+              console.log(params);
+              _context.next = 6;
+              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes', {
+                params: params
+              }));
+
+            case 6:
               response = _context.sent;
               this.clienteDatos = response.data;
-              _context.next = 9;
+              _context.next = 12;
               break;
 
-            case 7:
-              _context.prev = 7;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context["catch"](0);
 
-            case 9:
+            case 12:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 7]]);
+      }, null, this, [[0, 10]]);
+    },
+    siguienteTablaCliente: function siguienteTablaCliente() {
+      this.busqueda.offset = this.busqueda.offset + 1;
+      console.log(this.busquedaCliente);
+      this.obtenerClientes();
+    },
+    anteriorTablaCliente: function anteriorTablaCliente() {
+      if (this.busqueda.offset !== 0) {
+        this.busqueda.offset = this.busqueda.offset - 1;
+        this.obtenerClientes();
+      }
     }
   },
   created: function created() {
@@ -22428,14 +22474,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $f884e7 = exports.default || module.exports;
+        var $2acc8d = exports.default || module.exports;
       
-      if (typeof $f884e7 === 'function') {
-        $f884e7 = $f884e7.options;
+      if (typeof $2acc8d === 'function') {
+        $2acc8d = $2acc8d.options;
       }
     
         /* template */
-        Object.assign($f884e7, (function () {
+        Object.assign($2acc8d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22452,23 +22498,6 @@ exports.default = _default;
         on: { elementoSeleccionado: _vm.clickOpciones }
       }),
       _vm._v(" "),
-<<<<<<< HEAD
-      _c("div", { attrs: { id: "main" } }, [
-        _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _vm.opcionSeleccionada === "Buscar"
-            ? _c(
-                "div",
-                { staticClass: "contenedor-tabla" },
-                [
-                  _c("TablaTitulo", {
-                    attrs: { titulo: "Cliente" },
-                    on: { recargar: _vm.recargarTablaClientes }
-                  }),
-                  _vm._v(" "),
-                  _c("Tabla", {
-=======
       _c(
         "div",
         { attrs: { id: "main" } },
@@ -22477,45 +22506,34 @@ exports.default = _default;
             _vm._v("Clientes")
           ]),
           _vm._v(" "),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\r\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?\r\n        "
-          ),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "contenedor-tabla" },
-            [
-              _vm.opcionSeleccionada === "Buscar"
-                ? _c("TablaTitulo", { attrs: { titulo: "Cliente" } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.opcionSeleccionada === "Buscar"
-                ? _c("Tabla", {
->>>>>>> a30c9d958ad314c164f044e3484dc66cf270c5bb
-                    attrs: {
-                      elementos: _vm.clienteDatos,
-                      titulos: _vm.clienteTitulos
-                    }
-                  })
-<<<<<<< HEAD
-                ],
-                1
-              )
-            : _vm._e()
-        ])
-      ])
-=======
-                : _vm._e()
-            ],
-            1
-          ),
+          _c("div", { staticClass: "width-100 flex justify-around" }, [
+            _vm.opcionSeleccionada === "Buscar"
+              ? _c(
+                  "div",
+                  { staticClass: "contenedor-tabla" },
+                  [
+                    _c("TablaTitulo", {
+                      attrs: { titulo: "Cliente" },
+                      on: { recargar: _vm.recargarTablaClientes }
+                    }),
+                    _vm._v(" "),
+                    _c("Tabla", {
+                      attrs: {
+                        elementos: _vm.clienteDatos,
+                        titulos: _vm.clienteTitulos
+                      },
+                      on: {
+                        siguiente: _vm.siguienteTablaCliente,
+                        atras: _vm.anteriorTablaCliente
+                      }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex", attrs: { id: "sidebar" } })
+          ]),
           _vm._v(" "),
           _vm.opcionSeleccionada === "Crear"
             ? _c("InputTemplate", { attrs: { inputs: _vm.inputs } })
@@ -22523,7 +22541,6 @@ exports.default = _default;
         ],
         1
       )
->>>>>>> a30c9d958ad314c164f044e3484dc66cf270c5bb
     ],
     1
   )
@@ -22535,7 +22552,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f884e7",
+            _scopeId: "data-v-2acc8d",
             functional: undefined
           };
         })());
@@ -22548,9 +22565,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f884e7', $f884e7);
+            api.createRecord('$2acc8d', $2acc8d);
           } else {
-            api.reload('$f884e7', $f884e7);
+            api.reload('$2acc8d', $2acc8d);
           }
         }
 
@@ -22647,11 +22664,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59572" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63526" + '/');
->>>>>>> a30c9d958ad314c164f044e3484dc66cf270c5bb
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "22885" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

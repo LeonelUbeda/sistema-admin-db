@@ -34,9 +34,7 @@ export default {
     methods:{
         
     },
-    created(){
-        this.ObtenerClientes();
-    },
+    
     components:{
 
     }

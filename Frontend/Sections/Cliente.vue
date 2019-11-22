@@ -10,15 +10,24 @@
     </TopSection>
 
     <div id="main">
+
         <h2 class="text-left width-100">Clientes</h2>
-        <div class="container">
+
+        <div class="width-100 flex justify-around">
+
             <div class="contenedor-tabla" v-if="opcionSeleccionada === 'Buscar'">
                 <TablaTitulo :titulo="'Cliente'" @recargar="recargarTablaClientes"></TablaTitulo>
-
                 <Tabla 
                 :elementos="clienteDatos"
-                :titulos="clienteTitulos"></Tabla>
+                :titulos="clienteTitulos"
+                @siguiente="siguienteTablaCliente"
+                @atras="anteriorTablaCliente"></Tabla>
             </div>
+
+            <div id="sidebar" class="flex">
+                
+            </div>
+
         </div>
     
         <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" >
@@ -44,6 +53,10 @@ import InputTemplate from '../Components/InputTemplate'
 export default {
     data: () => {
         return {
+            busqueda: {
+                limite: 10,
+                offset: 0,
+            },
             opciones: ['Buscar','Crear'],
             opcionSeleccionada: 'Buscar', 
             clienteDatos: [],
@@ -61,32 +74,22 @@ export default {
                     titulo: 'Direccion'
                 }
             ],
-              inputs: [
-                
-                    {
-                        titulo: 'Nombre',
-                        name :'nombre',
-                        type: 'text',
-                        length: 10
-
-                    },
-                    {
-                        titulo: 'Apellido',
-                        name :'apellido',
-                        type: 'text',
-                        length: 10
-
-                    }
-                ,
-               
-                
-                    {
-                        titulo: 'Edad',
-                        name: 'edad',
-                        type: 'number',
-                        length: 3
-                    }
-                
+            inputs: [
+                [
+                    {titulo: 'Nombre',     name :'nombre',     type: 'text',   length: 10}
+                ],
+                [
+                    {titulo: 'Apellido',   name :'apellido',   type: 'text',   length: 10}
+                ],
+                [
+                    {titulo: 'Edad',        name: 'edad',      type: 'number',  length: 3 },
+                    {titulo: 'Edad',        name: 'edad',      type: 'number',  length: 3}
+                ],
+                [
+                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3 },
+                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3},
+                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3}
+                ]
             ]   
 
         }
@@ -106,12 +109,31 @@ export default {
         },
         obtenerClientes: async function(){
             try {
-                const response = await axios.get('/api/clientes')
+                const params = {
+                    limite: this.busqueda.limite,
+                }
+                if(this.busqueda.offset !== 0) {
+                    params.offset = this.busqueda.limite * this.busqueda.offset;
+                }
+                console.log(params)
+                const response = await axios.get('/api/clientes', {params})
+                
                 this.clienteDatos = response.data
                 
             } catch (error) {
                 // INSERTAR ALERTA DE ERROR
             }
+        },
+        siguienteTablaCliente: function(){
+            this.busqueda.offset = this.busqueda.offset + 1
+            console.log(this.busquedaCliente)
+            this.obtenerClientes()
+        },
+        anteriorTablaCliente: function(){
+            if(this.busqueda.offset !== 0){ 
+                this.busqueda.offset = this.busqueda.offset - 1 
+                this.obtenerClientes()
+            } 
         }
     },
     created(){
@@ -123,6 +145,12 @@ export default {
 
 
 <style lang="scss" scoped>
+#sidebar{
+    width: 20%;
+    height: 50px;
+    background-color: red;
+}
+
 #main{
     padding: 20px 20px;
     display: flex;
@@ -130,7 +158,7 @@ export default {
     align-items: center;
 }
 .contenedor-tabla{
-    width: 80%;
+    width: 70%;
 }
 
 

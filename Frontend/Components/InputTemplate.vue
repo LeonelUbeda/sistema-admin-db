@@ -1,17 +1,10 @@
 <template>
     <div class="contenedor-tabla">
-        
-            <div  v-for="input of inputs" :key="input"  >
-                <p>{{input.titulo}}</p>
-                <div id="contenedor-input" >
-                    <input  :placeholder="input.titulo" > 
-                </div>                   
-            </div>
-        
-        <div>
-            <br>
-            <input type="submit" value="Enviar">
-        </div>
+        <div id="contenedor-inputs" v-for="(input, index) of inputs" :key="index">
+            <div class="input" v-for="(unit, index2) of input" :key="index2">   
+                <input :placeholder="unit.titulo">
+            </div>                   
+        </div>      
     </div> 
 </template>
 
@@ -23,19 +16,31 @@ export default {
            required: true  
         }
     },
-    data: ()=>{
-           
+    data: () => {
+        return {
+
+        }
     }
 }
 </script>
 
 
-<style scoped>
-#contenedor-input{
+<style lang="scss" scoped>
+
+.input{
+    margin: 10px 10px;
+    width: 100%;
+}
+
+#contenedor-inputs{
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
+    input{
+        width: 100%;
+    }
 }
 .contenedor-tabla{
-    
+    width: 100%;
 }
 </style>
