@@ -21615,6 +21615,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 //CSS
 var _default = {
   props: {
@@ -21958,8 +21962,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   data: function data() {
     return {};
@@ -21990,7 +21992,7 @@ exports.default = _default;
         "tr",
         _vm._l(_vm.titulos, function(titulo) {
           return _c("th", { key: titulo.propiedad }, [
-            _vm._v(" " + _vm._s(titulo.titulo) + " ")
+            _vm._v(_vm._s(titulo.titulo))
           ])
         }),
         0
@@ -22080,6 +22082,11 @@ var _default = {
   data: function data() {
     return {};
   },
+  methods: {
+    recargar: function recargar(e) {
+      this.$emit('recargar', null);
+    }
+  },
   props: {
     titulo: String
   }
@@ -22100,26 +22107,26 @@ exports.default = _default;
   return _c("div", { attrs: { id: "titulo" } }, [
     _c("h2", [_vm._v(_vm._s(_vm.titulo))]),
     _vm._v(" "),
-    _vm._m(0),
+    _c(
+      "div",
+      {
+        staticClass: "flex margin-left-auto cursor-pointer",
+        on: { click: _vm.recargar }
+      },
+      [
+        _c("img", {
+          staticClass: "width-40px margin-right-10",
+          attrs: { src: "/recargar.57927ccf.svg", alt: "" }
+        }),
+        _vm._v(" "),
+        _c("h4", { staticClass: " margin-right-30" }, [_vm._v("Refrescar")])
+      ]
+    ),
     _vm._v(" "),
     _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Nuevo")])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex margin-left-auto cursor-pointer" }, [
-      _c("img", {
-        staticClass: "width-40px margin-right-10",
-        attrs: { src: "/recargar.57927ccf.svg", alt: "" }
-      }),
-      _vm._v(" "),
-      _c("h4", { staticClass: " margin-right-30" }, [_vm._v("Refrescar")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -22203,9 +22210,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -22230,6 +22234,9 @@ var _default = {
     TablaTitulo: _TablaTitulo.default
   },
   methods: {
+    recargarTablaClientes: function recargarTablaClientes() {
+      this.obtenerClientes();
+    },
     clickOpciones: function clickOpciones(dato) {
       this.opcionSeleccionada = dato;
     },
@@ -22293,34 +22300,28 @@ exports.default = _default;
       _c("div", { attrs: { id: "main" } }, [
         _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
         _vm._v(" "),
-        _c("br"),
-        _c("br"),
-        _vm._v(
-          "\r\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?\r\n        "
-        ),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "contenedor-tabla" },
-          [
-            _c("TablaTitulo", { attrs: { titulo: "Cliente" } }),
-            _vm._v(" "),
-            _vm.opcionSeleccionada === "Buscar"
-              ? _c("Tabla", {
-                  attrs: {
-                    elementos: _vm.clienteDatos,
-                    titulos: _vm.clienteTitulos
-                  }
-                })
-              : _vm._e()
-          ],
-          1
-        )
+        _c("div", { staticClass: "container" }, [
+          _vm.opcionSeleccionada === "Buscar"
+            ? _c(
+                "div",
+                { staticClass: "contenedor-tabla" },
+                [
+                  _c("TablaTitulo", {
+                    attrs: { titulo: "Cliente" },
+                    on: { recargar: _vm.recargarTablaClientes }
+                  }),
+                  _vm._v(" "),
+                  _c("Tabla", {
+                    attrs: {
+                      elementos: _vm.clienteDatos,
+                      titulos: _vm.clienteTitulos
+                    }
+                  })
+                ],
+                1
+              )
+            : _vm._e()
+        ])
       ])
     ],
     1
@@ -22445,7 +22446,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59572" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

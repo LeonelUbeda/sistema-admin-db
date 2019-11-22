@@ -22,14 +22,12 @@
         como no hay ningun objeto para la propiedad direccion en 'titulos' entonces no se va a renderizar en la tabla
 -->
 
-
-
 <template>
     <table>
         <caption></caption>
         <thead>
             <tr>
-                <th v-for="titulo of titulos" :key="titulo.propiedad"  > {{titulo.titulo}} </th>
+                <th v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
             </tr>
         </thead>    
         <tbody>
@@ -67,7 +65,7 @@ table{
     width: 100%;
 
     td,th{
-        height: 30px;
+        height: 50px;
         padding: 8px;
         text-align: start;
     }

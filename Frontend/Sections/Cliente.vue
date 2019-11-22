@@ -2,6 +2,7 @@
 <template>
 
 <div id="contenedor">
+
     <TopSection 
     :opciones="opciones"
     :opcionSeleccionada="opcionSeleccionada"
@@ -10,19 +11,15 @@
 
     <div id="main">
         <h2 class="text-left width-100">Clientes</h2>
-        
-        <br><br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?
-        <br><br><br><br><br>
-        <div class="contenedor-tabla">
-            <TablaTitulo :titulo="'Cliente'"></TablaTitulo>
-            <Tabla v-if="opcionSeleccionada === 'Buscar'"
-            :elementos="clienteDatos"
-            :titulos="clienteTitulos"></Tabla>
+        <div class="container">
+            <div class="contenedor-tabla" v-if="opcionSeleccionada === 'Buscar'">
+                <TablaTitulo :titulo="'Cliente'" @recargar="recargarTablaClientes"></TablaTitulo>
+
+                <Tabla 
+                :elementos="clienteDatos"
+                :titulos="clienteTitulos"></Tabla>
+            </div>
         </div>
-
-
-
     </div>
 </div>
 
@@ -65,6 +62,9 @@ export default {
         TablaTitulo
     },
     methods: {
+        recargarTablaClientes: function(){
+            this.obtenerClientes();
+        },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
         },
