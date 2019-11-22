@@ -22175,6 +22175,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   props: {
     inputs: {
@@ -22210,7 +22211,10 @@ exports.default = _default;
           { key: input, attrs: { id: "contenedor-input" } },
           _vm._l(input, function(unit) {
             return _c("div", { key: unit, staticClass: "contenedor-fila" }, [
+              _c("p", [_vm._v(_vm._s(unit.titulo))]),
+              _vm._v(" "),
               _c("input", {
+                staticClass: "inputUnit",
                 attrs: {
                   placeholder: unit.titulo,
                   type: unit.type,
@@ -22364,19 +22368,19 @@ var _default = {
         type: 'number',
         length: 10
       }], [{
-        titulo: 'Nombre',
-        name: 'nombre',
+        titulo: 'Telefono',
+        name: 'telefono',
         type: 'text',
         length: 10
       }, {
-        titulo: 'Apellido',
-        name: 'apellido',
-        type: 'text',
+        titulo: 'ZIP Code',
+        name: 'zipcode',
+        type: 'number',
         length: 10
       }, {
-        titulo: 'Apellido',
-        name: 'apellido',
-        type: 'text',
+        titulo: 'Tarjeta',
+        name: 'tarjeta',
+        type: 'number',
         length: 10
       }]]
     };
@@ -22618,7 +22622,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49358" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49807" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

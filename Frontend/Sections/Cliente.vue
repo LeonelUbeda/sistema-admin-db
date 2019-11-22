@@ -72,9 +72,9 @@ export default {
                       {titulo: 'Edad', name:'edad', type:'number', length: 10}
                   ],
                   [
-                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10},
-                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10},
-                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10}
+                      {titulo: 'Telefono', name:'telefono', type:'text', length: 10},
+                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 10},
+                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 10}
                   ]
                   
             ]   

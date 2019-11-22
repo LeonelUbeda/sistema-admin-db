@@ -3,7 +3,8 @@
             <h2>{{nameForm}}</h2>
             <div  id="contenedor-input"  v-for="input of inputs" :key="input"  >
                 <div class="contenedor-fila" v-for="unit of input" :key="unit">
-                    <input  :placeholder="unit.titulo" :type="unit.type" :maxlength="unit.length" > 
+                    <p>{{unit.titulo}}</p>
+                    <input  class="inputUnit" :placeholder="unit.titulo" :type="unit.type" :maxlength="unit.length" > 
                 </div>                   
             </div>
         
@@ -34,8 +35,16 @@ export default {
 #contenedor-input{
     display: flex;
     flex-wrap: nowrap;
+    
 }
 .contenedor-tabla{
     
+}
+
+.inputUnit{
+    margin: 5px;   
+    border-radius: 4px;
+    height: 25px;
+    border: solid rgb(79, 70, 105);
 }
 </style>
