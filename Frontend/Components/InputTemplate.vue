@@ -1,10 +1,9 @@
 <template>
     <div class="contenedor-tabla">
-        
-            <div  v-for="input of inputs" :key="input"  >
-                <p>{{input.titulo}}</p>
-                <div id="contenedor-input" >
-                    <input  :placeholder="input.titulo" > 
+            <h2>{{nameForm}}</h2>
+            <div  id="contenedor-input"  v-for="input of inputs" :key="input"  >
+                <div class="contenedor-fila" v-for="unit of input" :key="unit">
+                    <input  :placeholder="unit.titulo" :type="unit.type" :maxlength="unit.length" > 
                 </div>                   
             </div>
         
@@ -21,7 +20,8 @@ export default {
         inputs: {
            type: Array, 
            required: true  
-        }
+        },
+        nameForm: String
     },
     data: ()=>{
            

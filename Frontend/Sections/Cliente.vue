@@ -20,7 +20,7 @@
             :elementos="clienteDatos"
             :titulos="clienteTitulos"></Tabla>
         </div>  
-        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" >
+        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" :nameForm="nameForm">
         </InputTemplate>
     
 
@@ -62,32 +62,21 @@ export default {
                     titulo: 'Direccion'
                 }
             ],
-              inputs: [
-                
-                    {
-                        titulo: 'Nombre',
-                        name :'nombre',
-                        type: 'text',
-                        length: 10
-
-                    },
-                    {
-                        titulo: 'Apellido',
-                        name :'apellido',
-                        type: 'text',
-                        length: 10
-
-                    }
-                ,
-               
-                
-                    {
-                        titulo: 'Edad',
-                        name: 'edad',
-                        type: 'number',
-                        length: 3
-                    }
-                
+            nameForm: 'Clientes',
+            inputs: [
+                  [
+                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10},
+                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10}
+                  ],
+                  [
+                      {titulo: 'Edad', name:'edad', type:'number', length: 10}
+                  ],
+                  [
+                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10},
+                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10},
+                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10}
+                  ]
+                  
             ]   
 
         }

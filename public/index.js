@@ -22175,13 +22175,13 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   props: {
     inputs: {
       type: Array,
       required: true
-    }
+    },
+    nameForm: String
   },
   data: function data() {}
 };
@@ -22202,14 +22202,25 @@ exports.default = _default;
     "div",
     { staticClass: "contenedor-tabla" },
     [
+      _c("h2", [_vm._v(_vm._s(_vm.nameForm))]),
+      _vm._v(" "),
       _vm._l(_vm.inputs, function(input) {
-        return _c("div", { key: input }, [
-          _c("p", [_vm._v(_vm._s(input.titulo))]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "contenedor-input" } }, [
-            _c("input", { attrs: { placeholder: input.titulo } })
-          ])
-        ])
+        return _c(
+          "div",
+          { key: input, attrs: { id: "contenedor-input" } },
+          _vm._l(input, function(unit) {
+            return _c("div", { key: unit, staticClass: "contenedor-fila" }, [
+              _c("input", {
+                attrs: {
+                  placeholder: unit.titulo,
+                  type: unit.type,
+                  maxlength: unit.length
+                }
+              })
+            ])
+          }),
+          0
+        )
       }),
       _vm._v(" "),
       _vm._m(0)
@@ -22336,7 +22347,23 @@ var _default = {
         propiedad: 'direccion',
         titulo: 'Direccion'
       }],
-      inputs: [{
+      nameForm: 'Clientes',
+      inputs: [[{
+        titulo: 'Nombre',
+        name: 'nombre',
+        type: 'text',
+        length: 10
+      }, {
+        titulo: 'Apellido',
+        name: 'apellido',
+        type: 'text',
+        length: 10
+      }], [{
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 10
+      }], [{
         titulo: 'Nombre',
         name: 'nombre',
         type: 'text',
@@ -22347,11 +22374,11 @@ var _default = {
         type: 'text',
         length: 10
       }, {
-        titulo: 'Edad',
-        name: 'edad',
-        type: 'number',
-        length: 3
-      }]
+        titulo: 'Apellido',
+        name: 'apellido',
+        type: 'text',
+        length: 10
+      }]]
     };
   },
   components: {
@@ -22461,7 +22488,9 @@ exports.default = _default;
           ),
           _vm._v(" "),
           _vm.opcionSeleccionada === "Crear"
-            ? _c("InputTemplate", { attrs: { inputs: _vm.inputs } })
+            ? _c("InputTemplate", {
+                attrs: { inputs: _vm.inputs, nameForm: _vm.nameForm }
+              })
             : _vm._e()
         ],
         1
@@ -22589,7 +22618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63526" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49358" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
