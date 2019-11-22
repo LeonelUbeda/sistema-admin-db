@@ -8929,14 +8929,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $12368a = exports.default || module.exports;
+        var $3c8ff4 = exports.default || module.exports;
       
-      if (typeof $12368a === 'function') {
-        $12368a = $12368a.options;
+      if (typeof $3c8ff4 === 'function') {
+        $3c8ff4 = $3c8ff4.options;
       }
     
         /* template */
-        Object.assign($12368a, (function () {
+        Object.assign($3c8ff4, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8973,7 +8973,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-12368a",
+            _scopeId: "data-v-3c8ff4",
             functional: undefined
           };
         })());
@@ -8986,9 +8986,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$12368a', $12368a);
+            api.createRecord('$3c8ff4', $3c8ff4);
           } else {
-            api.reload('$12368a', $12368a);
+            api.reload('$3c8ff4', $3c8ff4);
           }
         }
 
@@ -9031,14 +9031,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1cec8b = exports.default || module.exports;
+        var $549ed5 = exports.default || module.exports;
       
-      if (typeof $1cec8b === 'function') {
-        $1cec8b = $1cec8b.options;
+      if (typeof $549ed5 === 'function') {
+        $549ed5 = $549ed5.options;
       }
     
         /* template */
-        Object.assign($1cec8b, (function () {
+        Object.assign($549ed5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9060,7 +9060,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1cec8b",
+            _scopeId: "data-v-549ed5",
             functional: undefined
           };
         })());
@@ -9073,9 +9073,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1cec8b', $1cec8b);
+            api.createRecord('$549ed5', $549ed5);
           } else {
-            api.reload('$1cec8b', $1cec8b);
+            api.reload('$549ed5', $549ed5);
           }
         }
 
@@ -21638,14 +21638,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a48455 = exports.default || module.exports;
+        var $1f47a9 = exports.default || module.exports;
       
-      if (typeof $a48455 === 'function') {
-        $a48455 = $a48455.options;
+      if (typeof $1f47a9 === 'function') {
+        $1f47a9 = $1f47a9.options;
       }
     
         /* template */
-        Object.assign($a48455, (function () {
+        Object.assign($1f47a9, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21684,7 +21684,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a48455",
+            _scopeId: "data-v-1f47a9",
             functional: undefined
           };
         })());
@@ -21697,9 +21697,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a48455', $a48455);
+            api.createRecord('$1f47a9', $1f47a9);
           } else {
-            api.reload('$a48455', $a48455);
+            api.reload('$1f47a9', $1f47a9);
           }
         }
 
@@ -21761,14 +21761,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $eabc7a = exports.default || module.exports;
+        var $fd2c8e = exports.default || module.exports;
       
-      if (typeof $eabc7a === 'function') {
-        $eabc7a = $eabc7a.options;
+      if (typeof $fd2c8e === 'function') {
+        $fd2c8e = $fd2c8e.options;
       }
     
         /* template */
-        Object.assign($eabc7a, (function () {
+        Object.assign($fd2c8e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21809,7 +21809,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-eabc7a",
+            _scopeId: "data-v-fd2c8e",
             functional: undefined
           };
         })());
@@ -21822,9 +21822,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$eabc7a', $eabc7a);
+            api.createRecord('$fd2c8e', $fd2c8e);
           } else {
-            api.reload('$eabc7a', $eabc7a);
+            api.reload('$fd2c8e', $fd2c8e);
           }
         }
 
@@ -21859,19 +21859,19 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $087bd5 = exports.default || module.exports;
+        var $925787 = exports.default || module.exports;
       
-      if (typeof $087bd5 === 'function') {
-        $087bd5 = $087bd5.options;
+      if (typeof $925787 === 'function') {
+        $925787 = $925787.options;
       }
     
         /* template */
-        Object.assign($087bd5, (function () {
+        Object.assign($925787, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Bienvenido a LOGIN")])
+  return _c("h1", [_vm._v("Bienvenido al LOGIN")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21880,7 +21880,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-087bd5",
+            _scopeId: "data-v-925787",
             functional: undefined
           };
         })());
@@ -21893,9 +21893,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$087bd5', $087bd5);
+            api.createRecord('$925787', $925787);
           } else {
-            api.reload('$087bd5', $087bd5);
+            api.reload('$925787', $925787);
           }
         }
 
@@ -21970,14 +21970,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $75911e = exports.default || module.exports;
+        var $c92a3d = exports.default || module.exports;
       
-      if (typeof $75911e === 'function') {
-        $75911e = $75911e.options;
+      if (typeof $c92a3d === 'function') {
+        $c92a3d = $c92a3d.options;
       }
     
         /* template */
-        Object.assign($75911e, (function () {
+        Object.assign($c92a3d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22022,7 +22022,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-75911e",
+            _scopeId: "data-v-c92a3d",
             functional: undefined
           };
         })());
@@ -22035,9 +22035,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$75911e', $75911e);
+            api.createRecord('$c92a3d', $c92a3d);
           } else {
-            api.reload('$75911e', $75911e);
+            api.reload('$c92a3d', $c92a3d);
           }
         }
 
@@ -22085,14 +22085,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $372339 = exports.default || module.exports;
+        var $1e1c2e = exports.default || module.exports;
       
-      if (typeof $372339 === 'function') {
-        $372339 = $372339.options;
+      if (typeof $1e1c2e === 'function') {
+        $1e1c2e = $1e1c2e.options;
       }
     
         /* template */
-        Object.assign($372339, (function () {
+        Object.assign($1e1c2e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22102,7 +22102,7 @@ exports.default = _default;
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
-    _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Nuevo")])
+    _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Crear")])
   ])
 }
 var staticRenderFns = [
@@ -22116,7 +22116,7 @@ var staticRenderFns = [
         attrs: { src: "/recargar.57927ccf.svg", alt: "" }
       }),
       _vm._v(" "),
-      _c("h4", { staticClass: " margin-right-30" }, [_vm._v("Refrescar")])
+      _c("h4", { staticClass: "margin-right-30" }, [_vm._v("Refrescar")])
     ])
   }
 ]
@@ -22126,7 +22126,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-372339",
+            _scopeId: "data-v-1e1c2e",
             functional: undefined
           };
         })());
@@ -22139,9 +22139,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$372339', $372339);
+            api.createRecord('$1e1c2e', $1e1c2e);
           } else {
-            api.reload('$372339', $372339);
+            api.reload('$1e1c2e', $1e1c2e);
           }
         }
 
@@ -22152,7 +22152,116 @@ render._withStripped = true
       
       }
     })();
-},{"../assets/css/clasesUtiles.css":"assets/css/clasesUtiles.css","../assets/img/recargar.svg":"assets/img/recargar.svg","./..\\assets\\img\\recargar.svg":[["recargar.57927ccf.svg","assets/img/recargar.svg"],"assets/img/recargar.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles.css":"assets/css/clasesUtiles.css","../assets/img/recargar.svg":"assets/img/recargar.svg","./..\\assets\\img\\recargar.svg":[["recargar.57927ccf.svg","assets/img/recargar.svg"],"assets/img/recargar.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Components/InputTemplate.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: {
+    inputs: {
+      type: Array,
+      required: true
+    }
+  },
+  data: function data() {}
+};
+exports.default = _default;
+        var $10e949 = exports.default || module.exports;
+      
+      if (typeof $10e949 === 'function') {
+        $10e949 = $10e949.options;
+      }
+    
+        /* template */
+        Object.assign($10e949, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "contenedor-tabla" },
+    [
+      _vm._l(_vm.inputs, function(input) {
+        return _c("div", { key: input }, [
+          _c("p", [_vm._v(_vm._s(input.titulo))]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "contenedor-input" } }, [
+            _c("input", { attrs: { placeholder: input.titulo } })
+          ])
+        ])
+      }),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "submit", value: "Enviar" } })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-10e949",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$10e949', $10e949);
+          } else {
+            api.reload('$10e949', $10e949);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22172,8 +22281,13 @@ var _Tabla = _interopRequireDefault(require("../Components/Tabla"));
 
 var _TablaTitulo = _interopRequireDefault(require("../Components/TablaTitulo"));
 
+var _InputTemplate = _interopRequireDefault(require("../Components/InputTemplate"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
 //
 //
 //
@@ -22221,13 +22335,30 @@ var _default = {
       }, {
         propiedad: 'direccion',
         titulo: 'Direccion'
+      }],
+      inputs: [{
+        titulo: 'Nombre',
+        name: 'nombre',
+        type: 'text',
+        length: 10
+      }, {
+        titulo: 'Apellido',
+        name: 'apellido',
+        type: 'text',
+        length: 10
+      }, {
+        titulo: 'Edad',
+        name: 'edad',
+        type: 'number',
+        length: 3
       }]
     };
   },
   components: {
     TopSection: _TopSection.default,
     Tabla: _Tabla.default,
-    TablaTitulo: _TablaTitulo.default
+    TablaTitulo: _TablaTitulo.default,
+    InputTemplate: _InputTemplate.default
   },
   methods: {
     clickOpciones: function clickOpciones(dato) {
@@ -22266,14 +22397,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $2acc8d = exports.default || module.exports;
+        var $f884e7 = exports.default || module.exports;
       
-      if (typeof $2acc8d === 'function') {
-        $2acc8d = $2acc8d.options;
+      if (typeof $f884e7 === 'function') {
+        $f884e7 = $f884e7.options;
       }
     
         /* template */
-        Object.assign($2acc8d, (function () {
+        Object.assign($f884e7, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22290,38 +22421,51 @@ exports.default = _default;
         on: { elementoSeleccionado: _vm.clickOpciones }
       }),
       _vm._v(" "),
-      _c("div", { attrs: { id: "main" } }, [
-        _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
-        _vm._v(" "),
-        _c("br"),
-        _c("br"),
-        _vm._v(
-          "\r\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?\r\n        "
-        ),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "contenedor-tabla" },
-          [
-            _c("TablaTitulo", { attrs: { titulo: "Cliente" } }),
-            _vm._v(" "),
-            _vm.opcionSeleccionada === "Buscar"
-              ? _c("Tabla", {
-                  attrs: {
-                    elementos: _vm.clienteDatos,
-                    titulos: _vm.clienteTitulos
-                  }
-                })
-              : _vm._e()
-          ],
-          1
-        )
-      ])
+      _c(
+        "div",
+        { attrs: { id: "main" } },
+        [
+          _c("h2", { staticClass: "text-left width-100" }, [
+            _vm._v("Clientes")
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\r\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?\r\n        "
+          ),
+          _c("br"),
+          _c("br"),
+          _c("br"),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "contenedor-tabla" },
+            [
+              _vm.opcionSeleccionada === "Buscar"
+                ? _c("TablaTitulo", { attrs: { titulo: "Cliente" } })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.opcionSeleccionada === "Buscar"
+                ? _c("Tabla", {
+                    attrs: {
+                      elementos: _vm.clienteDatos,
+                      titulos: _vm.clienteTitulos
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.opcionSeleccionada === "Crear"
+            ? _c("InputTemplate", { attrs: { inputs: _vm.inputs } })
+            : _vm._e()
+        ],
+        1
+      )
     ],
     1
   )
@@ -22333,7 +22477,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2acc8d",
+            _scopeId: "data-v-f884e7",
             functional: undefined
           };
         })());
@@ -22346,9 +22490,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2acc8d', $2acc8d);
+            api.createRecord('$f884e7', $f884e7);
           } else {
-            api.reload('$2acc8d', $2acc8d);
+            api.reload('$f884e7', $f884e7);
           }
         }
 
@@ -22359,7 +22503,7 @@ render._withStripped = true
       
       }
     })();
-},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22445,7 +22589,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63526" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

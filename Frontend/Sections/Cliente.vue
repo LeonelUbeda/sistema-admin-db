@@ -15,11 +15,14 @@
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?
         <br><br><br><br><br>
         <div class="contenedor-tabla">
-            <TablaTitulo :titulo="'Cliente'"></TablaTitulo>
+            <TablaTitulo v-if="opcionSeleccionada === 'Buscar'" :titulo="'Cliente'"></TablaTitulo>
             <Tabla v-if="opcionSeleccionada === 'Buscar'"
             :elementos="clienteDatos"
             :titulos="clienteTitulos"></Tabla>
-        </div>
+        </div>  
+        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" >
+        </InputTemplate>
+    
 
 
 
@@ -37,6 +40,8 @@ import 'babel-polyfill'
 import TopSection from '../Components/TopSection'
 import Tabla from '../Components/Tabla'
 import TablaTitulo from '../Components/TablaTitulo'
+import InputTemplate from '../Components/InputTemplate'
+
 export default {
     data: () => {
         return {
@@ -56,13 +61,42 @@ export default {
                     propiedad: 'direccion',
                     titulo: 'Direccion'
                 }
-            ]
+            ],
+              inputs: [
+                
+                    {
+                        titulo: 'Nombre',
+                        name :'nombre',
+                        type: 'text',
+                        length: 10
+
+                    },
+                    {
+                        titulo: 'Apellido',
+                        name :'apellido',
+                        type: 'text',
+                        length: 10
+
+                    }
+                ,
+               
+                
+                    {
+                        titulo: 'Edad',
+                        name: 'edad',
+                        type: 'number',
+                        length: 3
+                    }
+                
+            ]   
+
         }
     },
     components:{
         TopSection,
         Tabla,
-        TablaTitulo
+        TablaTitulo,
+        InputTemplate
     },
     methods: {
         clickOpciones: function (dato){
