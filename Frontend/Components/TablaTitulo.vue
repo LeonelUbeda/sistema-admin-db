@@ -1,11 +1,11 @@
 <template>
-    <div id="titulo">
-        <h2>{{titulo}}</h2>
-        <div class="flex margin-left-auto cursor-pointer">
+    <div id="titulo" class="flex items-center">
+        <h2 class="text-2xl">{{titulo}}</h2>
+        <div class="flex margin-left-auto items-center cursor-pointer" @click="recargar">
             <img src="../assets/img/recargar.svg" class="width-40px margin-right-10" alt="">
-            <h4 class="margin-right-30">Refrescar</h4>
+            <h4 class="mr-30">Refrescar</h4>
         </div>
-        <h4 class="rainbow-box">Crear</h4>
+        <!--h4 class="rainbow-box">Crear</h4-->
     </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
     data: () => {
         return{
 
+        }
+    },
+    methods: {
+        recargar: function(e){
+            this.$emit('recargar', null);
         }
     },
     props:{
@@ -33,6 +38,7 @@ export default {
 
 #titulo{
     margin-bottom: 20px;
+    height: 65px;
     padding: 0 20px;
     background-color: white;
     width: 100%;

@@ -79,6 +79,11 @@ let inputs = [
             type: String,
             length: 10,
             required: true
+        },
+        foreign: {
+            url: '/api/clientes',
+            displayProp: 'Nombre',
+            nameProp: 'id'
         }
     },
     {
@@ -89,5 +94,5 @@ let inputs = [
             length: 2,
             required: false
         }
-    }
+    },
 ]

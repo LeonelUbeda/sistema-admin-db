@@ -22,25 +22,35 @@
         como no hay ningun objeto para la propiedad direccion en 'titulos' entonces no se va a renderizar en la tabla
 -->
 
-
-
 <template>
-    <table>
-        <caption></caption>
-        <thead>
-            <tr>
-                <th v-for="titulo of titulos" :key="titulo.propiedad"  > {{titulo.titulo}} </th>
-            </tr>
-        </thead>    
-        <tbody>
-            <tr :key="index" v-for="(elemento, index) of elementos">
-                <td :key="titulo.propiedad" v-for="titulo in titulos">{{elemento[titulo.propiedad]}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="contenedor">
+        <div id="paginacion">
+            <h4 @click="atras">Atras</h4>
+            <h4 @click="siguiente">Siguiente</h4>
+        </div>
+        <table>
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
+                </tr>
+            </thead>  
+           
+            <tbody>
+                <tr :key="index" v-for="(elemento, index) of elementos">
+                    <td :key="titulo.propiedad" v-for="titulo in titulos">{{elemento[titulo.propiedad]}}</td>
+                </tr>
+                
+            </tbody>
+          
+            
+        </table>
+        
+    </div>
 </template>
 
 <script>
+
 export default {
     data: () => {
         return{
@@ -50,11 +60,31 @@ export default {
     props: {
         elementos: Array,
         titulos: Array,
+        paginacion: {
+            type: Object, 
+            required: false
+        }
+    },
+    methods:{
+        atras: function(){
+            this.$emit('atras')
+        },
+        siguiente: function(){
+            this.$emit('siguiente')
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+#paginacion{
+    display: flex;
+
+}
+#contenedor{
+    width: 100%;
+    
+}
 caption{
     color: white;
     font-size: 1.5em;
@@ -66,9 +96,9 @@ table{
     box-shadow: 10px 14px 63px -49px rgba(0,0,0,0.75);
     border-collapse: collapse;
     width: 100%;
-
+    
     td,th{
-        height: 30px;
+        height: 50px;
         padding: 8px;
         text-align: start;
     }
@@ -93,6 +123,8 @@ table{
         border-radius: 20px;
     }
     tbody{
+        overflow:scroll;
+        height:100px !important;
         tr{
             background-color: #F8F6FF;
         }
@@ -102,6 +134,11 @@ table{
     }
 
 
+}
+
+#scrollbar{
+    overflow:scroll;
+    height:100px !important;
 }
 
 </style>

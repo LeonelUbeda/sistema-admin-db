@@ -16,6 +16,10 @@
 -->
 
 
+
+
+
+
 <template>
     <div id="contenedor" class="colorPrincipal">
         <div id="opciones">

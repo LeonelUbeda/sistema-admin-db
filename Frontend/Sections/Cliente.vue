@@ -2,6 +2,7 @@
 <template>
 
 <div id="contenedor">
+
     <TopSection 
     :opciones="opciones"
     :opcionSeleccionada="opcionSeleccionada"
@@ -9,21 +10,28 @@
     </TopSection>
 
     <div id="main">
-        <h2 class="text-left width-100">Clientes</h2>
-        
-        <br><br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?
-        <br><br><br><br><br>
-        <div class="contenedor-tabla">
-            <TablaTitulo v-if="opcionSeleccionada === 'Buscar'" :titulo="'Cliente'"></TablaTitulo>
-            <Tabla v-if="opcionSeleccionada === 'Buscar'"
-            :elementos="clienteDatos"
-            :titulos="clienteTitulos"></Tabla>
-        </div>  
-        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" :nameForm="nameForm">
-        </InputTemplate>
-    
 
+        <h2 class="text-left width-100">Clientes</h2>
+
+        <div class="width-100 flex justify-around">
+
+            <div class="contenedor-tabla" v-if="opcionSeleccionada === 'Buscar'">
+                <TablaTitulo :titulo="'Cliente'" @recargar="recargarTablaClientes"></TablaTitulo>
+                <Tabla 
+                :elementos="clienteDatos"
+                :titulos="clienteTitulos"
+                @siguiente="siguienteTablaCliente"
+                @atras="anteriorTablaCliente"></Tabla>
+            </div>
+
+            <div id="sidebar" class="flex">
+                
+            </div>
+
+        </div>
+    
+        <InputTemplate :inputs="inputs" :nameForm="nameForm" v-if="opcionSeleccionada === 'Crear'" >
+        </InputTemplate>
 
 
     </div>
@@ -45,6 +53,10 @@ import InputTemplate from '../Components/InputTemplate'
 export default {
     data: () => {
         return {
+            busqueda: {
+                limite: 10,
+                offset: 0,
+            },
             opciones: ['Buscar','Crear'],
             opcionSeleccionada: 'Buscar', 
             clienteDatos: [],
@@ -88,17 +100,41 @@ export default {
         InputTemplate
     },
     methods: {
+        recargarTablaClientes: function(){
+            this.obtenerClientes();
+        },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
         },
         obtenerClientes: async function(){
             try {
-                const response = await axios.get('/api/clientes')
+                const params = {
+                    limite: this.busqueda.limite,
+                }
+                if(this.busqueda.offset !== 0) {
+                    params.offset = this.busqueda.limite * this.busqueda.offset;
+                }
+                console.log(params)
+                const response = await axios.get('/api/clientes', {params} )
+
                 this.clienteDatos = response.data
-                
+                if(response.data.length === 0 ){
+                    this.anteriorTablaCliente()
+                }
             } catch (error) {
                 // INSERTAR ALERTA DE ERROR
             }
+        },
+        siguienteTablaCliente: function(){
+            this.busqueda.offset = this.busqueda.offset + 1
+            console.log(this.busquedaCliente)
+            this.obtenerClientes()
+        },
+        anteriorTablaCliente: function(){
+            if(this.busqueda.offset !== 0){ 
+                this.busqueda.offset = this.busqueda.offset - 1 
+                this.obtenerClientes()
+            } 
         }
        
     },
@@ -111,6 +147,12 @@ export default {
 
 
 <style lang="scss" scoped>
+#sidebar{
+    width: 20%;
+    height: 50px;
+    background-color: red;
+}
+
 #main{
     padding: 20px 20px;
     display: flex;
@@ -118,16 +160,8 @@ export default {
     align-items: center;
 }
 .contenedor-tabla{
-    width: 80%;
+    width: 70%;
 }
-
-
-
-
-
-
-
-
 
 
 </style>

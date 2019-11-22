@@ -21615,6 +21615,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 //CSS
 var _default = {
   props: {
@@ -21755,9 +21759,6 @@ var _default = {
     };
   },
   methods: {},
-  created: function created() {
-    this.ObtenerClientes();
-  },
   components: {}
 };
 exports.default = _default;
@@ -21960,13 +21961,34 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {};
   },
   props: {
     elementos: Array,
-    titulos: Array
+    titulos: Array,
+    paginacion: {
+      type: Object,
+      required: false
+    }
+  },
+  methods: {
+    atras: function atras() {
+      this.$emit('atras');
+    },
+    siguiente: function siguiente() {
+      this.$emit('siguiente');
+    }
   }
 };
 exports.default = _default;
@@ -21982,37 +22004,45 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", [
-    _c("caption"),
-    _vm._v(" "),
-    _c("thead", [
-      _c(
-        "tr",
-        _vm._l(_vm.titulos, function(titulo) {
-          return _c("th", { key: titulo.propiedad }, [
-            _vm._v(" " + _vm._s(titulo.titulo) + " ")
-          ])
-        }),
-        0
-      )
+  return _c("div", { attrs: { id: "contenedor" } }, [
+    _c("div", { attrs: { id: "paginacion" } }, [
+      _c("h4", { on: { click: _vm.atras } }, [_vm._v("Atras")]),
+      _vm._v(" "),
+      _c("h4", { on: { click: _vm.siguiente } }, [_vm._v("Siguiente")])
     ]),
     _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.elementos, function(elemento, index) {
-        return _c(
+    _c("table", [
+      _c("caption"),
+      _vm._v(" "),
+      _c("thead", [
+        _c(
           "tr",
-          { key: index },
           _vm._l(_vm.titulos, function(titulo) {
-            return _c("td", { key: titulo.propiedad }, [
-              _vm._v(_vm._s(elemento[titulo.propiedad]))
+            return _c("th", { key: titulo.propiedad }, [
+              _vm._v(_vm._s(titulo.titulo))
             ])
           }),
           0
         )
-      }),
-      0
-    )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.elementos, function(elemento, index) {
+          return _c(
+            "tr",
+            { key: index },
+            _vm._l(_vm.titulos, function(titulo) {
+              return _c("td", { key: titulo.propiedad }, [
+                _vm._v(_vm._s(elemento[titulo.propiedad]))
+              ])
+            }),
+            0
+          )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -22080,6 +22110,11 @@ var _default = {
   data: function data() {
     return {};
   },
+  methods: {
+    recargar: function recargar(e) {
+      this.$emit('recargar', null);
+    }
+  },
   props: {
     titulo: String
   }
@@ -22097,29 +22132,31 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "titulo" } }, [
-    _c("h2", [_vm._v(_vm._s(_vm.titulo))]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("h4", { staticClass: "rainbow-box" }, [_vm._v("Crear")])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex margin-left-auto cursor-pointer" }, [
-      _c("img", {
-        staticClass: "width-40px margin-right-10",
-        attrs: { src: "/recargar.57927ccf.svg", alt: "" }
-      }),
+  return _c(
+    "div",
+    { staticClass: "flex items-center", attrs: { id: "titulo" } },
+    [
+      _c("h2", { staticClass: "text-2xl" }, [_vm._v(_vm._s(_vm.titulo))]),
       _vm._v(" "),
-      _c("h4", { staticClass: "margin-right-30" }, [_vm._v("Refrescar")])
-    ])
-  }
-]
+      _c(
+        "div",
+        {
+          staticClass: "flex margin-left-auto items-center cursor-pointer",
+          on: { click: _vm.recargar }
+        },
+        [
+          _c("img", {
+            staticClass: "width-40px margin-right-10",
+            attrs: { src: "/recargar.57927ccf.svg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("h4", { staticClass: "mr-30" }, [_vm._v("Refrescar")])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -22187,11 +22224,7 @@ var _default = {
     nameForm: String
   },
   data: function data() {},
-  methods: {
-    numeroInvalido: function numeroInvalido(f) {
-      alert(f);
-    }
-  }
+  methods: {}
 };
 exports.default = _default;
         var $10e949 = exports.default || module.exports;
@@ -22212,127 +22245,131 @@ exports.default = _default;
     [
       _c("h2", [_vm._v(_vm._s(_vm.nameForm))]),
       _vm._v(" "),
-      _vm._l(_vm.inputs, function(input) {
+      _vm._l(_vm.inputs, function(input, index) {
         return _c(
           "div",
-          { key: input, attrs: { id: "contenedor-input" } },
-          _vm._l(input, function(unit) {
-            return _c("div", { key: unit, staticClass: "contenedor-fila" }, [
-              _c("p", [_vm._v(_vm._s(unit.titulo))]),
-              _vm._v(" "),
-              unit.type === "checkbox"
-                ? _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: unit.valor,
-                        expression: "unit.valor"
-                      }
-                    ],
-                    class: [
-                      unit.valor > unit.length || unit.valor < 0
-                        ? "validado" /*true*/
-                        : "validadoVerde" /*false*/
-                    ],
-                    attrs: {
-                      placeholder: unit.titulo,
-                      maxlength: unit.length,
-                      min: "1",
-                      max: unit.length,
-                      type: "checkbox"
-                    },
-                    domProps: {
-                      checked: Array.isArray(unit.valor)
-                        ? _vm._i(unit.valor, null) > -1
-                        : unit.valor
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = unit.valor,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              _vm.$set(unit, "valor", $$a.concat([$$v]))
+          { key: index, attrs: { id: "contenedor-input" } },
+          _vm._l(input, function(unit, indexUnit) {
+            return _c(
+              "div",
+              { key: indexUnit, staticClass: "contenedor-fila" },
+              [
+                _c("p", [_vm._v(_vm._s(unit.titulo))]),
+                _vm._v(" "),
+                unit.type === "checkbox"
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: unit.valor,
+                          expression: "unit.valor"
+                        }
+                      ],
+                      class: [
+                        unit.valor > unit.length || unit.valor < 0
+                          ? "validado" /*true*/
+                          : "validadoVerde" /*false*/
+                      ],
+                      attrs: {
+                        placeholder: unit.titulo,
+                        maxlength: unit.length,
+                        min: "1",
+                        max: unit.length,
+                        type: "checkbox"
+                      },
+                      domProps: {
+                        checked: Array.isArray(unit.valor)
+                          ? _vm._i(unit.valor, null) > -1
+                          : unit.valor
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = unit.valor,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(unit, "valor", $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  unit,
+                                  "valor",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
                           } else {
-                            $$i > -1 &&
-                              _vm.$set(
-                                unit,
-                                "valor",
-                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                              )
+                            _vm.$set(unit, "valor", $$c)
                           }
-                        } else {
-                          _vm.$set(unit, "valor", $$c)
                         }
                       }
-                    }
-                  })
-                : unit.type === "radio"
-                ? _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: unit.valor,
-                        expression: "unit.valor"
-                      }
-                    ],
-                    class: [
-                      unit.valor > unit.length || unit.valor < 0
-                        ? "validado" /*true*/
-                        : "validadoVerde" /*false*/
-                    ],
-                    attrs: {
-                      placeholder: unit.titulo,
-                      maxlength: unit.length,
-                      min: "1",
-                      max: unit.length,
-                      type: "radio"
-                    },
-                    domProps: { checked: _vm._q(unit.valor, null) },
-                    on: {
-                      change: function($event) {
-                        return _vm.$set(unit, "valor", null)
-                      }
-                    }
-                  })
-                : _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: unit.valor,
-                        expression: "unit.valor"
-                      }
-                    ],
-                    class: [
-                      unit.valor > unit.length || unit.valor < 0
-                        ? "validado" /*true*/
-                        : "validadoVerde" /*false*/
-                    ],
-                    attrs: {
-                      placeholder: unit.titulo,
-                      maxlength: unit.length,
-                      min: "1",
-                      max: unit.length,
-                      type: unit.type
-                    },
-                    domProps: { value: unit.valor },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                    })
+                  : unit.type === "radio"
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: unit.valor,
+                          expression: "unit.valor"
                         }
-                        _vm.$set(unit, "valor", $event.target.value)
+                      ],
+                      class: [
+                        unit.valor > unit.length || unit.valor < 0
+                          ? "validado" /*true*/
+                          : "validadoVerde" /*false*/
+                      ],
+                      attrs: {
+                        placeholder: unit.titulo,
+                        maxlength: unit.length,
+                        min: "1",
+                        max: unit.length,
+                        type: "radio"
+                      },
+                      domProps: { checked: _vm._q(unit.valor, null) },
+                      on: {
+                        change: function($event) {
+                          return _vm.$set(unit, "valor", null)
+                        }
                       }
-                    }
-                  })
-            ])
+                    })
+                  : _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: unit.valor,
+                          expression: "unit.valor"
+                        }
+                      ],
+                      class: [
+                        unit.valor > unit.length || unit.valor < 0
+                          ? "validado" /*true*/
+                          : "validadoVerde" /*false*/
+                      ],
+                      attrs: {
+                        placeholder: unit.titulo,
+                        maxlength: unit.length,
+                        min: "1",
+                        max: unit.length,
+                        type: unit.type
+                      },
+                      domProps: { value: unit.valor },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(unit, "valor", $event.target.value)
+                        }
+                      }
+                    })
+              ]
+            )
           }),
           0
         )
@@ -22446,9 +22483,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      busqueda: {
+        limite: 10,
+        offset: 0
+      },
       opciones: ['Buscar', 'Crear'],
       opcionSeleccionada: 'Buscar',
       clienteDatos: [],
@@ -22517,35 +22566,65 @@ var _default = {
     InputTemplate: _InputTemplate.default
   },
   methods: {
+    recargarTablaClientes: function recargarTablaClientes() {
+      this.obtenerClientes();
+    },
     clickOpciones: function clickOpciones(dato) {
       this.opcionSeleccionada = dato;
     },
     obtenerClientes: function obtenerClientes() {
-      var response;
+      var params, response;
       return regeneratorRuntime.async(function obtenerClientes$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              _context.next = 3;
-              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes'));
+              params = {
+                limite: this.busqueda.limite
+              };
 
-            case 3:
+              if (this.busqueda.offset !== 0) {
+                params.offset = this.busqueda.limite * this.busqueda.offset;
+              }
+
+              console.log(params);
+              _context.next = 6;
+              return regeneratorRuntime.awrap(_axios.default.get('/api/clientes', {
+                params: params
+              }));
+
+            case 6:
               response = _context.sent;
               this.clienteDatos = response.data;
-              _context.next = 9;
+
+              if (response.data.length === 0) {
+                this.anteriorTablaCliente();
+              }
+
+              _context.next = 13;
               break;
 
-            case 7:
-              _context.prev = 7;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
 
-            case 9:
+            case 13:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 7]]);
+      }, null, this, [[0, 11]]);
+    },
+    siguienteTablaCliente: function siguienteTablaCliente() {
+      this.busqueda.offset = this.busqueda.offset + 1;
+      console.log(this.busquedaCliente);
+      this.obtenerClientes();
+    },
+    anteriorTablaCliente: function anteriorTablaCliente() {
+      if (this.busqueda.offset !== 0) {
+        this.busqueda.offset = this.busqueda.offset - 1;
+        this.obtenerClientes();
+      }
     }
   },
   created: function created() {
@@ -22585,36 +22664,34 @@ exports.default = _default;
             _vm._v("Clientes")
           ]),
           _vm._v(" "),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\r\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem excepturi, debitis ex quis quisquam ea suscipit minima unde! Reprehenderit rem corrupti non, voluptates quo maxime suscipit sit doloribus! Iste, quisquam?\r\n        "
-          ),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "contenedor-tabla" },
-            [
-              _vm.opcionSeleccionada === "Buscar"
-                ? _c("TablaTitulo", { attrs: { titulo: "Cliente" } })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.opcionSeleccionada === "Buscar"
-                ? _c("Tabla", {
-                    attrs: {
-                      elementos: _vm.clienteDatos,
-                      titulos: _vm.clienteTitulos
-                    }
-                  })
-                : _vm._e()
-            ],
-            1
-          ),
+          _c("div", { staticClass: "width-100 flex justify-around" }, [
+            _vm.opcionSeleccionada === "Buscar"
+              ? _c(
+                  "div",
+                  { staticClass: "contenedor-tabla" },
+                  [
+                    _c("TablaTitulo", {
+                      attrs: { titulo: "Cliente" },
+                      on: { recargar: _vm.recargarTablaClientes }
+                    }),
+                    _vm._v(" "),
+                    _c("Tabla", {
+                      attrs: {
+                        elementos: _vm.clienteDatos,
+                        titulos: _vm.clienteTitulos
+                      },
+                      on: {
+                        siguiente: _vm.siguienteTablaCliente,
+                        atras: _vm.anteriorTablaCliente
+                      }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex", attrs: { id: "sidebar" } })
+          ]),
           _vm._v(" "),
           _vm.opcionSeleccionada === "Crear"
             ? _c("InputTemplate", {
@@ -22747,7 +22824,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50970" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52626" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

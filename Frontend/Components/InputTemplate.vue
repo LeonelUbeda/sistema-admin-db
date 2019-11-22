@@ -1,8 +1,8 @@
 <template>
     <form class="contenedor-tabla"  >
             <h2>{{nameForm}}</h2>
-            <div  id="contenedor-input"  v-for="input of inputs" :key="input"  >
-                <div class="contenedor-fila" v-for="unit of input" :key="unit">
+            <div  id="contenedor-input"  v-for="(input, index) of inputs" :key="index" >
+                <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
                     <p>{{unit.titulo}}</p>
                     <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'validado' /*true*/  : 'validadoVerde' /*false*/ ]" 
                     :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" > 
@@ -30,50 +30,47 @@ export default {
            
     },
     methods:{
-        numeroInvalido: function(f){
-        
-        alert(f)
-             
-            
-        }
+       
     }
 }
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 #contenedor-input{
     display: flex;
-    flex-wrap: nowrap;
+ 
     
 }
+.contenedor-fila{
+    width: 100%;
+  
+}
+
 .contenedor-tabla{
     
 }
 
 .validado{
-     -webkit-appearance: none;
   border-radius: 25px;
   margin: 5px;   
   height: 25px;  
-  outline-width: 0;
+    border-color: red;
 
 }
 .validado:focus{
-     -webkit-appearance: none;
     border-color: red;
         
 }
 .validadoVerde{
-     -webkit-appearance: none;
-    border-radius: 25px;
+       border-radius: 25px;
     margin: 5px;   
     height: 25px;
    outline-width: 0;
-   
+   border-color:green;
 }
 .validadoVerde:focus{
-   -webkit-appearance: none;
+
      border-color:green;  
 }
 
