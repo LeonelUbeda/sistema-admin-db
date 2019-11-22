@@ -3,9 +3,9 @@
         <h2>{{titulo}}</h2>
         <div class="flex margin-left-auto cursor-pointer" @click="recargar">
             <img src="../assets/img/recargar.svg" class="width-40px margin-right-10" alt="">
-            <h4 class=" margin-right-30">Refrescar</h4>
+            <h4 class="margin-right-30">Refrescar</h4>
         </div>
-        <h4 class="rainbow-box">Nuevo</h4>
+        <h4 class="rainbow-box">Crear</h4>
     </div>
 </template>
 

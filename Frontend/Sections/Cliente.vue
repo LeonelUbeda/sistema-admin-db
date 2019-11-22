@@ -20,6 +20,11 @@
                 :titulos="clienteTitulos"></Tabla>
             </div>
         </div>
+    
+        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" >
+        </InputTemplate>
+
+
     </div>
 </div>
 
@@ -34,6 +39,8 @@ import 'babel-polyfill'
 import TopSection from '../Components/TopSection'
 import Tabla from '../Components/Tabla'
 import TablaTitulo from '../Components/TablaTitulo'
+import InputTemplate from '../Components/InputTemplate'
+
 export default {
     data: () => {
         return {
@@ -53,13 +60,42 @@ export default {
                     propiedad: 'direccion',
                     titulo: 'Direccion'
                 }
-            ]
+            ],
+              inputs: [
+                
+                    {
+                        titulo: 'Nombre',
+                        name :'nombre',
+                        type: 'text',
+                        length: 10
+
+                    },
+                    {
+                        titulo: 'Apellido',
+                        name :'apellido',
+                        type: 'text',
+                        length: 10
+
+                    }
+                ,
+               
+                
+                    {
+                        titulo: 'Edad',
+                        name: 'edad',
+                        type: 'number',
+                        length: 3
+                    }
+                
+            ]   
+
         }
     },
     components:{
         TopSection,
         Tabla,
-        TablaTitulo
+        TablaTitulo,
+        InputTemplate
     },
     methods: {
         recargarTablaClientes: function(){
