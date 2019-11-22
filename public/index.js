@@ -22206,12 +22206,20 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     inputs: {
       type: Array,
       required: true
-    }
+    },
+    nameForm: String
   },
   data: function data() {
     return {};
@@ -22233,22 +22241,52 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "contenedor-tabla" },
-    _vm._l(_vm.inputs, function(input, index) {
-      return _c(
-        "div",
-        { key: index, attrs: { id: "contenedor-inputs" } },
-        _vm._l(input, function(unit, index2) {
-          return _c("div", { key: index2, staticClass: "input" }, [
-            _c("input", { attrs: { placeholder: unit.titulo } })
-          ])
-        }),
-        0
-      )
-    }),
-    0
+    [
+      _c("h2", [_vm._v(_vm._s(_vm.nameForm))]),
+      _vm._v(" "),
+      _vm._l(_vm.inputs, function(input, index) {
+        return _c(
+          "div",
+          { key: index, attrs: { id: "contenedor-input" } },
+          _vm._l(input, function(unit, indexUnit) {
+            return _c(
+              "div",
+              { key: indexUnit, staticClass: "contenedor-fila" },
+              [
+                _c("p", [_vm._v(_vm._s(unit.titulo))]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "inputUnit",
+                  attrs: {
+                    placeholder: unit.titulo,
+                    type: unit.type,
+                    maxlength: unit.length
+                  }
+                })
+              ]
+            )
+          }),
+          0
+        )
+      }),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("br"),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "submit", value: "Enviar" } })
+    ])
+  }
+]
 render._withStripped = true
 
           return {
@@ -22368,12 +22406,13 @@ var _default = {
         propiedad: 'direccion',
         titulo: 'Direccion'
       }],
+      nameForm: 'Clientes',
       inputs: [[{
         titulo: 'Nombre',
         name: 'nombre',
         type: 'text',
         length: 10
-      }], [{
+      }, {
         titulo: 'Apellido',
         name: 'apellido',
         type: 'text',
@@ -22382,27 +22421,22 @@ var _default = {
         titulo: 'Edad',
         name: 'edad',
         type: 'number',
-        length: 3
-      }, {
-        titulo: 'Edad',
-        name: 'edad',
-        type: 'number',
-        length: 3
+        length: 10
       }], [{
-        titulo: 'Edad',
-        name: 'edad',
-        type: 'number',
-        length: 3
+        titulo: 'Telefono',
+        name: 'telefono',
+        type: 'text',
+        length: 10
       }, {
-        titulo: 'Edad',
-        name: 'edad',
+        titulo: 'ZIP Code',
+        name: 'zipcode',
         type: 'number',
-        length: 3
+        length: 10
       }, {
-        titulo: 'Edad',
-        name: 'edad',
+        titulo: 'Tarjeta',
+        name: 'tarjeta',
         type: 'number',
-        length: 3
+        length: 10
       }]]
     };
   },
@@ -22443,19 +22477,24 @@ var _default = {
             case 6:
               response = _context.sent;
               this.clienteDatos = response.data;
-              _context.next = 12;
+
+              if (response.data.length === 0) {
+                this.anteriorTablaCliente();
+              }
+
+              _context.next = 13;
               break;
 
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 10]]);
+      }, null, this, [[0, 11]]);
     },
     siguienteTablaCliente: function siguienteTablaCliente() {
       this.busqueda.offset = this.busqueda.offset + 1;
@@ -22536,7 +22575,9 @@ exports.default = _default;
           ]),
           _vm._v(" "),
           _vm.opcionSeleccionada === "Crear"
-            ? _c("InputTemplate", { attrs: { inputs: _vm.inputs } })
+            ? _c("InputTemplate", {
+                attrs: { inputs: _vm.inputs, nameForm: _vm.nameForm }
+              })
             : _vm._e()
         ],
         1
@@ -22664,7 +22705,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "22885" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "47563" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

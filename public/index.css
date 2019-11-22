@@ -227,20 +227,21 @@ table tbody tr[data-v-75911e]:nth-child(even) {
   box-sizing: border-box;
   box-shadow: 0 1px 20px -2px #dbdbdb;
 }
-.input[data-v-33e561] {
-  margin: 10px 10px;
-  width: 100%;
-}
-#contenedor-inputs[data-v-33e561] {
+#contenedor-input[data-v-33e561] {
   display: flex;
   flex-wrap: nowrap;
+}
+.contenedor-fila[data-v-33e561] {
   width: 100%;
 }
-#contenedor-inputs input[data-v-33e561] {
+.contenedor-fila input[data-v-33e561] {
   width: 100%;
 }
-.contenedor-tabla[data-v-33e561] {
-  width: 100%;
+.inputUnit[data-v-33e561] {
+  margin: 5px;
+  border-radius: 4px;
+  height: 25px;
+  border: solid #4f4669;
 }
 #sidebar[data-v-2acc8d] {
   width: 20%;

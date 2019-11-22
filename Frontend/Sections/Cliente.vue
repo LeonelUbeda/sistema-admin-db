@@ -30,7 +30,7 @@
 
         </div>
     
-        <InputTemplate :inputs="inputs"  v-if="opcionSeleccionada === 'Crear'" >
+        <InputTemplate :inputs="inputs" :nameForm="nameForm" v-if="opcionSeleccionada === 'Crear'" >
         </InputTemplate>
 
 
@@ -74,22 +74,19 @@ export default {
                     titulo: 'Direccion'
                 }
             ],
+            nameForm: 'Clientes',
             inputs: [
                 [
-                    {titulo: 'Nombre',     name :'nombre',     type: 'text',   length: 10}
-                ],
+                    {titulo: 'Nombre', name:'nombre', type:'text', length: 10},
+                    {titulo: 'Apellido', name:'apellido', type:'text', length: 10}],
                 [
-                    {titulo: 'Apellido',   name :'apellido',   type: 'text',   length: 10}
-                ],
+                    {titulo: 'Edad', name:'edad', type:'number', length: 10}],
                 [
-                    {titulo: 'Edad',        name: 'edad',      type: 'number',  length: 3 },
-                    {titulo: 'Edad',        name: 'edad',      type: 'number',  length: 3}
-                ],
-                [
-                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3 },
-                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3},
-                    {titulo: 'Edad',    name: 'edad',   type: 'number',     length: 3}
+                    {titulo: 'Telefono', name:'telefono', type:'text', length: 10},
+                    {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 10},
+                    {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 10}
                 ]
+                  
             ]   
 
         }
@@ -116,10 +113,12 @@ export default {
                     params.offset = this.busqueda.limite * this.busqueda.offset;
                 }
                 console.log(params)
-                const response = await axios.get('/api/clientes', {params})
-                
+                const response = await axios.get('/api/clientes', {params} )
+
                 this.clienteDatos = response.data
-                
+                if(response.data.length === 0 ){
+                    this.anteriorTablaCliente()
+                }
             } catch (error) {
                 // INSERTAR ALERTA DE ERROR
             }
@@ -160,14 +159,6 @@ export default {
 .contenedor-tabla{
     width: 70%;
 }
-
-
-
-
-
-
-
-
 
 
 </style>

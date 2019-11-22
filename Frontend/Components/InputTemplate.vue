@@ -1,10 +1,17 @@
 <template>
     <div class="contenedor-tabla">
-        <div id="contenedor-inputs" v-for="(input, index) of inputs" :key="index">
-            <div class="input" v-for="(unit, index2) of input" :key="index2">   
-                <input :placeholder="unit.titulo">
-            </div>                   
-        </div>      
+            <h2>{{nameForm}}</h2>
+            <div  id="contenedor-input"  v-for="(input, index) of inputs" :key="index" >
+                <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
+                    <p>{{unit.titulo}}</p>
+                    <input  class="inputUnit" :placeholder="unit.titulo" :type="unit.type" :maxlength="unit.length" > 
+                </div>                   
+            </div>
+        
+        <div>
+            <br>
+            <input type="submit" value="Enviar">
+        </div>
     </div> 
 </template>
 
@@ -14,11 +21,12 @@ export default {
         inputs: {
            type: Array, 
            required: true  
-        }
+        },
+        nameForm: String
     },
-    data: () => {
-        return {
-
+    data: ()=>{
+        return{
+            
         }
     }
 }
@@ -26,21 +34,25 @@ export default {
 
 
 <style lang="scss" scoped>
-
-.input{
-    margin: 10px 10px;
-    width: 100%;
-}
-
-#contenedor-inputs{
+#contenedor-input{
     display: flex;
     flex-wrap: nowrap;
+    
+}
+.contenedor-fila{
     width: 100%;
     input{
         width: 100%;
     }
 }
+
 .contenedor-tabla{
-    width: 100%;
+    
+}
+.inputUnit{
+    margin: 5px;   
+    border-radius: 4px;
+    height: 25px;
+    border: solid rgb(79, 70, 105);
 }
 </style>
