@@ -1,37 +1,45 @@
 <template>
     <form class="contenedor-tabla"  >
-            <h2>{{nameForm}}</h2>
+            <h2>{{config.nameForm}}</h2>
             
-            <div  id="contenedor-input"  v-for="(input, index) of inputs" :key="index" >
+            <div  id="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
                 <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
                     <p>{{unit.titulo}}</p>
                     <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'pruebados' /*true*/  : 'prueba' /*false*/ ]" 
-                    :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" > 
+                    :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" required > 
                 </div>                   
             </div>
         
         <div>
             <br>
            
-            <input type="submit" value="Enviar" >
+            <input type="submit" v-on:click="enviar" :value="config.nameButton" >
         </div>
     </form> 
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     props: {
-        inputs: {
-           type: Array, 
-           required: true  
+        config: {
+            inputs: { type: Array, required: true  },
+            nameForm: String, //Nombre que sale en el titulo
+            nameButton: String, //Nombre del boton de enviar
         },
-        nameForm: String
     },
     data: ()=>{
-           
+           props.config
     },
     methods:{
-       
+       enviar: function(){
+           axios.post(
+               '/api/clientes',
+               /*F ME PEGUE*/ 
+
+           )
+       }
     }
 }
 </script>

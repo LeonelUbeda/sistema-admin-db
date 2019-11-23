@@ -22196,6 +22196,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -22218,14 +22223,27 @@ exports.default = void 0;
 //
 var _default = {
   props: {
-    inputs: {
-      type: Array,
-      required: true
-    },
-    nameForm: String
+    config: {
+      inputs: {
+        type: Array,
+        required: true
+      },
+      nameForm: String,
+      //Nombre que sale en el titulo
+      nameButton: String //Nombre del boton de enviar
+
+    }
   },
-  data: function data() {},
-  methods: {}
+  data: function data() {
+    props.config;
+  },
+  methods: {
+    enviar: function enviar() {
+      _axios.default.post('/api/clientes'
+      /*F ME PEGUE*/
+      );
+    }
+  }
 };
 exports.default = _default;
         var $10e949 = exports.default || module.exports;
@@ -22244,9 +22262,9 @@ exports.default = _default;
     "form",
     { staticClass: "contenedor-tabla" },
     [
-      _c("h2", [_vm._v(_vm._s(_vm.nameForm))]),
+      _c("h2", [_vm._v(_vm._s(_vm.config.nameForm))]),
       _vm._v(" "),
-      _vm._l(_vm.inputs, function(input, index) {
+      _vm._l(_vm.config.inputs, function(input, index) {
         return _c(
           "div",
           { key: index, attrs: { id: "contenedor-input" } },
@@ -22277,6 +22295,7 @@ exports.default = _default;
                         maxlength: unit.length,
                         min: "1",
                         max: unit.length,
+                        required: "",
                         type: "checkbox"
                       },
                       domProps: {
@@ -22329,6 +22348,7 @@ exports.default = _default;
                         maxlength: unit.length,
                         min: "1",
                         max: unit.length,
+                        required: "",
                         type: "radio"
                       },
                       domProps: { checked: _vm._q(unit.valor, null) },
@@ -22357,6 +22377,7 @@ exports.default = _default;
                         maxlength: unit.length,
                         min: "1",
                         max: unit.length,
+                        required: "",
                         type: unit.type
                       },
                       domProps: { value: unit.valor },
@@ -22376,23 +22397,20 @@ exports.default = _default;
         )
       }),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", [
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "submit" },
+          domProps: { value: _vm.config.nameButton },
+          on: { click: _vm.enviar }
+        })
+      ])
     ],
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("br"),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "submit", value: "Enviar" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -22425,7 +22443,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
+},{"axios":"../node_modules/axios/index.js","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Cliente.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22499,7 +22517,7 @@ var _default = {
         limite: 10,
         offset: 0
       },
-      opciones: ['Buscar', 'Crear'],
+      opciones: ['Buscar', 'Crear Cliente'],
       opcionSeleccionada: 'Buscar',
       clienteDatos: [],
       clienteTitulos: [{
@@ -22512,52 +22530,55 @@ var _default = {
         propiedad: 'direccion',
         titulo: 'Direccion'
       }],
-      nameForm: 'Clientes',
-      inputs: [[
-      /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
-      {
-        titulo: 'Nombre',
-        name: 'nombre',
-        type: 'text',
-        length: 10,
-        validacion: false,
-        valor: ''
-      }, {
-        titulo: 'Apellido',
-        name: 'apellido',
-        type: 'text',
-        length: 10,
-        validacion: false,
-        valor: ''
-      }], [{
-        titulo: 'Edad',
-        name: 'edad',
-        type: 'number',
-        length: 99,
-        validacion: false,
-        valor: ''
-      }], [{
-        titulo: 'Telefono',
-        name: 'telefono',
-        type: 'number',
-        length: 9999999999,
-        validacion: false,
-        valor: ''
-      }, {
-        titulo: 'ZIP Code',
-        name: 'zipcode',
-        type: 'number',
-        length: 9999,
-        validacion: false,
-        valor: ''
-      }, {
-        titulo: 'Tarjeta',
-        name: 'tarjeta',
-        type: 'number',
-        length: 9999999999999,
-        validacion: false,
-        valor: ''
-      }]]
+      config: {
+        nameForm: 'Clientes',
+        nameButton: 'Que pedos',
+        inputs: [[
+        /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
+        {
+          titulo: 'Nombre',
+          name: 'nombre',
+          type: 'text',
+          length: 10,
+          validacion: false,
+          valor: ''
+        }, {
+          titulo: 'Apellido',
+          name: 'apellido',
+          type: 'text',
+          length: 10,
+          validacion: false,
+          valor: ''
+        }], [{
+          titulo: 'Edad',
+          name: 'edad',
+          type: 'number',
+          length: 99,
+          validacion: false,
+          valor: ''
+        }], [{
+          titulo: 'Telefono',
+          name: 'telefono',
+          type: 'number',
+          length: 9999999999,
+          validacion: false,
+          valor: ''
+        }, {
+          titulo: 'ZIP Code',
+          name: 'zipcode',
+          type: 'number',
+          length: 9999,
+          validacion: false,
+          valor: ''
+        }, {
+          titulo: 'Tarjeta',
+          name: 'tarjeta',
+          type: 'number',
+          length: 9999999999999,
+          validacion: false,
+          valor: ''
+        }]]
+      }
     };
   },
   components: {
@@ -22694,10 +22715,8 @@ exports.default = _default;
             _c("div", { staticClass: "flex", attrs: { id: "sidebar" } })
           ]),
           _vm._v(" "),
-          _vm.opcionSeleccionada === "Crear"
-            ? _c("InputTemplate", {
-                attrs: { inputs: _vm.inputs, nameForm: _vm.nameForm }
-              })
+          _vm.opcionSeleccionada === "Crear Cliente"
+            ? _c("InputTemplate", { attrs: { config: _vm.config } })
             : _vm._e()
         ],
         1
@@ -22825,7 +22844,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53680" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54325" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

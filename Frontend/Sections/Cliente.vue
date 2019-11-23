@@ -30,7 +30,7 @@
 
         </div>
     
-        <InputTemplate :inputs="inputs" :nameForm="nameForm" v-if="opcionSeleccionada === 'Crear'" >
+        <InputTemplate :config="config"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
         </InputTemplate>
 
 
@@ -57,7 +57,7 @@ export default {
                 limite: 10,
                 offset: 0,
             },
-            opciones: ['Buscar','Crear'],
+            opciones: ['Buscar','Crear Cliente'],
             opcionSeleccionada: 'Buscar', 
             clienteDatos: [],
             clienteTitulos: [
@@ -74,8 +74,11 @@ export default {
                     titulo: 'Direccion'
                 }
             ],
-            nameForm: 'Clientes',
-            inputs: [
+
+            config: {
+                nameForm: 'Clientes',
+                nameButton: 'Que pedos',
+                inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', name:'nombre', type:'text', length: 10, validacion: false, valor:''},
                       {titulo: 'Apellido', name:'apellido', type:'text', length: 10,  validacion: false, valor:''}
@@ -89,7 +92,9 @@ export default {
                       {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 9999999999999, validacion: false, valor:''}
                   ]
                   
-            ]   
+                ]  
+            }
+     
 
         }
     },
