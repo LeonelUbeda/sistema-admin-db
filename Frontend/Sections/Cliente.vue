@@ -9,54 +9,69 @@
     @elementoSeleccionado="clickOpciones">
     </TopSection>
 
-    <div id="main">
-
-        <h2 class="text-left width-100">Clientes</h2>
-
-        <div class="width-100 flex justify-around">
-
-            <div class="contenedor-tabla" v-if="opcionSeleccionada === 'Buscar'">
-                <TablaTitulo :titulo="'Cliente'" @recargar="recargarTablaClientes"></TablaTitulo>
-                <Tabla 
-                :elementos="clienteDatos"
-                :titulos="clienteTitulos"
-                @siguiente="siguienteTablaCliente"
-                @atras="anteriorTablaCliente"></Tabla>
-            </div>
-
-            <div id="sidebar" class="flex">
-                
-            </div>
-
-        </div>
-    
-        <InputTemplate :inputs="inputs" :nameForm="nameForm" v-if="opcionSeleccionada === 'Crear'" >
-        </InputTemplate>
-
-
-    </div>
+    <BusquedaTablaAll :configuracion="configuracion"></BusquedaTablaAll>
 </div>
 
 </template>
 
-
-
 <script>
+
 import clasesUtilesCSS from '../assets/css/clasesUtiles'
 import axios from 'axios'
 import 'babel-polyfill'
+
+/* ----- Componentes  ----- */
 import TopSection from '../Components/TopSection'
 import Tabla from '../Components/Tabla'
 import TablaTitulo from '../Components/TablaTitulo'
 import InputTemplate from '../Components/InputTemplate'
-
+import BusquedaInput from '../Components/BusquedaInput.vue'
+import BusquedaRadio from '../Components/BusquedaRadio.vue'
+import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 export default {
     data: () => {
         return {
+
+            configuracion: {
+                tabla: {
+
+                    url: '/api/clientes',
+                    
+                    tablaTitulos: [
+                        {propiedad: 'nombre',titulo: 'Nombre'},
+                        {propiedad: 'apellido',titulo: 'Apellido'},
+                        {propiedad: 'direccion',titulo: 'Direccion'}
+                    ],
+                    click: {
+                        urlDelete: '/api/clientes',
+                        propiedadAlEliminar: 'id',
+                        datosMostrar: ['id','nombre','apellido', 'direccion'],
+                        titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
+                        mandarEvento: false,
+                        opcionEditar: true,
+                        opcionEliminar: true
+                    }
+                    
+                },
+                busqueda: {
+                    tiposBusqueda: [
+                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
+                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]
+                    ],
+                    busquedaSeleccionada: 'nombre'
+                }
+            },
+
+
             busqueda: {
                 limite: 10,
                 offset: 0,
+                variable: '', // nombre  | apellido | ID
+                valor: '' // El valor de la variable
             },
+           
+            opcionesRadio: [[{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
+                            [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]],
             opciones: ['Buscar','Crear'],
             opcionSeleccionada: 'Buscar', 
             clienteDatos: [],
@@ -95,14 +110,29 @@ export default {
         TopSection,
         Tabla,
         TablaTitulo,
-        InputTemplate
+        InputTemplate,
+        BusquedaInput,
+        BusquedaRadio,
+        BusquedaTablaAll
     },
     methods: {
         recargarTablaClientes: function(){
+            this.busqueda.variable = ''
+            this.busqueda.valor = ''
+            this.$refs.BusquedaInputRef.cambiarTexto('')
+            this.inputBusquedaTexto = '';
             this.obtenerClientes();
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
+        },
+        busquedaSearchBar: function (texto) {
+            this.busqueda.valor = texto
+            console.log(texto)
+            this.obtenerClientes()
+        },
+        tipoDeBusqueda: function(seleccion){
+            this.busqueda.variable = seleccion;
         },
         obtenerClientes: async function(){
             try {
@@ -111,6 +141,10 @@ export default {
                 }
                 if(this.busqueda.offset !== 0) {
                     params.offset = this.busqueda.limite * this.busqueda.offset;
+                }
+
+                if(this.busqueda.variable !== '' || this.busqueda.valor !== ''){
+                    params[this.busqueda.variable] = this.busqueda.valor
                 }
                 console.log(params)
                 const response = await axios.get('/api/clientes', {params} )
@@ -137,6 +171,7 @@ export default {
     },
     created(){
         this.obtenerClientes();
+        
     }
 }
 </script>
@@ -145,9 +180,9 @@ export default {
 
 <style lang="scss" scoped>
 #sidebar{
-    width: 20%;
-    height: 50px;
-    background-color: red;
+    width: 25%;
+    height: 200px;
+    
 }
 
 #main{

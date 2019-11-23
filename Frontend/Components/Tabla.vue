@@ -37,7 +37,7 @@
             </thead>  
            
             <tbody>
-                <tr :key="index" v-for="(elemento, index) of elementos">
+                <tr :key="index" v-for="(elemento, index) of elementos" @click="enviarInformacionFila(elemento)">
                     <td :key="titulo.propiedad" v-for="titulo in titulos">{{elemento[titulo.propiedad]}}</td>
                 </tr>
                 
@@ -66,6 +66,9 @@ export default {
         }
     },
     methods:{
+        enviarInformacionFila(elemento){
+            this.$emit('filaSeleccionada', elemento)
+        },
         atras: function(){
             this.$emit('atras')
         },

@@ -4,16 +4,7 @@
         
             <h1>Bienvenido</h1>
 
-            <table>
-                <tr>
-                    <th v-for="(valor, nombre) in cliente[0]">{{nombre}}</th>
-                </tr>
-                
-                <tr :key="index" v-for="(contenido, index) in cliente">
-                    <th v-for="elemento of contenido">{{elemento}}</th>
-                </tr>
-                
-            </table>
+            
     </div>
 </template>
 

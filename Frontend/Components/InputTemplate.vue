@@ -26,7 +26,7 @@ export default {
     },
     data: ()=>{
         return{
-            
+
         }
     }
 }
@@ -46,9 +46,6 @@ export default {
     }
 }
 
-.contenedor-tabla{
-    
-}
 .inputUnit{
     margin: 5px;   
     border-radius: 4px;

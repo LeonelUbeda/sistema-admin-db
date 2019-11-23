@@ -75,13 +75,22 @@
 
 
 
-/*        */ 
+/*   CURSORES     */ 
 
 .cursor-pointer{
     cursor: pointer;
 }
 
 
+/*       BORDER LINES             */
+
+
+
+.divisor{
+    border: 1px solid #e0e0e0;
+    width: 90%;
+    margin-bottom: 20px;
+}
 
 .rainbow-box {
 
@@ -89,4 +98,45 @@
     border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
     border-image-slice: 1;
     cursor: pointer;
-  }
+}
+
+
+
+
+/*      HEADERS         */
+
+
+
+.bloque-titulo{
+    width: 100%;
+    min-height: 65px;
+    max-height: 64px;
+    background-color: white;
+
+}
+
+.sombra{
+    box-shadow: 0 1px 20px -2px #dbdbdb;
+}
+
+
+
+.btn-rojo{
+    background-color: #e66f66;
+    margin: 15px 10px;
+    padding: 8px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    
+}
+
+.btn-azul{
+    background-color: #6a7cab !important;
+    color: white;
+    margin: 15px 10px;
+    padding: 8px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+}
