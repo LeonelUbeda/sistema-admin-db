@@ -22215,6 +22215,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   props: {
     inputs: {
@@ -22268,8 +22269,8 @@ exports.default = _default;
                       ],
                       class: [
                         unit.valor > unit.length || unit.valor < 0
-                          ? "validado" /*true*/
-                          : "validadoVerde" /*false*/
+                          ? "pruebados" /*true*/
+                          : "prueba" /*false*/
                       ],
                       attrs: {
                         placeholder: unit.titulo,
@@ -22320,8 +22321,8 @@ exports.default = _default;
                       ],
                       class: [
                         unit.valor > unit.length || unit.valor < 0
-                          ? "validado" /*true*/
-                          : "validadoVerde" /*false*/
+                          ? "pruebados" /*true*/
+                          : "prueba" /*false*/
                       ],
                       attrs: {
                         placeholder: unit.titulo,
@@ -22348,8 +22349,8 @@ exports.default = _default;
                       ],
                       class: [
                         unit.valor > unit.length || unit.valor < 0
-                          ? "validado" /*true*/
-                          : "validadoVerde" /*false*/
+                          ? "pruebados" /*true*/
+                          : "prueba" /*false*/
                       ],
                       attrs: {
                         placeholder: unit.titulo,
@@ -22824,7 +22825,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52626" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53680" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

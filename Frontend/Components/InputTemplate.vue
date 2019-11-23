@@ -1,10 +1,11 @@
 <template>
     <form class="contenedor-tabla"  >
             <h2>{{nameForm}}</h2>
+            
             <div  id="contenedor-input"  v-for="(input, index) of inputs" :key="index" >
                 <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
                     <p>{{unit.titulo}}</p>
-                    <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'validado' /*true*/  : 'validadoVerde' /*false*/ ]" 
+                    <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'pruebados' /*true*/  : 'prueba' /*false*/ ]" 
                     :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" > 
                 </div>                   
             </div>
@@ -36,7 +37,29 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style  scoped>
+
+.prueba{
+    padding-top: 5px;
+    outline: 0;
+    height: 60%;
+}
+.prueba:focus{
+    padding-top: 5px;
+    border: solid green;
+    height: 60%;
+}
+.pruebados{
+    padding-top: 5px;
+    height: 60%;
+    outline: 0;
+    border: solid red;
+}
+.pruebados:focus{
+    padding-top: 5px;
+    border: solid red;
+    height: 60%;
+}
 #contenedor-input{
     display: flex;
  
@@ -44,38 +67,16 @@ export default {
 }
 .contenedor-fila{
     width: 100%;
-  
+    margin: 5px;
 }
 
-.contenedor-tabla{
-    
-}
 
-.validado{
-  border-radius: 25px;
-  margin: 5px;   
-  height: 25px;  
-    border-color: red;
 
-}
-.validado:focus{
-    border-color: red;
-        
-}
-.validadoVerde{
-       border-radius: 25px;
-    margin: 5px;   
-    height: 25px;
-   outline-width: 0;
-   border-color:green;
-}
-.validadoVerde:focus{
 
-     border-color:green;  
-}
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+  
 }
+
 </style>
