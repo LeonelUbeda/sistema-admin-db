@@ -8929,14 +8929,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $12368a = exports.default || module.exports;
+        var $3c8ff4 = exports.default || module.exports;
       
-      if (typeof $12368a === 'function') {
-        $12368a = $12368a.options;
+      if (typeof $3c8ff4 === 'function') {
+        $3c8ff4 = $3c8ff4.options;
       }
     
         /* template */
-        Object.assign($12368a, (function () {
+        Object.assign($3c8ff4, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8973,7 +8973,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-12368a",
+            _scopeId: "data-v-3c8ff4",
             functional: undefined
           };
         })());
@@ -8986,9 +8986,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$12368a', $12368a);
+            api.createRecord('$3c8ff4', $3c8ff4);
           } else {
-            api.reload('$12368a', $12368a);
+            api.reload('$3c8ff4', $3c8ff4);
           }
         }
 
@@ -9031,14 +9031,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1cec8b = exports.default || module.exports;
+        var $549ed5 = exports.default || module.exports;
       
-      if (typeof $1cec8b === 'function') {
-        $1cec8b = $1cec8b.options;
+      if (typeof $549ed5 === 'function') {
+        $549ed5 = $549ed5.options;
       }
     
         /* template */
-        Object.assign($1cec8b, (function () {
+        Object.assign($549ed5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9060,7 +9060,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1cec8b",
+            _scopeId: "data-v-549ed5",
             functional: undefined
           };
         })());
@@ -9073,9 +9073,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1cec8b', $1cec8b);
+            api.createRecord('$549ed5', $549ed5);
           } else {
-            api.reload('$1cec8b', $1cec8b);
+            api.reload('$549ed5', $549ed5);
           }
         }
 
@@ -21642,14 +21642,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a48455 = exports.default || module.exports;
+        var $1f47a9 = exports.default || module.exports;
       
-      if (typeof $a48455 === 'function') {
-        $a48455 = $a48455.options;
+      if (typeof $1f47a9 === 'function') {
+        $1f47a9 = $1f47a9.options;
       }
     
         /* template */
-        Object.assign($a48455, (function () {
+        Object.assign($1f47a9, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21688,7 +21688,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a48455",
+            _scopeId: "data-v-1f47a9",
             functional: undefined
           };
         })());
@@ -21701,9 +21701,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a48455', $a48455);
+            api.createRecord('$1f47a9', $1f47a9);
           } else {
-            api.reload('$a48455', $a48455);
+            api.reload('$1f47a9', $1f47a9);
           }
         }
 
@@ -21753,14 +21753,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $eabc7a = exports.default || module.exports;
+        var $fd2c8e = exports.default || module.exports;
       
-      if (typeof $eabc7a === 'function') {
-        $eabc7a = $eabc7a.options;
+      if (typeof $fd2c8e === 'function') {
+        $fd2c8e = $fd2c8e.options;
       }
     
         /* template */
-        Object.assign($eabc7a, (function () {
+        Object.assign($fd2c8e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21781,7 +21781,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-eabc7a",
+            _scopeId: "data-v-fd2c8e",
             functional: undefined
           };
         })());
@@ -21794,9 +21794,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$eabc7a', $eabc7a);
+            api.createRecord('$fd2c8e', $fd2c8e);
           } else {
-            api.reload('$eabc7a', $eabc7a);
+            api.reload('$fd2c8e', $fd2c8e);
           }
         }
 
@@ -21831,14 +21831,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $087bd5 = exports.default || module.exports;
+        var $925787 = exports.default || module.exports;
       
-      if (typeof $087bd5 === 'function') {
-        $087bd5 = $087bd5.options;
+      if (typeof $925787 === 'function') {
+        $925787 = $925787.options;
       }
     
         /* template */
-        Object.assign($087bd5, (function () {
+        Object.assign($925787, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21852,7 +21852,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-087bd5",
+            _scopeId: "data-v-925787",
             functional: undefined
           };
         })());
@@ -21865,9 +21865,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$087bd5', $087bd5);
+            api.createRecord('$925787', $925787);
           } else {
-            api.reload('$087bd5', $087bd5);
+            api.reload('$925787', $925787);
           }
         }
 
@@ -21966,14 +21966,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $75911e = exports.default || module.exports;
+        var $c92a3d = exports.default || module.exports;
       
-      if (typeof $75911e === 'function') {
-        $75911e = $75911e.options;
+      if (typeof $c92a3d === 'function') {
+        $c92a3d = $c92a3d.options;
       }
     
         /* template */
-        Object.assign($75911e, (function () {
+        Object.assign($c92a3d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22033,7 +22033,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-75911e",
+            _scopeId: "data-v-c92a3d",
             functional: undefined
           };
         })());
@@ -22046,9 +22046,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$75911e', $75911e);
+            api.createRecord('$c92a3d', $c92a3d);
           } else {
-            api.reload('$75911e', $75911e);
+            api.reload('$c92a3d', $c92a3d);
           }
         }
 
@@ -22101,14 +22101,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $372339 = exports.default || module.exports;
+        var $1e1c2e = exports.default || module.exports;
       
-      if (typeof $372339 === 'function') {
-        $372339 = $372339.options;
+      if (typeof $1e1c2e === 'function') {
+        $1e1c2e = $1e1c2e.options;
       }
     
         /* template */
-        Object.assign($372339, (function () {
+        Object.assign($1e1c2e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22144,7 +22144,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-372339",
+            _scopeId: "data-v-1e1c2e",
             functional: undefined
           };
         })());
@@ -22157,9 +22157,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$372339', $372339);
+            api.createRecord('$1e1c2e', $1e1c2e);
           } else {
-            api.reload('$372339', $372339);
+            api.reload('$1e1c2e', $1e1c2e);
           }
         }
 
@@ -22182,6 +22182,10 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -22232,14 +22236,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $33e561 = exports.default || module.exports;
+        var $10e949 = exports.default || module.exports;
       
-      if (typeof $33e561 === 'function') {
-        $33e561 = $33e561.options;
+      if (typeof $10e949 === 'function') {
+        $10e949 = $10e949.options;
       }
     
         /* template */
-        Object.assign($33e561, (function () {
+        Object.assign($10e949, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22261,135 +22265,146 @@ exports.default = _default;
       "div",
       { staticClass: "bg-white sombra padding-x-20 padding-y-10" },
       [
-        _vm._l(_vm.config.inputs, function(input, index) {
+        _vm._l(_vm.config.inputs, function(input) {
           return _c(
             "div",
-            { key: index, staticClass: "contenedor-input" },
-            _vm._l(input, function(unit, indexUnit) {
+            { key: input, staticClass: "contenedor-input" },
+            _vm._l(input, function(unit) {
               return _c(
                 "div",
-                { key: indexUnit, staticClass: "contenedor-fila" },
+                { key: unit, staticClass: "contenedor-filaprincipal" },
                 [
-                  _c("p", [_vm._v(_vm._s(unit.titulo))]),
-                  _vm._v(" "),
-                  unit.type === "checkbox"
-                    ? _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: "checkbox"
-                        },
-                        domProps: {
-                          checked: Array.isArray(unit.valor)
-                            ? _vm._i(unit.valor, null) > -1
-                            : unit.valor
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = unit.valor,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(unit, "valor", $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    unit,
-                                    "valor",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
+                  _c(
+                    "div",
+                    {
+                      class: [
+                        unit.uno == true
+                          ? "contenedor-filauno"
+                          : "contenedor-fila"
+                      ]
+                    },
+                    [
+                      _c("p", [_vm._v(_vm._s(unit.titulo))]),
+                      _vm._v(" "),
+                      unit.type === "checkbox"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
                               }
-                            } else {
-                              _vm.$set(unit, "valor", $$c)
+                            ],
+                            class: [
+                              unit.valor > unit.length || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.length,
+                              min: "1",
+                              max: unit.length,
+                              required: "",
+                              type: "checkbox"
+                            },
+                            domProps: {
+                              checked: Array.isArray(unit.valor)
+                                ? _vm._i(unit.valor, null) > -1
+                                : unit.valor
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = unit.valor,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        unit,
+                                        "valor",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(unit, "valor", $$c)
+                                }
+                              }
                             }
-                          }
-                        }
-                      })
-                    : unit.type === "radio"
-                    ? _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: "radio"
-                        },
-                        domProps: { checked: _vm._q(unit.valor, null) },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(unit, "valor", null)
-                          }
-                        }
-                      })
-                    : _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: unit.type
-                        },
-                        domProps: { value: unit.valor },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          })
+                        : unit.type === "radio"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.length || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.length,
+                              min: "1",
+                              max: unit.length,
+                              required: "",
+                              type: "radio"
+                            },
+                            domProps: { checked: _vm._q(unit.valor, null) },
+                            on: {
+                              change: function($event) {
+                                return _vm.$set(unit, "valor", null)
+                              }
                             }
-                            _vm.$set(unit, "valor", $event.target.value)
-                          }
-                        }
-                      })
+                          })
+                        : _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.length || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.length,
+                              min: "1",
+                              max: unit.length,
+                              required: "",
+                              type: unit.type
+                            },
+                            domProps: { value: unit.valor },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(unit, "valor", $event.target.value)
+                              }
+                            }
+                          })
+                    ]
+                  )
                 ]
               )
             }),
@@ -22417,7 +22432,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-33e561",
+            _scopeId: "data-v-10e949",
             functional: undefined
           };
         })());
@@ -22430,9 +22445,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$33e561', $33e561);
+            api.createRecord('$10e949', $10e949);
           } else {
-            api.reload('$33e561', $33e561);
+            api.reload('$10e949', $10e949);
           }
         }
 
@@ -22489,14 +22504,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $77a4df = exports.default || module.exports;
+        var $e2e94f = exports.default || module.exports;
       
-      if (typeof $77a4df === 'function') {
-        $77a4df = $77a4df.options;
+      if (typeof $e2e94f === 'function') {
+        $e2e94f = $e2e94f.options;
       }
     
         /* template */
-        Object.assign($77a4df, (function () {
+        Object.assign($e2e94f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22560,7 +22575,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-77a4df",
+            _scopeId: "data-v-e2e94f",
             functional: undefined
           };
         })());
@@ -22573,9 +22588,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$77a4df', $77a4df);
+            api.createRecord('$e2e94f', $e2e94f);
           } else {
-            api.reload('$77a4df', $77a4df);
+            api.reload('$e2e94f', $e2e94f);
           }
         }
 
@@ -22623,14 +22638,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $8b145a = exports.default || module.exports;
+        var $1d8d32 = exports.default || module.exports;
       
-      if (typeof $8b145a === 'function') {
-        $8b145a = $8b145a.options;
+      if (typeof $1d8d32 === 'function') {
+        $1d8d32 = $1d8d32.options;
       }
     
         /* template */
-        Object.assign($8b145a, (function () {
+        Object.assign($1d8d32, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22687,7 +22702,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-8b145a",
+            _scopeId: "data-v-1d8d32",
             functional: undefined
           };
         })());
@@ -22700,9 +22715,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$8b145a', $8b145a);
+            api.createRecord('$1d8d32', $1d8d32);
           } else {
-            api.reload('$8b145a', $8b145a);
+            api.reload('$1d8d32', $1d8d32);
           }
         }
 
@@ -26008,14 +26023,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $31a313 = exports.default || module.exports;
+        var $d3f961 = exports.default || module.exports;
       
-      if (typeof $31a313 === 'function') {
-        $31a313 = $31a313.options;
+      if (typeof $d3f961 === 'function') {
+        $d3f961 = $d3f961.options;
       }
     
         /* template */
-        Object.assign($31a313, (function () {
+        Object.assign($d3f961, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26185,7 +26200,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-31a313",
+            _scopeId: "data-v-d3f961",
             functional: undefined
           };
         })());
@@ -26198,9 +26213,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$31a313', $31a313);
+            api.createRecord('$d3f961', $d3f961);
           } else {
-            api.reload('$31a313', $31a313);
+            api.reload('$d3f961', $d3f961);
           }
         }
 
@@ -26311,7 +26326,7 @@ var _default = {
       config: {
         mostrarTitulo: false,
         nameForm: 'Añadir Cliente',
-        nameButton: 'Que pedos',
+        nameButton: 'f',
         inputs: [[
         /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
         {
@@ -26320,42 +26335,48 @@ var _default = {
           type: 'text',
           length: 10,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'Apellido',
           name: 'apellido',
           type: 'text',
           length: 10,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }], [{
           titulo: 'Edad',
           name: 'edad',
           type: 'number',
           length: 99,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: true
         }], [{
           titulo: 'Telefono',
           name: 'telefono',
           type: 'number',
-          length: 9999999999,
+          length: 99999999999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'ZIP Code',
           name: 'zipcode',
           type: 'number',
           length: 9999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'Tarjeta',
           name: 'tarjeta',
           type: 'number',
           length: 9999999999999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }]]
       }
     };
@@ -26377,14 +26398,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2acc8d = exports.default || module.exports;
+        var $f884e7 = exports.default || module.exports;
       
-      if (typeof $2acc8d === 'function') {
-        $2acc8d = $2acc8d.options;
+      if (typeof $f884e7 === 'function') {
+        $f884e7 = $f884e7.options;
       }
     
         /* template */
-        Object.assign($2acc8d, (function () {
+        Object.assign($f884e7, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26428,7 +26449,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2acc8d",
+            _scopeId: "data-v-f884e7",
             functional: undefined
           };
         })());
@@ -26441,9 +26462,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2acc8d', $2acc8d);
+            api.createRecord('$f884e7', $f884e7);
           } else {
-            api.reload('$2acc8d', $2acc8d);
+            api.reload('$f884e7', $f884e7);
           }
         }
 
@@ -26540,7 +26561,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4332" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56642" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -70,19 +70,19 @@ export default {
             config: {
                 mostrarTitulo: false,
                 nameForm: 'Añadir Cliente',
-                nameButton: 'Que pedos',
+                nameButton: 'f',
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10, validacion: false, valor:''},
-                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10,  validacion: false, valor:''}
+                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10, validacion: false, valor:'', uno:false},
+                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10,  validacion: false, valor:'', uno:false}
                   ],
                   [
-                      {titulo: 'Edad', name:'edad', type:'number', length: 99, validacion: false, valor:''}
+                      {titulo: 'Edad', name:'edad', type:'number', length: 99, validacion: false, valor:'', uno:true}
                   ],
                   [
-                      {titulo: 'Telefono', name:'telefono', type:'number', length: 9999999999, validacion: false, valor:''},
-                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 9999, validacion: false, valor:''},
-                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 9999999999999, validacion: false, valor:''}
+                      {titulo: 'Telefono', name:'telefono', type:'number', length: 99999999999, validacion: false, valor:'', uno:false},
+                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 9999, validacion: false, valor:'', uno:false},
+                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 9999999999999, validacion: false, valor:'', uno:false}
                   ]
                   
                 ]  
