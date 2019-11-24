@@ -25939,32 +25939,32 @@ var _default = {
       this.busqueda.variable = seleccion;
     },
     obtenerDatos: function obtenerDatos() {
-      var busqueda, params, response;
+      var busqueda, query, response;
       return regeneratorRuntime.async(function obtenerDatos$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
               busqueda = this.busqueda;
-              params = {
+              query = {
                 limite: busqueda.limite
               };
 
               if (this.busqueda.offset !== 0) {
-                params.offset = busqueda.limite * busqueda.offset;
-              }
+                query.offset = busqueda.limite * busqueda.offset;
+              } // Si variable y valor tienen valores entonces se añade al objeto query
+
 
               if (busqueda.variable !== '' || busqueda.valor !== '') {
-                params[busqueda.variable] = busqueda.valor;
+                query[busqueda.variable] = busqueda.valor;
               }
 
-              console.log(params);
-              _context.next = 8;
+              _context.next = 7;
               return regeneratorRuntime.awrap(_axios.default.get(this.configuracion.tabla.url, {
-                params: params
+                query: query
               }));
 
-            case 8:
+            case 7:
               response = _context.sent;
               this.tablaDatos = response.data;
 
@@ -25975,16 +25975,17 @@ var _default = {
               _context.next = 15;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
 
             case 15:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 13]]);
+      }, null, this, [[0, 12]]);
     },
     siguienteTablaCliente: function siguienteTablaCliente() {
       this.busqueda.offset = this.busqueda.offset + 1;
@@ -26540,7 +26541,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4332" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "16076" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

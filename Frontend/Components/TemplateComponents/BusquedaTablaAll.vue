@@ -105,7 +105,9 @@ export default {
         eliminarElementoSeleccionado: function() {
             const click = this.configuracion.tabla.click
             console.log(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
+
             alertaEliminar(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
+            
         },
         filaSeleccionada: function(elemento){
             if(this.configuracion.tabla.click.mandarEvento === false){
@@ -138,25 +140,23 @@ export default {
         obtenerDatos: async function(){
             try {
                 const busqueda = this.busqueda
-                const params = {
+                const query = {
                     limite: busqueda.limite,
                 }
                 if(this.busqueda.offset !== 0) {
-                    params.offset = busqueda.limite * busqueda.offset;
+                    query.offset = busqueda.limite * busqueda.offset;
                 }
-
+                // Si variable y valor tienen valores entonces se añade al objeto query
                 if(busqueda.variable !== '' || busqueda.valor !== ''){
-                    params[busqueda.variable] = busqueda.valor
+                    query[busqueda.variable] = busqueda.valor
                 }
-                console.log(params)
-                const response = await axios.get(this.configuracion.tabla.url, {params} )
-                
+                const response = await axios.get(this.configuracion.tabla.url, {query} )
                 this.tablaDatos = response.data
                 if(response.data.length === 0 ){
                     this.anteriorTablaCliente()
                 }
             } catch (error) {
-                // INSERTAR ALERTA DE ERROR
+                console.log(error)
             }
         },
         siguienteTablaCliente: function(){
