@@ -10,15 +10,15 @@
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
                            <p>{{unit.titulo}}</p>
                             <input  v-model="unit.valor"  
-                            :class="[ unit.valor>unit.length || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
-                            :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" 
+                            :class="[ unit.valor>unit.tamano || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
+                            :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.tamano"  min="1" :max="unit.tamano" 
                             required > 
                     </div>
                 </div>                   
             </div>
             
             <div class="flex">
-                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nameButton" >
+                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nombreBoton" >
             </div>
         </div>
         

@@ -22286,7 +22286,7 @@ exports.default = _default;
                     [
                       _c("p", [_vm._v(_vm._s(unit.titulo))]),
                       _vm._v(" "),
-                      unit.type === "checkbox"
+                      unit.tipo === "checkbox"
                         ? _c("input", {
                             directives: [
                               {
@@ -22297,15 +22297,15 @@ exports.default = _default;
                               }
                             ],
                             class: [
-                              unit.valor > unit.length || unit.valor < 0
+                              unit.valor > unit.tamano || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.length,
+                              maxlength: unit.tamano,
                               min: "1",
-                              max: unit.length,
+                              max: unit.tamano,
                               required: "",
                               type: "checkbox"
                             },
@@ -22341,7 +22341,7 @@ exports.default = _default;
                               }
                             }
                           })
-                        : unit.type === "radio"
+                        : unit.tipo === "radio"
                         ? _c("input", {
                             directives: [
                               {
@@ -22352,15 +22352,15 @@ exports.default = _default;
                               }
                             ],
                             class: [
-                              unit.valor > unit.length || unit.valor < 0
+                              unit.valor > unit.tamano || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.length,
+                              maxlength: unit.tamano,
                               min: "1",
-                              max: unit.length,
+                              max: unit.tamano,
                               required: "",
                               type: "radio"
                             },
@@ -22381,17 +22381,17 @@ exports.default = _default;
                               }
                             ],
                             class: [
-                              unit.valor > unit.length || unit.valor < 0
+                              unit.valor > unit.tamano || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.length,
+                              maxlength: unit.tamano,
                               min: "1",
-                              max: unit.length,
+                              max: unit.tamano,
                               required: "",
-                              type: unit.type
+                              type: unit.tipo
                             },
                             domProps: { value: unit.valor },
                             on: {
@@ -22416,7 +22416,7 @@ exports.default = _default;
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
             attrs: { type: "submit" },
-            domProps: { value: _vm.config.nameButton },
+            domProps: { value: _vm.config.nombreBoton },
             on: { click: _vm.enviar }
           })
         ])
@@ -26325,55 +26325,54 @@ var _default = {
       opcionSeleccionada: 'Buscar',
       config: {
         mostrarTitulo: false,
-        nameForm: 'Añadir Cliente',
-        nameButton: 'f',
+        nombreBoton: 'Enviar',
         inputs: [[
         /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
         {
           titulo: 'Nombre',
-          name: 'nombre',
-          type: 'text',
-          length: 10,
+          nombre: 'nombre',
+          tipo: 'text',
+          tamano: 10,
           validacion: false,
           valor: '',
           uno: false
         }, {
           titulo: 'Apellido',
-          name: 'apellido',
-          type: 'text',
-          length: 10,
+          nombre: 'apellido',
+          tipo: 'text',
+          tamano: 10,
           validacion: false,
           valor: '',
           uno: false
         }], [{
           titulo: 'Edad',
-          name: 'edad',
-          type: 'number',
-          length: 99,
+          nombre: 'edad',
+          tipo: 'number',
+          tamano: 99,
           validacion: false,
           valor: '',
           uno: true
         }], [{
           titulo: 'Telefono',
-          name: 'telefono',
-          type: 'number',
-          length: 99999999999,
+          nombre: 'telefono',
+          tipo: 'number',
+          tamano: 99999999999,
           validacion: false,
           valor: '',
           uno: false
         }, {
           titulo: 'ZIP Code',
-          name: 'zipcode',
-          type: 'number',
-          length: 9999,
+          nombre: 'zipcode',
+          tipo: 'number',
+          tamano: 9999,
           validacion: false,
           valor: '',
           uno: false
         }, {
           titulo: 'Tarjeta',
-          name: 'tarjeta',
-          type: 'number',
-          length: 9999999999999,
+          nombre: 'tarjeta',
+          tipo: 'number',
+          tamano: 9999999999999,
           validacion: false,
           valor: '',
           uno: false
