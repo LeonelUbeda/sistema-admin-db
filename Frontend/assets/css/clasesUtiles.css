@@ -13,6 +13,27 @@
 
 /*    margenes     */
 
+.padding-x-20{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.padding-x-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.margin-y-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.margin-b-20{
+    margin-bottom: 20px;
+}
+.margin-t-20{
+    margin-top: 20px;
+}
+
+
 .margin-left-40{
     margin-left: 40px;
 }
@@ -50,6 +71,25 @@
 
 .margin-right-auto{
     margin-right: auto;
+}
+
+/*  padding   */ 
+
+.padding-x-20{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.padding-x-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.padding-y-20{
+    padding-top: 20px;
+    padding-top: 20px;
+}
+.padding-y-10{
+    padding-top: 10px;
+    padding-top: 10px;
 }
 
 

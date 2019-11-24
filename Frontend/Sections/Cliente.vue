@@ -8,10 +8,12 @@
     :opcionSeleccionada="opcionSeleccionada"
     @elementoSeleccionado="clickOpciones">
     </TopSection>
-
-    <BusquedaTablaAll :configuracion="configuracion"></BusquedaTablaAll>
-    <InputTemplate :config="config"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
-    </InputTemplate>
+    
+    <BusquedaTablaAll :configuracion="configuracion" v-if="opcionSeleccionada === 'Buscar'"></BusquedaTablaAll>
+    <div class="width-100 padding-x-20 padding-y-20">
+        <InputTemplate :config="config"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
+        </InputTemplate>
+    </div>
 </div>
 
 </template>
@@ -53,7 +55,6 @@ export default {
                         opcionEditar: true,
                         opcionEliminar: true
                     }
-                    
                 },
                 busqueda: {
                     tiposBusqueda: [
@@ -64,33 +65,11 @@ export default {
                 }
             },
 
-
-            busqueda: {
-                limite: 10,
-                offset: 0,
-                variable: '', // nombre  | apellido | ID
-                valor: '' // El valor de la variable
-            },
             opciones: ['Buscar','Crear Cliente'],
             opcionSeleccionada: 'Buscar', 
-            clienteDatos: [],
-            clienteTitulos: [
-                {
-                    propiedad: 'nombre',
-                    titulo: 'Nombre'
-                },
-                {
-                    propiedad: 'apellido',
-                    titulo: 'Apellido'
-                },
-                {
-                    propiedad: 'direccion',
-                    titulo: 'Direccion'
-                }
-            ],
-
             config: {
-                nameForm: 'Clientes',
+                mostrarTitulo: false,
+                nameForm: 'Añadir Cliente',
                 nameButton: 'Que pedos',
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
@@ -122,63 +101,14 @@ export default {
         BusquedaTablaAll
     },
     methods: {
-        recargarTablaClientes: function(){
-            this.busqueda.variable = ''
-            this.busqueda.valor = ''
-            this.$refs.BusquedaInputRef.cambiarTexto('')
-            this.inputBusquedaTexto = '';
-            this.obtenerClientes();
-        },
+
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
-        },
-        busquedaSearchBar: function (texto) {
-            this.busqueda.valor = texto
-            console.log(texto)
-            this.obtenerClientes()
-        },
-        tipoDeBusqueda: function(seleccion){
-            this.busqueda.variable = seleccion;
-        },
-        obtenerClientes: async function(){
-            try {
-                const params = {
-                    limite: this.busqueda.limite,
-                }
-                if(this.busqueda.offset !== 0) {
-                    params.offset = this.busqueda.limite * this.busqueda.offset;
-                }
-
-                if(this.busqueda.variable !== '' || this.busqueda.valor !== ''){
-                    params[this.busqueda.variable] = this.busqueda.valor
-                }
-                console.log(params)
-                const response = await axios.get('/api/clientes', {params} )
-
-                this.clienteDatos = response.data
-                if(response.data.length === 0 ){
-                    this.anteriorTablaCliente()
-                }
-            } catch (error) {
-                // INSERTAR ALERTA DE ERROR
-            }
-        },
-        siguienteTablaCliente: function(){
-            this.busqueda.offset = this.busqueda.offset + 1
-            console.log(this.busquedaCliente)
-            this.obtenerClientes()
-        },
-        anteriorTablaCliente: function(){
-            if(this.busqueda.offset !== 0){ 
-                this.busqueda.offset = this.busqueda.offset - 1 
-                this.obtenerClientes()
-            } 
         }
        
     },
     created(){
-        this.obtenerClientes();
-        
+    
     }
 }
 </script>

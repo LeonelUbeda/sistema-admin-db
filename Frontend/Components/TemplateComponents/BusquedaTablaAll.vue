@@ -1,9 +1,9 @@
 <template>
-    <div id="main">
+    <div id="main" class="">
 
         <!--h2 class="text-left width-100">Clientes</h2-->
 
-        <div class="width-100 flex justify-around">
+        <div class="width-100 flex justify-between">
 
             <div class="contenedor-tabla">
                 <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTablaClientess"></TablaTitulo>
@@ -15,7 +15,7 @@
                 @filaSeleccionada="filaSeleccionada"
                 ></Tabla>
             </div>
-            <div id="sidebar" class="flex flex-col sombra">
+            <div id="sidebar" class="flex flex-col sombra" >
                 <div class="bloque-titulo flex items-center ">
                     <h2 class="ml-8 text-xl">Busqueda</h2>
                 </div>

@@ -1,20 +1,23 @@
 <template>
-    <form class="contenedor-tabla"  >
-            <h2>{{config.nameForm}}</h2>
-            
-            <div  id="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
+    <form id="contenedor-tabla" class="">
+        <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="config.mostrarTitulo"  >
+            <h2 class="ml-8 text-xl">{{config.nameForm}}</h2>
+        </div>
+        <div class="bg-white sombra padding-x-20 padding-y-10">
+
+            <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
                 <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
                     <p>{{unit.titulo}}</p>
                     <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'pruebados' /*true*/  : 'prueba' /*false*/ ]" 
-                    :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" required > 
+                    :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" required autocomplete="heasdj"> 
                 </div>                   
             </div>
-        
-        <div>
-            <br>
-           
-            <input type="submit" v-on:click="enviar" :value="config.nameButton" >
+            
+            <div class="flex">
+                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nameButton" >
+            </div>
         </div>
+        
     </form> 
 </template>
 
@@ -27,26 +30,46 @@ export default {
             inputs: { type: Array, required: true  },
             nameForm: String, //Nombre que sale en el titulo
             nameButton: String, //Nombre del boton de enviar
+            mostrarTitulo: Boolean
         },
     },
     data: ()=>{
-           props.config
+           return {
+
+           }
     },
     methods:{
-       enviar: function(){
-           axios.post(
-               '/api/clientes',
-               /*F ME PEGUE*/ 
+        enviar: function(){
+            /*axios.post(
+                '/api/clientes',
+                
 
-           )
-       }
+            )*/
+        }
     }
 }
 </script>
 
 
-<style  scoped>
+<style lang="scss"  scoped>
+#contenedor-tabla{
+    width: 100%;
+    
+}
+.contenedor-fila{
+    width: 100%;
+    margin: 5px 10px;
+    
+}
 
+.contenedor-input{
+    margin-top: 10px;
+    display: flex;
+    input{
+        width: 100%;
+    }
+
+}
 .prueba{
     padding-top: 5px;
     outline: 0;
@@ -54,7 +77,7 @@ export default {
 }
 .prueba:focus{
     padding-top: 5px;
-    border: solid green;
+    border: 1px solid green;
     height: 60%;
 }
 .pruebados{
@@ -68,15 +91,8 @@ export default {
     border: solid red;
     height: 60%;
 }
-#contenedor-input{
-    display: flex;
- 
-    
-}
-.contenedor-fila{
-    width: 100%;
-    margin: 5px;
-}
+
+
 
 .inputUnit{
     margin: 5px;   
@@ -92,4 +108,28 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   
 }
 
+input[type=submit]{
+    background:#1abc9c;
+    padding:15px 50px;
+    color: white;
+    width: auto;
+    margin-left: auto;
+}
+input {
+	margin:10px 0 15px 0;
+	padding:5px 10px;
+	width:100%;
+	outline:none;
+	border:1px solid #bbb;
+	border-radius:20px;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
 </style>
