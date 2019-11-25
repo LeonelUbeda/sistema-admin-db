@@ -1,3 +1,4 @@
+
 <template>
     <form id="contenedor-tabla" class="">
         <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="config.mostrarTitulo"  >
@@ -11,17 +12,18 @@
 
                            <p>{{unit.titulo}}</p>
 
-                            <input  v-model="unit.valor"  
+                            <input  v-model="datosAEnviar[unit.nombre]"
                             :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required> 
-
+                            
                     </div>
                 </div>                   
             </div>
             
             <div class="flex">
-                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nombreBoton" >
+                <button>{{config.nombreBoton}}</button>
+                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar($event)" :value="config.nombreBoton" >
             </div>
         </div>
         
@@ -42,17 +44,39 @@ export default {
     },
     data: ()=>{
            return {
-
+             datosAEnviar: {
+                
+             }
            }
     },
     methods:{
-        enviar: function(){
-            /*axios.post(
-                '/api/clientes',
-                
+        enviar: function(event){
+            event.preventDefault()
+            //console.log(this.datosAEnviar)
+            axios.post(
+                'api/clientes',
+                this.datosAEnviar
+            
+            ).then(response => {
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        },
+        // Esto es para asignar los valores de cada input de config.inputs[0][0] a
+        // su correspondiente propiedad en datosAEnviar
+        ValueIgualVModel: function(){
+            this.config.inputs.forEach((element) => {
+                element.forEach((elemento2) => {
+                    this.datosAEnviar[elemento2.nombre] = elemento2.valor
+                })
+            });
 
-            )*/
         }
+    },
+    created(){
+        this.ValueIgualVModel()
     }
 }
 </script>

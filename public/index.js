@@ -22209,6 +22209,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   props: {
     config: {
@@ -22224,15 +22229,34 @@ var _default = {
     }
   },
   data: function data() {
-    return {};
+    return {
+      datosAEnviar: {}
+    };
   },
   methods: {
-    enviar: function enviar() {
-      /*axios.post(
-          '/api/clientes',
-          
-        )*/
+    enviar: function enviar(event) {
+      event.preventDefault(); //console.log(this.datosAEnviar)
+
+      _axios.default.post('api/clientes', this.datosAEnviar).then(function (response) {
+        console.log(response);
+      }).catch(function (e) {
+        console.log(e);
+      });
+    },
+    // Esto es para asignar los valores de cada input de config.inputs[0][0] a
+    // su correspondiente propiedad en datosAEnviar
+    ValueIgualVModel: function ValueIgualVModel() {
+      var _this = this;
+
+      this.config.inputs.forEach(function (element) {
+        element.forEach(function (elemento2) {
+          _this.datosAEnviar[elemento2.nombre] = elemento2.valor;
+        });
+      });
     }
+  },
+  created: function created() {
+    this.ValueIgualVModel();
   }
 };
 exports.default = _default;
@@ -22292,8 +22316,8 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
@@ -22310,13 +22334,16 @@ exports.default = _default;
                               type: "checkbox"
                             },
                             domProps: {
-                              checked: Array.isArray(unit.valor)
-                                ? _vm._i(unit.valor, null) > -1
-                                : unit.valor
+                              checked: Array.isArray(
+                                _vm.datosAEnviar[unit.nombre]
+                              )
+                                ? _vm._i(_vm.datosAEnviar[unit.nombre], null) >
+                                  -1
+                                : _vm.datosAEnviar[unit.nombre]
                             },
                             on: {
                               change: function($event) {
-                                var $$a = unit.valor,
+                                var $$a = _vm.datosAEnviar[unit.nombre],
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
                                 if (Array.isArray($$a)) {
@@ -22324,19 +22351,23 @@ exports.default = _default;
                                     $$i = _vm._i($$a, $$v)
                                   if ($$el.checked) {
                                     $$i < 0 &&
-                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
+                                      _vm.$set(
+                                        _vm.datosAEnviar,
+                                        unit.nombre,
+                                        $$a.concat([$$v])
+                                      )
                                   } else {
                                     $$i > -1 &&
                                       _vm.$set(
-                                        unit,
-                                        "valor",
+                                        _vm.datosAEnviar,
+                                        unit.nombre,
                                         $$a
                                           .slice(0, $$i)
                                           .concat($$a.slice($$i + 1))
                                       )
                                   }
                                 } else {
-                                  _vm.$set(unit, "valor", $$c)
+                                  _vm.$set(_vm.datosAEnviar, unit.nombre, $$c)
                                 }
                               }
                             }
@@ -22347,8 +22378,8 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
@@ -22364,10 +22395,19 @@ exports.default = _default;
                               required: "",
                               type: "radio"
                             },
-                            domProps: { checked: _vm._q(unit.valor, null) },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.datosAEnviar[unit.nombre],
+                                null
+                              )
+                            },
                             on: {
                               change: function($event) {
-                                return _vm.$set(unit, "valor", null)
+                                return _vm.$set(
+                                  _vm.datosAEnviar,
+                                  unit.nombre,
+                                  null
+                                )
                               }
                             }
                           })
@@ -22376,8 +22416,8 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
@@ -22393,13 +22433,17 @@ exports.default = _default;
                               required: "",
                               type: unit.tipo
                             },
-                            domProps: { value: unit.valor },
+                            domProps: { value: _vm.datosAEnviar[unit.nombre] },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.$set(unit, "valor", $event.target.value)
+                                _vm.$set(
+                                  _vm.datosAEnviar,
+                                  unit.nombre,
+                                  $event.target.value
+                                )
                               }
                             }
                           })
@@ -22413,11 +22457,17 @@ exports.default = _default;
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
+          _c("button", [_vm._v(_vm._s(_vm.config.nombreBoton))]),
+          _vm._v(" "),
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
             attrs: { type: "submit" },
             domProps: { value: _vm.config.nombreBoton },
-            on: { click: _vm.enviar }
+            on: {
+              click: function($event) {
+                return _vm.enviar($event)
+              }
+            }
           })
         ])
       ],
@@ -25895,6 +25945,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   props: {
     configuracion: Object
@@ -25918,60 +25969,10 @@ var _default = {
       // Informacion de la tabla
       tablaDatos: [],
       tablaTitulos: [],
-      config: {
+      configEditInputTemplate: {
         mostrarTitulo: false,
-        nombreBoton: 'Enviar',
-        inputs: [[
-        /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
-        {
-          titulo: 'Nombre',
-          nombre: 'nombre',
-          tipo: 'text',
-          max: 10,
-          validacion: false,
-          valor: '',
-          uno: false
-        }, {
-          titulo: 'Apellido',
-          nombre: 'apellido',
-          tipo: 'text',
-          max: 10,
-          validacion: false,
-          valor: '',
-          uno: false
-        }], [{
-          titulo: 'Edad',
-          nombre: 'edad',
-          tipo: 'number',
-          max: 99,
-          validacion: false,
-          valor: '',
-          uno: false
-        }], [{
-          titulo: 'Telefono',
-          nombre: 'telefono',
-          tipo: 'number',
-          max: 99999999999,
-          validacion: false,
-          valor: '',
-          uno: false
-        }, {
-          titulo: 'ZIP Code',
-          nombre: 'zipcode',
-          tipo: 'number',
-          max: 9999,
-          validacion: false,
-          valor: '',
-          uno: false
-        }, {
-          titulo: 'Tarjeta',
-          nombre: 'tarjeta',
-          tipo: 'number',
-          max: 9999999999999,
-          validacion: false,
-          valor: '',
-          uno: false
-        }]]
+        nombreBoton: 'Guardar',
+        inputs: []
       }
     };
   },
@@ -25985,7 +25986,28 @@ var _default = {
   },
   methods: {
     editarElementoSeleccionado: function editarElementoSeleccionado() {
+      var _this = this;
+
+      var elementoClickeado = this.elementoClickeado;
+      var _this$configuracion$t = this.configuracion.tabla.configuracionEditar,
+          datosEditar = _this$configuracion$t.datosEditar,
+          titulosEditar = _this$configuracion$t.titulosEditar,
+          max = _this$configuracion$t.max,
+          tipo = _this$configuracion$t.tipo;
+      titulosEditar.forEach(function (elemento, index) {
+        var elementoTemporal = {
+          titulo: elemento,
+          nombre: datosEditar[index],
+          uno: false,
+          valor: elementoClickeado[datosEditar[index]],
+          max: max[index],
+          tipo: tipo[index]
+        };
+
+        _this.configEditInputTemplate.inputs.push([elementoTemporal]);
+      });
       this.mostrarPopupEditar = true;
+      console.log(this.configEditInputTemplate);
     },
     eliminarElementoSeleccionado: function eliminarElementoSeleccionado() {
       var click = this.configuracion.tabla.click;
@@ -26104,27 +26126,32 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "main" } }, [
     _vm.mostrarPopupEditar
-      ? _c(
-          "div",
-          {
-            attrs: { id: "popup-container" },
-            on: {
-              click: function($event) {
-                _vm.mostrarPopupEditar = false
-              }
-            }
-          },
-          [
-            _c("div", { attrs: { id: "popup" } }, [
-              _c(
-                "div",
-                { staticClass: "width-100 padding-x-20 padding-y-20" },
-                [_c("InputTemplate", { attrs: { config: _vm.config } })],
-                1
-              )
-            ])
-          ]
-        )
+      ? _c("div", { attrs: { id: "popup-container" } }, [
+          _c("div", { attrs: { id: "popup" } }, [
+            _c(
+              "div",
+              { staticClass: "width-100 padding-x-20 padding-y-20" },
+              [
+                _c(
+                  "p",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.mostrarPopupEditar = false
+                      }
+                    }
+                  },
+                  [_vm._v("Cancelar")]
+                ),
+                _vm._v(" "),
+                _c("InputTemplate", {
+                  attrs: { config: _vm.configEditInputTemplate }
+                })
+              ],
+              1
+            )
+          ])
+        ])
       : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "width-100 flex justify-between" }, [
@@ -26181,7 +26208,7 @@ exports.default = _default;
                 1
               ),
               _vm._v(" "),
-              _vm.configuracion.tabla.click.mandarEvento === false &&
+              _vm.configuracion.tabla.click.opcionEdicion === true &&
               _vm.clickEnTabla === true
                 ? _c(
                     "div",
@@ -26191,7 +26218,7 @@ exports.default = _default;
                     [
                       _c(
                         "div",
-                        { staticClass: "bloque-titulo flex items-center " },
+                        { staticClass: "bloque-titulo flex items-center" },
                         [
                           _c("h2", { staticClass: "ml-8 text-xl" }, [
                             _vm._v("Edicion")
@@ -26379,6 +26406,9 @@ var _default = {
         tabla: {
           url: '/api/clientes',
           tablaTitulos: [{
+            propiedad: 'id',
+            titulo: 'ID'
+          }, {
             propiedad: 'nombre',
             titulo: 'Nombre'
           }, {
@@ -26389,17 +26419,32 @@ var _default = {
             titulo: 'Direccion'
           }],
           click: {
+            // Hacer click en la tabla
             urlDelete: '/api/clientes',
             urlEdit: '/api/clientes',
             propiedadAlEliminar: 'id',
+            // Al hacer click, se mostrara un pequeño cuadro con la información del elemento clickeado.
+            // La siguiente información será mostrada en ese cuadro
+            // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
             datosMostrar: ['id', 'nombre', 'apellido', 'direccion'],
             titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
+            // Al hacer click se desea mandar un evento?
             mandarEvento: false,
             opcionEditar: true,
-            opcionEliminar: true
+            opcionEliminar: true,
+            // Al dar click a un elemento, mostrar la informacion de edicion?
+            opcionEdicion: true
+          },
+          configuracionEditar: {
+            // Al editar un elemento se van a mostrar los inputs de los siguientes elementos
+            datosEditar: ['id', 'nombre', 'apellido', 'direccion'],
+            titulosEditar: ['Identificador', 'Nombre', 'Apellido', 'Direccion'],
+            max: [5, 5, 5, 5],
+            tipo: ['number', 'text', 'number', 'text']
           }
         },
         busqueda: {
+          // Esto es para las opciones de busqueda para la tabla
           tiposBusqueda: [[{
             value: 'nombre',
             titulo: 'Nombre'
@@ -26413,6 +26458,7 @@ var _default = {
             value: 'id',
             titulo: 'ID'
           }]],
+          // Tipo de busqueda seleccionada por defecto
           busquedaSeleccionada: 'nombre'
         }
       },
@@ -26655,7 +26701,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "17974" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41483" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

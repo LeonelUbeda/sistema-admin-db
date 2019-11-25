@@ -2,10 +2,11 @@
     <div id="main" class="">
 
         <!--h2 class="text-left width-100">Clientes</h2-->
-        <div id="popup-container" @click="mostrarPopupEditar = false" v-if="mostrarPopupEditar">
+        <div id="popup-container" v-if="mostrarPopupEditar">
             <div id="popup">
                <div class="width-100 padding-x-20 padding-y-20">
-                    <InputTemplate :config="config" >
+                    <p @click="mostrarPopupEditar = false" >Cancelar</p>
+                    <InputTemplate :config="configEditInputTemplate" >
                     </InputTemplate>
                 </div>
             </div>
@@ -34,8 +35,8 @@
                         <BusquedaInput ref="BusquedaInputRef" @buscar="busquedaSearchBar"></BusquedaInput>
                     </div>
 
-                    <div class="flex flex-col container items-center card" v-if="configuracion.tabla.click.mandarEvento === false && clickEnTabla === true">
-                        <div class="bloque-titulo flex items-center ">
+                    <div class="flex flex-col container items-center card" v-if="configuracion.tabla.click.opcionEdicion === true && clickEnTabla === true">
+                        <div class="bloque-titulo flex items-center">
                             <h2 class="ml-8 text-xl">Edicion</h2>
                             <h2 class="ml-auto mr-8 cursor-pointer text-xl" style="color:red" @click="(clickEnTabla = false)">X</h2>
                         </div>
@@ -99,24 +100,10 @@ export default {
             // Informacion de la tabla
             tablaDatos: [],
             tablaTitulos: [], 
-            config: {
+            configEditInputTemplate: {
                 mostrarTitulo: false,
-                nombreBoton: 'Enviar',
-                inputs: [
-                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 10, validacion: false, valor:'', uno:false},
-                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 10,  validacion: false, valor:'', uno:false}
-                  ],
-                  [
-                      {titulo: 'Edad', nombre:'edad', tipo:'number', max: 99, validacion: false, valor:'', uno:false}
-                  ],
-                  [
-                      {titulo: 'Telefono', nombre:'telefono', tipo:'number', max: 99999999999, validacion: false, valor:'', uno:false},
-                      {titulo: 'ZIP Code', nombre:'zipcode', tipo:'number', max: 9999, validacion: false, valor:'', uno:false},
-                      {titulo: 'Tarjeta', nombre:'tarjeta', tipo:'number', max: 9999999999999, validacion: false, valor:'', uno:false}
-                  ]
-                  
-                ]  
+                nombreBoton: 'Guardar',
+                inputs: []  
             }
 
         }
@@ -131,7 +118,26 @@ export default {
     },
     methods: {
         editarElementoSeleccionado: function(){
+ 
+            let elementoClickeado = this.elementoClickeado;
+            let {datosEditar, titulosEditar, max, tipo} = this.configuracion.tabla.configuracionEditar
+
+            titulosEditar.forEach((elemento, index) => {
+      
+                let elementoTemporal = {
+                    titulo: elemento,
+                    nombre: datosEditar[index],
+                    uno: false,
+                    valor: elementoClickeado[datosEditar[index]],
+                    max: max[index],
+                    tipo: tipo[index]
+                }
+
+                this.configEditInputTemplate.inputs.push([elementoTemporal])
+
+            })
             this.mostrarPopupEditar = true;
+            console.log(this.configEditInputTemplate)
         },
         eliminarElementoSeleccionado: function() {
             const click = this.configuracion.tabla.click
@@ -231,7 +237,7 @@ export default {
 }
 
 #popup{
-    width: 500px;
+    width: 800px;
     height: calc(100% - 100px);
     top: 50px;
     left: calc(50% - (500px / 2) );

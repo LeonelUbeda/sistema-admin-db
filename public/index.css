@@ -492,7 +492,7 @@ input[data-v-33e561] {
   background-color: rgba(183, 183, 183, 0.5);
 }
 #popup[data-v-31a313] {
-  width: 500px;
+  width: 800px;
   height: calc(100% - 100px);
   top: 50px;
   left: calc(50% - (500px / 2) );

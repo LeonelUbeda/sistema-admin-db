@@ -38,30 +38,48 @@ export default {
 
             configuracion: {
                 tabla: {
-
                     url: '/api/clientes',
-                    
                     tablaTitulos: [
+                         {propiedad: 'id',titulo: 'ID'},
                         {propiedad: 'nombre',titulo: 'Nombre'},
                         {propiedad: 'apellido',titulo: 'Apellido'},
                         {propiedad: 'direccion',titulo: 'Direccion'}
                     ],
                     click: { 
+                        // Hacer click en la tabla
                         urlDelete: '/api/clientes',
                         urlEdit: '/api/clientes',
+
                         propiedadAlEliminar: 'id',
+                        // Al hacer click, se mostrara un pequeño cuadro con la información del elemento clickeado.
+                        // La siguiente información será mostrada en ese cuadro
+                        // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
                         datosMostrar: ['id','nombre','apellido', 'direccion'],
                         titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
+
+                        // Al hacer click se desea mandar un evento?
                         mandarEvento: false, 
                         opcionEditar: true,
-                        opcionEliminar: true
+                        opcionEliminar: true,
+
+                        // Al dar click a un elemento, mostrar la informacion de edicion?
+                        opcionEdicion: true,
+                    },
+                    configuracionEditar: { 
+                        // Al editar un elemento se van a mostrar los inputs de los siguientes elementos
+                        datosEditar:    ['id',              'nombre',   'apellido',     'direccion'],
+                        titulosEditar:  ['Identificador',   'Nombre',   'Apellido',     'Direccion'],
+                        max:            [5,                 5,          5,              5],
+                        tipo:           ['number',          'text',     'number',          'text']
                     }
                 },
-                busqueda: {
+                busqueda: { 
+                    // Esto es para las opciones de busqueda para la tabla
                     tiposBusqueda: [
                         [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
                         [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]
                     ],
+                    // Tipo de busqueda seleccionada por defecto
                     busquedaSeleccionada: 'nombre'
                 }
             },
