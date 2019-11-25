@@ -5,7 +5,8 @@
 
 
 .colorSecundario{
-    
+    background-color: #f8f8f8;
+    background-color: #f7f9fb;
 }
 
 .seleccionado{
@@ -15,4 +16,15 @@
 .bordeSeleccionado{
 
     border-bottom:2px solid #76c4f5 
+}
+
+
+.border-color-tema{
+    border: 2px solid #f2f2f2;
+    border: 2px solid #098dfd;
+    border: 2px solid #6c7ae0;
+}
+
+.bg-color-tema{
+    background-color: #6c7ae0;
 }

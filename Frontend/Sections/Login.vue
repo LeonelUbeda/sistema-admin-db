@@ -1,7 +1,7 @@
 
 <template>
 
-    <h1>Bienvenido a LOGIN</h1>
+    <h1>Bienvenido al LOGIN</h1>
 
 </template>
 
