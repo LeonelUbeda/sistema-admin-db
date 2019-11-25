@@ -4,15 +4,18 @@
             <h2 class="ml-8 text-xl">{{config.nameForm}}</h2>
         </div>
         <div class="bg-white sombra padding-x-20 padding-y-10">
-
+            
             <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
                 <div v-for="(unit, index2) of input" :key="index2" class="contenedor-filaprincipal" >
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
+
                            <p>{{unit.titulo}}</p>
+
                             <input  v-model="unit.valor"  
                             :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required> 
+
                     </div>
                 </div>                   
             </div>
