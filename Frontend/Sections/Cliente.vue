@@ -47,12 +47,13 @@ export default {
                         {propiedad: 'apellido',titulo: 'Apellido'},
                         {propiedad: 'direccion',titulo: 'Direccion'}
                     ],
-                    click: {
+                    click: { 
                         urlDelete: '/api/clientes',
+                        urlEdit: '/api/clientes',
                         propiedadAlEliminar: 'id',
                         datosMostrar: ['id','nombre','apellido', 'direccion'],
                         titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
-                        mandarEvento: false,
+                        mandarEvento: false, 
                         opcionEditar: true,
                         opcionEliminar: true
                     }
@@ -73,16 +74,16 @@ export default {
                 nombreBoton: 'Enviar',
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', tamano: 10, validacion: false, valor:'', uno:false},
-                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', tamano: 10,  validacion: false, valor:'', uno:false}
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 10, validacion: false, valor:'', uno:false},
+                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 10,  validacion: false, valor:'', uno:false}
                   ],
                   [
-                      {titulo: 'Edad', nombre:'edad', tipo:'number', tamano: 99, validacion: false, valor:'', uno:true}
+                      {titulo: 'Edad', nombre:'edad', tipo:'number', max: 99, validacion: false, valor:'', uno:false}
                   ],
                   [
-                      {titulo: 'Telefono', nombre:'telefono', tipo:'number', tamano: 99999999999, validacion: false, valor:'', uno:false},
-                      {titulo: 'ZIP Code', nombre:'zipcode', tipo:'number', tamano: 9999, validacion: false, valor:'', uno:false},
-                      {titulo: 'Tarjeta', nombre:'tarjeta', tipo:'number', tamano: 9999999999999, validacion: false, valor:'', uno:false}
+                      {titulo: 'Telefono', nombre:'telefono', tipo:'number', max: 99999999999, validacion: false, valor:'', uno:false},
+                      {titulo: 'ZIP Code', nombre:'zipcode', tipo:'number', max: 9999, validacion: false, valor:'', uno:false},
+                      {titulo: 'Tarjeta', nombre:'tarjeta', tipo:'number', max: 9999999999999, validacion: false, valor:'', uno:false}
                   ]
                   
                 ]  

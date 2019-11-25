@@ -2,7 +2,14 @@
     <div id="main" class="">
 
         <!--h2 class="text-left width-100">Clientes</h2-->
-
+        <div id="popup-container" @click="mostrarPopupEditar = false" v-if="mostrarPopupEditar">
+            <div id="popup">
+               <div class="width-100 padding-x-20 padding-y-20">
+                    <InputTemplate :config="config" >
+                    </InputTemplate>
+                </div>
+            </div>
+        </div>
         <div class="width-100 flex justify-between">
 
             <div class="contenedor-tabla">
@@ -41,7 +48,7 @@
 
                         <div class="flex">
                             <button class="btn-rojo text-white" v-if="configuracion.tabla.click.opcionEliminar" @click="eliminarElementoSeleccionado">Eliminar</button>
-                            <button class="btn-azul text-white" v-if="configuracion.tabla.click.opcionEditar">Editar</button>
+                            <button class="btn-azul text-white" v-if="configuracion.tabla.click.opcionEditar" @click="editarElementoSeleccionado">Editar</button>
                         </div>
                     </div>
 
@@ -64,6 +71,7 @@ import axios from 'axios'
 import 'babel-polyfill'
 import {alertaEliminar} from '../../Utils/sweetAlert'
 /* ----- Componentes  ----- */
+
 import TopSection from '../../Components/TopSection'
 import Tabla from '../../Components/Tabla'
 import TablaTitulo from '../../Components/TablaTitulo'
@@ -76,6 +84,7 @@ export default {
     },
     data: () => {
         return {
+            mostrarPopupEditar: false,
             clickEnTabla: false,
             elementoClickeado: {},
             busqueda: {
@@ -90,6 +99,25 @@ export default {
             // Informacion de la tabla
             tablaDatos: [],
             tablaTitulos: [], 
+            config: {
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 10, validacion: false, valor:'', uno:false},
+                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 10,  validacion: false, valor:'', uno:false}
+                  ],
+                  [
+                      {titulo: 'Edad', nombre:'edad', tipo:'number', max: 99, validacion: false, valor:'', uno:false}
+                  ],
+                  [
+                      {titulo: 'Telefono', nombre:'telefono', tipo:'number', max: 99999999999, validacion: false, valor:'', uno:false},
+                      {titulo: 'ZIP Code', nombre:'zipcode', tipo:'number', max: 9999, validacion: false, valor:'', uno:false},
+                      {titulo: 'Tarjeta', nombre:'tarjeta', tipo:'number', max: 9999999999999, validacion: false, valor:'', uno:false}
+                  ]
+                  
+                ]  
+            }
 
         }
     },
@@ -102,11 +130,16 @@ export default {
         BusquedaRadio
     },
     methods: {
+        editarElementoSeleccionado: function(){
+            this.mostrarPopupEditar = true;
+        },
         eliminarElementoSeleccionado: function() {
             const click = this.configuracion.tabla.click
             console.log(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
+
             alertaEliminar(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
-        },
+            
+        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
         filaSeleccionada: function(elemento){
             if(this.configuracion.tabla.click.mandarEvento === false){
                 this.elementoClickeado = elemento
@@ -138,25 +171,23 @@ export default {
         obtenerDatos: async function(){
             try {
                 const busqueda = this.busqueda
-                const params = {
+                const query = {
                     limite: busqueda.limite,
                 }
                 if(this.busqueda.offset !== 0) {
-                    params.offset = busqueda.limite * busqueda.offset;
+                    query.offset = busqueda.limite * busqueda.offset;
                 }
-
+                // Si variable y valor tienen valores entonces se añade al objeto query
                 if(busqueda.variable !== '' || busqueda.valor !== ''){
-                    params[busqueda.variable] = busqueda.valor
+                    query[busqueda.variable] = busqueda.valor
                 }
-                console.log(params)
-                const response = await axios.get(this.configuracion.tabla.url, {params} )
-                
+                const response = await axios.get(this.configuracion.tabla.url, {query} )
                 this.tablaDatos = response.data
                 if(response.data.length === 0 ){
                     this.anteriorTablaCliente()
                 }
             } catch (error) {
-                // INSERTAR ALERTA DE ERROR
+                console.log(error)
             }
         },
         siguienteTablaCliente: function(){
@@ -186,6 +217,31 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
+#popup-container{
+    width: 100vw;
+    height: 100vh;;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba($color: #B7B7B7, $alpha: 0.5);
+   
+}
+
+#popup{
+    width: 500px;
+    height: calc(100% - 100px);
+    top: 50px;
+    left: calc(50% - (500px / 2) );
+    z-index: 20;
+    position: fixed;
+    overflow-y: auto;
+    background-color: white;
+   
+}
+
 .card{
     padding:20px 0 20px 0;
     box-sizing: border-box;

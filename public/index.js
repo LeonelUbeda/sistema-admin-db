@@ -22214,6 +22214,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     config: {
@@ -22295,7 +22302,7 @@ exports.default = _default;
                     },
                     [
                       _c("p", [_vm._v(_vm._s(unit.titulo))]),
-                      _vm._v(" "),
+                      _vm._v("\n<<<<<<< HEAD\n\n                            "),
                       unit.tipo === "checkbox"
                         ? _c("input", {
                             directives: [
@@ -22439,7 +22446,130 @@ exports.default = _default;
                                 )
                               }
                             }
+                          }),
+                      _vm._v(
+                        " \n                            \n=======\n                            "
+                      ),
+                      unit.tipo === "checkbox"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: "checkbox"
+                            },
+                            domProps: {
+                              checked: Array.isArray(unit.valor)
+                                ? _vm._i(unit.valor, null) > -1
+                                : unit.valor
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = unit.valor,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        unit,
+                                        "valor",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(unit, "valor", $$c)
+                                }
+                              }
+                            }
                           })
+                        : unit.tipo === "radio"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: "radio"
+                            },
+                            domProps: { checked: _vm._q(unit.valor, null) },
+                            on: {
+                              change: function($event) {
+                                return _vm.$set(unit, "valor", null)
+                              }
+                            }
+                          })
+                        : _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: unit.tipo
+                            },
+                            domProps: { value: unit.valor },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(unit, "valor", $event.target.value)
+                              }
+                            }
+                          }),
+                      _vm._v(
+                        " \n>>>>>>> 64e5c8a6b11c07246df1ba7cf05e9b7ef4c8d85d\n                    "
+                      )
                     ]
                   )
                 ]
@@ -25931,12 +26061,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     configuracion: Object
   },
   data: function data() {
     return {
+      mostrarPopupEditar: false,
       clickEnTabla: false,
       elementoClickeado: {},
       busqueda: {
@@ -25952,7 +26090,62 @@ var _default = {
       tiposBusqueda: [],
       // Informacion de la tabla
       tablaDatos: [],
-      tablaTitulos: []
+      tablaTitulos: [],
+      config: {
+        mostrarTitulo: false,
+        nombreBoton: 'Enviar',
+        inputs: [[
+        /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
+        {
+          titulo: 'Nombre',
+          nombre: 'nombre',
+          tipo: 'text',
+          max: 10,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'Apellido',
+          nombre: 'apellido',
+          tipo: 'text',
+          max: 10,
+          validacion: false,
+          valor: '',
+          uno: false
+        }], [{
+          titulo: 'Edad',
+          nombre: 'edad',
+          tipo: 'number',
+          max: 99,
+          validacion: false,
+          valor: '',
+          uno: false
+        }], [{
+          titulo: 'Telefono',
+          nombre: 'telefono',
+          tipo: 'number',
+          max: 99999999999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'ZIP Code',
+          nombre: 'zipcode',
+          tipo: 'number',
+          max: 9999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'Tarjeta',
+          nombre: 'tarjeta',
+          tipo: 'number',
+          max: 9999999999999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }]]
+      }
     };
   },
   components: {
@@ -25964,6 +26157,9 @@ var _default = {
     BusquedaRadio: _BusquedaRadio.default
   },
   methods: {
+    editarElementoSeleccionado: function editarElementoSeleccionado() {
+      this.mostrarPopupEditar = true;
+    },
     eliminarElementoSeleccionado: function eliminarElementoSeleccionado() {
       var click = this.configuracion.tabla.click;
       console.log("".concat(click.urlDelete, "/").concat(this.elementoClickeado[click.propiedadAlEliminar]));
@@ -25997,32 +26193,32 @@ var _default = {
       this.busqueda.variable = seleccion;
     },
     obtenerDatos: function obtenerDatos() {
-      var busqueda, params, response;
+      var busqueda, query, response;
       return regeneratorRuntime.async(function obtenerDatos$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
               busqueda = this.busqueda;
-              params = {
+              query = {
                 limite: busqueda.limite
               };
 
               if (this.busqueda.offset !== 0) {
-                params.offset = busqueda.limite * busqueda.offset;
-              }
+                query.offset = busqueda.limite * busqueda.offset;
+              } // Si variable y valor tienen valores entonces se añade al objeto query
+
 
               if (busqueda.variable !== '' || busqueda.valor !== '') {
-                params[busqueda.variable] = busqueda.valor;
+                query[busqueda.variable] = busqueda.valor;
               }
 
-              console.log(params);
-              _context.next = 8;
+              _context.next = 7;
               return regeneratorRuntime.awrap(_axios.default.get(this.configuracion.tabla.url, {
-                params: params
+                query: query
               }));
 
-            case 8:
+            case 7:
               response = _context.sent;
               this.tablaDatos = response.data;
 
@@ -26033,16 +26229,17 @@ var _default = {
               _context.next = 15;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
 
             case 15:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 13]]);
+      }, null, this, [[0, 12]]);
     },
     siguienteTablaCliente: function siguienteTablaCliente() {
       this.busqueda.offset = this.busqueda.offset + 1;
@@ -26079,6 +26276,30 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "main" } }, [
+    _vm.mostrarPopupEditar
+      ? _c(
+          "div",
+          {
+            attrs: { id: "popup-container" },
+            on: {
+              click: function($event) {
+                _vm.mostrarPopupEditar = false
+              }
+            }
+          },
+          [
+            _c("div", { attrs: { id: "popup" } }, [
+              _c(
+                "div",
+                { staticClass: "width-100 padding-x-20 padding-y-20" },
+                [_c("InputTemplate", { attrs: { config: _vm.config } })],
+                1
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _c("div", { staticClass: "width-100 flex justify-between" }, [
       _c(
         "div",
@@ -26210,7 +26431,10 @@ exports.default = _default;
                         _vm.configuracion.tabla.click.opcionEditar
                           ? _c(
                               "button",
-                              { staticClass: "btn-azul text-white" },
+                              {
+                                staticClass: "btn-azul text-white",
+                                on: { click: _vm.editarElementoSeleccionado }
+                              },
                               [_vm._v("Editar")]
                             )
                           : _vm._e()
@@ -26342,6 +26566,7 @@ var _default = {
           }],
           click: {
             urlDelete: '/api/clientes',
+            urlEdit: '/api/clientes',
             propiedadAlEliminar: 'id',
             datosMostrar: ['id', 'nombre', 'apellido', 'direccion'],
             titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
@@ -26378,7 +26603,7 @@ var _default = {
           titulo: 'Nombre',
           nombre: 'nombre',
           tipo: 'text',
-          tamano: 10,
+          max: 10,
           validacion: false,
           valor: '',
           uno: false
@@ -26386,7 +26611,7 @@ var _default = {
           titulo: 'Apellido',
           nombre: 'apellido',
           tipo: 'text',
-          tamano: 10,
+          max: 10,
           validacion: false,
           valor: '',
           uno: false
@@ -26394,15 +26619,15 @@ var _default = {
           titulo: 'Edad',
           nombre: 'edad',
           tipo: 'number',
-          tamano: 99,
+          max: 99,
           validacion: false,
           valor: '',
-          uno: true
+          uno: false
         }], [{
           titulo: 'Telefono',
           nombre: 'telefono',
           tipo: 'number',
-          tamano: 99999999999,
+          max: 99999999999,
           validacion: false,
           valor: '',
           uno: false
@@ -26410,7 +26635,7 @@ var _default = {
           titulo: 'ZIP Code',
           nombre: 'zipcode',
           tipo: 'number',
-          tamano: 9999,
+          max: 9999,
           validacion: false,
           valor: '',
           uno: false
@@ -26418,7 +26643,7 @@ var _default = {
           titulo: 'Tarjeta',
           nombre: 'tarjeta',
           tipo: 'number',
-          tamano: 9999999999999,
+          max: 9999999999999,
           validacion: false,
           valor: '',
           uno: false
