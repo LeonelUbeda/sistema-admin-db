@@ -11,19 +11,12 @@
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
 
                            <p>{{unit.titulo}}</p>
-<<<<<<< HEAD
 
                             <input  v-model="datosAEnviar[unit.nombre]" :value="unit.valor" 
                             :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required> 
                             
-=======
-                            <input  v-model="unit.valor"  
-                            :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
-                            :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
-                            required> 
->>>>>>> 64e5c8a6b11c07246df1ba7cf05e9b7ef4c8d85d
                     </div>
                 </div>                   
             </div>

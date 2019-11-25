@@ -22214,13 +22214,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   props: {
     config: {
@@ -22302,7 +22295,7 @@ exports.default = _default;
                     },
                     [
                       _c("p", [_vm._v(_vm._s(unit.titulo))]),
-                      _vm._v("\n<<<<<<< HEAD\n\n                            "),
+                      _vm._v(" "),
                       unit.tipo === "checkbox"
                         ? _c("input", {
                             directives: [
@@ -22446,130 +22439,7 @@ exports.default = _default;
                                 )
                               }
                             }
-                          }),
-                      _vm._v(
-                        " \n                            \n=======\n                            "
-                      ),
-                      unit.tipo === "checkbox"
-                        ? _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
-                              }
-                            ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
-                            attrs: {
-                              placeholder: unit.titulo,
-                              maxlength: unit.max,
-                              min: "1",
-                              max: unit.max,
-                              required: "",
-                              type: "checkbox"
-                            },
-                            domProps: {
-                              checked: Array.isArray(unit.valor)
-                                ? _vm._i(unit.valor, null) > -1
-                                : unit.valor
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$a = unit.valor,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        unit,
-                                        "valor",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
-                                  }
-                                } else {
-                                  _vm.$set(unit, "valor", $$c)
-                                }
-                              }
-                            }
                           })
-                        : unit.tipo === "radio"
-                        ? _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
-                              }
-                            ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
-                            attrs: {
-                              placeholder: unit.titulo,
-                              maxlength: unit.max,
-                              min: "1",
-                              max: unit.max,
-                              required: "",
-                              type: "radio"
-                            },
-                            domProps: { checked: _vm._q(unit.valor, null) },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(unit, "valor", null)
-                              }
-                            }
-                          })
-                        : _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
-                              }
-                            ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
-                            attrs: {
-                              placeholder: unit.titulo,
-                              maxlength: unit.max,
-                              min: "1",
-                              max: unit.max,
-                              required: "",
-                              type: unit.tipo
-                            },
-                            domProps: { value: unit.valor },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(unit, "valor", $event.target.value)
-                              }
-                            }
-                          }),
-                      _vm._v(
-                        " \n>>>>>>> 64e5c8a6b11c07246df1ba7cf05e9b7ef4c8d85d\n                    "
-                      )
                     ]
                   )
                 ]
