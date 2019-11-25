@@ -55,6 +55,7 @@ a{
 }
 
 .boton{
-    margin: 10px 0
+    margin: 10px 0;
+    transition: 1s;
 }
 </style>

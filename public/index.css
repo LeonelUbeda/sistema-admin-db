@@ -13,58 +13,60 @@
 }
 
 .bordeSeleccionado{
+
     border-bottom:2px solid #76c4f5 
 }
-#contenedor[data-v-12368a] {
+#contenedor[data-v-65481f] {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.texto[data-v-12368a] {
+.texto[data-v-65481f] {
   color: black;
 }
-a[data-v-12368a] {
+a[data-v-65481f] {
   text-decoration: none;
 }
-.boton[data-v-12368a] {
+.boton[data-v-65481f] {
   margin: 10px 0;
+  transition: 1s;
 }
-*[data-v-1cec8b]{
+*[data-v-52f010]{
   font-family: 'Montserrat'
 }
-#contenedora[data-v-1cec8b]{
+#contenedora[data-v-52f010]{
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-wrap: nowrap;
   background-color: #f8f8f8;
 }
-#sidebar[data-v-1cec8b]{
+#sidebar[data-v-52f010]{
   background-color: green;
   height: 100vh;
   position: fixed;
   width: 150px;
 }
-#main[data-v-1cec8b]{
+#main[data-v-52f010]{
   width: 100%;
 
   margin-left: 150px;
 }
-#contenedor[data-v-a48455] {
+#contenedor[data-v-e551a3] {
   width: 100%;
   height: 50px;
   border-bottom: 0.5px solid #f8f8f8;
   box-shadow: 0 1px 20px -2px #dbdbdb;
 }
-#opciones[data-v-a48455] {
+#opciones[data-v-e551a3] {
   display: flex;
   cursor: pointer;
   align-items: center;
   height: 100%;
 }
-#opciones > div[data-v-a48455] {
+#opciones > div[data-v-e551a3] {
   margin: 0 20px;
   height: 100%;
   display: flex;
@@ -72,7 +74,7 @@ a[data-v-12368a] {
   justify-content: center;
   min-width: 50px;
 }
-#main[data-v-2acc8d] {
+#main[data-v-1b7dc3] {
   padding: 20px 20px;
 }
 
