@@ -1,3 +1,4 @@
+
 <template>
     <form id="contenedor-tabla" class="">
         <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="config.mostrarTitulo"  >
@@ -5,20 +6,24 @@
         </div>
         <div class="bg-white sombra padding-x-20 padding-y-10">
 
-            <div  class="contenedor-input"  v-for="input of config.inputs" :key="input" >
-                <div v-for="unit of input" :key="unit" class="contenedor-filaprincipal" >
+            <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
+                <div v-for="(unit, index2) of input" :key="index2" class="contenedor-filaprincipal" >
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
+
                            <p>{{unit.titulo}}</p>
-                            <input  v-model="unit.valor"  
-                            :class="[ unit.valor>unit.tamano || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
-                            :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.tamano"  min="1" :max="unit.tamano" 
-                            required > 
+
+                            <input  v-model="datosAEnviar[unit.nombre]" :value="unit.valor" 
+                            :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
+                            :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
+                            required> 
+                            
                     </div>
                 </div>                   
             </div>
             
             <div class="flex">
-                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nombreBoton" >
+                <button>{{config.nombreBoton}}</button>
+                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar($event)" :value="config.nombreBoton" >
             </div>
         </div>
         
@@ -39,16 +44,25 @@ export default {
     },
     data: ()=>{
            return {
-
+             datosAEnviar: {
+                
+             }
            }
     },
     methods:{
-        enviar: function(){
-            /*axios.post(
-                '/api/clientes',
-                
-
-            )*/
+        enviar: function(event){
+            event.preventDefault()
+            //console.log(this.datosAEnviar)
+            axios.post(
+                'api/clientes',
+                this.datosAEnviar
+            
+            ).then(response => {
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            })
         }
     }
 }

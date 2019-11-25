@@ -42,6 +42,7 @@ export default {
                     url: '/api/clientes',
                     
                     tablaTitulos: [
+                         {propiedad: 'id',titulo: 'ID'},
                         {propiedad: 'nombre',titulo: 'Nombre'},
                         {propiedad: 'apellido',titulo: 'Apellido'},
                         {propiedad: 'direccion',titulo: 'Direccion'}

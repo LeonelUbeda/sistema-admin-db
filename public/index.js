@@ -22209,6 +22209,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   props: {
     config: {
@@ -22224,14 +22229,19 @@ var _default = {
     }
   },
   data: function data() {
-    return {};
+    return {
+      datosAEnviar: {}
+    };
   },
   methods: {
-    enviar: function enviar() {
-      /*axios.post(
-          '/api/clientes',
-          
-        )*/
+    enviar: function enviar(event) {
+      event.preventDefault(); //console.log(this.datosAEnviar)
+
+      _axios.default.post('api/clientes', this.datosAEnviar).then(function (response) {
+        console.log(response);
+      }).catch(function (e) {
+        console.log(e);
+      });
     }
   }
 };
@@ -22265,14 +22275,14 @@ exports.default = _default;
       "div",
       { staticClass: "bg-white sombra padding-x-20 padding-y-10" },
       [
-        _vm._l(_vm.config.inputs, function(input) {
+        _vm._l(_vm.config.inputs, function(input, index) {
           return _c(
             "div",
-            { key: input, staticClass: "contenedor-input" },
-            _vm._l(input, function(unit) {
+            { key: index, staticClass: "contenedor-input" },
+            _vm._l(input, function(unit, index2) {
               return _c(
                 "div",
-                { key: unit, staticClass: "contenedor-filaprincipal" },
+                { key: index2, staticClass: "contenedor-filaprincipal" },
                 [
                   _c(
                     "div",
@@ -22292,51 +22302,61 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
-                              unit.valor > unit.tamano || unit.valor < 0
+                              unit.valor > unit.max || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.tamano,
+                              maxlength: unit.max,
                               min: "1",
-                              max: unit.tamano,
+                              max: unit.max,
                               required: "",
                               type: "checkbox"
                             },
                             domProps: {
-                              checked: Array.isArray(unit.valor)
-                                ? _vm._i(unit.valor, null) > -1
-                                : unit.valor
+                              value: unit.valor,
+                              checked: Array.isArray(
+                                _vm.datosAEnviar[unit.nombre]
+                              )
+                                ? _vm._i(
+                                    _vm.datosAEnviar[unit.nombre],
+                                    unit.valor
+                                  ) > -1
+                                : _vm.datosAEnviar[unit.nombre]
                             },
                             on: {
                               change: function($event) {
-                                var $$a = unit.valor,
+                                var $$a = _vm.datosAEnviar[unit.nombre],
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
                                 if (Array.isArray($$a)) {
-                                  var $$v = null,
+                                  var $$v = unit.valor,
                                     $$i = _vm._i($$a, $$v)
                                   if ($$el.checked) {
                                     $$i < 0 &&
-                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
+                                      _vm.$set(
+                                        _vm.datosAEnviar,
+                                        unit.nombre,
+                                        $$a.concat([$$v])
+                                      )
                                   } else {
                                     $$i > -1 &&
                                       _vm.$set(
-                                        unit,
-                                        "valor",
+                                        _vm.datosAEnviar,
+                                        unit.nombre,
                                         $$a
                                           .slice(0, $$i)
                                           .concat($$a.slice($$i + 1))
                                       )
                                   }
                                 } else {
-                                  _vm.$set(unit, "valor", $$c)
+                                  _vm.$set(_vm.datosAEnviar, unit.nombre, $$c)
                                 }
                               }
                             }
@@ -22347,27 +22367,37 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
-                              unit.valor > unit.tamano || unit.valor < 0
+                              unit.valor > unit.max || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.tamano,
+                              maxlength: unit.max,
                               min: "1",
-                              max: unit.tamano,
+                              max: unit.max,
                               required: "",
                               type: "radio"
                             },
-                            domProps: { checked: _vm._q(unit.valor, null) },
+                            domProps: {
+                              value: unit.valor,
+                              checked: _vm._q(
+                                _vm.datosAEnviar[unit.nombre],
+                                unit.valor
+                              )
+                            },
                             on: {
                               change: function($event) {
-                                return _vm.$set(unit, "valor", null)
+                                return _vm.$set(
+                                  _vm.datosAEnviar,
+                                  unit.nombre,
+                                  unit.valor
+                                )
                               }
                             }
                           })
@@ -22376,30 +22406,37 @@ exports.default = _default;
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: unit.valor,
-                                expression: "unit.valor"
+                                value: _vm.datosAEnviar[unit.nombre],
+                                expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
                             class: [
-                              unit.valor > unit.tamano || unit.valor < 0
+                              unit.valor > unit.max || unit.valor < 0
                                 ? "rojo" /*true*/
                                 : "verde" /*false*/
                             ],
                             attrs: {
                               placeholder: unit.titulo,
-                              maxlength: unit.tamano,
+                              maxlength: unit.max,
                               min: "1",
-                              max: unit.tamano,
+                              max: unit.max,
                               required: "",
                               type: unit.tipo
                             },
-                            domProps: { value: unit.valor },
+                            domProps: {
+                              value: unit.valor,
+                              value: _vm.datosAEnviar[unit.nombre]
+                            },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.$set(unit, "valor", $event.target.value)
+                                _vm.$set(
+                                  _vm.datosAEnviar,
+                                  unit.nombre,
+                                  $event.target.value
+                                )
                               }
                             }
                           })
@@ -22413,11 +22450,17 @@ exports.default = _default;
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
+          _c("button", [_vm._v(_vm._s(_vm.config.nombreBoton))]),
+          _vm._v(" "),
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
             attrs: { type: "submit" },
             domProps: { value: _vm.config.nombreBoton },
-            on: { click: _vm.enviar }
+            on: {
+              click: function($event) {
+                return _vm.enviar($event)
+              }
+            }
           })
         ])
       ],
@@ -26285,6 +26328,9 @@ var _default = {
         tabla: {
           url: '/api/clientes',
           tablaTitulos: [{
+            propiedad: 'id',
+            titulo: 'ID'
+          }, {
             propiedad: 'nombre',
             titulo: 'Nombre'
           }, {
@@ -26560,7 +26606,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56642" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59046" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
