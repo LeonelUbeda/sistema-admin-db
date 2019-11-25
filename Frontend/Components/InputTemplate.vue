@@ -6,15 +6,19 @@
         <div class="bg-white sombra padding-x-20 padding-y-10">
 
             <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
-                <div class="contenedor-fila" v-for="(unit, indexUnit) of input" :key="indexUnit">
-                    <p>{{unit.titulo}}</p>
-                    <input  v-model="unit.valor"  :class="[ unit.valor>unit.length || unit.valor<0 ? 'pruebados' /*true*/  : 'prueba' /*false*/ ]" 
-                    :placeholder="unit.titulo" :type="unit.type"  :maxlength="unit.length"  min="1" :max="unit.length" required autocomplete="heasdj"> 
+                <div v-for="(unit, index2) of input" :key="index2" class="contenedor-filaprincipal" >
+                    <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
+                           <p>{{unit.titulo}}</p>
+                            <input  v-model="unit.valor"  
+                            :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
+                            :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
+                            required> 
+                    </div>
                 </div>                   
             </div>
             
             <div class="flex">
-                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nameButton" >
+                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar" :value="config.nombreBoton" >
             </div>
         </div>
         
@@ -56,12 +60,16 @@ export default {
     width: 100%;
     
 }
+.contenedor-filauno{
+    width: 50%;
+}
 .contenedor-fila{
     width: 100%;
-    margin: 5px 10px;
-    
 }
-
+.contenedor-filaprincipal{
+    width: 100%;
+    margin: 5px 10px;
+}
 .contenedor-input{
     margin-top: 10px;
     display: flex;
@@ -70,23 +78,23 @@ export default {
     }
 
 }
-.prueba{
+.verde{
     padding-top: 5px;
     outline: 0;
     height: 60%;
 }
-.prueba:focus{
+.verde:focus{
     padding-top: 5px;
     border: 1px solid green;
     height: 60%;
 }
-.pruebados{
+.rojo{
     padding-top: 5px;
     height: 60%;
     outline: 0;
     border: solid red;
 }
-.pruebados:focus{
+.rojo:focus{
     padding-top: 5px;
     border: solid red;
     height: 60%;
@@ -109,11 +117,12 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 input[type=submit]{
-    background:#1abc9c;
-    padding:15px 50px;
+    background:#398AD7;
+    padding:15px 50px;  
     color: white;
     width: auto;
     margin-left: auto;
+    cursor: pointer;
 }
 input {
 	margin:10px 0 15px 0;

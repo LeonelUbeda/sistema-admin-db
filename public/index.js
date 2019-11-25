@@ -22205,6 +22205,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   props: {
     config: {
@@ -22265,131 +22269,142 @@ exports.default = _default;
           return _c(
             "div",
             { key: index, staticClass: "contenedor-input" },
-            _vm._l(input, function(unit, indexUnit) {
+            _vm._l(input, function(unit, index2) {
               return _c(
                 "div",
-                { key: indexUnit, staticClass: "contenedor-fila" },
+                { key: index2, staticClass: "contenedor-filaprincipal" },
                 [
-                  _c("p", [_vm._v(_vm._s(unit.titulo))]),
-                  _vm._v(" "),
-                  unit.type === "checkbox"
-                    ? _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: "checkbox"
-                        },
-                        domProps: {
-                          checked: Array.isArray(unit.valor)
-                            ? _vm._i(unit.valor, null) > -1
-                            : unit.valor
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = unit.valor,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(unit, "valor", $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    unit,
-                                    "valor",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
+                  _c(
+                    "div",
+                    {
+                      class: [
+                        unit.uno == true
+                          ? "contenedor-filauno"
+                          : "contenedor-fila"
+                      ]
+                    },
+                    [
+                      _c("p", [_vm._v(_vm._s(unit.titulo))]),
+                      _vm._v(" "),
+                      unit.tipo === "checkbox"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
                               }
-                            } else {
-                              _vm.$set(unit, "valor", $$c)
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: "checkbox"
+                            },
+                            domProps: {
+                              checked: Array.isArray(unit.valor)
+                                ? _vm._i(unit.valor, null) > -1
+                                : unit.valor
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = unit.valor,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(unit, "valor", $$a.concat([$$v]))
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        unit,
+                                        "valor",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(unit, "valor", $$c)
+                                }
+                              }
                             }
-                          }
-                        }
-                      })
-                    : unit.type === "radio"
-                    ? _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: "radio"
-                        },
-                        domProps: { checked: _vm._q(unit.valor, null) },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(unit, "valor", null)
-                          }
-                        }
-                      })
-                    : _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: unit.valor,
-                            expression: "unit.valor"
-                          }
-                        ],
-                        class: [
-                          unit.valor > unit.length || unit.valor < 0
-                            ? "pruebados" /*true*/
-                            : "prueba" /*false*/
-                        ],
-                        attrs: {
-                          placeholder: unit.titulo,
-                          maxlength: unit.length,
-                          min: "1",
-                          max: unit.length,
-                          required: "",
-                          autocomplete: "heasdj",
-                          type: unit.type
-                        },
-                        domProps: { value: unit.valor },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          })
+                        : unit.tipo === "radio"
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: "radio"
+                            },
+                            domProps: { checked: _vm._q(unit.valor, null) },
+                            on: {
+                              change: function($event) {
+                                return _vm.$set(unit, "valor", null)
+                              }
                             }
-                            _vm.$set(unit, "valor", $event.target.value)
-                          }
-                        }
-                      })
+                          })
+                        : _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: unit.valor,
+                                expression: "unit.valor"
+                              }
+                            ],
+                            class: [
+                              unit.valor > unit.max || unit.valor < 0
+                                ? "rojo" /*true*/
+                                : "verde" /*false*/
+                            ],
+                            attrs: {
+                              placeholder: unit.titulo,
+                              maxlength: unit.max,
+                              min: "1",
+                              max: unit.max,
+                              required: "",
+                              type: unit.tipo
+                            },
+                            domProps: { value: unit.valor },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(unit, "valor", $event.target.value)
+                              }
+                            }
+                          })
+                    ]
+                  )
                 ]
               )
             }),
@@ -22401,7 +22416,7 @@ exports.default = _default;
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
             attrs: { type: "submit" },
-            domProps: { value: _vm.config.nameButton },
+            domProps: { value: _vm.config.nombreBoton },
             on: { click: _vm.enviar }
           })
         ])
@@ -25873,12 +25888,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     configuracion: Object
   },
   data: function data() {
     return {
+      mostrarPopupEditar: false,
       clickEnTabla: false,
       elementoClickeado: {},
       busqueda: {
@@ -25894,7 +25917,62 @@ var _default = {
       tiposBusqueda: [],
       // Informacion de la tabla
       tablaDatos: [],
-      tablaTitulos: []
+      tablaTitulos: [],
+      config: {
+        mostrarTitulo: false,
+        nombreBoton: 'Enviar',
+        inputs: [[
+        /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
+        {
+          titulo: 'Nombre',
+          nombre: 'nombre',
+          tipo: 'text',
+          max: 10,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'Apellido',
+          nombre: 'apellido',
+          tipo: 'text',
+          max: 10,
+          validacion: false,
+          valor: '',
+          uno: false
+        }], [{
+          titulo: 'Edad',
+          nombre: 'edad',
+          tipo: 'number',
+          max: 99,
+          validacion: false,
+          valor: '',
+          uno: false
+        }], [{
+          titulo: 'Telefono',
+          nombre: 'telefono',
+          tipo: 'number',
+          max: 99999999999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'ZIP Code',
+          nombre: 'zipcode',
+          tipo: 'number',
+          max: 9999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }, {
+          titulo: 'Tarjeta',
+          nombre: 'tarjeta',
+          tipo: 'number',
+          max: 9999999999999,
+          validacion: false,
+          valor: '',
+          uno: false
+        }]]
+      }
     };
   },
   components: {
@@ -25906,6 +25984,9 @@ var _default = {
     BusquedaRadio: _BusquedaRadio.default
   },
   methods: {
+    editarElementoSeleccionado: function editarElementoSeleccionado() {
+      this.mostrarPopupEditar = true;
+    },
     eliminarElementoSeleccionado: function eliminarElementoSeleccionado() {
       var click = this.configuracion.tabla.click;
       console.log("".concat(click.urlDelete, "/").concat(this.elementoClickeado[click.propiedadAlEliminar]));
@@ -26022,6 +26103,30 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "main" } }, [
+    _vm.mostrarPopupEditar
+      ? _c(
+          "div",
+          {
+            attrs: { id: "popup-container" },
+            on: {
+              click: function($event) {
+                _vm.mostrarPopupEditar = false
+              }
+            }
+          },
+          [
+            _c("div", { attrs: { id: "popup" } }, [
+              _c(
+                "div",
+                { staticClass: "width-100 padding-x-20 padding-y-20" },
+                [_c("InputTemplate", { attrs: { config: _vm.config } })],
+                1
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _c("div", { staticClass: "width-100 flex justify-between" }, [
       _c(
         "div",
@@ -26153,7 +26258,10 @@ exports.default = _default;
                         _vm.configuracion.tabla.click.opcionEditar
                           ? _c(
                               "button",
-                              { staticClass: "btn-azul text-white" },
+                              {
+                                staticClass: "btn-azul text-white",
+                                on: { click: _vm.editarElementoSeleccionado }
+                              },
                               [_vm._v("Editar")]
                             )
                           : _vm._e()
@@ -26282,6 +26390,7 @@ var _default = {
           }],
           click: {
             urlDelete: '/api/clientes',
+            urlEdit: '/api/clientes',
             propiedadAlEliminar: 'id',
             datosMostrar: ['id', 'nombre', 'apellido', 'direccion'],
             titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
@@ -26311,52 +26420,57 @@ var _default = {
       opcionSeleccionada: 'Buscar',
       config: {
         mostrarTitulo: false,
-        nameForm: 'Añadir Cliente',
-        nameButton: 'Que pedos',
+        nombreBoton: 'Enviar',
         inputs: [[
         /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
         {
           titulo: 'Nombre',
-          name: 'nombre',
-          type: 'text',
-          length: 10,
+          nombre: 'nombre',
+          tipo: 'text',
+          max: 10,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'Apellido',
-          name: 'apellido',
-          type: 'text',
-          length: 10,
+          nombre: 'apellido',
+          tipo: 'text',
+          max: 10,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }], [{
           titulo: 'Edad',
-          name: 'edad',
-          type: 'number',
-          length: 99,
+          nombre: 'edad',
+          tipo: 'number',
+          max: 99,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }], [{
           titulo: 'Telefono',
-          name: 'telefono',
-          type: 'number',
-          length: 9999999999,
+          nombre: 'telefono',
+          tipo: 'number',
+          max: 99999999999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'ZIP Code',
-          name: 'zipcode',
-          type: 'number',
-          length: 9999,
+          nombre: 'zipcode',
+          tipo: 'number',
+          max: 9999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }, {
           titulo: 'Tarjeta',
-          name: 'tarjeta',
-          type: 'number',
-          length: 9999999999999,
+          nombre: 'tarjeta',
+          tipo: 'number',
+          max: 9999999999999,
           validacion: false,
-          valor: ''
+          valor: '',
+          uno: false
         }]]
       }
     };
@@ -26541,7 +26655,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "16076" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "17974" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
