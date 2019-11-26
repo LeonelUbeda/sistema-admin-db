@@ -60,7 +60,7 @@ app.use('*', (req, res) => {
 
 
 // Para eliminar y crear la base de datos
-database.sync(/*{force: true}*/)
+//database.sync(/*{force: true}*/)
 
 // -------------------- Verificar DB --------------------
 database.authenticate()

@@ -11,7 +11,7 @@
     
     <BusquedaTablaAll :configuracion="configuracion" v-if="opcionSeleccionada === 'Buscar'"></BusquedaTablaAll>
     <div class="width-100 padding-x-20 padding-y-20">
-        <InputTemplate :config="config"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
+        <InputTemplate :config="configCrear"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
         </InputTemplate>
     </div>
 </div>
@@ -40,10 +40,11 @@ export default {
                 tabla: {
                     url: '/api/clientes',
                     tablaTitulos: [
-                         {propiedad: 'id',titulo: 'ID'},
+                        {propiedad: 'id',titulo: 'ID'},
                         {propiedad: 'nombre',titulo: 'Nombre'},
                         {propiedad: 'apellido',titulo: 'Apellido'},
-                        {propiedad: 'direccion',titulo: 'Direccion'}
+                        {propiedad: 'direccion',titulo: 'Direccion'},
+                        {propiedad: 'tipoCliente',titulo: 'Tipo Cliente'}
                     ],
                     click: { 
                         // Hacer click en la tabla
@@ -55,7 +56,7 @@ export default {
                         // La siguiente información será mostrada en ese cuadro
                         // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
                         datosMostrar: ['id','nombre','apellido', 'direccion'],
-                        titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
+                        titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccion'],
 
                         // Al hacer click se desea mandar un evento?
                         mandarEvento: false, 
@@ -86,20 +87,22 @@ export default {
 
             opciones: ['Buscar','Crear Cliente'],
             opcionSeleccionada: 'Buscar', 
-            config: {
+            configCrear: {
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
+                estilo: true,
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 10, validacion: false, valor:'', uno:false},
-                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 10,  validacion: false, valor:'', uno:false}
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, valor:'', uno:false},
+                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 50 ,  validacion: false, valor:'', uno:false}
                   ],
                   [
-                      {titulo: 'Edad', nombre:'edad', tipo:'number', max: 99, validacion: false, valor:'', uno:false}
+                      {titulo: 'Edad', nombre:'edad', tipo:'number', max: 50, validacion: false, valor:'', uno:true}
                   ],
                   [
-                      {titulo: 'Telefono', nombre:'telefono', tipo:'number', max: 99999999999, validacion: false, valor:'', uno:false},
-                      {titulo: 'ZIP Code', nombre:'zipcode', tipo:'number', max: 9999, validacion: false, valor:'', uno:false},
+                      {titulo: 'Dirección', nombre:'direccion', tipo:'text', max: 100, validacion: false, valor:'', uno:false},
+                      {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 9999, validacion: false, valor:'', uno:false, 
+                        opciones: ['Persona', 'Empresa']},
                       {titulo: 'Tarjeta', nombre:'tarjeta', tipo:'number', max: 9999999999999, validacion: false, valor:'', uno:false}
                   ]
                   

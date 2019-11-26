@@ -3,13 +3,13 @@
 
         <!--h2 class="text-left width-100">Clientes</h2-->
         <div id="popup-container" v-if="mostrarPopupEditar">
-            <div id="popup">
-               <div class="width-100 padding-x-20 padding-y-20">
+         
+               <div class="width-100 padding-x-20 padding-y-20" id="popup">
                     <p @click="mostrarPopupEditar = false" >Cancelar</p>
                     <InputTemplate :config="configEditInputTemplate" >
                     </InputTemplate>
                 </div>
-            </div>
+           
         </div>
         <div class="width-100 flex justify-between">
 
@@ -101,6 +101,7 @@ export default {
             tablaDatos: [],
             tablaTitulos: [], 
             configEditInputTemplate: {
+                estilo: false,
                 mostrarTitulo: false,
                 nombreBoton: 'Guardar',
                 inputs: []  
@@ -121,6 +122,7 @@ export default {
  
             let elementoClickeado = this.elementoClickeado;
             let {datosEditar, titulosEditar, max, tipo} = this.configuracion.tabla.configuracionEditar
+            this.configEditInputTemplate.inputs = []
 
             titulosEditar.forEach((elemento, index) => {
       
@@ -177,17 +179,18 @@ export default {
         obtenerDatos: async function(){
             try {
                 const busqueda = this.busqueda
-                const query = {
+                const params = {
                     limite: busqueda.limite,
                 }
                 if(this.busqueda.offset !== 0) {
-                    query.offset = busqueda.limite * busqueda.offset;
+                    params.offset = busqueda.limite * busqueda.offset;
                 }
-                // Si variable y valor tienen valores entonces se añade al objeto query
+                // Si variable y valor tienen valores entonces se añade al objeto params
                 if(busqueda.variable !== '' || busqueda.valor !== ''){
-                    query[busqueda.variable] = busqueda.valor
+                    params[busqueda.variable] = busqueda.valor
                 }
-                const response = await axios.get(this.configuracion.tabla.url, {query} )
+               
+                const response = await axios.get(this.configuracion.tabla.url, {params})
                 this.tablaDatos = response.data
                 if(response.data.length === 0 ){
                     this.anteriorTablaCliente()

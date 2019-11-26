@@ -4,15 +4,24 @@
         <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="config.mostrarTitulo"  >
             <h2 class="ml-8 text-xl">{{config.nameForm}}</h2>
         </div>
-        <div class="bg-white sombra padding-x-20 padding-y-10">
+        <div :class="['bg-white', 'padding-x-20', 'padding-y-10', {'sombra': config.estilo === true}]">
             
             <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
                 <div v-for="(unit, index2) of input" :key="index2" class="contenedor-filaprincipal" >
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
 
                            <p>{{unit.titulo}}</p>
-
-                            <input  v-model="datosAEnviar[unit.nombre]"
+                           
+                            <select v-if="unit.opciones" v-model="datosAEnviar[unit.nombre]" id="" required>
+                                <option value="" selected disabled hidden>Selecciona una opcion</option>
+                                
+                                <option v-for="(select, indexSelect) of unit.opciones" :value="select" :key="select">
+                                    {{select}} : {{indexSelect}}
+                                    </option>
+                                
+                                </select>
+                        
+                            <input v-else v-model="datosAEnviar[unit.nombre]"
                             :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required> 
@@ -32,11 +41,12 @@
 
 <script>
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 export default {
     props: {
         config: {
             inputs: { type: Array, required: true  },
+            
             nameForm: String, //Nombre que sale en el titulo
             nameButton: String, //Nombre del boton de enviar
             mostrarTitulo: Boolean
@@ -52,7 +62,24 @@ export default {
     methods:{
         enviar: function(event){
             event.preventDefault()
-            //console.log(this.datosAEnviar)
+            try {
+                this.verificarInputs()
+                Swal.fire({
+                icon: 'success',
+                title: 'Elemento añadido exitosamente',
+                })
+            } catch (error) {
+
+                Swal.fire({
+                icon: 'error',
+                title: error,
+                text: 'Verifique sus datos e intentelo de nuevo',
+                })
+            }
+
+            
+            console.log(this.datosAEnviar)
+            
             axios.post(
                 'api/clientes',
                 this.datosAEnviar
@@ -63,6 +90,19 @@ export default {
             .catch(e => {
                 console.log(e)
             })
+        },
+        verificarInputs: function(){
+            for(let inputs of this.config.inputs){
+                for(let input of inputs){
+                    if(this.datosAEnviar[input.nombre].length > 1){
+                        
+                    }else{
+                        throw "Falta inputs"
+                    }
+                }
+            }           
+           
+            
         },
         // Esto es para asignar los valores de cada input de config.inputs[0][0] a
         // su correspondiente propiedad en datosAEnviar
@@ -151,7 +191,7 @@ input[type=submit]{
     margin-left: auto;
     cursor: pointer;
 }
-input {
+input, select {
 	margin:10px 0 15px 0;
 	padding:5px 10px;
 	width:100%;

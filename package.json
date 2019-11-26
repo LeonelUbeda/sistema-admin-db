@@ -28,7 +28,7 @@
     "npm": "^6.13.1",
     "parcel-bundler": "^1.12.4",
     "sequelize": "^5.21.0",
-    "sweetalert2": "^9.3.17",
+    "sweetalert2": "^9.4.0",
     "tedious": "^6.6.0",
     "velocity-animate": "^1.5.2",
     "vue-hot-reload-api": "^2.3.4",

@@ -28,7 +28,7 @@ export default {
     },
     methods:{
         buscar: function() {
-          
+        
             this.$emit('buscar', this.busqueda)
         },
         cambiarTexto: function(texto){
