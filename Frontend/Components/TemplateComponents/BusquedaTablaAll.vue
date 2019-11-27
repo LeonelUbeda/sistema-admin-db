@@ -1,19 +1,20 @@
 <template>
     <div id="main" class="">
-
-        <!--h2 class="text-left width-100">Clientes</h2-->
+  
+    
+        <h2 class="text-left width-100">Clientes</h2>
         <div id="popup-container" v-if="mostrarPopupEditar">
          
                <div class="width-100 padding-x-20 padding-y-20" id="popup">
                     <p @click="mostrarPopupEditar = false" >Cancelar</p>
-                    <InputTemplate :config="configEditInputTemplate" >
+                    <InputTemplate v-bind="configEditInputTemplate" >
                     </InputTemplate>
                 </div>
            
         </div>
         <div class="width-100 flex justify-between">
 
-            <div class="contenedor-tabla">
+             <div class="contenedor-tabla">
                 <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTablaClientess"></TablaTitulo>
                 <Tabla 
                 :elementos="tablaDatos"
@@ -30,26 +31,27 @@
                 <div class="flex items-center bg-white flex-col">
                     <div class="divisor"></div>
                     <BusquedaRadio @seleccion="manejarTipoBusqueda" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
-                    
                     <div style="width: 90%">
                         <BusquedaInput ref="BusquedaInputRef" @buscar="busquedaSearchBar"></BusquedaInput>
                     </div>
 
-                    <div class="flex flex-col container items-center card" v-if="configuracion.tabla.click.opcionEdicion === true && clickEnTabla === true">
+                    <div class="flex flex-col container items-center card" v-if="mostrarInformacionClick === true && clickEnTabla === true">
                         <div class="bloque-titulo flex items-center">
                             <h2 class="ml-8 text-xl">Edicion</h2>
                             <h2 class="ml-auto mr-8 cursor-pointer text-xl" style="color:red" @click="(clickEnTabla = false)">X</h2>
                         </div>
                         <div class="divisor"></div>
 
-                        <div v-for="(elemento, index) in configuracion.tabla.click.datosMostrar" :key="index" class="flex flex-col container px-8 mb-5">
-                            <h2 class="text-xl">{{configuracion.tabla.click.titulosMostrar[index]}}</h2>
-                            <h5>{{elementoClickeado[elemento]}}</h5>
+                        <div v-for="elemento of titulosClick" :key="elemento.propiedad" class="flex flex-col container px-8 mb-5">
+                    
+                            <h2 class="text-xl">{{elemento.titulo}}</h2>
+                            <h5>{{elementoClickeado[elemento.propiedad]}}</h5>
+                          
                         </div>
 
                         <div class="flex">
-                            <button class="btn-rojo text-white" v-if="configuracion.tabla.click.opcionEliminar" @click="eliminarElementoSeleccionado">Eliminar</button>
-                            <button class="btn-azul text-white" v-if="configuracion.tabla.click.opcionEditar" @click="editarElementoSeleccionado">Editar</button>
+                            <button class="btn-rojo text-white" v-if="mostrarOpcionEliminar" @click="eliminarElementoSeleccionado">Eliminar</button>
+                            <button class="btn-azul text-white" v-if="mostrarOpcionEditar" @click="editarElementoSeleccionado">Editar</button>
                         </div>
                     </div>
 
@@ -81,10 +83,96 @@ import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
     props:{
-        configuracion: Object
+
+        tablaTitulos: {
+            type: Array,
+            default: () => [{propiedad: 'id', titulo: 'Identificador'}, 
+                            {propiedad: 'nombre', titulo: 'Nombre'}, 
+                            {propiedad: 'apellido', titulo: 'Apellido'}]
+        },
+        tablaUrl: {
+            type: String, 
+            default:  '/api/clientes'
+        },
+        tablaUrlEliminar: {
+            type: String,
+            default: '/api/clientes'
+        },
+        tablaUrlEditar: {
+            type: String,
+            default: '/api/clientes'
+        },
+        tablaPropiedadAEliminar: {
+            type: String, 
+            default: 'id'
+        },
+        tablaMandarEventoClick: {
+            type: Boolean,
+            default: false
+        },
+        // Mostrar informacion en el sidebar al darle click
+        mostrarInformacionClick: {
+            type: Boolean,
+            default: true
+        },
+        titulosClick: {
+            type:  Array,
+            default: () => [{propiedad: 'id', titulo: 'Identificador'}, {propiedad: 'nombre', titulo: 'Nombre del cliente'}]
+        },
+        // Mostrar el boton de editar al darle click (si mostrarInformacionClick == false entonces esto queda invalido)
+        mostrarOpcionEditar: {
+            type: Boolean,
+            default: true
+        },
+        mostrarOpcionEliminar: {
+            type: Boolean,
+            default: true
+        },
+        // CONFIGURACION DE LOS INPUTS para editar
+        inputsEditar: {
+            type: Array,
+            default: () => [[{identificador: 'id', titulo: 'Identificador', max: 2, tipo: 'text', validacion: true, uno: true, valor: 'hey'}]]
+        },
+        editarTitulos: {
+            type: Array,
+            default: () => ['Identificador']
+        },
+        editarLlaves: {
+            type: Array,
+            default: () => ['id']
+        },
+        editarLongitudMaxima: {
+            type: Array,
+            default: () => [5]
+        },
+        editarTipo: {
+            type: Array,
+            default: () => ['number']
+        },
+
+        // Tipos de busqueda
+        tiposBusqueda: {
+            type: Array,
+            default: () => [
+                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
+                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]]
+        },
+        busquedaDefault: {
+            type: String,
+            default: 'nombre'
+        }       
     },
     data: () => {
         return {
+            configCrear: {
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: false,
+                inputs: []  
+            },
+            defaultValues: {
+
+            },
             mostrarPopupEditar: false,
             clickEnTabla: false,
             elementoClickeado: {},
@@ -96,20 +184,21 @@ export default {
             },
             busquedaSeleccionada: '',
             // Barra lateral. Opciones de busqueda y su seleccion inicial por defecto
-            tiposBusqueda: [],
+            //tiposBusqueda: [],
             // Informacion de la tabla
             tablaDatos: [],
-            tablaTitulos: [], 
+            //tablaTitulos: [], 
             configEditInputTemplate: {
                 estilo: false,
                 mostrarTitulo: false,
                 nombreBoton: 'Guardar',
-                inputs: []  
+                inputs: [],
+                modoCrear: false
             }
 
         }
     },
-    components:{
+    components: {
         TopSection,
         Tabla,
         TablaTitulo,
@@ -119,37 +208,37 @@ export default {
     },
     methods: {
         editarElementoSeleccionado: function(){
- 
-            let elementoClickeado = this.elementoClickeado;
-            let {datosEditar, titulosEditar, max, tipo} = this.configuracion.tabla.configuracionEditar
-            this.configEditInputTemplate.inputs = []
-
-            titulosEditar.forEach((elemento, index) => {
-      
-                let elementoTemporal = {
-                    titulo: elemento,
-                    nombre: datosEditar[index],
-                    uno: false,
-                    valor: elementoClickeado[datosEditar[index]],
-                    max: max[index],
-                    tipo: tipo[index]
-                }
-
-                this.configEditInputTemplate.inputs.push([elementoTemporal])
-
-            })
+            
             this.mostrarPopupEditar = true;
-            console.log(this.configEditInputTemplate)
+            this.configEditInputTemplate.inputs = this.inputsEditar;
+
+            // Itero sobre el arreglo de arreglos
+            // [ [] ,  [] ,  [] ]
+            this.inputsEditar.forEach((arreglo, indexArreglo) => {
+                // Itero sobre el arreglo de objetos
+                // [ {} , {}, {} ]
+                arreglo.forEach((elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
+                    // Asigno el valor de  la propiedad correspondiente de elementoClickeado al valor inicial de un input
+                    // Como ejemplo, al inicio del ciclo, una supuesta operacion sería esta
+                    // configEditInputTemplate.inputs[0][0].valor = elementoClickeado.id;
+                    
+                    // Entonces el input que tiene el nombre 'id' tiene de valor el elemento 'id' del objeto elementoClickeado
+                    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+                    // El componente InputTemplate se encarga de renderizar todo esto correctamente
+                  
+                })
+            })
+         
         },
         eliminarElementoSeleccionado: function() {
-            const click = this.configuracion.tabla.click
-            console.log(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
+            //const click = this.configuracion.tabla.click
+            //console.log(`${click.urlDelete}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
 
-            alertaEliminar(`${click.urlDelete}/${this.elementoClickeado[click.propiedadAlEliminar]}`)
+            alertaEliminar(`${this.tablaUrlEliminar}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
             
         },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
         filaSeleccionada: function(elemento){
-            if(this.configuracion.tabla.click.mandarEvento === false){
+            if(this.tablaMandarEventoClick === false){
                 this.elementoClickeado = elemento
                 this.clickEnTabla = true
             }else{
@@ -190,8 +279,9 @@ export default {
                     params[busqueda.variable] = busqueda.valor
                 }
                
-                const response = await axios.get(this.configuracion.tabla.url, {params})
+                const response = await axios.get(this.tablaUrl, {params})
                 this.tablaDatos = response.data
+                console.log(this.tablaDatos)
                 if(response.data.length === 0 ){
                     this.anteriorTablaCliente()
                 }
@@ -213,11 +303,12 @@ export default {
     },
     created(){
         this.obtenerDatos();
-        const config =                          this.configuracion;
+       
+        /*const config =                          this.configuracion;
         this.busqueda.variable =                config.busqueda.busquedaSeleccionada
         this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada
         this.tiposBusqueda =                    config.busqueda.tiposBusqueda
-        this.tablaTitulos =                     config.tabla.tablaTitulos
+        this.tablaTitulos =                     config.tabla.tablaTitulos*/
         
     }
 }
@@ -243,7 +334,7 @@ export default {
     width: 800px;
     height: calc(100% - 100px);
     top: 50px;
-    left: calc(50% - (500px / 2) );
+    left: calc(50% - (800px / 2) );
     z-index: 20;
     position: fixed;
     overflow-y: auto;

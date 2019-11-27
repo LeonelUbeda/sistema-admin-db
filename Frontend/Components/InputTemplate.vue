@@ -1,12 +1,12 @@
 
 <template>
     <form id="contenedor-tabla" class="">
-        <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="config.mostrarTitulo"  >
-            <h2 class="ml-8 text-xl">{{config.nameForm}}</h2>
+        <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="mostrarTitulo"  >
+            <h2 class="ml-8 text-xl">{{nameForm}}</h2>
         </div>
-        <div :class="['bg-white', 'padding-x-20', 'padding-y-10', {'sombra': config.estilo === true}]">
+        <div :class="['bg-white', 'padding-x-20', 'padding-y-10', {'sombra': estilo === true}]">
             
-            <div  class="contenedor-input"  v-for="(input, index) of config.inputs" :key="index" >
+            <div  class="contenedor-input"  v-for="(input, index) of inputs" :key="index" >
                 <div v-for="(unit, index2) of input" :key="index2" class="contenedor-filaprincipal" >
                     <div :class="[unit.uno == true ? 'contenedor-filauno': 'contenedor-fila']">
 
@@ -21,7 +21,8 @@
                                 
                                 </select>
                         
-                            <input v-else v-model="datosAEnviar[unit.nombre]"
+                            <input v-else 
+                            v-model="datosAEnviar[unit.nombre]"
                             :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required> 
@@ -31,8 +32,8 @@
             </div>
             
             <div class="flex">
-                <button>{{config.nombreBoton}}</button>
-                <input type="submit" class="margin-left-auto ml-auto" v-on:click="enviar($event)" :value="config.nombreBoton" >
+                <button @click="($event) => {modoCrear ?  crear($event) : actualizar($event) }">{{nombreBoton}}</button>
+                <input type="submit" class="margin-left-auto ml-auto" @click="($event) => {modoCrear ?  crear($event) : actualizar($event) }" :value="nombreBoton" >
             </div>
         </div>
         
@@ -44,13 +45,32 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 export default {
     props: {
-        config: {
-            inputs: { type: Array, required: true  },
-            
-            nameForm: String, //Nombre que sale en el titulo
-            nameButton: String, //Nombre del boton de enviar
-            mostrarTitulo: Boolean
+        inputs: { type: Array, required: true  },
+        estilo: {
+            type: false,
+            default: true
         },
+        nameForm: String, //Nombre que sale en el titulo
+        nombreBoton: String, //Nombre del boton de enviar
+        mostrarTitulo: Boolean,
+        urlCrear: {
+            type: String,
+            default: '/api/clientes'
+        },
+        urlActualizar: {
+            type: String, 
+            default: '/api/clientes'
+        },
+        // Actualizar where id = 1
+        propiedadActualizar: {
+            type: String,
+            default: 'id'
+        },
+        modoCrear: {
+            type: Boolean, 
+            default: true
+        },
+        
     },
     data: ()=>{
            return {
@@ -60,16 +80,22 @@ export default {
            }
     },
     methods:{
-        enviar: function(event){
+        crear: function(event){
             event.preventDefault()
             try {
                 this.verificarInputs()
-                Swal.fire({
-                icon: 'success',
-                title: 'Elemento añadido exitosamente',
+                axios.post(this.urlCrear, this.datosAEnviar)
+                .then(response => {
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Elemento añadido exitosamente',
+                    })
                 })
+                .catch(e => {
+                    throw 'Error'
+                })
+                
             } catch (error) {
-
                 Swal.fire({
                 icon: 'error',
                 title: error,
@@ -77,26 +103,37 @@ export default {
                 })
             }
 
-            
+        },
+        
+        actualizar(event){
+            event.preventDefault()
             console.log(this.datosAEnviar)
-            
-            axios.post(
-                'api/clientes',
-                this.datosAEnviar
-            
-            ).then(response => {
-                console.log(response)
-            })
-            .catch(e => {
-                console.log(e)
-            })
+            try { 
+                this.verificarInputs()
+                let url = this.urlActualizar + '/' + this.datosAEnviar[this.propiedadActualizar]
+                axios.put(url,  this.datosAEnviar)
+                .then(response => {
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Elemento añadido exitosamente',
+                    })
+                })
+                .catch(e => {
+                    throw 'Error'
+                })
+                
+            } catch (error) {
+                Swal.fire({
+                icon: 'error',
+                title: error,
+                text: 'Verifique sus datos e intentelo de nuevo',
+                })
+            }
         },
         verificarInputs: function(){
-            for(let inputs of this.config.inputs){
+            for(let inputs of this.inputs){
                 for(let input of inputs){
-                    if(this.datosAEnviar[input.nombre].length > 1){
-                        
-                    }else{
+                    if(this.datosAEnviar[input.nombre].length <= 1){
                         throw "Falta inputs"
                     }
                 }
@@ -107,7 +144,7 @@ export default {
         // Esto es para asignar los valores de cada input de config.inputs[0][0] a
         // su correspondiente propiedad en datosAEnviar
         ValueIgualVModel: function(){
-            this.config.inputs.forEach((element) => {
+            this.inputs.forEach((element) => {
                 element.forEach((elemento2) => {
                     this.datosAEnviar[elemento2.nombre] = elemento2.valor
                 })

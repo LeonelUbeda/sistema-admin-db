@@ -2,7 +2,7 @@
     <div id="titulo" class="flex items-center">
         <h2 class="text-2xl">{{titulo}}</h2>
         <div class="flex margin-left-auto items-center cursor-pointer" @click="recargar">
-            <img src="../assets/img/recargar.svg" class="width-40px margin-right-10" alt="">
+            <img src="../assets/img/recargar.svg" class="width-20px margin-right-10" alt="">
             <h4 class="mr-30">Refrescar</h4>
         </div>
         <!--h4 class="rainbow-box">Crear</h4-->
@@ -31,14 +31,10 @@ export default {
 }
 </script>
 
-
-
 <style lang="scss" scoped>
-
-
 #titulo{
-    margin-bottom: 20px;
-    height: 65px;
+    margin-bottom: 15px;
+    height: 60px;
     padding: 0 20px;
     background-color: white;
     width: 100%;

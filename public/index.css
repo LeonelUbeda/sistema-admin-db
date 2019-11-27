@@ -321,8 +321,8 @@ table tbody tr[data-v-2b3539]:nth-child(even) {
   height: 100px !important;
 }
 #titulo[data-v-486705] {
-  margin-bottom: 20px;
-  height: 65px;
+  margin-bottom: 15px;
+  height: 60px;
   padding: 0 20px;
   background-color: white;
   width: 100%;
@@ -497,7 +497,7 @@ input[data-v-c2728f], select[data-v-c2728f] {
   width: 800px;
   height: calc(100% - 100px);
   top: 50px;
-  left: calc(50% - (500px / 2) );
+  left: calc(50% - (800px / 2) );
   z-index: 20;
   position: fixed;
   overflow-y: auto;

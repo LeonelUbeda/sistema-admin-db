@@ -22127,7 +22127,7 @@ exports.default = _default;
         },
         [
           _c("img", {
-            staticClass: "width-40px margin-right-10",
+            staticClass: "width-20px margin-right-10",
             attrs: { src: "/recargar.57927ccf.svg", alt: "" }
           }),
           _vm._v(" "),
@@ -25219,18 +25219,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   props: {
-    config: {
-      inputs: {
-        type: Array,
-        required: true
-      },
-      nameForm: String,
-      //Nombre que sale en el titulo
-      nameButton: String,
-      //Nombre del boton de enviar
-      mostrarTitulo: Boolean
+    inputs: {
+      type: Array,
+      required: true
+    },
+    estilo: {
+      type: false,
+      default: true
+    },
+    nameForm: String,
+    //Nombre que sale en el titulo
+    nombreBoton: String,
+    //Nombre del boton de enviar
+    mostrarTitulo: Boolean,
+    urlCrear: {
+      type: String,
+      default: '/api/clientes'
+    },
+    urlActualizar: {
+      type: String,
+      default: '/api/clientes'
+    },
+    // Actualizar where id = 1
+    propiedadActualizar: {
+      type: String,
+      default: 'id'
+    },
+    modoCrear: {
+      type: Boolean,
+      default: true
     }
   },
   data: function data() {
@@ -25239,15 +25259,19 @@ var _default = {
     };
   },
   methods: {
-    enviar: function enviar(event) {
+    crear: function crear(event) {
       event.preventDefault();
 
       try {
         this.verificarInputs();
 
-        _sweetalert.default.fire({
-          icon: 'success',
-          title: 'Elemento añadido exitosamente'
+        _axios.default.post(this.urlCrear, this.datosAEnviar).then(function (response) {
+          _sweetalert.default.fire({
+            icon: 'success',
+            title: 'Elemento añadido exitosamente'
+          });
+        }).catch(function (e) {
+          throw 'Error';
         });
       } catch (error) {
         _sweetalert.default.fire({
@@ -25256,14 +25280,30 @@ var _default = {
           text: 'Verifique sus datos e intentelo de nuevo'
         });
       }
-
+    },
+    actualizar: function actualizar(event) {
+      event.preventDefault();
       console.log(this.datosAEnviar);
 
-      _axios.default.post('api/clientes', this.datosAEnviar).then(function (response) {
-        console.log(response);
-      }).catch(function (e) {
-        console.log(e);
-      });
+      try {
+        this.verificarInputs();
+        var url = this.urlActualizar + '/' + this.datosAEnviar[this.propiedadActualizar];
+
+        _axios.default.put(url, this.datosAEnviar).then(function (response) {
+          _sweetalert.default.fire({
+            icon: 'success',
+            title: 'Elemento añadido exitosamente'
+          });
+        }).catch(function (e) {
+          throw 'Error';
+        });
+      } catch (error) {
+        _sweetalert.default.fire({
+          icon: 'error',
+          title: error,
+          text: 'Verifique sus datos e intentelo de nuevo'
+        });
+      }
     },
     verificarInputs: function verificarInputs() {
       var _iteratorNormalCompletion = true;
@@ -25271,7 +25311,7 @@ var _default = {
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = this.config.inputs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = this.inputs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var inputs = _step.value;
           var _iteratorNormalCompletion2 = true;
           var _didIteratorError2 = false;
@@ -25281,7 +25321,7 @@ var _default = {
             for (var _iterator2 = inputs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
               var input = _step2.value;
 
-              if (this.datosAEnviar[input.nombre].length > 1) {} else {
+              if (this.datosAEnviar[input.nombre].length <= 1) {
                 throw "Falta inputs";
               }
             }
@@ -25320,7 +25360,7 @@ var _default = {
     ValueIgualVModel: function ValueIgualVModel() {
       var _this = this;
 
-      this.config.inputs.forEach(function (element) {
+      this.inputs.forEach(function (element) {
         element.forEach(function (elemento2) {
           _this.datosAEnviar[elemento2.nombre] = elemento2.valor;
         });
@@ -25345,13 +25385,13 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", { attrs: { id: "contenedor-tabla" } }, [
-    _vm.config.mostrarTitulo
+    _vm.mostrarTitulo
       ? _c(
           "div",
           { staticClass: "bloque-titulo flex items-center margin-b-20 sombra" },
           [
             _c("h2", { staticClass: "ml-8 text-xl" }, [
-              _vm._v(_vm._s(_vm.config.nameForm))
+              _vm._v(_vm._s(_vm.nameForm))
             ])
           ]
         )
@@ -25364,11 +25404,11 @@ exports.default = _default;
           "bg-white",
           "padding-x-20",
           "padding-y-10",
-          { sombra: _vm.config.estilo === true }
+          { sombra: _vm.estilo === true }
         ]
       },
       [
-        _vm._l(_vm.config.inputs, function(input, index) {
+        _vm._l(_vm.inputs, function(input, index) {
           return _c(
             "div",
             { key: index, staticClass: "contenedor-input" },
@@ -25605,15 +25645,25 @@ exports.default = _default;
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
-          _c("button", [_vm._v(_vm._s(_vm.config.nombreBoton))]),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  _vm.modoCrear ? _vm.crear($event) : _vm.actualizar($event)
+                }
+              }
+            },
+            [_vm._v(_vm._s(_vm.nombreBoton))]
+          ),
           _vm._v(" "),
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
             attrs: { type: "submit" },
-            domProps: { value: _vm.config.nombreBoton },
+            domProps: { value: _vm.nombreBoton },
             on: {
               click: function($event) {
-                return _vm.enviar($event)
+                _vm.modoCrear ? _vm.crear($event) : _vm.actualizar($event)
               }
             }
           })
@@ -26104,12 +26154,143 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = {
   props: {
-    configuracion: Object
+    tablaTitulos: {
+      type: Array,
+      default: function _default() {
+        return [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre'
+        }, {
+          propiedad: 'apellido',
+          titulo: 'Apellido'
+        }];
+      }
+    },
+    tablaUrl: {
+      type: String,
+      default: '/api/clientes'
+    },
+    tablaUrlEliminar: {
+      type: String,
+      default: '/api/clientes'
+    },
+    tablaUrlEditar: {
+      type: String,
+      default: '/api/clientes'
+    },
+    tablaPropiedadAEliminar: {
+      type: String,
+      default: 'id'
+    },
+    tablaMandarEventoClick: {
+      type: Boolean,
+      default: false
+    },
+    // Mostrar informacion en el sidebar al darle click
+    mostrarInformacionClick: {
+      type: Boolean,
+      default: true
+    },
+    titulosClick: {
+      type: Array,
+      default: function _default() {
+        return [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre del cliente'
+        }];
+      }
+    },
+    // Mostrar el boton de editar al darle click (si mostrarInformacionClick == false entonces esto queda invalido)
+    mostrarOpcionEditar: {
+      type: Boolean,
+      default: true
+    },
+    mostrarOpcionEliminar: {
+      type: Boolean,
+      default: true
+    },
+    // CONFIGURACION DE LOS INPUTS para editar
+    inputsEditar: {
+      type: Array,
+      default: function _default() {
+        return [[{
+          identificador: 'id',
+          titulo: 'Identificador',
+          max: 2,
+          tipo: 'text',
+          validacion: true,
+          uno: true,
+          valor: 'hey'
+        }]];
+      }
+    },
+    editarTitulos: {
+      type: Array,
+      default: function _default() {
+        return ['Identificador'];
+      }
+    },
+    editarLlaves: {
+      type: Array,
+      default: function _default() {
+        return ['id'];
+      }
+    },
+    editarLongitudMaxima: {
+      type: Array,
+      default: function _default() {
+        return [5];
+      }
+    },
+    editarTipo: {
+      type: Array,
+      default: function _default() {
+        return ['number'];
+      }
+    },
+    // Tipos de busqueda
+    tiposBusqueda: {
+      type: Array,
+      default: function _default() {
+        return [[{
+          value: 'nombre',
+          titulo: 'Nombre'
+        }, {
+          value: 'apellido',
+          titulo: 'Apellido'
+        }], [{
+          value: 'direccion',
+          titulo: 'Direccion'
+        }, {
+          value: 'id',
+          titulo: 'ID'
+        }]];
+      }
+    },
+    busquedaDefault: {
+      type: String,
+      default: 'nombre'
+    }
   },
   data: function data() {
     return {
+      configCrear: {
+        mostrarTitulo: false,
+        nombreBoton: 'Enviar',
+        estilo: false,
+        inputs: []
+      },
+      defaultValues: {},
       mostrarPopupEditar: false,
       clickEnTabla: false,
       elementoClickeado: {},
@@ -26123,15 +26304,16 @@ var _default = {
       },
       busquedaSeleccionada: '',
       // Barra lateral. Opciones de busqueda y su seleccion inicial por defecto
-      tiposBusqueda: [],
+      //tiposBusqueda: [],
       // Informacion de la tabla
       tablaDatos: [],
-      tablaTitulos: [],
+      //tablaTitulos: [], 
       configEditInputTemplate: {
         estilo: false,
         mostrarTitulo: false,
         nombreBoton: 'Guardar',
-        inputs: []
+        inputs: [],
+        modoCrear: false
       }
     };
   },
@@ -26147,35 +26329,30 @@ var _default = {
     editarElementoSeleccionado: function editarElementoSeleccionado() {
       var _this = this;
 
-      var elementoClickeado = this.elementoClickeado;
-      var _this$configuracion$t = this.configuracion.tabla.configuracionEditar,
-          datosEditar = _this$configuracion$t.datosEditar,
-          titulosEditar = _this$configuracion$t.titulosEditar,
-          max = _this$configuracion$t.max,
-          tipo = _this$configuracion$t.tipo;
-      this.configEditInputTemplate.inputs = [];
-      titulosEditar.forEach(function (elemento, index) {
-        var elementoTemporal = {
-          titulo: elemento,
-          nombre: datosEditar[index],
-          uno: false,
-          valor: elementoClickeado[datosEditar[index]],
-          max: max[index],
-          tipo: tipo[index]
-        };
-
-        _this.configEditInputTemplate.inputs.push([elementoTemporal]);
-      });
       this.mostrarPopupEditar = true;
-      console.log(this.configEditInputTemplate);
+      this.configEditInputTemplate.inputs = this.inputsEditar; // Itero sobre el arreglo de arreglos
+      // [ [] ,  [] ,  [] ]
+
+      this.inputsEditar.forEach(function (arreglo, indexArreglo) {
+        // Itero sobre el arreglo de objetos
+        // [ {} , {}, {} ]
+        arreglo.forEach(function (elemento, indexElemento) {
+          // Esto se puede refactorizar de alguna manera, al rato lo hago
+          // Asigno el valor de  la propiedad correspondiente de elementoClickeado al valor inicial de un input
+          // Como ejemplo, al inicio del ciclo, una supuesta operacion sería esta
+          // configEditInputTemplate.inputs[0][0].valor = elementoClickeado.id;
+          // Entonces el input que tiene el nombre 'id' tiene de valor el elemento 'id' del objeto elementoClickeado
+          _this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = _this.elementoClickeado[elemento.nombre]; // El componente InputTemplate se encarga de renderizar todo esto correctamente
+        });
+      });
     },
     eliminarElementoSeleccionado: function eliminarElementoSeleccionado() {
-      var click = this.configuracion.tabla.click;
-      console.log("".concat(click.urlDelete, "/").concat(this.elementoClickeado[click.propiedadAlEliminar]));
-      (0, _sweetAlert.alertaEliminar)("".concat(click.urlDelete, "/").concat(this.elementoClickeado[click.propiedadAlEliminar]));
+      //const click = this.configuracion.tabla.click
+      //console.log(`${click.urlDelete}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
+      (0, _sweetAlert.alertaEliminar)("".concat(this.tablaUrlEliminar, "/").concat(this.elementoClickeado[this.tablaPropiedadAEliminar]));
     },
     filaSeleccionada: function filaSeleccionada(elemento) {
-      if (this.configuracion.tabla.click.mandarEvento === false) {
+      if (this.tablaMandarEventoClick === false) {
         this.elementoClickeado = elemento;
         this.clickEnTabla = true;
       } else {
@@ -26223,32 +26400,33 @@ var _default = {
               }
 
               _context.next = 7;
-              return regeneratorRuntime.awrap(_axios.default.get(this.configuracion.tabla.url, {
+              return regeneratorRuntime.awrap(_axios.default.get(this.tablaUrl, {
                 params: params
               }));
 
             case 7:
               response = _context.sent;
               this.tablaDatos = response.data;
+              console.log(this.tablaDatos);
 
               if (response.data.length === 0) {
                 this.anteriorTablaCliente();
               }
 
-              _context.next = 15;
+              _context.next = 16;
               break;
 
-            case 12:
-              _context.prev = 12;
+            case 13:
+              _context.prev = 13;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0);
 
-            case 15:
+            case 16:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[0, 12]]);
+      }, null, this, [[0, 13]]);
     },
     siguienteTablaCliente: function siguienteTablaCliente() {
       this.busqueda.offset = this.busqueda.offset + 1;
@@ -26264,11 +26442,11 @@ var _default = {
   },
   created: function created() {
     this.obtenerDatos();
-    var config = this.configuracion;
-    this.busqueda.variable = config.busqueda.busquedaSeleccionada;
-    this.busquedaSeleccionada = config.busqueda.busquedaSeleccionada;
-    this.tiposBusqueda = config.busqueda.tiposBusqueda;
-    this.tablaTitulos = config.tabla.tablaTitulos;
+    /*const config =                          this.configuracion;
+    this.busqueda.variable =                config.busqueda.busquedaSeleccionada
+    this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada
+    this.tiposBusqueda =                    config.busqueda.tiposBusqueda
+    this.tablaTitulos =                     config.tabla.tablaTitulos*/
   }
 };
 exports.default = _default;
@@ -26285,6 +26463,8 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "main" } }, [
+    _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
+    _vm._v(" "),
     _vm.mostrarPopupEditar
       ? _c("div", { attrs: { id: "popup-container" } }, [
           _c(
@@ -26306,9 +26486,10 @@ exports.default = _default;
                 [_vm._v("Cancelar")]
               ),
               _vm._v(" "),
-              _c("InputTemplate", {
-                attrs: { config: _vm.configEditInputTemplate }
-              })
+              _c(
+                "InputTemplate",
+                _vm._b({}, "InputTemplate", _vm.configEditInputTemplate, false)
+              )
             ],
             1
           )
@@ -26369,8 +26550,7 @@ exports.default = _default;
                 1
               ),
               _vm._v(" "),
-              _vm.configuracion.tabla.click.opcionEdicion === true &&
-              _vm.clickEnTabla === true
+              _vm.mostrarInformacionClick === true && _vm.clickEnTabla === true
                 ? _c(
                     "div",
                     {
@@ -26404,35 +26584,31 @@ exports.default = _default;
                       _vm._v(" "),
                       _c("div", { staticClass: "divisor" }),
                       _vm._v(" "),
-                      _vm._l(
-                        _vm.configuracion.tabla.click.datosMostrar,
-                        function(elemento, index) {
-                          return _c(
-                            "div",
-                            {
-                              key: index,
-                              staticClass: "flex flex-col container px-8 mb-5"
-                            },
-                            [
-                              _c("h2", { staticClass: "text-xl" }, [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.configuracion.tabla.click
-                                      .titulosMostrar[index]
-                                  )
+                      _vm._l(_vm.titulosClick, function(elemento) {
+                        return _c(
+                          "div",
+                          {
+                            key: elemento.propiedad,
+                            staticClass: "flex flex-col container px-8 mb-5"
+                          },
+                          [
+                            _c("h2", { staticClass: "text-xl" }, [
+                              _vm._v(_vm._s(elemento.titulo))
+                            ]),
+                            _vm._v(" "),
+                            _c("h5", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.elementoClickeado[elemento.propiedad]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("h5", [
-                                _vm._v(_vm._s(_vm.elementoClickeado[elemento]))
-                              ])
-                            ]
-                          )
-                        }
-                      ),
+                              )
+                            ])
+                          ]
+                        )
+                      }),
                       _vm._v(" "),
                       _c("div", { staticClass: "flex" }, [
-                        _vm.configuracion.tabla.click.opcionEliminar
+                        _vm.mostrarOpcionEliminar
                           ? _c(
                               "button",
                               {
@@ -26443,7 +26619,7 @@ exports.default = _default;
                             )
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.configuracion.tabla.click.opcionEditar
+                        _vm.mostrarOpcionEditar
                           ? _c(
                               "button",
                               {
@@ -26563,6 +26739,67 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   data: function data() {
     return {
+      BusquedaTablaAllConfig: {
+        tablaTitulos: [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre'
+        }, {
+          propiedad: 'apellido',
+          titulo: 'Apellido'
+        }],
+        tablaUrl: '/api/clientes',
+        tablaUrlEliminar: '/api/clientes',
+        tablaPropiedadAEliminar: 'id',
+        tablaMandarEventoClick: false,
+        mostrarInformacionClick: true,
+        titulosClick: [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre'
+        }],
+        mostrarOpcionEditar: true,
+        mostrarOpcionEliminar: true,
+        inputsEditar: [[{
+          nombre: 'id',
+          titulo: 'Identificador',
+          max: 2,
+          tipo: 'text',
+          validacion: true,
+          uno: true
+        }], [{
+          nombre: 'nombre',
+          titulo: 'Nombre',
+          max: 50,
+          tipo: 'text',
+          validacion: true,
+          uno: false
+        }, {
+          nombre: 'apellido',
+          titulo: 'Apellido',
+          max: 50,
+          tipo: 'text',
+          validacion: true,
+          uno: false
+        }], [{
+          nombre: 'direccion',
+          titulo: 'Direccion',
+          max: 150,
+          tipo: 'text',
+          validacion: true,
+          uno: false
+        }], [{
+          nombre: 'edad',
+          titulo: 'Edad',
+          max: 99,
+          tipo: 'number',
+          uno: true
+        }]]
+      },
       configuracion: {
         tabla: {
           url: '/api/clientes',
@@ -26591,7 +26828,7 @@ var _default = {
             // La siguiente información será mostrada en ese cuadro
             // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
             datosMostrar: ['id', 'nombre', 'apellido', 'direccion'],
-            titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccion'],
+            //titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'olaquetal'],
             // Al hacer click se desea mandar un evento?
             mandarEvento: false,
             opcionEditar: true,
@@ -26729,9 +26966,10 @@ exports.default = _default;
       }),
       _vm._v(" "),
       _vm.opcionSeleccionada === "Buscar"
-        ? _c("BusquedaTablaAll", {
-            attrs: { configuracion: _vm.configuracion }
-          })
+        ? _c(
+            "BusquedaTablaAll",
+            _vm._b({}, "BusquedaTablaAll", _vm.BusquedaTablaAllConfig, false)
+          )
         : _vm._e(),
       _vm._v(" "),
       _c(
@@ -26739,7 +26977,10 @@ exports.default = _default;
         { staticClass: "width-100 padding-x-20 padding-y-20" },
         [
           _vm.opcionSeleccionada === "Crear Cliente"
-            ? _c("InputTemplate", { attrs: { config: _vm.configCrear } })
+            ? _c(
+                "InputTemplate",
+                _vm._b({}, "InputTemplate", _vm.configCrear, false)
+              )
             : _vm._e()
         ],
         1
@@ -26867,7 +27108,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53848" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62829" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

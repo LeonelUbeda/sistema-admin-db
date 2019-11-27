@@ -9,9 +9,9 @@
     @elementoSeleccionado="clickOpciones">
     </TopSection>
     
-    <BusquedaTablaAll :configuracion="configuracion" v-if="opcionSeleccionada === 'Buscar'"></BusquedaTablaAll>
+    <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" v-if="opcionSeleccionada === 'Buscar'"></BusquedaTablaAll>
     <div class="width-100 padding-x-20 padding-y-20">
-        <InputTemplate :config="configCrear"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
+        <InputTemplate v-bind="configCrear"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
         </InputTemplate>
     </div>
 </div>
@@ -35,7 +35,39 @@ import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 export default {
     data: () => {
         return {
-
+            BusquedaTablaAllConfig:{
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}, 
+                    {propiedad: 'apellido', titulo: 'Apellido'}
+                ],
+                tablaUrl: '/api/clientes',
+                tablaUrlEliminar: '/api/clientes',
+                tablaPropiedadAEliminar: 'id',
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                inputsEditar: [
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 2, tipo: 'text', validacion: true, uno: true}
+                    ],
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false},
+                        {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false }
+                    ],
+                    [
+                        {nombre: 'direccion', titulo: 'Direccion', max: 150, tipo: 'text', validacion: true, uno: false}
+                    ],
+                    [
+                        {nombre: 'edad', titulo: 'Edad', max: 99, tipo: 'number', uno: true}
+                    ]
+                ]
+            },
             configuracion: {
                 tabla: {
                     url: '/api/clientes',
@@ -56,7 +88,7 @@ export default {
                         // La siguiente información será mostrada en ese cuadro
                         // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
                         datosMostrar: ['id','nombre','apellido', 'direccion'],
-                        titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccion'],
+                        //titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'olaquetal'],
 
                         // Al hacer click se desea mandar un evento?
                         mandarEvento: false, 
