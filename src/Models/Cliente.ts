@@ -19,6 +19,10 @@ Cliente.init({
     apellido: {
         type: Sequelize.STRING(50)
     },
+    cedula: {
+        type: Sequelize.STRING(30),
+        allowNull: true
+    },
     direccion: {
         type: Sequelize.STRING(100)
     },

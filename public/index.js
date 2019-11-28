@@ -8929,14 +8929,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $65481f = exports.default || module.exports;
+        var $12368a = exports.default || module.exports;
       
-      if (typeof $65481f === 'function') {
-        $65481f = $65481f.options;
+      if (typeof $12368a === 'function') {
+        $12368a = $12368a.options;
       }
     
         /* template */
-        Object.assign($65481f, (function () {
+        Object.assign($12368a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8973,7 +8973,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-65481f",
+            _scopeId: "data-v-12368a",
             functional: undefined
           };
         })());
@@ -8986,9 +8986,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$65481f', $65481f);
+            api.createRecord('$12368a', $12368a);
           } else {
-            api.reload('$65481f', $65481f);
+            api.reload('$12368a', $12368a);
           }
         }
 
@@ -9031,14 +9031,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $52f010 = exports.default || module.exports;
+        var $1cec8b = exports.default || module.exports;
       
-      if (typeof $52f010 === 'function') {
-        $52f010 = $52f010.options;
+      if (typeof $1cec8b === 'function') {
+        $1cec8b = $1cec8b.options;
       }
     
         /* template */
-        Object.assign($52f010, (function () {
+        Object.assign($1cec8b, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9060,7 +9060,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-52f010",
+            _scopeId: "data-v-1cec8b",
             functional: undefined
           };
         })());
@@ -9073,9 +9073,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$52f010', $52f010);
+            api.createRecord('$1cec8b', $1cec8b);
           } else {
-            api.reload('$52f010', $52f010);
+            api.reload('$1cec8b', $1cec8b);
           }
         }
 
@@ -21642,14 +21642,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $e551a3 = exports.default || module.exports;
+        var $a48455 = exports.default || module.exports;
       
-      if (typeof $e551a3 === 'function') {
-        $e551a3 = $e551a3.options;
+      if (typeof $a48455 === 'function') {
+        $a48455 = $a48455.options;
       }
     
         /* template */
-        Object.assign($e551a3, (function () {
+        Object.assign($a48455, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21688,7 +21688,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e551a3",
+            _scopeId: "data-v-a48455",
             functional: undefined
           };
         })());
@@ -21701,9 +21701,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e551a3', $e551a3);
+            api.createRecord('$a48455', $a48455);
           } else {
-            api.reload('$e551a3', $e551a3);
+            api.reload('$a48455', $a48455);
           }
         }
 
@@ -21753,14 +21753,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $e713af = exports.default || module.exports;
+        var $eabc7a = exports.default || module.exports;
       
-      if (typeof $e713af === 'function') {
-        $e713af = $e713af.options;
+      if (typeof $eabc7a === 'function') {
+        $eabc7a = $eabc7a.options;
       }
     
         /* template */
-        Object.assign($e713af, (function () {
+        Object.assign($eabc7a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21781,7 +21781,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e713af",
+            _scopeId: "data-v-eabc7a",
             functional: undefined
           };
         })());
@@ -21794,9 +21794,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e713af', $e713af);
+            api.createRecord('$eabc7a', $eabc7a);
           } else {
-            api.reload('$e713af', $e713af);
+            api.reload('$eabc7a', $eabc7a);
           }
         }
 
@@ -21831,14 +21831,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $369922 = exports.default || module.exports;
+        var $087bd5 = exports.default || module.exports;
       
-      if (typeof $369922 === 'function') {
-        $369922 = $369922.options;
+      if (typeof $087bd5 === 'function') {
+        $087bd5 = $087bd5.options;
       }
     
         /* template */
-        Object.assign($369922, (function () {
+        Object.assign($087bd5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21852,7 +21852,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-369922",
+            _scopeId: "data-v-087bd5",
             functional: undefined
           };
         })());
@@ -21865,9 +21865,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$369922', $369922);
+            api.createRecord('$087bd5', $087bd5);
           } else {
-            api.reload('$369922', $369922);
+            api.reload('$087bd5', $087bd5);
           }
         }
 
@@ -21966,14 +21966,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $2b3539 = exports.default || module.exports;
+        var $75911e = exports.default || module.exports;
       
-      if (typeof $2b3539 === 'function') {
-        $2b3539 = $2b3539.options;
+      if (typeof $75911e === 'function') {
+        $75911e = $75911e.options;
       }
     
         /* template */
-        Object.assign($2b3539, (function () {
+        Object.assign($75911e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22033,7 +22033,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2b3539",
+            _scopeId: "data-v-75911e",
             functional: undefined
           };
         })());
@@ -22046,9 +22046,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2b3539', $2b3539);
+            api.createRecord('$75911e', $75911e);
           } else {
-            api.reload('$2b3539', $2b3539);
+            api.reload('$75911e', $75911e);
           }
         }
 
@@ -22101,41 +22101,37 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $486705 = exports.default || module.exports;
+        var $372339 = exports.default || module.exports;
       
-      if (typeof $486705 === 'function') {
-        $486705 = $486705.options;
+      if (typeof $372339 === 'function') {
+        $372339 = $372339.options;
       }
     
         /* template */
-        Object.assign($486705, (function () {
+        Object.assign($372339, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "flex items-center", attrs: { id: "titulo" } },
-    [
-      _c("h2", { staticClass: "text-2xl" }, [_vm._v(_vm._s(_vm.titulo))]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "flex margin-left-auto items-center cursor-pointer",
-          on: { click: _vm.recargar }
-        },
-        [
-          _c("img", {
-            staticClass: "width-20px margin-right-10",
-            attrs: { src: "/recargar.57927ccf.svg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("h4", { staticClass: "mr-30" }, [_vm._v("Refrescar")])
-        ]
-      )
-    ]
-  )
+  return _c("div", { staticClass: "flex items-center titulo" }, [
+    _c("h2", { staticClass: "text-2xl" }, [_vm._v(_vm._s(_vm.titulo))]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "flex margin-left-auto items-center cursor-pointer",
+        on: { click: _vm.recargar }
+      },
+      [
+        _c("img", {
+          staticClass: "width-20px margin-right-10",
+          attrs: { src: "/recargar.57927ccf.svg", alt: "" }
+        }),
+        _vm._v(" "),
+        _c("h4", { staticClass: "mr-30" }, [_vm._v("Refrescar")])
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22144,7 +22140,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-486705",
+            _scopeId: "data-v-372339",
             functional: undefined
           };
         })());
@@ -22157,9 +22153,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$486705', $486705);
+            api.createRecord('$372339', $372339);
           } else {
-            api.reload('$486705', $486705);
+            api.reload('$372339', $372339);
           }
         }
 
@@ -22174,7 +22170,7 @@ render._withStripped = true
 var define;
 var global = arguments[3];
 /*!
-* sweetalert2 v9.4.0
+* sweetalert2 v9.3.17
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22487,7 +22483,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -22520,9 +22516,6 @@ var getTitle = function getTitle() {
 };
 var getContent = function getContent() {
   return elementByClass(swalClasses.content);
-};
-var getHtmlContainer = function getHtmlContainer() {
-  return elementByClass(swalClasses['html-container']);
 };
 var getImage = function getImage() {
   return elementByClass(swalClasses.image);
@@ -22763,7 +22756,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -23877,7 +23870,6 @@ var staticMethods = Object.freeze({
 	getPopup: getPopup,
 	getTitle: getTitle,
 	getContent: getContent,
-	getHtmlContainer: getHtmlContainer,
 	getImage: getImage,
 	getIcon: getIcon,
 	getIcons: getIcons,
@@ -25153,7 +25145,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.4.0';
+SweetAlert.version = '9.3.17';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -25234,6 +25226,13 @@ var _default = {
     //Nombre que sale en el titulo
     nombreBoton: String,
     //Nombre del boton de enviar
+    // Mostrar boton secundario 
+    mostrarBotonSecundario: {
+      type: Boolean,
+      default: false
+    },
+    // Texto del boton secundario
+    nombreBotonSecundario: String,
     mostrarTitulo: Boolean,
     urlCrear: {
       type: String,
@@ -25259,6 +25258,10 @@ var _default = {
     };
   },
   methods: {
+    eventoBotonSecundario: function eventoBotonSecundario(event) {
+      event.preventDefault();
+      this.$emit('clickBotonSecundario');
+    },
     crear: function crear(event) {
       event.preventDefault();
 
@@ -25372,14 +25375,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $c2728f = exports.default || module.exports;
+        var $33e561 = exports.default || module.exports;
       
-      if (typeof $c2728f === 'function') {
-        $c2728f = $c2728f.options;
+      if (typeof $33e561 === 'function') {
+        $33e561 = $33e561.options;
       }
     
         /* template */
-        Object.assign($c2728f, (function () {
+        Object.assign($33e561, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25388,7 +25391,12 @@ exports.default = _default;
     _vm.mostrarTitulo
       ? _c(
           "div",
-          { staticClass: "bloque-titulo flex items-center margin-b-20 sombra" },
+          {
+            class: [
+              "bloque-titulo flex items-center margin-b-20 ",
+              { sombra: _vm.estilo === true }
+            ]
+          },
           [
             _c("h2", { staticClass: "ml-8 text-xl" }, [
               _vm._v(_vm._s(_vm.nameForm))
@@ -25645,17 +25653,19 @@ exports.default = _default;
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
-          _c(
-            "button",
-            {
-              on: {
-                click: function($event) {
-                  _vm.modoCrear ? _vm.crear($event) : _vm.actualizar($event)
-                }
-              }
-            },
-            [_vm._v(_vm._s(_vm.nombreBoton))]
-          ),
+          _vm.mostrarBotonSecundario
+            ? _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.eventoBotonSecundario($event)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(_vm.nombreBotonSecundario))]
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c("input", {
             staticClass: "margin-left-auto ml-auto",
@@ -25680,7 +25690,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-c2728f",
+            _scopeId: "data-v-33e561",
             functional: undefined
           };
         })());
@@ -25693,9 +25703,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c2728f', $c2728f);
+            api.createRecord('$33e561', $33e561);
           } else {
-            api.reload('$c2728f', $c2728f);
+            api.reload('$33e561', $33e561);
           }
         }
 
@@ -25752,14 +25762,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $b5b37f = exports.default || module.exports;
+        var $77a4df = exports.default || module.exports;
       
-      if (typeof $b5b37f === 'function') {
-        $b5b37f = $b5b37f.options;
+      if (typeof $77a4df === 'function') {
+        $77a4df = $77a4df.options;
       }
     
         /* template */
-        Object.assign($b5b37f, (function () {
+        Object.assign($77a4df, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25823,7 +25833,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-b5b37f",
+            _scopeId: "data-v-77a4df",
             functional: undefined
           };
         })());
@@ -25836,9 +25846,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$b5b37f', $b5b37f);
+            api.createRecord('$77a4df', $77a4df);
           } else {
-            api.reload('$b5b37f', $b5b37f);
+            api.reload('$77a4df', $77a4df);
           }
         }
 
@@ -25886,14 +25896,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $930865 = exports.default || module.exports;
+        var $8b145a = exports.default || module.exports;
       
-      if (typeof $930865 === 'function') {
-        $930865 = $930865.options;
+      if (typeof $8b145a === 'function') {
+        $8b145a = $8b145a.options;
       }
     
         /* template */
-        Object.assign($930865, (function () {
+        Object.assign($8b145a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25950,7 +25960,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-930865",
+            _scopeId: "data-v-8b145a",
             functional: undefined
           };
         })());
@@ -25963,9 +25973,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$930865', $930865);
+            api.createRecord('$8b145a', $8b145a);
           } else {
-            api.reload('$930865', $930865);
+            api.reload('$8b145a', $8b145a);
           }
         }
 
@@ -26153,9 +26163,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
 var _default = {
   props: {
     tablaTitulos: {
@@ -26234,16 +26241,13 @@ var _default = {
         }]];
       }
     },
-    editarTitulos: {
-      type: Array,
+    tituloPopup: {
+      type: Object,
       default: function _default() {
-        return ['Identificador'];
-      }
-    },
-    editarLlaves: {
-      type: Array,
-      default: function _default() {
-        return ['id'];
+        return {
+          titulo: 'Editar cliente ID: ',
+          propiedadElementoClickeado: 'id'
+        };
       }
     },
     editarLongitudMaxima: {
@@ -26309,11 +26313,16 @@ var _default = {
       tablaDatos: [],
       //tablaTitulos: [], 
       configEditInputTemplate: {
+        nombreBotonSecundario: 'Cancelar',
+        mostrarBotonSecundario: true,
         estilo: false,
         mostrarTitulo: false,
         nombreBoton: 'Guardar',
         inputs: [],
         modoCrear: false
+        /*mostrarTitulo: true,
+        nameForm: 'Editar Cliente'*/
+
       }
     };
   },
@@ -26450,197 +26459,216 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $ff7dad = exports.default || module.exports;
+        var $31a313 = exports.default || module.exports;
       
-      if (typeof $ff7dad === 'function') {
-        $ff7dad = $ff7dad.options;
+      if (typeof $31a313 === 'function') {
+        $31a313 = $31a313.options;
       }
     
         /* template */
-        Object.assign($ff7dad, (function () {
+        Object.assign($31a313, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "main" } }, [
-    _c("h2", { staticClass: "text-left width-100" }, [_vm._v("Clientes")]),
-    _vm._v(" "),
-    _vm.mostrarPopupEditar
-      ? _c("div", { attrs: { id: "popup-container" } }, [
-          _c(
-            "div",
-            {
-              staticClass: "width-100 padding-x-20 padding-y-20",
-              attrs: { id: "popup" }
-            },
-            [
-              _c(
-                "p",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.mostrarPopupEditar = false
-                    }
-                  }
-                },
-                [_vm._v("Cancelar")]
-              ),
-              _vm._v(" "),
-              _c(
-                "InputTemplate",
-                _vm._b({}, "InputTemplate", _vm.configEditInputTemplate, false)
-              )
-            ],
-            1
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "width-100 flex justify-between" }, [
-      _c(
-        "div",
-        { staticClass: "contenedor-tabla" },
-        [
-          _c("TablaTitulo", {
-            attrs: { titulo: "Cliente" },
-            on: { recargar: _vm.reiniciarTablaClientess }
-          }),
-          _vm._v(" "),
-          _c("Tabla", {
-            attrs: { elementos: _vm.tablaDatos, titulos: _vm.tablaTitulos },
-            on: {
-              siguiente: _vm.siguienteTablaCliente,
-              atras: _vm.anteriorTablaCliente,
-              filaSeleccionada: _vm.filaSeleccionada
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex flex-col sombra", attrs: { id: "sidebar" } },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex items-center bg-white flex-col" },
-            [
-              _c("div", { staticClass: "divisor" }),
-              _vm._v(" "),
-              _c("BusquedaRadio", {
-                attrs: {
-                  seleccionado: _vm.busquedaSeleccionada,
-                  opciones: _vm.tiposBusqueda
-                },
-                on: { seleccion: _vm.manejarTipoBusqueda }
-              }),
-              _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "main" },
+    [
+      _c("transition", { attrs: { name: "fade" } }, [
+        _vm.mostrarPopupEditar
+          ? _c("div", { attrs: { id: "popup-container" } }, [
               _c(
                 "div",
-                { staticStyle: { width: "90%" } },
+                {
+                  class: ["width-100 padding-x-20 padding-y-20 "],
+                  attrs: { id: "popup" }
+                },
                 [
-                  _c("BusquedaInput", {
-                    ref: "BusquedaInputRef",
-                    on: { buscar: _vm.busquedaSearchBar }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.mostrarInformacionClick === true && _vm.clickEnTabla === true
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "flex flex-col container items-center card"
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "bloque-titulo flex items-center" },
-                        [
-                          _c("h2", { staticClass: "ml-8 text-xl" }, [
-                            _vm._v("Edicion")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "h2",
-                            {
-                              staticClass:
-                                "ml-auto mr-8 cursor-pointer text-xl",
-                              staticStyle: { color: "red" },
-                              on: {
-                                click: function($event) {
-                                  _vm.clickEnTabla = false
-                                }
-                              }
-                            },
-                            [_vm._v("X")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "divisor" }),
-                      _vm._v(" "),
-                      _vm._l(_vm.titulosClick, function(elemento) {
-                        return _c(
-                          "div",
-                          {
-                            key: elemento.propiedad,
-                            staticClass: "flex flex-col container px-8 mb-5"
-                          },
-                          [
-                            _c("h2", { staticClass: "text-xl" }, [
-                              _vm._v(_vm._s(elemento.titulo))
-                            ]),
-                            _vm._v(" "),
-                            _c("h5", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.elementoClickeado[elemento.propiedad]
-                                )
-                              )
-                            ])
+                  _c("h2", { staticClass: "text-xl" }, [
+                    _vm._v(
+                      _vm._s(_vm.tituloPopup.titulo) +
+                        " " +
+                        _vm._s(
+                          _vm.elementoClickeado[
+                            _vm.tituloPopup.propiedadElementoClickeado
                           ]
                         )
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "flex" }, [
-                        _vm.mostrarOpcionEliminar
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "btn-rojo text-white",
-                                on: { click: _vm.eliminarElementoSeleccionado }
-                              },
-                              [_vm._v("Eliminar")]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.mostrarOpcionEditar
-                          ? _c(
-                              "button",
-                              {
-                                staticClass: "btn-azul text-white",
-                                on: { click: _vm.editarElementoSeleccionado }
-                              },
-                              [_vm._v("Editar")]
-                            )
-                          : _vm._e()
-                      ])
-                    ],
-                    2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "InputTemplate",
+                    _vm._b(
+                      {
+                        on: {
+                          clickBotonSecundario: function($event) {
+                            _vm.mostrarPopupEditar = false
+                          }
+                        }
+                      },
+                      "InputTemplate",
+                      _vm.configEditInputTemplate,
+                      false
+                    )
                   )
-                : _vm._e()
-            ],
-            1
-          )
-        ]
-      )
-    ])
-  ])
+                ],
+                1
+              )
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "width-100 flex justify-between" }, [
+        _c(
+          "div",
+          { staticClass: "contenedor-tabla" },
+          [
+            _c("TablaTitulo", {
+              attrs: { titulo: "Cliente" },
+              on: { recargar: _vm.reiniciarTablaClientess }
+            }),
+            _vm._v(" "),
+            _c("Tabla", {
+              attrs: { elementos: _vm.tablaDatos, titulos: _vm.tablaTitulos },
+              on: {
+                siguiente: _vm.siguienteTablaCliente,
+                atras: _vm.anteriorTablaCliente,
+                filaSeleccionada: _vm.filaSeleccionada
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "flex flex-col sombra", attrs: { id: "sidebar" } },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex items-center bg-white flex-col" },
+              [
+                _c("div", { staticClass: "divisor" }),
+                _vm._v(" "),
+                _c("BusquedaRadio", {
+                  attrs: {
+                    seleccionado: _vm.busquedaSeleccionada,
+                    opciones: _vm.tiposBusqueda
+                  },
+                  on: { seleccion: _vm.manejarTipoBusqueda }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticStyle: { width: "90%" } },
+                  [
+                    _c("BusquedaInput", {
+                      ref: "BusquedaInputRef",
+                      on: { buscar: _vm.busquedaSearchBar }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.mostrarInformacionClick === true &&
+                _vm.clickEnTabla === true
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "flex flex-col container items-center card"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "bloque-titulo flex items-center" },
+                          [
+                            _c("h2", { staticClass: "ml-8 text-xl" }, [
+                              _vm._v("Edicion")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "h2",
+                              {
+                                staticClass:
+                                  "ml-auto mr-8 cursor-pointer text-xl",
+                                staticStyle: { color: "red" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.clickEnTabla = false
+                                  }
+                                }
+                              },
+                              [_vm._v("X")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "divisor" }),
+                        _vm._v(" "),
+                        _vm._l(_vm.titulosClick, function(elemento) {
+                          return _c(
+                            "div",
+                            {
+                              key: elemento.propiedad,
+                              staticClass: "flex flex-col container px-8 mb-5"
+                            },
+                            [
+                              _c("h2", { staticClass: "text-xl" }, [
+                                _vm._v(_vm._s(elemento.titulo))
+                              ]),
+                              _vm._v(" "),
+                              _c("h5", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.elementoClickeado[elemento.propiedad]
+                                  )
+                                )
+                              ])
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex" }, [
+                          _vm.mostrarOpcionEliminar
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn-rojo text-white",
+                                  on: {
+                                    click: _vm.eliminarElementoSeleccionado
+                                  }
+                                },
+                                [_vm._v("Eliminar")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.mostrarOpcionEditar
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn-azul text-white",
+                                  on: { click: _vm.editarElementoSeleccionado }
+                                },
+                                [_vm._v("Editar")]
+                              )
+                            : _vm._e()
+                        ])
+                      ],
+                      2
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -26658,7 +26686,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-ff7dad",
+            _scopeId: "data-v-31a313",
             functional: undefined
           };
         })());
@@ -26671,9 +26699,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$ff7dad', $ff7dad);
+            api.createRecord('$31a313', $31a313);
           } else {
-            api.reload('$ff7dad', $ff7dad);
+            api.reload('$31a313', $31a313);
           }
         }
 
@@ -26734,6 +26762,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* ----- Componentes  ----- */
 var _default = {
@@ -26767,7 +26802,7 @@ var _default = {
         inputsEditar: [[{
           nombre: 'id',
           titulo: 'Identificador',
-          max: 2,
+          max: 99,
           tipo: 'text',
           validacion: true,
           uno: true
@@ -26788,83 +26823,31 @@ var _default = {
         }], [{
           nombre: 'direccion',
           titulo: 'Direccion',
-          max: 150,
+          max: 100,
           tipo: 'text',
           validacion: true,
           uno: false
         }], [{
-          nombre: 'edad',
-          titulo: 'Edad',
-          max: 99,
-          tipo: 'number',
-          uno: true
+          nombre: 'cedula',
+          titulo: 'Número de cédula',
+          max: 30,
+          tipo: 'text',
+          uno: false
+        }, {
+          titulo: 'Tipo de cliente',
+          nombre: 'tipoCliente',
+          tipo: 'text',
+          max: 9999,
+          validacion: false,
+          valor: '',
+          uno: false,
+          opciones: ['Persona', 'Empresa']
         }]]
       },
-      configuracion: {
-        tabla: {
-          url: '/api/clientes',
-          tablaTitulos: [{
-            propiedad: 'id',
-            titulo: 'ID'
-          }, {
-            propiedad: 'nombre',
-            titulo: 'Nombre'
-          }, {
-            propiedad: 'apellido',
-            titulo: 'Apellido'
-          }, {
-            propiedad: 'direccion',
-            titulo: 'Direccion'
-          }, {
-            propiedad: 'tipoCliente',
-            titulo: 'Tipo Cliente'
-          }],
-          click: {
-            // Hacer click en la tabla
-            urlDelete: '/api/clientes',
-            urlEdit: '/api/clientes',
-            propiedadAlEliminar: 'id',
-            // Al hacer click, se mostrara un pequeño cuadro con la información del elemento clickeado.
-            // La siguiente información será mostrada en ese cuadro
-            // datosMostrar y titulosMostrar tienen una correspondencia de 1:1 así que hay que declararlos ordenadamente
-            datosMostrar: ['id', 'nombre', 'apellido', 'direccion'],
-            //titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'olaquetal'],
-            // Al hacer click se desea mandar un evento?
-            mandarEvento: false,
-            opcionEditar: true,
-            opcionEliminar: true,
-            // Al dar click a un elemento, mostrar la informacion de edicion?
-            opcionEdicion: true
-          },
-          configuracionEditar: {
-            // Al editar un elemento se van a mostrar los inputs de los siguientes elementos
-            datosEditar: ['id', 'nombre', 'apellido', 'direccion'],
-            titulosEditar: ['Identificador', 'Nombre', 'Apellido', 'Direccion'],
-            max: [5, 5, 5, 5],
-            tipo: ['number', 'text', 'number', 'text']
-          }
-        },
-        busqueda: {
-          // Esto es para las opciones de busqueda para la tabla
-          tiposBusqueda: [[{
-            value: 'nombre',
-            titulo: 'Nombre'
-          }, {
-            value: 'apellido',
-            titulo: 'Apellido'
-          }], [{
-            value: 'direccion',
-            titulo: 'Direccion'
-          }, {
-            value: 'id',
-            titulo: 'ID'
-          }]],
-          // Tipo de busqueda seleccionada por defecto
-          busquedaSeleccionada: 'nombre'
-        }
-      },
+      // Menu de arriba
       opciones: ['Buscar', 'Crear Cliente'],
       opcionSeleccionada: 'Buscar',
+      // Configuracion de inputs para crear Clientes
       configCrear: {
         mostrarTitulo: false,
         nombreBoton: 'Enviar',
@@ -26877,7 +26860,6 @@ var _default = {
           tipo: 'text',
           max: 50,
           validacion: false,
-          valor: '',
           uno: false
         }, {
           titulo: 'Apellido',
@@ -26885,15 +26867,12 @@ var _default = {
           tipo: 'text',
           max: 50,
           validacion: false,
-          valor: '',
           uno: false
         }], [{
-          titulo: 'Edad',
-          nombre: 'edad',
-          tipo: 'number',
-          max: 50,
-          validacion: false,
-          valor: '',
+          nombre: 'cedula',
+          titulo: 'Número de cédula',
+          max: 30,
+          tipo: 'text',
           uno: true
         }], [{
           titulo: 'Dirección',
@@ -26901,25 +26880,15 @@ var _default = {
           tipo: 'text',
           max: 100,
           validacion: false,
-          valor: '',
           uno: false
         }, {
           titulo: 'Tipo de cliente',
           nombre: 'tipoCliente',
           tipo: 'text',
-          max: 9999,
+          max: 50,
           validacion: false,
-          valor: '',
           uno: false,
           opciones: ['Persona', 'Empresa']
-        }, {
-          titulo: 'Tarjeta',
-          nombre: 'tarjeta',
-          tipo: 'number',
-          max: 9999999999999,
-          validacion: false,
-          valor: '',
-          uno: false
         }]]
       }
     };
@@ -26941,14 +26910,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $1b7dc3 = exports.default || module.exports;
+        var $2acc8d = exports.default || module.exports;
       
-      if (typeof $1b7dc3 === 'function') {
-        $1b7dc3 = $1b7dc3.options;
+      if (typeof $2acc8d === 'function') {
+        $2acc8d = $2acc8d.options;
       }
     
         /* template */
-        Object.assign($1b7dc3, (function () {
+        Object.assign($2acc8d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26967,36 +26936,59 @@ exports.default = _default;
       _vm._v(" "),
       _vm.opcionSeleccionada === "Buscar"
         ? _c(
-            "BusquedaTablaAll",
-            _vm._b({}, "BusquedaTablaAll", _vm.BusquedaTablaAllConfig, false)
+            "div",
+            { staticClass: "width-100 padding-x-60 padding-y-20" },
+            [
+              _c(
+                "BusquedaTablaAll",
+                _vm._b(
+                  {},
+                  "BusquedaTablaAll",
+                  _vm.BusquedaTablaAllConfig,
+                  false
+                )
+              )
+            ],
+            1
           )
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "width-100 padding-x-20 padding-y-20" },
-        [
-          _vm.opcionSeleccionada === "Crear Cliente"
-            ? _c(
+      _vm.opcionSeleccionada === "Crear Cliente"
+        ? _c(
+            "div",
+            { staticClass: "width-100 padding-x-60 padding-y-20" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
                 "InputTemplate",
                 _vm._b({}, "InputTemplate", _vm.configCrear, false)
               )
-            : _vm._e()
-        ],
-        1
-      )
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "titulo" }, [
+      _c("h2", { staticClass: "text-2xl" }, [_vm._v("Crear Cliente")])
+    ])
+  }
+]
 render._withStripped = true
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1b7dc3",
+            _scopeId: "data-v-2acc8d",
             functional: undefined
           };
         })());
@@ -27009,9 +27001,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1b7dc3', $1b7dc3);
+            api.createRecord('$2acc8d', $2acc8d);
           } else {
-            api.reload('$1b7dc3', $1b7dc3);
+            api.reload('$2acc8d', $2acc8d);
           }
         }
 
@@ -27108,7 +27100,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62829" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3822" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

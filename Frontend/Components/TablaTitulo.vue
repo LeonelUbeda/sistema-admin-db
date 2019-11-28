@@ -1,5 +1,5 @@
 <template>
-    <div id="titulo" class="flex items-center">
+    <div class="flex items-center titulo">
         <h2 class="text-2xl">{{titulo}}</h2>
         <div class="flex margin-left-auto items-center cursor-pointer" @click="recargar">
             <img src="../assets/img/recargar.svg" class="width-20px margin-right-10" alt="">
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#titulo{
+.titulo{
     margin-bottom: 15px;
     height: 60px;
     padding: 0 20px;

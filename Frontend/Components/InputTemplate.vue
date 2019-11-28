@@ -1,7 +1,7 @@
 
 <template>
     <form id="contenedor-tabla" class="">
-        <div class="bloque-titulo flex items-center margin-b-20 sombra" v-if="mostrarTitulo"  >
+        <div :class="['bloque-titulo flex items-center margin-b-20 ', {'sombra': estilo === true}]" v-if="mostrarTitulo"  >
             <h2 class="ml-8 text-xl">{{nameForm}}</h2>
         </div>
         <div :class="['bg-white', 'padding-x-20', 'padding-y-10', {'sombra': estilo === true}]">
@@ -32,7 +32,7 @@
             </div>
             
             <div class="flex">
-                <button @click="($event) => {modoCrear ?  crear($event) : actualizar($event) }">{{nombreBoton}}</button>
+                <button @click="eventoBotonSecundario($event)" v-if="mostrarBotonSecundario">{{nombreBotonSecundario}}</button>
                 <input type="submit" class="margin-left-auto ml-auto" @click="($event) => {modoCrear ?  crear($event) : actualizar($event) }" :value="nombreBoton" >
             </div>
         </div>
@@ -52,6 +52,14 @@ export default {
         },
         nameForm: String, //Nombre que sale en el titulo
         nombreBoton: String, //Nombre del boton de enviar
+        // Mostrar boton secundario 
+        mostrarBotonSecundario: {
+            type: Boolean,
+            default: false
+        },
+        // Texto del boton secundario
+        nombreBotonSecundario: String,
+
         mostrarTitulo: Boolean,
         urlCrear: {
             type: String,
@@ -80,6 +88,10 @@ export default {
            }
     },
     methods:{
+        eventoBotonSecundario: function(event){
+            event.preventDefault()
+            this.$emit('clickBotonSecundario')
+        },
         crear: function(event){
             event.preventDefault()
             try {
@@ -211,8 +223,6 @@ export default {
     border-radius: 4px;
     height: 25px;
     border: solid rgb(79, 70, 105);
-
-
 }
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
@@ -222,12 +232,18 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 input[type=submit]{
     background:#398AD7;
-    padding:15px 50px;  
+    padding:10px 30px;  
     color: white;
     width: auto;
+    border: 0;
     margin-left: auto;
     cursor: pointer;
+    &:hover{
+        background:rgb(71, 165, 253);
+    }
 }
+
+
 input, select {
 	margin:10px 0 15px 0;
 	padding:5px 10px;

@@ -1,17 +1,14 @@
 <template>
-    <div id="main" class="">
-  
-    
-        <h2 class="text-left width-100">Clientes</h2>
-        <div id="popup-container" v-if="mostrarPopupEditar">
-         
-               <div class="width-100 padding-x-20 padding-y-20" id="popup">
-                    <p @click="mostrarPopupEditar = false" >Cancelar</p>
-                    <InputTemplate v-bind="configEditInputTemplate" >
+    <div class="main">
+        <transition name="fade">
+            <div id="popup-container"  v-if="mostrarPopupEditar">
+                <div :class="['width-100 padding-x-20 padding-y-20 ',]" id="popup">
+                    <h2 class="text-xl">{{tituloPopup.titulo}} {{elementoClickeado[tituloPopup.propiedadElementoClickeado]}}</h2>
+                    <InputTemplate v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false">
                     </InputTemplate>
                 </div>
-           
-        </div>
+            </div>
+        </transition>
         <div class="width-100 flex justify-between">
 
              <div class="contenedor-tabla">
@@ -133,13 +130,9 @@ export default {
             type: Array,
             default: () => [[{identificador: 'id', titulo: 'Identificador', max: 2, tipo: 'text', validacion: true, uno: true, valor: 'hey'}]]
         },
-        editarTitulos: {
-            type: Array,
-            default: () => ['Identificador']
-        },
-        editarLlaves: {
-            type: Array,
-            default: () => ['id']
+        tituloPopup: {
+            type: Object,
+            default: () => {return {titulo: 'Editar cliente ID: ', propiedadElementoClickeado: 'id'}}
         },
         editarLongitudMaxima: {
             type: Array,
@@ -189,11 +182,15 @@ export default {
             tablaDatos: [],
             //tablaTitulos: [], 
             configEditInputTemplate: {
+                nombreBotonSecundario: 'Cancelar',
+                mostrarBotonSecundario: true,
                 estilo: false,
                 mostrarTitulo: false,
                 nombreBoton: 'Guardar',
                 inputs: [],
-                modoCrear: false
+                modoCrear: false,
+                /*mostrarTitulo: true,
+                nameForm: 'Editar Cliente'*/
             }
 
         }
@@ -317,8 +314,12 @@ export default {
 
 
 <style lang="scss" scoped>
-
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 #popup-container{
     width: 100vw;
     height: 100vh;;
@@ -354,8 +355,8 @@ export default {
     
 }
 
-#main{
-    padding: 20px 20px;
+.main{
+    
     display: flex;
     flex-direction: column;
     align-items: center;
