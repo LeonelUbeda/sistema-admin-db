@@ -52,8 +52,9 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}   
                 ],
-                tablaUrl: 'api/vehiculos/marcas',
-                tablaUrlEliminar: 'api/vehiculos/marcas',
+                tablaUrl: '/api/vehiculos/marcas',
+                tablaUrlEliminar: '/api/vehiculos/marcas',
+                tablaUrlActualizar: '/api/vehiculos/marcas',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
                         [{value: 'nombre', titulo: 'Nombre'}],
@@ -70,10 +71,10 @@ export default {
                 inputsEditar: [
                     
                     [
-                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: false, editable: false}
                     ],
                     [
-                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true},
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true, obligatorio: true},
                     ],
                     
                 ]
@@ -93,7 +94,6 @@ export default {
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
-                      
                   ]
                   
                 ]  

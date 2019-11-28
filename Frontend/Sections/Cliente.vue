@@ -56,6 +56,7 @@ export default {
                 ],
                 tablaUrl: '/api/clientes',
                 tablaUrlEliminar: '/api/clientes',
+                tablaUrlActualizar: '/api/clientes',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
                         [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],

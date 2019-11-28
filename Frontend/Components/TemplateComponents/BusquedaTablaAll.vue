@@ -87,22 +87,30 @@ export default {
                             {propiedad: 'nombre', titulo: 'Nombre'}, 
                             {propiedad: 'apellido', titulo: 'Apellido'}]
         },
+
+        // Direccion que utiliza el componente para obtener la informacion de la tabla
         tablaUrl: {
             type: String, 
             default:  '/api/clientes'
         },
+        // Direccion que utiliza el componente para eliminar un componente de la tabla
         tablaUrlEliminar: {
             type: String,
             default: '/api/clientes'
         },
-        tablaUrlEditar: {
+        // Direccion que se le pasa al componente InputTemplate para que actualice la informacion. 
+        //En el hook Created se asigna esta variable a configEditInputTemplate.urlActualizar para que la utilice InputTemplate
+        tablaUrlActualizar: {
             type: String,
             default: '/api/clientes'
         },
+        // Propiedad que se utiliza como condicional al eliminar, Ejemplo: 
+        // DELETE FROM TABLA WHERE id = 2
         tablaPropiedadAEliminar: {
             type: String, 
             default: 'id'
         },
+        // Mandar evento al hacer click en un registro de la tabla? WIP, no implementado
         tablaMandarEventoClick: {
             type: Boolean,
             default: false
@@ -112,6 +120,7 @@ export default {
             type: Boolean,
             default: true
         },
+        // Informacion que se muestra al darle click a un registro de la tabla
         titulosClick: {
             type:  Array,
             default: () => [{propiedad: 'id', titulo: 'Identificador'}, {propiedad: 'nombre', titulo: 'Nombre del cliente'}]
@@ -188,6 +197,7 @@ export default {
                 mostrarTitulo: false,
                 nombreBoton: 'Guardar',
                 inputs: [],
+                urlActualizar: '',
                 modoCrear: false,
                 /*mostrarTitulo: true,
                 nameForm: 'Editar Cliente'*/
@@ -300,7 +310,8 @@ export default {
     },
     created(){
         this.obtenerDatos();
-       
+
+        this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar
         /*const config =                          this.configuracion;
         this.busqueda.variable =                config.busqueda.busquedaSeleccionada
         this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada

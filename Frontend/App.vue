@@ -1,6 +1,6 @@
 <template>
   <div id="contenedora" class="colorSecundario">
-    <div class="width-100">
+    <!--div class="width-100"-->
       <div id="sidebar">
         <Sidebar>
       </div>
@@ -8,7 +8,7 @@
         <router-view></router-view>
       </div>
     </div>
-  </div>
+  <!--/div-->
 </template>
 
 <script>

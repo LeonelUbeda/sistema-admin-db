@@ -8934,14 +8934,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3c8ff4 = exports.default || module.exports;
+        var $12368a = exports.default || module.exports;
       
-      if (typeof $3c8ff4 === 'function') {
-        $3c8ff4 = $3c8ff4.options;
+      if (typeof $12368a === 'function') {
+        $12368a = $12368a.options;
       }
     
         /* template */
-        Object.assign($3c8ff4, (function () {
+        Object.assign($12368a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8984,7 +8984,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3c8ff4",
+            _scopeId: "data-v-12368a",
             functional: undefined
           };
         })());
@@ -8997,9 +8997,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3c8ff4', $3c8ff4);
+            api.createRecord('$12368a', $12368a);
           } else {
-            api.reload('$3c8ff4', $3c8ff4);
+            api.reload('$12368a', $12368a);
           }
         }
 
@@ -9044,14 +9044,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $549ed5 = exports.default || module.exports;
+        var $1cec8b = exports.default || module.exports;
       
-      if (typeof $549ed5 === 'function') {
-        $549ed5 = $549ed5.options;
+      if (typeof $1cec8b === 'function') {
+        $1cec8b = $1cec8b.options;
       }
     
         /* template */
-        Object.assign($549ed5, (function () {
+        Object.assign($1cec8b, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9060,11 +9060,9 @@ exports.default = _default;
     "div",
     { staticClass: "colorSecundario", attrs: { id: "contenedora" } },
     [
-      _c("div", { staticClass: "width-100" }, [
-        _c("div", { attrs: { id: "sidebar" } }, [_c("Sidebar")], 1),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "main" } }, [_c("router-view")], 1)
-      ])
+      _c("div", { attrs: { id: "sidebar" } }, [_c("Sidebar")], 1),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "main" } }, [_c("router-view")], 1)
     ]
   )
 }
@@ -9075,7 +9073,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-549ed5",
+            _scopeId: "data-v-1cec8b",
             functional: undefined
           };
         })());
@@ -9088,9 +9086,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$549ed5', $549ed5);
+            api.createRecord('$1cec8b', $1cec8b);
           } else {
-            api.reload('$549ed5', $549ed5);
+            api.reload('$1cec8b', $1cec8b);
           }
         }
 
@@ -21657,14 +21655,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1f47a9 = exports.default || module.exports;
+        var $a48455 = exports.default || module.exports;
       
-      if (typeof $1f47a9 === 'function') {
-        $1f47a9 = $1f47a9.options;
+      if (typeof $a48455 === 'function') {
+        $a48455 = $a48455.options;
       }
     
         /* template */
-        Object.assign($1f47a9, (function () {
+        Object.assign($a48455, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21703,7 +21701,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1f47a9",
+            _scopeId: "data-v-a48455",
             functional: undefined
           };
         })());
@@ -21716,9 +21714,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1f47a9', $1f47a9);
+            api.createRecord('$a48455', $a48455);
           } else {
-            api.reload('$1f47a9', $1f47a9);
+            api.reload('$a48455', $a48455);
           }
         }
 
@@ -21768,14 +21766,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $fd2c8e = exports.default || module.exports;
+        var $eabc7a = exports.default || module.exports;
       
-      if (typeof $fd2c8e === 'function') {
-        $fd2c8e = $fd2c8e.options;
+      if (typeof $eabc7a === 'function') {
+        $eabc7a = $eabc7a.options;
       }
     
         /* template */
-        Object.assign($fd2c8e, (function () {
+        Object.assign($eabc7a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21796,7 +21794,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-fd2c8e",
+            _scopeId: "data-v-eabc7a",
             functional: undefined
           };
         })());
@@ -21809,9 +21807,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$fd2c8e', $fd2c8e);
+            api.createRecord('$eabc7a', $eabc7a);
           } else {
-            api.reload('$fd2c8e', $fd2c8e);
+            api.reload('$eabc7a', $eabc7a);
           }
         }
 
@@ -21846,14 +21844,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $925787 = exports.default || module.exports;
+        var $087bd5 = exports.default || module.exports;
       
-      if (typeof $925787 === 'function') {
-        $925787 = $925787.options;
+      if (typeof $087bd5 === 'function') {
+        $087bd5 = $087bd5.options;
       }
     
         /* template */
-        Object.assign($925787, (function () {
+        Object.assign($087bd5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21867,7 +21865,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-925787",
+            _scopeId: "data-v-087bd5",
             functional: undefined
           };
         })());
@@ -21880,9 +21878,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$925787', $925787);
+            api.createRecord('$087bd5', $087bd5);
           } else {
-            api.reload('$925787', $925787);
+            api.reload('$087bd5', $087bd5);
           }
         }
 
@@ -21983,14 +21981,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $c92a3d = exports.default || module.exports;
+        var $75911e = exports.default || module.exports;
       
-      if (typeof $c92a3d === 'function') {
-        $c92a3d = $c92a3d.options;
+      if (typeof $75911e === 'function') {
+        $75911e = $75911e.options;
       }
     
         /* template */
-        Object.assign($c92a3d, (function () {
+        Object.assign($75911e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22056,7 +22054,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-c92a3d",
+            _scopeId: "data-v-75911e",
             functional: undefined
           };
         })());
@@ -22069,9 +22067,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c92a3d', $c92a3d);
+            api.createRecord('$75911e', $75911e);
           } else {
-            api.reload('$c92a3d', $c92a3d);
+            api.reload('$75911e', $75911e);
           }
         }
 
@@ -22124,14 +22122,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1e1c2e = exports.default || module.exports;
+        var $372339 = exports.default || module.exports;
       
-      if (typeof $1e1c2e === 'function') {
-        $1e1c2e = $1e1c2e.options;
+      if (typeof $372339 === 'function') {
+        $372339 = $372339.options;
       }
     
         /* template */
-        Object.assign($1e1c2e, (function () {
+        Object.assign($372339, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22163,7 +22161,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1e1c2e",
+            _scopeId: "data-v-372339",
             functional: undefined
           };
         })());
@@ -22176,9 +22174,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1e1c2e', $1e1c2e);
+            api.createRecord('$372339', $372339);
           } else {
-            api.reload('$1e1c2e', $1e1c2e);
+            api.reload('$372339', $372339);
           }
         }
 
@@ -22193,7 +22191,7 @@ render._withStripped = true
 var define;
 var global = arguments[3];
 /*!
-* sweetalert2 v9.4.0
+* sweetalert2 v9.3.17
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22506,7 +22504,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -22539,9 +22537,6 @@ var getTitle = function getTitle() {
 };
 var getContent = function getContent() {
   return elementByClass(swalClasses.content);
-};
-var getHtmlContainer = function getHtmlContainer() {
-  return elementByClass(swalClasses['html-container']);
 };
 var getImage = function getImage() {
   return elementByClass(swalClasses.image);
@@ -22782,7 +22777,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -23896,7 +23891,6 @@ var staticMethods = Object.freeze({
 	getPopup: getPopup,
 	getTitle: getTitle,
 	getContent: getContent,
-	getHtmlContainer: getHtmlContainer,
 	getImage: getImage,
 	getIcon: getIcon,
 	getIcons: getIcons,
@@ -25172,7 +25166,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.4.0';
+SweetAlert.version = '9.3.17';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -25324,6 +25318,7 @@ var _default = {
       try {
         this.verificarInputs();
         var url = this.urlActualizar + '/' + this.datosAEnviar[this.propiedadActualizar];
+        console.log(url);
 
         _axios.default.put(url, this.datosAEnviar).then(function (response) {
           _sweetalert.default.fire({
@@ -25346,10 +25341,10 @@ var _default = {
       }
     },
     verificarInputs: function verificarInputs() {
+      console.log(this.datosAEnviar, this.datosAEnviarObligatorioBoolean);
+
       for (var propiedad in this.datosAEnviar) {
         if (typeof this.datosAEnviar[propiedad] != 'undefined') {
-          console.log(this.datosAEnviarObligatorioBoolean[propiedad]);
-
           if (this.datosAEnviar[propiedad] <= 1 && this.datosAEnviarObligatorioBoolean[propiedad] === true) {
             throw "Falta inputs";
           }
@@ -25377,14 +25372,12 @@ var _default = {
 
       this.inputs.forEach(function (elemento) {
         elemento.forEach(function (elemento2) {
-          console.log(elemento2.nombre, elemento2.obligatorio);
           _this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor;
           _this.datosAEnviarObligatorioBoolean[elemento2.nombre] = typeof elemento2.obligatorio == 'undefined' ? false : elemento2.obligatorio; //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
           //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
           //this.datosAEnviar[elemento2.nombre] = null
         });
       });
-      console.log(this.datosAEnviarObligatorioBoolean);
     }
   },
   beforeMount: function beforeMount() {},
@@ -25393,14 +25386,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $10e949 = exports.default || module.exports;
+        var $33e561 = exports.default || module.exports;
       
-      if (typeof $10e949 === 'function') {
-        $10e949 = $10e949.options;
+      if (typeof $33e561 === 'function') {
+        $33e561 = $33e561.options;
       }
     
         /* template */
-        Object.assign($10e949, (function () {
+        Object.assign($33e561, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25699,7 +25692,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-10e949",
+            _scopeId: "data-v-33e561",
             functional: undefined
           };
         })());
@@ -25712,9 +25705,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$10e949', $10e949);
+            api.createRecord('$33e561', $33e561);
           } else {
-            api.reload('$10e949', $10e949);
+            api.reload('$33e561', $33e561);
           }
         }
 
@@ -25771,14 +25764,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $e2e94f = exports.default || module.exports;
+        var $77a4df = exports.default || module.exports;
       
-      if (typeof $e2e94f === 'function') {
-        $e2e94f = $e2e94f.options;
+      if (typeof $77a4df === 'function') {
+        $77a4df = $77a4df.options;
       }
     
         /* template */
-        Object.assign($e2e94f, (function () {
+        Object.assign($77a4df, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25842,7 +25835,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e2e94f",
+            _scopeId: "data-v-77a4df",
             functional: undefined
           };
         })());
@@ -25855,9 +25848,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e2e94f', $e2e94f);
+            api.createRecord('$77a4df', $77a4df);
           } else {
-            api.reload('$e2e94f', $e2e94f);
+            api.reload('$77a4df', $77a4df);
           }
         }
 
@@ -25905,14 +25898,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1d8d32 = exports.default || module.exports;
+        var $8b145a = exports.default || module.exports;
       
-      if (typeof $1d8d32 === 'function') {
-        $1d8d32 = $1d8d32.options;
+      if (typeof $8b145a === 'function') {
+        $8b145a = $8b145a.options;
       }
     
         /* template */
-        Object.assign($1d8d32, (function () {
+        Object.assign($8b145a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25969,7 +25962,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1d8d32",
+            _scopeId: "data-v-8b145a",
             functional: undefined
           };
         })());
@@ -25982,9 +25975,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1d8d32', $1d8d32);
+            api.createRecord('$8b145a', $8b145a);
           } else {
-            api.reload('$1d8d32', $1d8d32);
+            api.reload('$8b145a', $8b145a);
           }
         }
 
@@ -26189,22 +26182,29 @@ var _default = {
         }];
       }
     },
+    // Direccion que utiliza el componente para obtener la informacion de la tabla
     tablaUrl: {
       type: String,
       default: '/api/clientes'
     },
+    // Direccion que utiliza el componente para eliminar un componente de la tabla
     tablaUrlEliminar: {
       type: String,
       default: '/api/clientes'
     },
-    tablaUrlEditar: {
+    // Direccion que se le pasa al componente InputTemplate para que actualice la informacion. 
+    //En el hook Created se asigna esta variable a configEditInputTemplate.urlActualizar para que la utilice InputTemplate
+    tablaUrlActualizar: {
       type: String,
       default: '/api/clientes'
     },
+    // Propiedad que se utiliza como condicional al eliminar, Ejemplo: 
+    // DELETE FROM TABLA WHERE id = 2
     tablaPropiedadAEliminar: {
       type: String,
       default: 'id'
     },
+    // Mandar evento al hacer click en un registro de la tabla? WIP, no implementado
     tablaMandarEventoClick: {
       type: Boolean,
       default: false
@@ -26214,6 +26214,7 @@ var _default = {
       type: Boolean,
       default: true
     },
+    // Informacion que se muestra al darle click a un registro de la tabla
     titulosClick: {
       type: Array,
       default: function _default() {
@@ -26328,6 +26329,7 @@ var _default = {
         mostrarTitulo: false,
         nombreBoton: 'Guardar',
         inputs: [],
+        urlActualizar: '',
         modoCrear: false
         /*mostrarTitulo: true,
         nameForm: 'Editar Cliente'*/
@@ -26460,6 +26462,7 @@ var _default = {
   },
   created: function created() {
     this.obtenerDatos();
+    this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar;
     /*const config =                          this.configuracion;
     this.busqueda.variable =                config.busqueda.busquedaSeleccionada
     this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada
@@ -26468,14 +26471,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $d3f961 = exports.default || module.exports;
+        var $31a313 = exports.default || module.exports;
       
-      if (typeof $d3f961 === 'function') {
-        $d3f961 = $d3f961.options;
+      if (typeof $31a313 === 'function') {
+        $31a313 = $31a313.options;
       }
     
         /* template */
-        Object.assign($d3f961, (function () {
+        Object.assign($31a313, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26695,7 +26698,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-d3f961",
+            _scopeId: "data-v-31a313",
             functional: undefined
           };
         })());
@@ -26708,9 +26711,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d3f961', $d3f961);
+            api.createRecord('$31a313', $31a313);
           } else {
-            api.reload('$d3f961', $d3f961);
+            api.reload('$31a313', $31a313);
           }
         }
 
@@ -26804,6 +26807,7 @@ var _default = {
         }],
         tablaUrl: '/api/clientes',
         tablaUrlEliminar: '/api/clientes',
+        tablaUrlActualizar: '/api/clientes',
         tablaPropiedadAEliminar: 'id',
         tiposBusqueda: [[{
           value: 'nombre',
@@ -26947,14 +26951,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $f884e7 = exports.default || module.exports;
+        var $2acc8d = exports.default || module.exports;
       
-      if (typeof $f884e7 === 'function') {
-        $f884e7 = $f884e7.options;
+      if (typeof $2acc8d === 'function') {
+        $2acc8d = $2acc8d.options;
       }
     
         /* template */
-        Object.assign($f884e7, (function () {
+        Object.assign($2acc8d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27035,7 +27039,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f884e7",
+            _scopeId: "data-v-2acc8d",
             functional: undefined
           };
         })());
@@ -27048,9 +27052,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f884e7', $f884e7);
+            api.createRecord('$2acc8d', $2acc8d);
           } else {
-            api.reload('$f884e7', $f884e7);
+            api.reload('$2acc8d', $2acc8d);
           }
         }
 
@@ -27136,8 +27140,9 @@ var _default = {
           propiedad: 'nombre',
           titulo: 'Nombre'
         }],
-        tablaUrl: 'api/vehiculos/marcas',
-        tablaUrlEliminar: 'api/vehiculos/marcas',
+        tablaUrl: '/api/vehiculos/marcas',
+        tablaUrlEliminar: '/api/vehiculos/marcas',
+        tablaUrlActualizar: '/api/vehiculos/marcas',
         tablaPropiedadAEliminar: 'id',
         tiposBusqueda: [[{
           value: 'nombre',
@@ -27164,7 +27169,7 @@ var _default = {
           tipo: 'text',
           validacion: true,
           uno: true,
-          obligatorio: true,
+          obligatorio: false,
           editable: false
         }], [{
           nombre: 'nombre',
@@ -27172,7 +27177,8 @@ var _default = {
           max: 50,
           tipo: 'text',
           validacion: true,
-          uno: true
+          uno: true,
+          obligatorio: true
         }]]
       },
       // Menu de arriba
@@ -27215,14 +27221,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2032b9 = exports.default || module.exports;
+        var $9b6b57 = exports.default || module.exports;
       
-      if (typeof $2032b9 === 'function') {
-        $2032b9 = $2032b9.options;
+      if (typeof $9b6b57 === 'function') {
+        $9b6b57 = $9b6b57.options;
       }
     
         /* template */
-        Object.assign($2032b9, (function () {
+        Object.assign($9b6b57, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27303,7 +27309,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2032b9",
+            _scopeId: "data-v-9b6b57",
             functional: undefined
           };
         })());
@@ -27316,9 +27322,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2032b9', $2032b9);
+            api.createRecord('$9b6b57', $9b6b57);
           } else {
-            api.reload('$2032b9', $2032b9);
+            api.reload('$9b6b57', $9b6b57);
           }
         }
 
@@ -27367,7 +27373,7 @@ var _default = [{
   name: 'marca'
 }];
 exports.default = _default;
-},{"../Sections/Inicio":"Sections/Inicio.vue","../Sections/Login":"Sections/Login.vue","../Sections/Cliente":"Sections/Cliente.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
+},{"../Sections/Inicio":"Sections/Inicio.vue","../Sections/Login":"Sections/Login.vue","../Sections/Cliente":"Sections/Cliente.vue","../Sections/Marca":"Sections/Marca.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -28615,7 +28621,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59350" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6526" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

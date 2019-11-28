@@ -129,6 +129,7 @@ export default {
             try { 
                 this.verificarInputs()
                 let url = this.urlActualizar + '/' + this.datosAEnviar[this.propiedadActualizar]
+                console.log(url)
                 axios.put(url,  this.datosAEnviar)
                 .then(response => {
                     Swal.fire({
@@ -155,10 +156,10 @@ export default {
         },
         verificarInputs: function(){
             
-            
+            console.log(this.datosAEnviar, this.datosAEnviarObligatorioBoolean)
             for(let propiedad in this.datosAEnviar){
                 if(typeof this.datosAEnviar[propiedad] != 'undefined'){
-                    console.log(this.datosAEnviarObligatorioBoolean[propiedad])
+                    
                     if(this.datosAEnviar[propiedad] <= 1 && this.datosAEnviarObligatorioBoolean[propiedad] === true){
                         throw "Falta inputs"
                     }
@@ -185,7 +186,7 @@ export default {
         ValueIgualVModel: function(){
             this.inputs.forEach((elemento) => {
                 elemento.forEach((elemento2) => {
-                    console.log(elemento2.nombre, elemento2.obligatorio)
+                    
                     this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor
                     this.datosAEnviarObligatorioBoolean[elemento2.nombre] = (typeof elemento2.obligatorio == 'undefined') ? false : elemento2.obligatorio 
                     //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
@@ -193,7 +194,7 @@ export default {
                     //this.datosAEnviar[elemento2.nombre] = null
                 })
             });
-            console.log(this.datosAEnviarObligatorioBoolean)
+            
 
         }
     },
