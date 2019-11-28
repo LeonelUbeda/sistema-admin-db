@@ -65,6 +65,14 @@ export default {
             type: String,
             default: '/api/clientes'
         },
+        urlFinal:{
+            type: String,
+            default: 'undefined'
+        },
+        propiedadId: {
+            type: String,
+            default: ''
+        },
         urlActualizar: {
             type: String, 
             default: '/api/clientes'
@@ -94,11 +102,15 @@ export default {
             this.$emit('clickBotonSecundario')
         },
         crear: function(event){
+            let url = this.urlCrear
+            if(this.urlFinal != 'undefined'){
+                url += this.datosAEnviar[this.propiedadId] + this.urlFinal
+            }
             event.preventDefault()
             try {
                 this.verificarInputs()
                 console.log('Posteando')
-                axios.post(this.urlCrear, this.datosAEnviar)
+                axios.post(url, this.datosAEnviar)
                 .then(response => {
                     Swal.fire({
                     icon: 'success',
@@ -117,7 +129,7 @@ export default {
                 Swal.fire({
                 icon: 'error',
                 title: 'Faltan datos!',
-                text: 'Verifique sus datos e intentelo de nuevo',
+                text: 'Verifique sus datos e intentelo de nuevo'
                 })
             }
 
@@ -157,7 +169,7 @@ export default {
         verificarInputs: function(){
             
             console.log(this.datosAEnviar, this.datosAEnviarObligatorioBoolean)
-            for(let propiedad in this.datosAEnviar){
+           /* for(let propiedad in this.datosAEnviar){
                 if(typeof this.datosAEnviar[propiedad] != 'undefined'){
                     
                     if(this.datosAEnviar[propiedad] <= 1 && this.datosAEnviarObligatorioBoolean[propiedad] === true){
@@ -167,8 +179,8 @@ export default {
                 /*if(this.datosAEnviar[propiedad] <= 1){
                     //throw "Falta inputs"
                     console.log("HE")
-                }*/
-            }
+                }
+            }s
             
             /*
             for(let inputs of this.inputs){

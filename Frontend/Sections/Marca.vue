@@ -19,7 +19,25 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Marca</h2>
                 </div>
-                <InputTemplate v-bind="configCrear">
+                <InputTemplate v-bind="configCrearMarca">
+                </InputTemplate>
+            </div>
+        </transition>
+       <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Modelo'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Nuevo Modelo</h2>
+                </div>
+                <InputTemplate v-bind="configCrearModelo">
+                </InputTemplate>
+            </div>
+        </transition>
+        <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nueva Version'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Nueva Version</h2>
+                </div>
+                <InputTemplate v-bind="configCrearVersion">
                 </InputTemplate>
             </div>
         </transition>
@@ -81,12 +99,12 @@ export default {
             },
 
             // Menu de arriba
-            opciones: ['Buscar','Añadir Marca'],
+            opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Vehiculo'],
             opcionSeleccionada: 'Buscar', 
 
             
             // Configuracion de inputs para crear Marcas
-            configCrear: {
+            configCrearMarca: {
                 urlCrear: 'api/vehiculos/marcas',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -97,8 +115,40 @@ export default {
                   ]
                   
                 ]  
+            },
+            configCrearModelo: {
+
+                urlFinal: '/modelos',
+                propiedadId: 'marcaId', //ID DEL INPUT A ENVIAR
+                urlCrear: 'api/vehiculos/marcas/',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                    [
+                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                    ],
+                    [
+                        {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
+                    ]
+                ]
+            },
+            configCrearVersion: {
+                urlFinal: '/versiones',
+                propiedadId: 'modeloId', //ID DEL INPUT A ENVIAR
+                urlCrear: 'api/vehiculos/modelos',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                    [
+                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                    ],
+                    [
+                        {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
+                    ]
+                ]
             }
-     
 
         }
     },
