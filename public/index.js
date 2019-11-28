@@ -25254,7 +25254,8 @@ var _default = {
   },
   data: function data() {
     return {
-      datosAEnviar: {}
+      datosAEnviar: {},
+      datosAEnviarObligatorioBoolean: {}
     };
   },
   methods: {
@@ -25267,6 +25268,7 @@ var _default = {
 
       try {
         this.verificarInputs();
+        console.log('Posteando');
 
         _axios.default.post(this.urlCrear, this.datosAEnviar).then(function (response) {
           _sweetalert.default.fire({
@@ -25274,12 +25276,16 @@ var _default = {
             title: 'Elemento añadido exitosamente'
           });
         }).catch(function (e) {
-          throw 'Error';
+          _sweetalert.default.fire({
+            icon: 'error',
+            title: 'fuachaval',
+            text: 'Verifique sus datos e intentelo de nuevo'
+          });
         });
       } catch (error) {
         _sweetalert.default.fire({
           icon: 'error',
-          title: error,
+          title: 'Faltan datos!',
           text: 'Verifique sus datos e intentelo de nuevo'
         });
       }
@@ -25298,7 +25304,11 @@ var _default = {
             title: 'Elemento añadido exitosamente'
           });
         }).catch(function (e) {
-          throw 'Error';
+          _sweetalert.default.fire({
+            icon: 'error',
+            title: 'Error de servidor',
+            text: 'Verifique sus datos e intentelo de nuevo'
+          });
         });
       } catch (error) {
         _sweetalert.default.fire({
@@ -25309,67 +25319,48 @@ var _default = {
       }
     },
     verificarInputs: function verificarInputs() {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      for (var propiedad in this.datosAEnviar) {
+        if (typeof this.datosAEnviar[propiedad] != 'undefined') {
+          console.log(this.datosAEnviarObligatorioBoolean[propiedad]);
 
-      try {
-        for (var _iterator = this.inputs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var inputs = _step.value;
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
-
-          try {
-            for (var _iterator2 = inputs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var input = _step2.value;
-
-              if (this.datosAEnviar[input.nombre].length <= 1) {
-                throw "Falta inputs";
-              }
-            }
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
+          if (this.datosAEnviar[propiedad] <= 1 && this.datosAEnviarObligatorioBoolean[propiedad] === true) {
+            throw "Falta inputs";
           }
         }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+        /*if(this.datosAEnviar[propiedad] <= 1){
+            //throw "Falta inputs"
+            console.log("HE")
+        }*/
+
       }
+      /*
+      for(let inputs of this.inputs){
+          for(let input of inputs){
+              if(this.datosAEnviar[input.nombre].length <= 1){
+                  
+              }
+          }
+      }      */
+
     },
     // Esto es para asignar los valores de cada input de config.inputs[0][0] a
     // su correspondiente propiedad en datosAEnviar
     ValueIgualVModel: function ValueIgualVModel() {
       var _this = this;
 
-      this.inputs.forEach(function (element) {
-        element.forEach(function (elemento2) {
-          _this.datosAEnviar[elemento2.nombre] = elemento2.valor;
+      this.inputs.forEach(function (elemento) {
+        elemento.forEach(function (elemento2) {
+          console.log(elemento2.nombre, elemento2.obligatorio);
+          _this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor;
+          _this.datosAEnviarObligatorioBoolean[elemento2.nombre] = typeof elemento2.obligatorio == 'undefined' ? false : elemento2.obligatorio; //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
+          //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
+          //this.datosAEnviar[elemento2.nombre] = null
         });
       });
+      console.log(this.datosAEnviarObligatorioBoolean);
     }
   },
+  beforeMount: function beforeMount() {},
   created: function created() {
     this.ValueIgualVModel();
   }
@@ -25476,7 +25467,7 @@ exports.default = _default;
                                 "option",
                                 {
                                   attrs: {
-                                    value: "",
+                                    value: "null",
                                     selected: "",
                                     disabled: "",
                                     hidden: ""
@@ -26769,6 +26760,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* ----- Componentes  ----- */
 var _default = {
@@ -26784,10 +26780,26 @@ var _default = {
         }, {
           propiedad: 'apellido',
           titulo: 'Apellido'
+        }, {
+          propiedad: 'tipoCliente',
+          titulo: 'Tipo'
         }],
         tablaUrl: '/api/clientes',
         tablaUrlEliminar: '/api/clientes',
         tablaPropiedadAEliminar: 'id',
+        tiposBusqueda: [[{
+          value: 'nombre',
+          titulo: 'Nombre'
+        }, {
+          value: 'apellido',
+          titulo: 'Apellido'
+        }], [{
+          value: 'direccion',
+          titulo: 'Direccion'
+        }, {
+          value: 'id',
+          titulo: 'ID'
+        }]],
         tablaMandarEventoClick: false,
         mostrarInformacionClick: true,
         titulosClick: [{
@@ -26805,7 +26817,8 @@ var _default = {
           max: 99,
           tipo: 'text',
           validacion: true,
-          uno: true
+          uno: true,
+          obligatorio: true
         }], [{
           nombre: 'nombre',
           titulo: 'Nombre',
@@ -26841,7 +26854,8 @@ var _default = {
           validacion: false,
           valor: '',
           uno: false,
-          opciones: ['Persona', 'Empresa']
+          opciones: ['Persona', 'Empresa'],
+          obligatorio: true
         }]]
       },
       // Menu de arriba
@@ -26860,7 +26874,8 @@ var _default = {
           tipo: 'text',
           max: 50,
           validacion: false,
-          uno: false
+          uno: false,
+          obligatorio: true
         }, {
           titulo: 'Apellido',
           nombre: 'apellido',
@@ -26888,7 +26903,8 @@ var _default = {
           max: 50,
           validacion: false,
           uno: false,
-          opciones: ['Persona', 'Empresa']
+          opciones: ['Persona', 'Empresa'],
+          obligatorio: true
         }]]
       }
     };
@@ -26934,54 +26950,64 @@ exports.default = _default;
         on: { elementoSeleccionado: _vm.clickOpciones }
       }),
       _vm._v(" "),
-      _vm.opcionSeleccionada === "Buscar"
-        ? _c(
-            "div",
-            { staticClass: "width-100 padding-x-60 padding-y-20" },
-            [
-              _c(
-                "BusquedaTablaAll",
-                _vm._b(
-                  {},
-                  "BusquedaTablaAll",
-                  _vm.BusquedaTablaAllConfig,
-                  false
+      _c(
+        "div",
+        { staticClass: "width-100 relative" },
+        [
+          _c("transition", { attrs: { mode: "out-in" } }, [
+            _vm.opcionSeleccionada === "Buscar"
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "width-100 padding-x-60 padding-y-20 absolute"
+                  },
+                  [
+                    _c(
+                      "BusquedaTablaAll",
+                      _vm._b(
+                        {},
+                        "BusquedaTablaAll",
+                        _vm.BusquedaTablaAllConfig,
+                        false
+                      )
+                    )
+                  ],
+                  1
                 )
-              )
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.opcionSeleccionada === "Crear Cliente"
-        ? _c(
-            "div",
-            { staticClass: "width-100 padding-x-60 padding-y-20" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "InputTemplate",
-                _vm._b({}, "InputTemplate", _vm.configCrear, false)
-              )
-            ],
-            1
-          )
-        : _vm._e()
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("transition", { attrs: { mode: "out-in" } }, [
+            _vm.opcionSeleccionada === "Crear Cliente"
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "width-100 padding-x-60 padding-y-20 absolute"
+                  },
+                  [
+                    _c("div", { staticClass: "titulo" }, [
+                      _c("h2", { staticClass: "text-2xl" }, [
+                        _vm._v("Crear Cliente")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "InputTemplate",
+                      _vm._b({}, "InputTemplate", _vm.configCrear, false)
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
+        ],
+        1
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "titulo" }, [
-      _c("h2", { staticClass: "text-2xl" }, [_vm._v("Crear Cliente")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {

@@ -29,7 +29,8 @@ Cliente.init({
     tipoCliente: {
         type: Sequelize.ENUM({
             values:['Persona', 'Empresa']
-        })
+        }),
+        defaultValue: 'Persona'
     }
     
 }, {

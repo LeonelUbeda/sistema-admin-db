@@ -8,18 +8,23 @@
     :opcionSeleccionada="opcionSeleccionada"
     @elementoSeleccionado="clickOpciones">
     </TopSection>
-
-    <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada === 'Buscar'" >
-        <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+    <div class="width-100 relative" >
+        <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
+                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+            </div>
+        </transition>
+        <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Crear Cliente'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Crear Cliente</h2>
+                </div>
+                <InputTemplate v-bind="configCrear">
+                </InputTemplate>
+            </div>
+        </transition>
     </div>
 
-    <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada === 'Crear Cliente'" >
-        <div  class="titulo">
-            <h2 class="text-2xl">Crear Cliente</h2>
-        </div>
-        <InputTemplate v-bind="configCrear">
-        </InputTemplate>
-    </div>
    
 </div>
 
@@ -46,11 +51,15 @@ export default {
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}, 
-                    {propiedad: 'apellido', titulo: 'Apellido'}
+                    {propiedad: 'apellido', titulo: 'Apellido'},
+                    {propiedad: 'tipoCliente', titulo: 'Tipo'},
                 ],
                 tablaUrl: '/api/clientes',
                 tablaUrlEliminar: '/api/clientes',
                 tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
+                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [
@@ -61,7 +70,7 @@ export default {
                 mostrarOpcionEliminar: true,
                 inputsEditar: [
                     [
-                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true}
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true}
                     ],
                     [
                         {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false},
@@ -73,7 +82,7 @@ export default {
                     [
                         {nombre: 'cedula', titulo: 'Número de cédula', max: 30, tipo: 'text', uno: false},
                         {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 9999, validacion: false, valor:'', uno:false, 
-                        opciones: ['Persona', 'Empresa']},
+                        opciones: ['Persona', 'Empresa'], obligatorio: true},
                     ]
                 ]
             },
@@ -89,7 +98,7 @@ export default {
                 estilo: true,
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false},
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
                       {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 50 ,  validacion: false, uno:false}
                   ],
                   [
@@ -98,7 +107,7 @@ export default {
                   [
                       {titulo: 'Dirección', nombre:'direccion', tipo:'text', max: 100, validacion: false, uno:false},
                       {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 50, validacion: false, uno:false, 
-                        opciones: ['Persona', 'Empresa']},
+                        opciones: ['Persona', 'Empresa'] , obligatorio: true},
                        
                   ]
                   
@@ -136,6 +145,14 @@ export default {
 
 
 
+.v-leave { opacity: 1; }
+.v-leave-active { transition: opacity 0.7s }
+.v-leave-to { opacity: 0; }
+.v-enter { opacity: 0; }
+.v-enter-active  { transition: opacity 0.7s}
+.v-enter-to { opacity: 1; }
+
+/*
 
 .slide-enter-active {
    
@@ -159,7 +176,7 @@ export default {
    overflow: hidden;
 }
 
-
+*/
 
 #sidebar{
     width: 25%;

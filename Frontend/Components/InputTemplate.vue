@@ -13,7 +13,7 @@
                            <p>{{unit.titulo}}</p>
                            
                             <select v-if="unit.opciones" v-model="datosAEnviar[unit.nombre]" id="" required>
-                                <option value="" selected disabled hidden>Selecciona una opcion</option>
+                                <option  value="null" selected disabled hidden>Selecciona una opcion</option>
                                 
                                 <option v-for="(select, indexSelect) of unit.opciones" :value="select" :key="select">
                                     {{select}} : {{indexSelect}}
@@ -81,11 +81,12 @@ export default {
         
     },
     data: ()=>{
-           return {
-             datosAEnviar: {
-                
-             }
-           }
+        return {
+            datosAEnviar: {
+            
+            },
+            datosAEnviarObligatorioBoolean: {}
+        }
     },
     methods:{
         eventoBotonSecundario: function(event){
@@ -96,6 +97,7 @@ export default {
             event.preventDefault()
             try {
                 this.verificarInputs()
+                console.log('Posteando')
                 axios.post(this.urlCrear, this.datosAEnviar)
                 .then(response => {
                     Swal.fire({
@@ -104,13 +106,17 @@ export default {
                     })
                 })
                 .catch(e => {
-                    throw 'Error'
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'fuachaval',
+                    text: 'Verifique sus datos e intentelo de nuevo',
+                    })
+                    
                 })
-                
             } catch (error) {
                 Swal.fire({
                 icon: 'error',
-                title: error,
+                title: 'Faltan datos!',
                 text: 'Verifique sus datos e intentelo de nuevo',
                 })
             }
@@ -131,7 +137,12 @@ export default {
                     })
                 })
                 .catch(e => {
-                    throw 'Error'
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Error de servidor',
+                    text: 'Verifique sus datos e intentelo de nuevo',
+                    })
+                    
                 })
                 
             } catch (error) {
@@ -143,27 +154,52 @@ export default {
             }
         },
         verificarInputs: function(){
-            for(let inputs of this.inputs){
-                for(let input of inputs){
-                    if(this.datosAEnviar[input.nombre].length <= 1){
+            
+            
+            for(let propiedad in this.datosAEnviar){
+                if(typeof this.datosAEnviar[propiedad] != 'undefined'){
+                    console.log(this.datosAEnviarObligatorioBoolean[propiedad])
+                    if(this.datosAEnviar[propiedad] <= 1 && this.datosAEnviarObligatorioBoolean[propiedad] === true){
                         throw "Falta inputs"
                     }
                 }
-            }           
+                /*if(this.datosAEnviar[propiedad] <= 1){
+                    //throw "Falta inputs"
+                    console.log("HE")
+                }*/
+            }
+            
+            /*
+            for(let inputs of this.inputs){
+                for(let input of inputs){
+                    if(this.datosAEnviar[input.nombre].length <= 1){
+                        
+                    }
+                }
+            }      */     
            
             
         },
         // Esto es para asignar los valores de cada input de config.inputs[0][0] a
         // su correspondiente propiedad en datosAEnviar
         ValueIgualVModel: function(){
-            this.inputs.forEach((element) => {
-                element.forEach((elemento2) => {
-                    this.datosAEnviar[elemento2.nombre] = elemento2.valor
+            this.inputs.forEach((elemento) => {
+                elemento.forEach((elemento2) => {
+                    console.log(elemento2.nombre, elemento2.obligatorio)
+                    this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor
+                    this.datosAEnviarObligatorioBoolean[elemento2.nombre] = (typeof elemento2.obligatorio == 'undefined') ? false : elemento2.obligatorio 
+                    //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
+                    //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
+                    //this.datosAEnviar[elemento2.nombre] = null
                 })
             });
+            console.log(this.datosAEnviarObligatorioBoolean)
 
         }
     },
+    beforeMount(){
+
+        },
     created(){
         this.ValueIgualVModel()
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main" >
         <transition name="fade">
             <div id="popup-container"  v-if="mostrarPopupEditar">
                 <div :class="['width-100 padding-x-20 padding-y-20 ',]" id="popup">
@@ -328,10 +328,15 @@ export default {
     left: 0;
     z-index: 10;
     background-color: rgba($color: #B7B7B7, $alpha: 0.5);
+    //background-color: #B7B7B7;
+    
+    
+
    
 }
 
 #popup{
+    opacity: 1;
     width: 800px;
     height: calc(100% - 100px);
     top: 50px;
