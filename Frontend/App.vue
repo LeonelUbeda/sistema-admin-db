@@ -1,10 +1,12 @@
 <template>
   <div id="contenedora" class="colorSecundario">
-    <div id="sidebar">
-      <Sidebar>
-    </div>
-    <div id="main">
-      <router-view></router-view>
+    <div class="width-100">
+      <div id="sidebar">
+        <Sidebar>
+      </div>
+      <div id="main">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>

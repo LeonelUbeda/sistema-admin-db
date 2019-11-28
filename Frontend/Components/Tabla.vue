@@ -42,10 +42,12 @@
                 </tr>
                 
             </tbody>
-          
+            
             
         </table>
-        
+        <div class="mensaje-rojo" v-if="elementos.length == 0">  
+                <h2>No hay elementos!</h2>
+            </div>
     </div>
 </template>
 
@@ -112,6 +114,7 @@ table{
     th{ // El head de la tabla
         background-color: #6c7ae0;
         color:#dedfe0;
+        color:white;
     }
 
     td{
