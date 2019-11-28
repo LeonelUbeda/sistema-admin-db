@@ -8921,6 +8921,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -8929,14 +8934,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $12368a = exports.default || module.exports;
+        var $3c8ff4 = exports.default || module.exports;
       
-      if (typeof $12368a === 'function') {
-        $12368a = $12368a.options;
+      if (typeof $3c8ff4 === 'function') {
+        $3c8ff4 = $3c8ff4.options;
       }
     
         /* template */
-        Object.assign($12368a, (function () {
+        Object.assign($3c8ff4, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8961,6 +8966,12 @@ exports.default = _default;
         _c("div", { staticClass: "boton" }, [
           _c("span", { staticClass: "texto" }, [_vm._v("Login")])
         ])
+      ]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: "/marca" } }, [
+        _c("div", { staticClass: "boton" }, [
+          _c("span", { staticClass: "texto" }, [_vm._v("Marca")])
+        ])
       ])
     ],
     1
@@ -8973,7 +8984,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-12368a",
+            _scopeId: "data-v-3c8ff4",
             functional: undefined
           };
         })());
@@ -8986,9 +8997,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$12368a', $12368a);
+            api.createRecord('$3c8ff4', $3c8ff4);
           } else {
-            api.reload('$12368a', $12368a);
+            api.reload('$3c8ff4', $3c8ff4);
           }
         }
 
@@ -9033,14 +9044,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1cec8b = exports.default || module.exports;
+        var $549ed5 = exports.default || module.exports;
       
-      if (typeof $1cec8b === 'function') {
-        $1cec8b = $1cec8b.options;
+      if (typeof $549ed5 === 'function') {
+        $549ed5 = $549ed5.options;
       }
     
         /* template */
-        Object.assign($1cec8b, (function () {
+        Object.assign($549ed5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9064,7 +9075,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1cec8b",
+            _scopeId: "data-v-549ed5",
             functional: undefined
           };
         })());
@@ -9077,9 +9088,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1cec8b', $1cec8b);
+            api.createRecord('$549ed5', $549ed5);
           } else {
-            api.reload('$1cec8b', $1cec8b);
+            api.reload('$549ed5', $549ed5);
           }
         }
 
@@ -21646,14 +21657,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a48455 = exports.default || module.exports;
+        var $1f47a9 = exports.default || module.exports;
       
-      if (typeof $a48455 === 'function') {
-        $a48455 = $a48455.options;
+      if (typeof $1f47a9 === 'function') {
+        $1f47a9 = $1f47a9.options;
       }
     
         /* template */
-        Object.assign($a48455, (function () {
+        Object.assign($1f47a9, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21692,7 +21703,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a48455",
+            _scopeId: "data-v-1f47a9",
             functional: undefined
           };
         })());
@@ -21705,9 +21716,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a48455', $a48455);
+            api.createRecord('$1f47a9', $1f47a9);
           } else {
-            api.reload('$a48455', $a48455);
+            api.reload('$1f47a9', $1f47a9);
           }
         }
 
@@ -21757,14 +21768,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $eabc7a = exports.default || module.exports;
+        var $fd2c8e = exports.default || module.exports;
       
-      if (typeof $eabc7a === 'function') {
-        $eabc7a = $eabc7a.options;
+      if (typeof $fd2c8e === 'function') {
+        $fd2c8e = $fd2c8e.options;
       }
     
         /* template */
-        Object.assign($eabc7a, (function () {
+        Object.assign($fd2c8e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21785,7 +21796,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-eabc7a",
+            _scopeId: "data-v-fd2c8e",
             functional: undefined
           };
         })());
@@ -21798,9 +21809,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$eabc7a', $eabc7a);
+            api.createRecord('$fd2c8e', $fd2c8e);
           } else {
-            api.reload('$eabc7a', $eabc7a);
+            api.reload('$fd2c8e', $fd2c8e);
           }
         }
 
@@ -21835,14 +21846,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $087bd5 = exports.default || module.exports;
+        var $925787 = exports.default || module.exports;
       
-      if (typeof $087bd5 === 'function') {
-        $087bd5 = $087bd5.options;
+      if (typeof $925787 === 'function') {
+        $925787 = $925787.options;
       }
     
         /* template */
-        Object.assign($087bd5, (function () {
+        Object.assign($925787, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21856,7 +21867,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-087bd5",
+            _scopeId: "data-v-925787",
             functional: undefined
           };
         })());
@@ -21869,9 +21880,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$087bd5', $087bd5);
+            api.createRecord('$925787', $925787);
           } else {
-            api.reload('$087bd5', $087bd5);
+            api.reload('$925787', $925787);
           }
         }
 
@@ -21972,14 +21983,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $75911e = exports.default || module.exports;
+        var $c92a3d = exports.default || module.exports;
       
-      if (typeof $75911e === 'function') {
-        $75911e = $75911e.options;
+      if (typeof $c92a3d === 'function') {
+        $c92a3d = $c92a3d.options;
       }
     
         /* template */
-        Object.assign($75911e, (function () {
+        Object.assign($c92a3d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22045,7 +22056,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-75911e",
+            _scopeId: "data-v-c92a3d",
             functional: undefined
           };
         })());
@@ -22058,9 +22069,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$75911e', $75911e);
+            api.createRecord('$c92a3d', $c92a3d);
           } else {
-            api.reload('$75911e', $75911e);
+            api.reload('$c92a3d', $c92a3d);
           }
         }
 
@@ -22113,14 +22124,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $372339 = exports.default || module.exports;
+        var $1e1c2e = exports.default || module.exports;
       
-      if (typeof $372339 === 'function') {
-        $372339 = $372339.options;
+      if (typeof $1e1c2e === 'function') {
+        $1e1c2e = $1e1c2e.options;
       }
     
         /* template */
-        Object.assign($372339, (function () {
+        Object.assign($1e1c2e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22152,7 +22163,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-372339",
+            _scopeId: "data-v-1e1c2e",
             functional: undefined
           };
         })());
@@ -22165,9 +22176,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$372339', $372339);
+            api.createRecord('$1e1c2e', $1e1c2e);
           } else {
-            api.reload('$372339', $372339);
+            api.reload('$1e1c2e', $1e1c2e);
           }
         }
 
@@ -22182,7 +22193,7 @@ render._withStripped = true
 var define;
 var global = arguments[3];
 /*!
-* sweetalert2 v9.3.17
+* sweetalert2 v9.4.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22495,7 +22506,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -22528,6 +22539,9 @@ var getTitle = function getTitle() {
 };
 var getContent = function getContent() {
   return elementByClass(swalClasses.content);
+};
+var getHtmlContainer = function getHtmlContainer() {
+  return elementByClass(swalClasses['html-container']);
 };
 var getImage = function getImage() {
   return elementByClass(swalClasses.image);
@@ -22768,7 +22782,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -23882,6 +23896,7 @@ var staticMethods = Object.freeze({
 	getPopup: getPopup,
 	getTitle: getTitle,
 	getContent: getContent,
+	getHtmlContainer: getHtmlContainer,
 	getImage: getImage,
 	getIcon: getIcon,
 	getIcons: getIcons,
@@ -25157,7 +25172,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.3.17';
+SweetAlert.version = '9.4.0';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -25378,14 +25393,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $33e561 = exports.default || module.exports;
+        var $10e949 = exports.default || module.exports;
       
-      if (typeof $33e561 === 'function') {
-        $33e561 = $33e561.options;
+      if (typeof $10e949 === 'function') {
+        $10e949 = $10e949.options;
       }
     
         /* template */
-        Object.assign($33e561, (function () {
+        Object.assign($10e949, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25519,17 +25534,14 @@ exports.default = _default;
                                 expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
+                            staticClass: "verde",
                             attrs: {
                               placeholder: unit.titulo,
                               maxlength: unit.max,
                               min: "1",
                               max: unit.max,
                               required: "",
+                              disabled: unit.editable == false,
                               type: "checkbox"
                             },
                             domProps: {
@@ -25581,17 +25593,14 @@ exports.default = _default;
                                 expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
+                            staticClass: "verde",
                             attrs: {
                               placeholder: unit.titulo,
                               maxlength: unit.max,
                               min: "1",
                               max: unit.max,
                               required: "",
+                              disabled: unit.editable == false,
                               type: "radio"
                             },
                             domProps: {
@@ -25619,17 +25628,14 @@ exports.default = _default;
                                 expression: "datosAEnviar[unit.nombre]"
                               }
                             ],
-                            class: [
-                              unit.valor > unit.max || unit.valor < 0
-                                ? "rojo" /*true*/
-                                : "verde" /*false*/
-                            ],
+                            staticClass: "verde",
                             attrs: {
                               placeholder: unit.titulo,
                               maxlength: unit.max,
                               min: "1",
                               max: unit.max,
                               required: "",
+                              disabled: unit.editable == false,
                               type: unit.tipo
                             },
                             domProps: { value: _vm.datosAEnviar[unit.nombre] },
@@ -25693,7 +25699,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-33e561",
+            _scopeId: "data-v-10e949",
             functional: undefined
           };
         })());
@@ -25706,9 +25712,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$33e561', $33e561);
+            api.createRecord('$10e949', $10e949);
           } else {
-            api.reload('$33e561', $33e561);
+            api.reload('$10e949', $10e949);
           }
         }
 
@@ -25765,14 +25771,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $77a4df = exports.default || module.exports;
+        var $e2e94f = exports.default || module.exports;
       
-      if (typeof $77a4df === 'function') {
-        $77a4df = $77a4df.options;
+      if (typeof $e2e94f === 'function') {
+        $e2e94f = $e2e94f.options;
       }
     
         /* template */
-        Object.assign($77a4df, (function () {
+        Object.assign($e2e94f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25836,7 +25842,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-77a4df",
+            _scopeId: "data-v-e2e94f",
             functional: undefined
           };
         })());
@@ -25849,9 +25855,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$77a4df', $77a4df);
+            api.createRecord('$e2e94f', $e2e94f);
           } else {
-            api.reload('$77a4df', $77a4df);
+            api.reload('$e2e94f', $e2e94f);
           }
         }
 
@@ -25899,14 +25905,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $8b145a = exports.default || module.exports;
+        var $1d8d32 = exports.default || module.exports;
       
-      if (typeof $8b145a === 'function') {
-        $8b145a = $8b145a.options;
+      if (typeof $1d8d32 === 'function') {
+        $1d8d32 = $1d8d32.options;
       }
     
         /* template */
-        Object.assign($8b145a, (function () {
+        Object.assign($1d8d32, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25963,7 +25969,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-8b145a",
+            _scopeId: "data-v-1d8d32",
             functional: undefined
           };
         })());
@@ -25976,9 +25982,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$8b145a', $8b145a);
+            api.createRecord('$1d8d32', $1d8d32);
           } else {
-            api.reload('$8b145a', $8b145a);
+            api.reload('$1d8d32', $1d8d32);
           }
         }
 
@@ -26462,14 +26468,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $31a313 = exports.default || module.exports;
+        var $d3f961 = exports.default || module.exports;
       
-      if (typeof $31a313 === 'function') {
-        $31a313 = $31a313.options;
+      if (typeof $d3f961 === 'function') {
+        $d3f961 = $d3f961.options;
       }
     
         /* template */
-        Object.assign($31a313, (function () {
+        Object.assign($d3f961, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26689,7 +26695,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-31a313",
+            _scopeId: "data-v-d3f961",
             functional: undefined
           };
         })());
@@ -26702,9 +26708,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$31a313', $31a313);
+            api.createRecord('$d3f961', $d3f961);
           } else {
-            api.reload('$31a313', $31a313);
+            api.reload('$d3f961', $d3f961);
           }
         }
 
@@ -26830,7 +26836,8 @@ var _default = {
           tipo: 'text',
           validacion: true,
           uno: true,
-          obligatorio: true
+          obligatorio: true,
+          editable: false
         }], [{
           nombre: 'nombre',
           titulo: 'Nombre',
@@ -26857,7 +26864,8 @@ var _default = {
           titulo: 'Número de cédula',
           max: 30,
           tipo: 'text',
-          uno: false
+          uno: false,
+          editable: true
         }, {
           titulo: 'Tipo de cliente',
           nombre: 'tipoCliente',
@@ -26865,7 +26873,7 @@ var _default = {
           max: 9999,
           validacion: false,
           valor: '',
-          uno: false,
+          uno: true,
           opciones: ['Persona', 'Empresa'],
           obligatorio: true
         }]]
@@ -26875,6 +26883,7 @@ var _default = {
       opcionSeleccionada: 'Buscar',
       // Configuracion de inputs para crear Clientes
       configCrear: {
+        urlCrear: 'api/clientes',
         mostrarTitulo: false,
         nombreBoton: 'Enviar',
         estilo: true,
@@ -26938,14 +26947,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2acc8d = exports.default || module.exports;
+        var $f884e7 = exports.default || module.exports;
       
-      if (typeof $2acc8d === 'function') {
-        $2acc8d = $2acc8d.options;
+      if (typeof $f884e7 === 'function') {
+        $f884e7 = $f884e7.options;
       }
     
         /* template */
-        Object.assign($2acc8d, (function () {
+        Object.assign($f884e7, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27026,7 +27035,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2acc8d",
+            _scopeId: "data-v-f884e7",
             functional: undefined
           };
         })());
@@ -27039,9 +27048,277 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2acc8d', $2acc8d);
+            api.createRecord('$f884e7', $f884e7);
           } else {
-            api.reload('$2acc8d', $2acc8d);
+            api.reload('$f884e7', $f884e7);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","../Components/BusquedaInput.vue":"Components/BusquedaInput.vue","../Components/BusquedaRadio.vue":"Components/BusquedaRadio.vue","../Components/TemplateComponents/BusquedaTablaAll":"Components/TemplateComponents/BusquedaTablaAll.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Marca.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _clasesUtiles = _interopRequireDefault(require("../assets/css/clasesUtiles"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+require("babel-polyfill");
+
+var _TopSection = _interopRequireDefault(require("../Components/TopSection"));
+
+var _Tabla = _interopRequireDefault(require("../Components/Tabla"));
+
+var _TablaTitulo = _interopRequireDefault(require("../Components/TablaTitulo"));
+
+var _InputTemplate = _interopRequireDefault(require("../Components/InputTemplate"));
+
+var _BusquedaInput = _interopRequireDefault(require("../Components/BusquedaInput.vue"));
+
+var _BusquedaRadio = _interopRequireDefault(require("../Components/BusquedaRadio.vue"));
+
+var _BusquedaTablaAll = _interopRequireDefault(require("../Components/TemplateComponents/BusquedaTablaAll"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* ----- Componentes  ----- */
+var _default = {
+  data: function data() {
+    return {
+      BusquedaTablaAllConfig: {
+        tablaTitulos: [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre'
+        }],
+        tablaUrl: 'api/vehiculos/marcas',
+        tablaUrlEliminar: 'api/vehiculos/marcas',
+        tablaPropiedadAEliminar: 'id',
+        tiposBusqueda: [[{
+          value: 'nombre',
+          titulo: 'Nombre'
+        }], [{
+          value: 'id',
+          titulo: 'ID'
+        }]],
+        tablaMandarEventoClick: false,
+        mostrarInformacionClick: true,
+        titulosClick: [{
+          propiedad: 'id',
+          titulo: 'Identificador'
+        }, {
+          propiedad: 'nombre',
+          titulo: 'Nombre'
+        }],
+        mostrarOpcionEditar: true,
+        mostrarOpcionEliminar: true,
+        inputsEditar: [[{
+          nombre: 'id',
+          titulo: 'Identificador',
+          max: 99,
+          tipo: 'text',
+          validacion: true,
+          uno: true,
+          obligatorio: true,
+          editable: false
+        }], [{
+          nombre: 'nombre',
+          titulo: 'Nombre',
+          max: 50,
+          tipo: 'text',
+          validacion: true,
+          uno: true
+        }]]
+      },
+      // Menu de arriba
+      opciones: ['Buscar', 'Añadir Marca'],
+      opcionSeleccionada: 'Buscar',
+      // Configuracion de inputs para crear Marcas
+      configCrear: {
+        urlCrear: 'api/vehiculos/marcas',
+        mostrarTitulo: false,
+        nombreBoton: 'Enviar',
+        estilo: true,
+        inputs: [[
+        /*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/
+        {
+          titulo: 'Nombre',
+          nombre: 'nombre',
+          tipo: 'text',
+          max: 50,
+          validacion: false,
+          uno: false,
+          obligatorio: true
+        }]]
+      }
+    };
+  },
+  components: {
+    TopSection: _TopSection.default,
+    Tabla: _Tabla.default,
+    TablaTitulo: _TablaTitulo.default,
+    InputTemplate: _InputTemplate.default,
+    BusquedaInput: _BusquedaInput.default,
+    BusquedaRadio: _BusquedaRadio.default,
+    BusquedaTablaAll: _BusquedaTablaAll.default
+  },
+  methods: {
+    clickOpciones: function clickOpciones(dato) {
+      this.opcionSeleccionada = dato;
+    }
+  },
+  created: function created() {}
+};
+exports.default = _default;
+        var $2032b9 = exports.default || module.exports;
+      
+      if (typeof $2032b9 === 'function') {
+        $2032b9 = $2032b9.options;
+      }
+    
+        /* template */
+        Object.assign($2032b9, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "contenedor" } },
+    [
+      _c("TopSection", {
+        attrs: {
+          opciones: _vm.opciones,
+          opcionSeleccionada: _vm.opcionSeleccionada
+        },
+        on: { elementoSeleccionado: _vm.clickOpciones }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "width-100 relative" },
+        [
+          _c("transition", { attrs: { mode: "out-in" } }, [
+            _vm.opcionSeleccionada === "Buscar"
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "width-100 padding-x-60 padding-y-20 absolute"
+                  },
+                  [
+                    _c(
+                      "BusquedaTablaAll",
+                      _vm._b(
+                        {},
+                        "BusquedaTablaAll",
+                        _vm.BusquedaTablaAllConfig,
+                        false
+                      )
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("transition", { attrs: { mode: "out-in" } }, [
+            _vm.opcionSeleccionada === "Añadir Marca"
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "width-100 padding-x-60 padding-y-20 absolute"
+                  },
+                  [
+                    _c("div", { staticClass: "titulo" }, [
+                      _c("h2", { staticClass: "text-2xl" }, [
+                        _vm._v("Nueva Marca")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "InputTemplate",
+                      _vm._b({}, "InputTemplate", _vm.configCrear, false)
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-2032b9",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$2032b9', $2032b9);
+          } else {
+            api.reload('$2032b9', $2032b9);
           }
         }
 
@@ -27066,6 +27343,8 @@ var _Login = _interopRequireDefault(require("../Sections/Login"));
 
 var _Cliente = _interopRequireDefault(require("../Sections/Cliente"));
 
+var _Marca = _interopRequireDefault(require("../Sections/Marca"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Componentes "seccion"
@@ -27082,6 +27361,10 @@ var _default = [{
   path: '/cliente',
   component: _Cliente.default,
   name: 'cliente'
+}, {
+  path: '/marca',
+  component: _Marca.default,
+  name: 'marca'
 }];
 exports.default = _default;
 },{"../Sections/Inicio":"Sections/Inicio.vue","../Sections/Login":"Sections/Login.vue","../Sections/Cliente":"Sections/Cliente.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
@@ -28332,7 +28615,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3822" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59350" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

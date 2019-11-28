@@ -15,9 +15,9 @@
             </div>
         </transition>
         <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Crear Cliente'" >
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Añadir Marca'" >
                 <div  class="titulo">
-                    <h2 class="text-2xl">Crear Cliente</h2>
+                    <h2 class="text-2xl">Nueva Marca</h2>
                 </div>
                 <InputTemplate v-bind="configCrear">
                 </InputTemplate>
@@ -50,16 +50,14 @@ export default {
             BusquedaTablaAllConfig:{
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
-                    {propiedad: 'nombre', titulo: 'Nombre'}, 
-                    {propiedad: 'apellido', titulo: 'Apellido'},
-                    {propiedad: 'tipoCliente', titulo: 'Tipo'},
+                    {propiedad: 'nombre', titulo: 'Nombre'}   
                 ],
-                tablaUrl: '/api/clientes',
-                tablaUrlEliminar: '/api/clientes',
+                tablaUrl: 'api/vehiculos/marcas',
+                tablaUrlEliminar: 'api/vehiculos/marcas',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
-                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
-                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]],
+                        [{value: 'nombre', titulo: 'Nombre'}],
+                        [{value: 'id', titulo: 'ID'}]],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [
@@ -68,48 +66,34 @@ export default {
                 ],
                 mostrarOpcionEditar: true,
                 mostrarOpcionEliminar: true,
+                
                 inputsEditar: [
+                    
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
                     ],
                     [
-                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false},
-                        {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false }
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true},
                     ],
-                    [
-                        {nombre: 'direccion', titulo: 'Direccion', max: 100, tipo: 'text', validacion: true, uno: false}
-                    ],
-                    [
-                        {nombre: 'cedula', titulo: 'Número de cédula', max: 30, tipo: 'text', uno: false, editable:true},
-                        {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 9999, validacion: false, valor:'', uno:true, 
-                        opciones: ['Persona', 'Empresa'], obligatorio: true},
-                    ]
+                    
                 ]
             },
 
             // Menu de arriba
-            opciones: ['Buscar','Crear Cliente'],
+            opciones: ['Buscar','Añadir Marca'],
             opcionSeleccionada: 'Buscar', 
 
-            // Configuracion de inputs para crear Clientes
+            
+            // Configuracion de inputs para crear Marcas
             configCrear: {
-                urlCrear: 'api/clientes',
+                urlCrear: 'api/vehiculos/marcas',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
-                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 50 ,  validacion: false, uno:false}
-                  ],
-                  [
-                      {nombre: 'cedula', titulo: 'Número de cédula', max: 30, tipo: 'text', uno: true}
-                  ],
-                  [
-                      {titulo: 'Dirección', nombre:'direccion', tipo:'text', max: 100, validacion: false, uno:false},
-                      {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 50, validacion: false, uno:false, 
-                        opciones: ['Persona', 'Empresa'] , obligatorio: true},
-                       
+                      
                   ]
                   
                 ]  
@@ -153,31 +137,7 @@ export default {
 .v-enter-active  { transition: opacity 0.7s}
 .v-enter-to { opacity: 1; }
 
-/*
 
-.slide-enter-active {
-   
-   transition-duration: 1s;
-   transition-timing-function: linear;
-}
-
-.slide-leave-active {
-   transition-duration: 1s;
-
-   transition-timing-function: linear;
-}
-
-.slide-enter-to, .slide-leave {
-   max-height: 800px;
-   overflow: hidden;
-}
-
-.slide-enter, .slide-leave-to {
-    max-height: 0px;
-   overflow: hidden;
-}
-
-*/
 
 #sidebar{
     width: 25%;
