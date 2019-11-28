@@ -23,9 +23,9 @@
                         
                             <input v-else 
                             v-model="datosAEnviar[unit.nombre]"
-                            :class="[ unit.valor>unit.max || unit.valor<0 ? 'rojo' /*true*/  : 'verde' /*false*/ ]" 
+                            class="verde" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
-                            required> 
+                            required :disabled="unit.editable == false"> 
                             
                     </div>
                 </div>                   
