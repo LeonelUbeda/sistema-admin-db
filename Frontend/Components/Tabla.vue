@@ -45,9 +45,9 @@
             
             
         </table>
-        <div class="mensaje-rojo" v-if="elementos.length == 0">  
+        <div class="mensaje-rojo" v-if="noELementos">  
                 <h2>No hay elementos!</h2>
-            </div>
+        </div>
     </div>
 </template>
 
@@ -56,7 +56,7 @@
 export default {
     data: () => {
         return{
-
+            noELementos: false
         }
     },
     props: {
@@ -77,6 +77,9 @@ export default {
         siguiente: function(){
             this.$emit('siguiente')
         }
+    },
+    updated(){
+        this.noELementos = this.elementos.length == 0 ? true : false
     }
 }
 </script>

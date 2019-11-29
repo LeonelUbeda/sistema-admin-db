@@ -97,6 +97,11 @@ export default {
         }
     },
     methods:{
+        borrarInputsData: function() {
+            console.log('INPUT DATAAA')
+            this.datosAEnviar = {}
+            
+        },
         eventoBotonSecundario: function(event){
             event.preventDefault()
             this.$emit('clickBotonSecundario')
@@ -116,6 +121,7 @@ export default {
                     icon: 'success',
                     title: 'Elemento añadido exitosamente',
                     })
+                    this.$emit('elementoCreado')
                 })
                 .catch(e => {
                     Swal.fire({
@@ -148,6 +154,7 @@ export default {
                     icon: 'success',
                     title: 'Elemento añadido exitosamente',
                     })
+                    this.$emit('elementoActualizado')
                 })
                 .catch(e => {
                     Swal.fire({

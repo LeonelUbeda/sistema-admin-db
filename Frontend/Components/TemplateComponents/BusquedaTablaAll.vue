@@ -4,7 +4,9 @@
             <div id="popup-container"  v-if="mostrarPopupEditar">
                 <div :class="['width-100 padding-x-20 padding-y-20 ',]" id="popup">
                     <h2 class="text-xl">{{tituloPopup.titulo}} {{elementoClickeado[tituloPopup.propiedadElementoClickeado]}}</h2>
-                    <InputTemplate v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false">
+                    <InputTemplate v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false" 
+                    @elementoActualizado="() => {mostrarPopupEditar = false; reiniciarTabla()}"
+                    @elementoCreado="elementoCreadoEvento">
                     </InputTemplate>
                 </div>
             </div>
@@ -12,7 +14,7 @@
         <div class="width-100 flex justify-between">
 
              <div class="contenedor-tabla">
-                <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTablaClientess"></TablaTitulo>
+                <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTabla"></TablaTitulo>
                 <Tabla 
                 :elementos="tablaDatos"
                 :titulos="tablaTitulos"
@@ -27,7 +29,7 @@
                 </div>
                 <div class="flex items-center bg-white flex-col">
                     <div class="divisor"></div>
-                    <BusquedaRadio @seleccion="manejarTipoBusqueda" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
+                    <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
                     <div style="width: 90%">
                         <BusquedaInput ref="BusquedaInputRef" @buscar="busquedaSearchBar"></BusquedaInput>
                     </div>
@@ -69,7 +71,7 @@
 import clasesUtilesCSS from '../../assets/css/clasesUtiles'
 import axios from 'axios'
 import 'babel-polyfill'
-import {alertaEliminar} from '../../Utils/sweetAlert'
+import {eliminarDialog} from '../../Utils/sweetAlert'
 /* ----- Componentes  ----- */
 
 import TopSection from '../../Components/TopSection'
@@ -237,12 +239,14 @@ export default {
             })
          
         },
-        eliminarElementoSeleccionado: function() {
+        eliminarElementoSeleccionado: async function() {
             //const click = this.configuracion.tabla.click
             //console.log(`${click.urlDelete}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
-
-            alertaEliminar(`${this.tablaUrlEliminar}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
-            
+            let url = `${this.tablaUrlEliminar}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`
+            eliminarDialog(url)
+            .then(() => {
+                this.reiniciarTabla()
+            })
         },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
         filaSeleccionada: function(elemento){
             if(this.tablaMandarEventoClick === false){
@@ -252,12 +256,17 @@ export default {
                 this.$emit('clickTabla', elemento)
             }
         },
-        reiniciarTablaClientess: function(){
+        reiniciarTabla: function(){
             this.clickEnTabla = false
             this.busqueda.valor = ''
+            this.busqueda.variable = ''
+
             this.$refs.BusquedaInputRef.cambiarTexto('')
+
             this.inputBusquedaTexto = ''
             
+            this.busquedaSeleccionada =             this.busquedaDefault
+            this.$refs.busquedaRadioinput.reRender()
             this.obtenerDatos()
         },
         clickOpciones: function (dato){
@@ -281,14 +290,14 @@ export default {
                 if(this.busqueda.offset !== 0) {
                     params.offset = busqueda.limite * busqueda.offset;
                 }
+
                 // Si variable y valor tienen valores entonces se añade al objeto params
-                if(busqueda.variable !== '' || busqueda.valor !== ''){
+                if(busqueda.variable !== '' && busqueda.valor !== ''){
                     params[busqueda.variable] = busqueda.valor
                 }
-               
                 const response = await axios.get(this.tablaUrl, {params})
                 this.tablaDatos = response.data
-                console.log(this.tablaDatos)
+             
                 if(response.data.length === 0 ){
                     this.anteriorTablaCliente()
                 }
@@ -306,19 +315,23 @@ export default {
                 this.busqueda.offset = this.busqueda.offset - 1 
                 this.obtenerDatos()
             } 
+        },
+        elementoCreadoEvento: function() {
+            this.$emit('elementoCreado')
         }
     },
     created(){
         this.obtenerDatos();
 
         this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar
+        this.busquedaSeleccionada =             this.busquedaDefault
         /*const config =                          this.configuracion;
         this.busqueda.variable =                config.busqueda.busquedaSeleccionada
-        this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada
         this.tiposBusqueda =                    config.busqueda.tiposBusqueda
         this.tablaTitulos =                     config.tabla.tablaTitulos*/
         
-    }
+    },
+    
 }
 </script>
 

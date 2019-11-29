@@ -8926,6 +8926,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -8934,14 +8939,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3c8ff4 = exports.default || module.exports;
+        var $12368a = exports.default || module.exports;
       
-      if (typeof $3c8ff4 === 'function') {
-        $3c8ff4 = $3c8ff4.options;
+      if (typeof $12368a === 'function') {
+        $12368a = $12368a.options;
       }
     
         /* template */
-        Object.assign($3c8ff4, (function () {
+        Object.assign($12368a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8972,6 +8977,12 @@ exports.default = _default;
         _c("div", { staticClass: "boton" }, [
           _c("span", { staticClass: "texto" }, [_vm._v("Marca")])
         ])
+      ]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: "/roles" } }, [
+        _c("div", { staticClass: "boton" }, [
+          _c("span", { staticClass: "texto" }, [_vm._v("Roles")])
+        ])
       ])
     ],
     1
@@ -8984,7 +8995,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3c8ff4",
+            _scopeId: "data-v-12368a",
             functional: undefined
           };
         })());
@@ -8997,9 +9008,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3c8ff4', $3c8ff4);
+            api.createRecord('$12368a', $12368a);
           } else {
-            api.reload('$3c8ff4', $3c8ff4);
+            api.reload('$12368a', $12368a);
           }
         }
 
@@ -9044,14 +9055,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $549ed5 = exports.default || module.exports;
+        var $1cec8b = exports.default || module.exports;
       
-      if (typeof $549ed5 === 'function') {
-        $549ed5 = $549ed5.options;
+      if (typeof $1cec8b === 'function') {
+        $1cec8b = $1cec8b.options;
       }
     
         /* template */
-        Object.assign($549ed5, (function () {
+        Object.assign($1cec8b, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9073,7 +9084,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-549ed5",
+            _scopeId: "data-v-1cec8b",
             functional: undefined
           };
         })());
@@ -9086,9 +9097,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$549ed5', $549ed5);
+            api.createRecord('$1cec8b', $1cec8b);
           } else {
-            api.reload('$549ed5', $549ed5);
+            api.reload('$1cec8b', $1cec8b);
           }
         }
 
@@ -21655,14 +21666,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1f47a9 = exports.default || module.exports;
+        var $a48455 = exports.default || module.exports;
       
-      if (typeof $1f47a9 === 'function') {
-        $1f47a9 = $1f47a9.options;
+      if (typeof $a48455 === 'function') {
+        $a48455 = $a48455.options;
       }
     
         /* template */
-        Object.assign($1f47a9, (function () {
+        Object.assign($a48455, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21701,7 +21712,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1f47a9",
+            _scopeId: "data-v-a48455",
             functional: undefined
           };
         })());
@@ -21714,9 +21725,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1f47a9', $1f47a9);
+            api.createRecord('$a48455', $a48455);
           } else {
-            api.reload('$1f47a9', $1f47a9);
+            api.reload('$a48455', $a48455);
           }
         }
 
@@ -21766,14 +21777,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $fd2c8e = exports.default || module.exports;
+        var $eabc7a = exports.default || module.exports;
       
-      if (typeof $fd2c8e === 'function') {
-        $fd2c8e = $fd2c8e.options;
+      if (typeof $eabc7a === 'function') {
+        $eabc7a = $eabc7a.options;
       }
     
         /* template */
-        Object.assign($fd2c8e, (function () {
+        Object.assign($eabc7a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21794,7 +21805,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-fd2c8e",
+            _scopeId: "data-v-eabc7a",
             functional: undefined
           };
         })());
@@ -21807,9 +21818,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$fd2c8e', $fd2c8e);
+            api.createRecord('$eabc7a', $eabc7a);
           } else {
-            api.reload('$fd2c8e', $fd2c8e);
+            api.reload('$eabc7a', $eabc7a);
           }
         }
 
@@ -21844,14 +21855,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $925787 = exports.default || module.exports;
+        var $087bd5 = exports.default || module.exports;
       
-      if (typeof $925787 === 'function') {
-        $925787 = $925787.options;
+      if (typeof $087bd5 === 'function') {
+        $087bd5 = $087bd5.options;
       }
     
         /* template */
-        Object.assign($925787, (function () {
+        Object.assign($087bd5, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21865,7 +21876,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-925787",
+            _scopeId: "data-v-087bd5",
             functional: undefined
           };
         })());
@@ -21878,9 +21889,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$925787', $925787);
+            api.createRecord('$087bd5', $087bd5);
           } else {
-            api.reload('$925787', $925787);
+            api.reload('$087bd5', $087bd5);
           }
         }
 
@@ -21958,7 +21969,9 @@ exports.default = void 0;
 //
 var _default = {
   data: function data() {
-    return {};
+    return {
+      noELementos: false
+    };
   },
   props: {
     elementos: Array,
@@ -21978,17 +21991,20 @@ var _default = {
     siguiente: function siguiente() {
       this.$emit('siguiente');
     }
+  },
+  updated: function updated() {
+    this.noELementos = this.elementos.length == 0 ? true : false;
   }
 };
 exports.default = _default;
-        var $c92a3d = exports.default || module.exports;
+        var $75911e = exports.default || module.exports;
       
-      if (typeof $c92a3d === 'function') {
-        $c92a3d = $c92a3d.options;
+      if (typeof $75911e === 'function') {
+        $75911e = $75911e.options;
       }
     
         /* template */
-        Object.assign($c92a3d, (function () {
+        Object.assign($75911e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22040,7 +22056,7 @@ exports.default = _default;
       )
     ]),
     _vm._v(" "),
-    _vm.elementos.length == 0
+    _vm.noELementos
       ? _c("div", { staticClass: "mensaje-rojo" }, [
           _c("h2", [_vm._v("No hay elementos!")])
         ])
@@ -22054,7 +22070,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-c92a3d",
+            _scopeId: "data-v-75911e",
             functional: undefined
           };
         })());
@@ -22067,9 +22083,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c92a3d', $c92a3d);
+            api.createRecord('$75911e', $75911e);
           } else {
-            api.reload('$c92a3d', $c92a3d);
+            api.reload('$75911e', $75911e);
           }
         }
 
@@ -22122,14 +22138,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1e1c2e = exports.default || module.exports;
+        var $372339 = exports.default || module.exports;
       
-      if (typeof $1e1c2e === 'function') {
-        $1e1c2e = $1e1c2e.options;
+      if (typeof $372339 === 'function') {
+        $372339 = $372339.options;
       }
     
         /* template */
-        Object.assign($1e1c2e, (function () {
+        Object.assign($372339, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22161,7 +22177,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1e1c2e",
+            _scopeId: "data-v-372339",
             functional: undefined
           };
         })());
@@ -22174,9 +22190,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1e1c2e', $1e1c2e);
+            api.createRecord('$372339', $372339);
           } else {
-            api.reload('$1e1c2e', $1e1c2e);
+            api.reload('$372339', $372339);
           }
         }
 
@@ -22191,7 +22207,7 @@ render._withStripped = true
 var define;
 var global = arguments[3];
 /*!
-* sweetalert2 v9.4.0
+* sweetalert2 v9.3.17
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22504,7 +22520,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -22537,9 +22553,6 @@ var getTitle = function getTitle() {
 };
 var getContent = function getContent() {
   return elementByClass(swalClasses.content);
-};
-var getHtmlContainer = function getHtmlContainer() {
-  return elementByClass(swalClasses['html-container']);
 };
 var getImage = function getImage() {
   return elementByClass(swalClasses.image);
@@ -22780,7 +22793,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -23894,7 +23907,6 @@ var staticMethods = Object.freeze({
 	getPopup: getPopup,
 	getTitle: getTitle,
 	getContent: getContent,
-	getHtmlContainer: getHtmlContainer,
 	getImage: getImage,
 	getIcon: getIcon,
 	getIcons: getIcons,
@@ -25170,7 +25182,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.4.0';
+SweetAlert.version = '9.3.17';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -25292,11 +25304,17 @@ var _default = {
     };
   },
   methods: {
+    borrarInputsData: function borrarInputsData() {
+      console.log('INPUT DATAAA');
+      this.datosAEnviar = {};
+    },
     eventoBotonSecundario: function eventoBotonSecundario(event) {
       event.preventDefault();
       this.$emit('clickBotonSecundario');
     },
     crear: function crear(event) {
+      var _this = this;
+
       var url = this.urlCrear;
 
       if (this.urlFinal != 'undefined') {
@@ -25314,6 +25332,8 @@ var _default = {
             icon: 'success',
             title: 'Elemento añadido exitosamente'
           });
+
+          _this.$emit('elementoCreado');
         }).catch(function (e) {
           _sweetalert.default.fire({
             icon: 'error',
@@ -25330,6 +25350,8 @@ var _default = {
       }
     },
     actualizar: function actualizar(event) {
+      var _this2 = this;
+
       event.preventDefault();
       console.log(this.datosAEnviar);
 
@@ -25343,6 +25365,8 @@ var _default = {
             icon: 'success',
             title: 'Elemento añadido exitosamente'
           });
+
+          _this2.$emit('elementoActualizado');
         }).catch(function (e) {
           _sweetalert.default.fire({
             icon: 'error',
@@ -25385,12 +25409,12 @@ var _default = {
     // Esto es para asignar los valores de cada input de config.inputs[0][0] a
     // su correspondiente propiedad en datosAEnviar
     ValueIgualVModel: function ValueIgualVModel() {
-      var _this = this;
+      var _this3 = this;
 
       this.inputs.forEach(function (elemento) {
         elemento.forEach(function (elemento2) {
-          _this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor;
-          _this.datosAEnviarObligatorioBoolean[elemento2.nombre] = typeof elemento2.obligatorio == 'undefined' ? false : elemento2.obligatorio; //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
+          _this3.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? null : elemento2.valor;
+          _this3.datosAEnviarObligatorioBoolean[elemento2.nombre] = typeof elemento2.obligatorio == 'undefined' ? false : elemento2.obligatorio; //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
           //this.datosAEnviar[elemento2.nombre] = typeof elemento2.valor == 'undefined' ? '' : elemento2.valor
           //this.datosAEnviar[elemento2.nombre] = null
         });
@@ -25403,14 +25427,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $10e949 = exports.default || module.exports;
+        var $33e561 = exports.default || module.exports;
       
-      if (typeof $10e949 === 'function') {
-        $10e949 = $10e949.options;
+      if (typeof $33e561 === 'function') {
+        $33e561 = $33e561.options;
       }
     
         /* template */
-        Object.assign($10e949, (function () {
+        Object.assign($33e561, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25709,7 +25733,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-10e949",
+            _scopeId: "data-v-33e561",
             functional: undefined
           };
         })());
@@ -25722,9 +25746,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$10e949', $10e949);
+            api.createRecord('$33e561', $33e561);
           } else {
-            api.reload('$10e949', $10e949);
+            api.reload('$33e561', $33e561);
           }
         }
 
@@ -25781,14 +25805,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $e2e94f = exports.default || module.exports;
+        var $77a4df = exports.default || module.exports;
       
-      if (typeof $e2e94f === 'function') {
-        $e2e94f = $e2e94f.options;
+      if (typeof $77a4df === 'function') {
+        $77a4df = $77a4df.options;
       }
     
         /* template */
-        Object.assign($e2e94f, (function () {
+        Object.assign($77a4df, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25852,7 +25876,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e2e94f",
+            _scopeId: "data-v-77a4df",
             functional: undefined
           };
         })());
@@ -25865,9 +25889,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e2e94f', $e2e94f);
+            api.createRecord('$77a4df', $77a4df);
           } else {
-            api.reload('$e2e94f', $e2e94f);
+            api.reload('$77a4df', $77a4df);
           }
         }
 
@@ -25899,9 +25923,14 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      selected: ''
+    };
   },
   props: {
     seleccionado: String,
@@ -25909,20 +25938,24 @@ var _default = {
   },
   methods: {
     seleccion: function seleccion(inputValue) {
-      console.log(inputValue);
-      this.$emit('seleccion', inputValue);
+      //console.log(inputValue)
+      this.$emit('seleccion', inputValue); //this.selected = this.seleccionado
+    },
+    reRender: function reRender() {
+      console.log(this.seleccionado);
+      this.$forceUpdate();
     }
   }
 };
 exports.default = _default;
-        var $1d8d32 = exports.default || module.exports;
+        var $8b145a = exports.default || module.exports;
       
-      if (typeof $1d8d32 === 'function') {
-        $1d8d32 = $1d8d32.options;
+      if (typeof $8b145a === 'function') {
+        $8b145a = $8b145a.options;
       }
     
         /* template */
-        Object.assign($1d8d32, (function () {
+        Object.assign($8b145a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25937,9 +25970,10 @@ exports.default = _default;
         _vm._l(opcion, function(unitario) {
           return _c(
             "div",
-            { key: unitario.titulo, staticClass: "container mr-8" },
+            { key: unitario.value, staticClass: "container mr-8" },
             [
               _c("input", {
+                key: unitario.value,
                 attrs: {
                   id: unitario.titulo + index,
                   type: "radio",
@@ -25979,7 +26013,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1d8d32",
+            _scopeId: "data-v-8b145a",
             functional: undefined
           };
         })());
@@ -25992,9 +26026,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1d8d32', $1d8d32);
+            api.createRecord('$8b145a', $8b145a);
           } else {
-            api.reload('$1d8d32', $1d8d32);
+            api.reload('$8b145a', $8b145a);
           }
         }
 
@@ -26011,7 +26045,7 @@ render._withStripped = true
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.alertaEliminar = void 0;
+exports.alertaEliminar = exports.eliminarDialog = void 0;
 
 var _sweetalert = _interopRequireDefault(require("sweetalert2"));
 
@@ -26019,35 +26053,90 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function SwalEliminadoMensaje() {
+  return _sweetalert.default.fire({
+    title: 'Se ha eliminado correctamente!',
+    text: 'Ten cuidado con lo que borras :(',
+    icon: 'success'
+  });
+}
+
+function SwalNoEliminadoMensaje() {
+  return _sweetalert.default.fire({
+    title: 'Ha ocurrido un error!',
+    text: 'Verifica los datos e intentalo mas tarde :c',
+    icon: 'error'
+  });
+}
+
+var eliminarDialog = function eliminarDialog(url) {
+  return new Promise(function (resolve, reject) {
+    _sweetalert.default.fire({
+      title: 'Seguro que desea eliminar?',
+      text: 'No habrá vuelta atrás!',
+      icon: 'warning',
+      confirmButtonText: 'Aceptar' //showLoaderOnConfirm: true,
+
+    }).then(function (respuesta) {
+      // Si dieron en el boton de si
+      if (respuesta.value) {
+        _axios.default.delete(url).then(function (respuestaServer) {
+          if (respuestaServer.status === 200) {
+            SwalEliminadoMensaje().then(function () {
+              return resolve(respuestaServer);
+            });
+          } else {
+            SwalNoEliminadoMensaje().then(function () {
+              return reject(respuestaServer);
+            });
+          }
+        }).catch(function (error) {
+          SwalNoEliminadoMensaje().then(function () {
+            return reject(error);
+          });
+        });
+      }
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+};
+
+exports.eliminarDialog = eliminarDialog;
+
 var alertaEliminar = function alertaEliminar(url) {
-  _sweetalert.default.fire({
-    title: 'Seguro que desea eliminar?',
-    text: 'No habrá vuelta atrás!',
-    icon: 'warning',
-    confirmButtonText: 'Aceptar',
-    showLoaderOnConfirm: true,
-    showCancelButton: true,
-    preConfirm: function preConfirm() {
-      return _axios.default.delete(url).then(function (respuesta) {
-        if (respuesta.status === 200) {
-          return respuesta;
-        } else {
-          throw new Error('Ha ocurrido un error');
-        }
-      }).catch(function (error) {
-        _sweetalert.default.showValidationMessage("Request failed: ".concat(error));
-      });
-    },
-    allowOutsideClick: function allowOutsideClick() {
-      return !_sweetalert.default.isLoading();
-    }
-  }).then(function (result) {
-    if (result.value) {
-      _sweetalert.default.fire({
-        title: 'Eliminado satisfactoriamente!',
-        icon: 'success'
-      });
-    }
+  return new Promise(function (resolve, reject) {
+    _sweetalert.default.fire({
+      title: 'Seguro que desea eliminar?',
+      text: 'No habrá vuelta atrás!',
+      icon: 'warning',
+      confirmButtonText: 'Aceptar',
+      showLoaderOnConfirm: true,
+      showCancelButton: true,
+      preConfirm: function preConfirm() {
+        return _axios.default.delete(url).then(function (respuesta) {
+          if (respuesta.status === 200) {
+            return respuesta;
+          } else {
+            throw new Error('Ha ocurrido un error');
+          }
+        }).catch(function (error) {
+          _sweetalert.default.showValidationMessage("Request failed: ".concat(error));
+
+          reject('Nel');
+        });
+      },
+      allowOutsideClick: function allowOutsideClick() {
+        return !_sweetalert.default.isLoading();
+      }
+    }).then(function (result) {
+      if (result.value) {
+        _sweetalert.default.fire({
+          title: 'Eliminado satisfactoriamente!',
+          icon: 'success'
+        });
+      }
+    });
   });
 };
 /*
@@ -26116,6 +26205,8 @@ var _BusquedaRadio = _interopRequireDefault(require("../../Components/BusquedaRa
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
 //
 //
 //
@@ -26384,9 +26475,26 @@ var _default = {
       });
     },
     eliminarElementoSeleccionado: function eliminarElementoSeleccionado() {
-      //const click = this.configuracion.tabla.click
-      //console.log(`${click.urlDelete}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
-      (0, _sweetAlert.alertaEliminar)("".concat(this.tablaUrlEliminar, "/").concat(this.elementoClickeado[this.tablaPropiedadAEliminar]));
+      var _this2 = this;
+
+      var url;
+      return regeneratorRuntime.async(function eliminarElementoSeleccionado$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              //const click = this.configuracion.tabla.click
+              //console.log(`${click.urlDelete}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`)
+              url = "".concat(this.tablaUrlEliminar, "/").concat(this.elementoClickeado[this.tablaPropiedadAEliminar]);
+              (0, _sweetAlert.eliminarDialog)(url).then(function () {
+                _this2.reiniciarTabla();
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
     },
     filaSeleccionada: function filaSeleccionada(elemento) {
       if (this.tablaMandarEventoClick === false) {
@@ -26396,11 +26504,14 @@ var _default = {
         this.$emit('clickTabla', elemento);
       }
     },
-    reiniciarTablaClientess: function reiniciarTablaClientess() {
+    reiniciarTabla: function reiniciarTabla() {
       this.clickEnTabla = false;
       this.busqueda.valor = '';
+      this.busqueda.variable = '';
       this.$refs.BusquedaInputRef.cambiarTexto('');
       this.inputBusquedaTexto = '';
+      this.busquedaSeleccionada = this.busquedaDefault;
+      this.$refs.busquedaRadioinput.reRender();
       this.obtenerDatos();
     },
     clickOpciones: function clickOpciones(dato) {
@@ -26417,11 +26528,11 @@ var _default = {
     },
     obtenerDatos: function obtenerDatos() {
       var busqueda, params, response;
-      return regeneratorRuntime.async(function obtenerDatos$(_context) {
+      return regeneratorRuntime.async(function obtenerDatos$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              _context.prev = 0;
+              _context2.prev = 0;
               busqueda = this.busqueda;
               params = {
                 limite: busqueda.limite
@@ -26432,38 +26543,37 @@ var _default = {
               } // Si variable y valor tienen valores entonces se añade al objeto params
 
 
-              if (busqueda.variable !== '' || busqueda.valor !== '') {
+              if (busqueda.variable !== '' && busqueda.valor !== '') {
                 params[busqueda.variable] = busqueda.valor;
               }
 
-              _context.next = 7;
+              _context2.next = 7;
               return regeneratorRuntime.awrap(_axios.default.get(this.tablaUrl, {
                 params: params
               }));
 
             case 7:
-              response = _context.sent;
+              response = _context2.sent;
               this.tablaDatos = response.data;
-              console.log(this.tablaDatos);
 
               if (response.data.length === 0) {
                 this.anteriorTablaCliente();
               }
 
-              _context.next = 16;
+              _context2.next = 15;
               break;
 
-            case 13:
-              _context.prev = 13;
-              _context.t0 = _context["catch"](0);
-              console.log(_context.t0);
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](0);
+              console.log(_context2.t0);
 
-            case 16:
+            case 15:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, null, this, [[0, 13]]);
+      }, null, this, [[0, 12]]);
     },
     siguienteTablaCliente: function siguienteTablaCliente() {
       this.busqueda.offset = this.busqueda.offset + 1;
@@ -26475,27 +26585,30 @@ var _default = {
         this.busqueda.offset = this.busqueda.offset - 1;
         this.obtenerDatos();
       }
+    },
+    elementoCreadoEvento: function elementoCreadoEvento() {
+      this.$emit('elementoCreado');
     }
   },
   created: function created() {
     this.obtenerDatos();
     this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar;
+    this.busquedaSeleccionada = this.busquedaDefault;
     /*const config =                          this.configuracion;
     this.busqueda.variable =                config.busqueda.busquedaSeleccionada
-    this.busquedaSeleccionada =             config.busqueda.busquedaSeleccionada
     this.tiposBusqueda =                    config.busqueda.tiposBusqueda
     this.tablaTitulos =                     config.tabla.tablaTitulos*/
   }
 };
 exports.default = _default;
-        var $d3f961 = exports.default || module.exports;
+        var $31a313 = exports.default || module.exports;
       
-      if (typeof $d3f961 === 'function') {
-        $d3f961 = $d3f961.options;
+      if (typeof $31a313 === 'function') {
+        $31a313 = $31a313.options;
       }
     
         /* template */
-        Object.assign($d3f961, (function () {
+        Object.assign($31a313, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26533,7 +26646,12 @@ exports.default = _default;
                         on: {
                           clickBotonSecundario: function($event) {
                             _vm.mostrarPopupEditar = false
-                          }
+                          },
+                          elementoActualizado: function() {
+                            _vm.mostrarPopupEditar = false
+                            _vm.reiniciarTabla()
+                          },
+                          elementoCreado: _vm.elementoCreadoEvento
                         }
                       },
                       "InputTemplate",
@@ -26555,7 +26673,7 @@ exports.default = _default;
           [
             _c("TablaTitulo", {
               attrs: { titulo: "Cliente" },
-              on: { recargar: _vm.reiniciarTablaClientess }
+              on: { recargar: _vm.reiniciarTabla }
             }),
             _vm._v(" "),
             _c("Tabla", {
@@ -26583,6 +26701,7 @@ exports.default = _default;
                 _c("div", { staticClass: "divisor" }),
                 _vm._v(" "),
                 _c("BusquedaRadio", {
+                  ref: "busquedaRadioinput",
                   attrs: {
                     seleccionado: _vm.busquedaSeleccionada,
                     opciones: _vm.tiposBusqueda
@@ -26715,7 +26834,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-d3f961",
+            _scopeId: "data-v-31a313",
             functional: undefined
           };
         })());
@@ -26728,9 +26847,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d3f961', $d3f961);
+            api.createRecord('$31a313', $31a313);
           } else {
-            api.reload('$d3f961', $d3f961);
+            api.reload('$31a313', $31a313);
           }
         }
 
@@ -26848,6 +26967,7 @@ var _default = {
           propiedad: 'nombre',
           titulo: 'Nombre'
         }],
+        busquedaDefault: 'nombre',
         mostrarOpcionEditar: true,
         mostrarOpcionEliminar: true,
         inputsEditar: [[{
@@ -26961,6 +27081,9 @@ var _default = {
     BusquedaTablaAll: _BusquedaTablaAll.default
   },
   methods: {
+    elementoCreado: function elementoCreado() {
+      this.$refs.inputTemplateCliente.borrarInputsData(''); //this.opcionSeleccionada = 'Buscar'
+    },
     clickOpciones: function clickOpciones(dato) {
       this.opcionSeleccionada = dato;
     }
@@ -26968,14 +27091,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $f884e7 = exports.default || module.exports;
+        var $2acc8d = exports.default || module.exports;
       
-      if (typeof $f884e7 === 'function') {
-        $f884e7 = $f884e7.options;
+      if (typeof $2acc8d === 'function') {
+        $2acc8d = $2acc8d.options;
       }
     
         /* template */
-        Object.assign($f884e7, (function () {
+        Object.assign($2acc8d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27035,7 +27158,15 @@ exports.default = _default;
                     _vm._v(" "),
                     _c(
                       "InputTemplate",
-                      _vm._b({}, "InputTemplate", _vm.configCrear, false)
+                      _vm._b(
+                        {
+                          ref: "inputTemplateCliente",
+                          on: { elementoCreado: _vm.elementoCreado }
+                        },
+                        "InputTemplate",
+                        _vm.configCrear,
+                        false
+                      )
                     )
                   ],
                   1
@@ -27056,7 +27187,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f884e7",
+            _scopeId: "data-v-2acc8d",
             functional: undefined
           };
         })());
@@ -27069,9 +27200,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f884e7', $f884e7);
+            api.createRecord('$2acc8d', $2acc8d);
           } else {
-            api.reload('$f884e7', $f884e7);
+            api.reload('$2acc8d', $2acc8d);
           }
         }
 
@@ -27308,14 +27439,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2032b9 = exports.default || module.exports;
+        var $9b6b57 = exports.default || module.exports;
       
-      if (typeof $2032b9 === 'function') {
-        $2032b9 = $2032b9.options;
+      if (typeof $9b6b57 === 'function') {
+        $9b6b57 = $9b6b57.options;
       }
     
         /* template */
-        Object.assign($2032b9, (function () {
+        Object.assign($9b6b57, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27444,7 +27575,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2032b9",
+            _scopeId: "data-v-9b6b57",
             functional: undefined
           };
         })());
@@ -27457,9 +27588,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2032b9', $2032b9);
+            api.createRecord('$9b6b57', $9b6b57);
           } else {
-            api.reload('$2032b9', $2032b9);
+            api.reload('$9b6b57', $9b6b57);
           }
         }
 
@@ -27470,7 +27601,68 @@ render._withStripped = true
       
       }
     })();
-},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","../Components/BusquedaInput.vue":"Components/BusquedaInput.vue","../Components/BusquedaRadio.vue":"Components/BusquedaRadio.vue","../Components/TemplateComponents/BusquedaTablaAll":"Components/TemplateComponents/BusquedaTablaAll.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","../Components/BusquedaInput.vue":"Components/BusquedaInput.vue","../Components/BusquedaRadio.vue":"Components/BusquedaRadio.vue","../Components/TemplateComponents/BusquedaTablaAll":"Components/TemplateComponents/BusquedaTablaAll.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Roles.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $067312 = exports.default || module.exports;
+      
+      if (typeof $067312 === 'function') {
+        $067312 = $067312.options;
+      }
+    
+        /* template */
+        Object.assign($067312, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-067312",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$067312', $067312);
+          } else {
+            api.reload('$067312', $067312);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27485,6 +27677,8 @@ var _Login = _interopRequireDefault(require("../Sections/Login"));
 var _Cliente = _interopRequireDefault(require("../Sections/Cliente"));
 
 var _Marca = _interopRequireDefault(require("../Sections/Marca"));
+
+var _Roles = _interopRequireDefault(require("../Sections/Roles"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27506,9 +27700,13 @@ var _default = [{
   path: '/marca',
   component: _Marca.default,
   name: 'marca'
+}, {
+  path: '/roles',
+  component: _Roles.default,
+  name: 'roles'
 }];
 exports.default = _default;
-},{"../Sections/Inicio":"Sections/Inicio.vue","../Sections/Login":"Sections/Login.vue","../Sections/Cliente":"Sections/Cliente.vue","../Sections/Marca":"Sections/Marca.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
+},{"../Sections/Inicio":"Sections/Inicio.vue","../Sections/Login":"Sections/Login.vue","../Sections/Cliente":"Sections/Cliente.vue","../Sections/Marca":"Sections/Marca.vue","../Sections/Roles":"Sections/Roles.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -28756,7 +28954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61745" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "28955" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

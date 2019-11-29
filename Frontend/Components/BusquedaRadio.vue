@@ -1,10 +1,13 @@
 <template>
     <div id="contenedor" >
         <div class="flex" v-for="(opcion, index) of opciones" :key="index" >
-            <div class="container mr-8" v-for="(unitario) of opcion" :key="unitario.titulo">
-                <input :id="unitario.titulo + index" type="radio" name="grupo" :value="unitario.value" :checked="unitario.value == seleccionado">
+            <div class="container mr-8" v-for="(unitario) of opcion" :key="unitario.value">
+                <input :id="unitario.titulo + index" type="radio" name="grupo" :key="unitario.value" :value="unitario.value" :checked="unitario.value == seleccionado">
+               
                 <label @click="seleccion(unitario.value)" :for="unitario.titulo + index" >{{unitario.titulo}}</label>
             </div>
+
+            
         </div>
     </div>
 </template>
@@ -16,7 +19,7 @@
 export default {
     data: () => {
         return {
-            
+            selected: ''
         }
     },
     props: {
@@ -25,10 +28,16 @@ export default {
     },
     methods: {
         seleccion: function(inputValue){
-            console.log(inputValue)
+            //console.log(inputValue)
             this.$emit('seleccion', inputValue)
+            //this.selected = this.seleccionado
+        },
+        reRender: function(){
+            console.log(this.seleccionado)
+            this.$forceUpdate()
         }
     }
+    
 
 }
 </script>

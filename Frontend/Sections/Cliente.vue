@@ -19,7 +19,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Crear Cliente</h2>
                 </div>
-                <InputTemplate v-bind="configCrear">
+                <InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
                 </InputTemplate>
             </div>
         </transition>
@@ -67,6 +67,7 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
+                busquedaDefault: 'nombre',
                 mostrarOpcionEditar: true,
                 mostrarOpcionEliminar: true,
                 inputsEditar: [
@@ -129,7 +130,10 @@ export default {
         BusquedaTablaAll
     },
     methods: {
-
+        elementoCreado: function(){
+            this.$refs.inputTemplateCliente.borrarInputsData('')
+            //this.opcionSeleccionada = 'Buscar'
+        },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
         }

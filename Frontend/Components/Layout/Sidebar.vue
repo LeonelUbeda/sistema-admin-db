@@ -15,9 +15,14 @@
                 <span class="texto">Login</span>
             </div>
         </router-link>
-         <router-link to="/marca">
+        <router-link to="/marca">
             <div class="boton">
                 <span class="texto">Marca</span>
+            </div>
+        </router-link>
+        <router-link to="/roles">
+            <div class="boton">
+                <span class="texto">Roles</span>
             </div>
         </router-link>
     </div>
