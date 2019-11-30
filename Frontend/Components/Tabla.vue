@@ -32,7 +32,7 @@
             <caption></caption>
             <thead>
                 <tr>
-                    <th v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
+                    <th class="color-header-tabla" v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
                 </tr>
             </thead>  
            

@@ -59,13 +59,13 @@ export default {
                 tablaUrlActualizar: '/api/clientes',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
-                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
-                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]],
+                        {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
+                        {value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
-                    {propiedad: 'nombre', titulo: 'Nombre'}
+                    {propiedad: 'cedula', titulo: 'Cédula'}
                 ],
                 busquedaDefault: 'nombre',
                 mostrarOpcionEditar: true,

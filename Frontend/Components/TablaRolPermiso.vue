@@ -1,19 +1,19 @@
 <template>
     <form action="/roles/add" method="POST">
     <h2  style="text-align: center; color: white;">{{action == 'add' ? 'Añadir Rol' : `Editar rol ${titulo}`}}</h2>
-
         <table>
             <thead>
                 <tr>
-                    <th :key="titulos" v-for="titulos of titles">{{titulos}}</th> <!-- Imprime los titulos que le pasas   -->
+                    <th class="color-header-tabla" :key="titulos" v-for="titulos of titles">{{titulos}}</th> <!-- Imprime los titulos que le pasas   -->
                 </tr>
             </thead>
             <tbody><!-- *****  Probablemente sea muchos comentarios, pero es para luego no olvidarme de que hice ***** -->  
-
+                    {{inputs}}
                     <tr v-for="(elemento, index_body) of body" :key="index_body"> <!-- Hace un ciclo por los elementos del body, osea las secciones, ejemplo: -->  
-                        <td >{{elemento}}</td>                    <!-- Clasificacion, Lotes, Productos -->
+                        <td class="color-black">{{elemento}}</td>                    <!-- Clasificacion, Lotes, Productos -->
 
                         <td v-for="(titulo, index) of filterSection" :key="index"> <!-- Hace un ciclo por cada elemento del arreglo title -->
+                            <h1>{{index}}</h1>
                             <div class="input-container">                           <!-- menos el elemento 'Seccion'. La variable index es un contador -->
                                 <!--  ** INPUT **
                                     1- value es igual a index + 1 porque index empieza por 0 y el valor minimo tiene que ser 1.
@@ -22,21 +22,25 @@
                                     4- Utilizando v-model no es necesario utilizar checked, puesto que inicializo todos los elementos del objeto inputs a 1 
                                         y eso matchea con el value del input .
                                  -->
-                                <input type="radio" 
-                                :name="elemento"  
-                                :value="index + 1"
-                                :id="elemento + '_' + index"
-                                v-model="inputs[index_body]"
+                                <input type="radio"
+                                :name="elemento.nombre"  
+                                :value="index"
+                                :id="elemento.nombre + '_' + index"
+                                v-model="inputs[elemento.name]"
                                 >
                                 <!-- 
                                     1- class lo utilizo para seleccionarlo y darle estilos segun el elemento y el valor de index. Mas info en la funcion handleClick. 
                                        Ejemplo: Clasificacion_1 , Clasificacion_2, Clasificacion_3
                                     2- La funcion handleClick es la logica para los estilos de los botones. Recibe el elemento actual y el valor del index. Ejemplo:  Clasificacion y 1
                                  -->  
-                                <label class="border"   
-                                :for="elemento + '_' + index"
-                                :class="[elemento + '_' + index , {selected: ((inputs[index_body] > index) && (index !== 0))} , {red: ((inputs[index_body] == 5) && (index == 4))}]">   
+                                <label
+                                :for="elemento.nombre + '_' + index"
+                                :class="['border', elemento + '_' + index , 
+                                {selected: ((inputs[index_body] > index) && (index !== 0))} ,
+                                {red: ((inputs[index_body] == 5) && (index == 4))}
+                                ]">   
                                     <div v-if="((inputs[index_body] > index) && (index !== 0)) || (inputs[index_body] == index+1)">Si</div>  <!-- Esto es para que el texto de la columna Ninguno, se vea como 'seleccionado' -->
+                                    
                                     <div v-else>NO</div>
                                 </label>
                             </div>
@@ -60,7 +64,7 @@
 
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import Alertar from '../Utilidades/Alertas.js'
+//import Alertar from '../Utilidades/Alertas.js'
 export default {
     props: {
         titles: Array,
@@ -376,17 +380,21 @@ table tbody td{
     height: 60px;
 }
 table th{
-    background-color: #4b5976;
     color:#dedfe0;
 }
 table td{
     background-color: #2a3141;
+    background-color: white;
+    color: black;
     color:#dedfe0;
     font-weight: 300 !important;
     border-left: 0;
     border-right: 0;
 
     
+}
+.color-black{
+    color: black !important;
 }
 table th{
     width: 50px;

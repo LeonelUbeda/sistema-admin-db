@@ -1,14 +1,23 @@
 <template>
     <div id="contenedor" >
-        <div class="flex" v-for="(opcion, index) of opciones" :key="index" >
+        <!--div class="flex" v-for="(opcion, index) of opciones" :key="index" >
             <div class="container mr-8" v-for="(unitario) of opcion" :key="unitario.value">
+                
                 <input :id="unitario.titulo + index" type="radio" name="grupo" :key="unitario.value" :value="unitario.value" :checked="unitario.value == seleccionado">
                
                 <label @click="seleccion(unitario.value)" :for="unitario.titulo + index" >{{unitario.titulo}}</label>
             </div>
 
             
-        </div>
+        </div-->
+
+        <select  v-model="selected" @change="seleccion(selected)" required>
+            <option  value="null" selected disabled hidden>Selecciona una opcion</option>
+            <option  v-for="(select) of opciones" :value="select.value" :key="select.value">
+                {{select.titulo}}
+            </option>
+            
+        </select>
     </div>
 </template>
 
@@ -19,7 +28,8 @@
 export default {
     data: () => {
         return {
-            selected: ''
+            selected: '',
+           
         }
     },
     props: {
@@ -28,13 +38,25 @@ export default {
     },
     methods: {
         seleccion: function(inputValue){
-            //console.log(inputValue)
+            console.log(inputValue)
             this.$emit('seleccion', inputValue)
             //this.selected = this.seleccionado
         },
         reRender: function(){
             console.log(this.seleccionado)
             this.$forceUpdate()
+        }
+    },
+    created() {
+        this.selected = this.seleccionado
+    },
+    watch: {
+        seleccionado: {
+            immediate: true,
+            handler: function(nuevo, viejo){
+                console.log("HEY")
+                this.selected = nuevo
+            },
         }
     }
     

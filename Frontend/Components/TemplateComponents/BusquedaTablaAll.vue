@@ -265,7 +265,7 @@ export default {
 
             this.inputBusquedaTexto = ''
             
-            this.busquedaSeleccionada =             this.busquedaDefault
+            this.busquedaSeleccionada = 'apellido'
             this.$refs.busquedaRadioinput.reRender()
             this.obtenerDatos()
         },
@@ -280,6 +280,7 @@ export default {
         manejarTipoBusqueda: function(seleccion){
             this.clickEnTabla = false
             this.busqueda.variable = seleccion;
+            this.busquedaSeleccionada = seleccion
         },
         obtenerDatos: async function(){
             try {
@@ -325,6 +326,7 @@ export default {
 
         this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar
         this.busquedaSeleccionada =             this.busquedaDefault
+        this.busqueda.variable =                this.busquedaDefault
         /*const config =                          this.configuracion;
         this.busqueda.variable =                config.busqueda.busquedaSeleccionada
         this.tiposBusqueda =                    config.busqueda.tiposBusqueda
