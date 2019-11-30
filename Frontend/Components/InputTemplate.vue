@@ -17,9 +17,9 @@
                                 
                                 <option v-for="(select, indexSelect) of unit.opciones" :value="select" :key="select">
                                     {{select}} : {{indexSelect}}
-                                    </option>
+                                </option>
                                 
-                                </select>
+                            </select>
                         
                             <input v-else 
                             v-model="datosAEnviar[unit.nombre]"

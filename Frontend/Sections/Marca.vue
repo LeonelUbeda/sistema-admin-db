@@ -75,8 +75,8 @@ export default {
                 tablaUrlActualizar: '/api/vehiculos/marcas',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
-                        [{value: 'nombre', titulo: 'Nombre'}],
-                        [{value: 'id', titulo: 'ID'}]],
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'id', titulo: 'ID'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [

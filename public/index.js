@@ -8939,14 +8939,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $12368a = exports.default || module.exports;
+        var $65481f = exports.default || module.exports;
       
-      if (typeof $12368a === 'function') {
-        $12368a = $12368a.options;
+      if (typeof $65481f === 'function') {
+        $65481f = $65481f.options;
       }
     
         /* template */
-        Object.assign($12368a, (function () {
+        Object.assign($65481f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8995,7 +8995,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-12368a",
+            _scopeId: "data-v-65481f",
             functional: undefined
           };
         })());
@@ -9008,9 +9008,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$12368a', $12368a);
+            api.createRecord('$65481f', $65481f);
           } else {
-            api.reload('$12368a', $12368a);
+            api.reload('$65481f', $65481f);
           }
         }
 
@@ -9055,14 +9055,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1cec8b = exports.default || module.exports;
+        var $52f010 = exports.default || module.exports;
       
-      if (typeof $1cec8b === 'function') {
-        $1cec8b = $1cec8b.options;
+      if (typeof $52f010 === 'function') {
+        $52f010 = $52f010.options;
       }
     
         /* template */
-        Object.assign($1cec8b, (function () {
+        Object.assign($52f010, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -9084,7 +9084,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1cec8b",
+            _scopeId: "data-v-52f010",
             functional: undefined
           };
         })());
@@ -9097,9 +9097,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1cec8b', $1cec8b);
+            api.createRecord('$52f010', $52f010);
           } else {
-            api.reload('$1cec8b', $1cec8b);
+            api.reload('$52f010', $52f010);
           }
         }
 
@@ -21666,14 +21666,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a48455 = exports.default || module.exports;
+        var $e551a3 = exports.default || module.exports;
       
-      if (typeof $a48455 === 'function') {
-        $a48455 = $a48455.options;
+      if (typeof $e551a3 === 'function') {
+        $e551a3 = $e551a3.options;
       }
     
         /* template */
-        Object.assign($a48455, (function () {
+        Object.assign($e551a3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21712,7 +21712,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a48455",
+            _scopeId: "data-v-e551a3",
             functional: undefined
           };
         })());
@@ -21725,9 +21725,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a48455', $a48455);
+            api.createRecord('$e551a3', $e551a3);
           } else {
-            api.reload('$a48455', $a48455);
+            api.reload('$e551a3', $e551a3);
           }
         }
 
@@ -21777,14 +21777,14 @@ var _default = {
   components: {}
 };
 exports.default = _default;
-        var $eabc7a = exports.default || module.exports;
+        var $e713af = exports.default || module.exports;
       
-      if (typeof $eabc7a === 'function') {
-        $eabc7a = $eabc7a.options;
+      if (typeof $e713af === 'function') {
+        $e713af = $e713af.options;
       }
     
         /* template */
-        Object.assign($eabc7a, (function () {
+        Object.assign($e713af, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21805,7 +21805,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-eabc7a",
+            _scopeId: "data-v-e713af",
             functional: undefined
           };
         })());
@@ -21818,9 +21818,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$eabc7a', $eabc7a);
+            api.createRecord('$e713af', $e713af);
           } else {
-            api.reload('$eabc7a', $eabc7a);
+            api.reload('$e713af', $e713af);
           }
         }
 
@@ -21855,14 +21855,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $087bd5 = exports.default || module.exports;
+        var $369922 = exports.default || module.exports;
       
-      if (typeof $087bd5 === 'function') {
-        $087bd5 = $087bd5.options;
+      if (typeof $369922 === 'function') {
+        $369922 = $369922.options;
       }
     
         /* template */
-        Object.assign($087bd5, (function () {
+        Object.assign($369922, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -21876,7 +21876,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-087bd5",
+            _scopeId: "data-v-369922",
             functional: undefined
           };
         })());
@@ -21889,9 +21889,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$087bd5', $087bd5);
+            api.createRecord('$369922', $369922);
           } else {
-            api.reload('$087bd5', $087bd5);
+            api.reload('$369922', $369922);
           }
         }
 
@@ -21997,14 +21997,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $75911e = exports.default || module.exports;
+        var $2b3539 = exports.default || module.exports;
       
-      if (typeof $75911e === 'function') {
-        $75911e = $75911e.options;
+      if (typeof $2b3539 === 'function') {
+        $2b3539 = $2b3539.options;
       }
     
         /* template */
-        Object.assign($75911e, (function () {
+        Object.assign($2b3539, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22023,9 +22023,11 @@ exports.default = _default;
         _c(
           "tr",
           _vm._l(_vm.titulos, function(titulo) {
-            return _c("th", { key: titulo.propiedad }, [
-              _vm._v(_vm._s(titulo.titulo))
-            ])
+            return _c(
+              "th",
+              { key: titulo.propiedad, staticClass: "color-header-tabla" },
+              [_vm._v(_vm._s(titulo.titulo))]
+            )
           }),
           0
         )
@@ -22070,7 +22072,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-75911e",
+            _scopeId: "data-v-2b3539",
             functional: undefined
           };
         })());
@@ -22083,9 +22085,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$75911e', $75911e);
+            api.createRecord('$2b3539', $2b3539);
           } else {
-            api.reload('$75911e', $75911e);
+            api.reload('$2b3539', $2b3539);
           }
         }
 
@@ -22138,14 +22140,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $372339 = exports.default || module.exports;
+        var $486705 = exports.default || module.exports;
       
-      if (typeof $372339 === 'function') {
-        $372339 = $372339.options;
+      if (typeof $486705 === 'function') {
+        $486705 = $486705.options;
       }
     
         /* template */
-        Object.assign($372339, (function () {
+        Object.assign($486705, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -22177,7 +22179,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-372339",
+            _scopeId: "data-v-486705",
             functional: undefined
           };
         })());
@@ -22190,9 +22192,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$372339', $372339);
+            api.createRecord('$486705', $486705);
           } else {
-            api.reload('$372339', $372339);
+            api.reload('$486705', $486705);
           }
         }
 
@@ -22207,7 +22209,7 @@ render._withStripped = true
 var define;
 var global = arguments[3];
 /*!
-* sweetalert2 v9.3.17
+* sweetalert2 v9.4.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -22520,7 +22522,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var getContainer = function getContainer() {
@@ -22553,6 +22555,9 @@ var getTitle = function getTitle() {
 };
 var getContent = function getContent() {
   return elementByClass(swalClasses.content);
+};
+var getHtmlContainer = function getHtmlContainer() {
+  return elementByClass(swalClasses['html-container']);
 };
 var getImage = function getImage() {
   return elementByClass(swalClasses.image);
@@ -22793,7 +22798,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -23907,6 +23912,7 @@ var staticMethods = Object.freeze({
 	getPopup: getPopup,
 	getTitle: getTitle,
 	getContent: getContent,
+	getHtmlContainer: getHtmlContainer,
 	getImage: getImage,
 	getIcon: getIcon,
 	getIcons: getIcons,
@@ -25182,7 +25188,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.3.17';
+SweetAlert.version = '9.4.0';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -25427,14 +25433,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $33e561 = exports.default || module.exports;
+        var $c2728f = exports.default || module.exports;
       
-      if (typeof $33e561 === 'function') {
-        $33e561 = $33e561.options;
+      if (typeof $c2728f === 'function') {
+        $c2728f = $c2728f.options;
       }
     
         /* template */
-        Object.assign($33e561, (function () {
+        Object.assign($c2728f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25550,7 +25556,7 @@ exports.default = _default;
                                         _vm._s(select) +
                                         " : " +
                                         _vm._s(indexSelect) +
-                                        "\n                                "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -25733,7 +25739,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-33e561",
+            _scopeId: "data-v-c2728f",
             functional: undefined
           };
         })());
@@ -25746,9 +25752,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$33e561', $33e561);
+            api.createRecord('$c2728f', $c2728f);
           } else {
-            api.reload('$33e561', $33e561);
+            api.reload('$c2728f', $c2728f);
           }
         }
 
@@ -25805,14 +25811,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $77a4df = exports.default || module.exports;
+        var $b5b37f = exports.default || module.exports;
       
-      if (typeof $77a4df === 'function') {
-        $77a4df = $77a4df.options;
+      if (typeof $b5b37f === 'function') {
+        $b5b37f = $b5b37f.options;
       }
     
         /* template */
-        Object.assign($77a4df, (function () {
+        Object.assign($b5b37f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -25876,7 +25882,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-77a4df",
+            _scopeId: "data-v-b5b37f",
             functional: undefined
           };
         })());
@@ -25889,9 +25895,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$77a4df', $77a4df);
+            api.createRecord('$b5b37f', $b5b37f);
           } else {
-            api.reload('$77a4df', $77a4df);
+            api.reload('$b5b37f', $b5b37f);
           }
         }
 
@@ -25926,6 +25932,15 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -25938,73 +25953,92 @@ var _default = {
   },
   methods: {
     seleccion: function seleccion(inputValue) {
-      //console.log(inputValue)
+      console.log(inputValue);
       this.$emit('seleccion', inputValue); //this.selected = this.seleccionado
     },
     reRender: function reRender() {
       console.log(this.seleccionado);
       this.$forceUpdate();
     }
+  },
+  created: function created() {
+    this.selected = this.seleccionado;
+  },
+  watch: {
+    seleccionado: {
+      immediate: true,
+      handler: function handler(nuevo, viejo) {
+        console.log("HEY");
+        this.selected = nuevo;
+      }
+    }
   }
 };
 exports.default = _default;
-        var $8b145a = exports.default || module.exports;
+        var $930865 = exports.default || module.exports;
       
-      if (typeof $8b145a === 'function') {
-        $8b145a = $8b145a.options;
+      if (typeof $930865 === 'function') {
+        $930865 = $930865.options;
       }
     
         /* template */
-        Object.assign($8b145a, (function () {
+        Object.assign($930865, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "contenedor" } },
-    _vm._l(_vm.opciones, function(opcion, index) {
-      return _c(
-        "div",
-        { key: index, staticClass: "flex" },
-        _vm._l(opcion, function(unitario) {
+  return _c("div", { attrs: { id: "contenedor" } }, [
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selected,
+            expression: "selected"
+          }
+        ],
+        attrs: { required: "" },
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            function($event) {
+              return _vm.seleccion(_vm.selected)
+            }
+          ]
+        }
+      },
+      [
+        _c(
+          "option",
+          { attrs: { value: "null", selected: "", disabled: "", hidden: "" } },
+          [_vm._v("Selecciona una opcion")]
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.opciones, function(select) {
           return _c(
-            "div",
-            { key: unitario.value, staticClass: "container mr-8" },
-            [
-              _c("input", {
-                key: unitario.value,
-                attrs: {
-                  id: unitario.titulo + index,
-                  type: "radio",
-                  name: "grupo"
-                },
-                domProps: {
-                  value: unitario.value,
-                  checked: unitario.value == _vm.seleccionado
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  attrs: { for: unitario.titulo + index },
-                  on: {
-                    click: function($event) {
-                      return _vm.seleccion(unitario.value)
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(unitario.titulo))]
-              )
-            ]
+            "option",
+            { key: select.value, domProps: { value: select.value } },
+            [_vm._v("\n            " + _vm._s(select.titulo) + "\n        ")]
           )
-        }),
-        0
-      )
-    }),
-    0
-  )
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -26013,7 +26047,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-8b145a",
+            _scopeId: "data-v-930865",
             functional: undefined
           };
         })());
@@ -26026,9 +26060,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$8b145a', $8b145a);
+            api.createRecord('$930865', $930865);
           } else {
-            api.reload('$8b145a', $8b145a);
+            api.reload('$930865', $930865);
           }
         }
 
@@ -26510,7 +26544,7 @@ var _default = {
       this.busqueda.variable = '';
       this.$refs.BusquedaInputRef.cambiarTexto('');
       this.inputBusquedaTexto = '';
-      this.busquedaSeleccionada = this.busquedaDefault;
+      this.busquedaSeleccionada = 'apellido';
       this.$refs.busquedaRadioinput.reRender();
       this.obtenerDatos();
     },
@@ -26525,6 +26559,7 @@ var _default = {
     manejarTipoBusqueda: function manejarTipoBusqueda(seleccion) {
       this.clickEnTabla = false;
       this.busqueda.variable = seleccion;
+      this.busquedaSeleccionada = seleccion;
     },
     obtenerDatos: function obtenerDatos() {
       var busqueda, params, response;
@@ -26594,6 +26629,7 @@ var _default = {
     this.obtenerDatos();
     this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar;
     this.busquedaSeleccionada = this.busquedaDefault;
+    this.busqueda.variable = this.busquedaDefault;
     /*const config =                          this.configuracion;
     this.busqueda.variable =                config.busqueda.busquedaSeleccionada
     this.tiposBusqueda =                    config.busqueda.tiposBusqueda
@@ -26601,14 +26637,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $31a313 = exports.default || module.exports;
+        var $ff7dad = exports.default || module.exports;
       
-      if (typeof $31a313 === 'function') {
-        $31a313 = $31a313.options;
+      if (typeof $ff7dad === 'function') {
+        $ff7dad = $ff7dad.options;
       }
     
         /* template */
-        Object.assign($31a313, (function () {
+        Object.assign($ff7dad, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -26834,7 +26870,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-31a313",
+            _scopeId: "data-v-ff7dad",
             functional: undefined
           };
         })());
@@ -26847,9 +26883,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$31a313', $31a313);
+            api.createRecord('$ff7dad', $ff7dad);
           } else {
-            api.reload('$31a313', $31a313);
+            api.reload('$ff7dad', $ff7dad);
           }
         }
 
@@ -26945,27 +26981,27 @@ var _default = {
         tablaUrlEliminar: '/api/clientes',
         tablaUrlActualizar: '/api/clientes',
         tablaPropiedadAEliminar: 'id',
-        tiposBusqueda: [[{
+        tiposBusqueda: [{
           value: 'nombre',
           titulo: 'Nombre'
         }, {
           value: 'apellido',
           titulo: 'Apellido'
-        }], [{
+        }, {
           value: 'direccion',
           titulo: 'Direccion'
         }, {
           value: 'id',
           titulo: 'ID'
-        }]],
+        }],
         tablaMandarEventoClick: false,
         mostrarInformacionClick: true,
         titulosClick: [{
           propiedad: 'id',
           titulo: 'Identificador'
         }, {
-          propiedad: 'nombre',
-          titulo: 'Nombre'
+          propiedad: 'cedula',
+          titulo: 'Cédula'
         }],
         busquedaDefault: 'nombre',
         mostrarOpcionEditar: true,
@@ -27091,14 +27127,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $2acc8d = exports.default || module.exports;
+        var $1b7dc3 = exports.default || module.exports;
       
-      if (typeof $2acc8d === 'function') {
-        $2acc8d = $2acc8d.options;
+      if (typeof $1b7dc3 === 'function') {
+        $1b7dc3 = $1b7dc3.options;
       }
     
         /* template */
-        Object.assign($2acc8d, (function () {
+        Object.assign($1b7dc3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27187,7 +27223,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-2acc8d",
+            _scopeId: "data-v-1b7dc3",
             functional: undefined
           };
         })());
@@ -27200,9 +27236,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$2acc8d', $2acc8d);
+            api.createRecord('$1b7dc3', $1b7dc3);
           } else {
-            api.reload('$2acc8d', $2acc8d);
+            api.reload('$1b7dc3', $1b7dc3);
           }
         }
 
@@ -27310,13 +27346,13 @@ var _default = {
         tablaUrlEliminar: '/api/vehiculos/marcas',
         tablaUrlActualizar: '/api/vehiculos/marcas',
         tablaPropiedadAEliminar: 'id',
-        tiposBusqueda: [[{
+        tiposBusqueda: [{
           value: 'nombre',
           titulo: 'Nombre'
-        }], [{
+        }, {
           value: 'id',
           titulo: 'ID'
-        }]],
+        }],
         tablaMandarEventoClick: false,
         mostrarInformacionClick: true,
         titulosClick: [{
@@ -27439,14 +27475,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $9b6b57 = exports.default || module.exports;
+        var $a1756d = exports.default || module.exports;
       
-      if (typeof $9b6b57 === 'function') {
-        $9b6b57 = $9b6b57.options;
+      if (typeof $a1756d === 'function') {
+        $a1756d = $a1756d.options;
       }
     
         /* template */
-        Object.assign($9b6b57, (function () {
+        Object.assign($a1756d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -27575,7 +27611,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-9b6b57",
+            _scopeId: "data-v-a1756d",
             functional: undefined
           };
         })());
@@ -27588,9 +27624,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$9b6b57', $9b6b57);
+            api.createRecord('$a1756d', $a1756d);
           } else {
-            api.reload('$9b6b57', $9b6b57);
+            api.reload('$a1756d', $a1756d);
           }
         }
 
@@ -27601,7 +27637,473 @@ render._withStripped = true
       
       }
     })();
-},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","../Components/BusquedaInput.vue":"Components/BusquedaInput.vue","../Components/BusquedaRadio.vue":"Components/BusquedaRadio.vue","../Components/TemplateComponents/BusquedaTablaAll":"Components/TemplateComponents/BusquedaTablaAll.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Roles.vue":[function(require,module,exports) {
+},{"../assets/css/clasesUtiles":"assets/css/clasesUtiles.css","axios":"../node_modules/axios/index.js","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","../Components/TopSection":"Components/TopSection.vue","../Components/Tabla":"Components/Tabla.vue","../Components/TablaTitulo":"Components/TablaTitulo.vue","../Components/InputTemplate":"Components/InputTemplate.vue","../Components/BusquedaInput.vue":"Components/BusquedaInput.vue","../Components/BusquedaRadio.vue":"Components/BusquedaRadio.vue","../Components/TemplateComponents/BusquedaTablaAll":"Components/TemplateComponents/BusquedaTablaAll.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Components/TablaRolPermiso.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _sweetalert = _interopRequireDefault(require("sweetalert2"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//import Alertar from '../Utilidades/Alertas.js'
+var _default = {
+  props: {
+    titles: Array,
+    body: Array,
+    defaultValues: Object,
+    // Para cuando se va a editar
+    action: String // add o edit
+    // [0]  nombre del rol
+    // [1]  id de rol
+
+  },
+  data: function data() {
+    return {
+      inputs: [],
+      titulo: '',
+      nombre: '',
+      id: ''
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    // Inicializar los elementos en 0
+    if (this.action === 'add') {
+      console.log('Modo añadir');
+      this.body.forEach(function (hola, index) {
+        _this.inputs[index] = '1';
+      });
+    } else if (this.action === 'edit') {
+      this.destructureInfo();
+    } else {
+      console.log('Escriba bien');
+    }
+  },
+  methods: {
+    eliminar: function eliminar(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var id = this.id;
+      Alertar.DeleteElement('/clasificacion/eliminar', {
+        tabla: 'roles',
+        id: id
+      }).then(function () {
+        return _this2.$emit('finish', true);
+      }).catch(function () {
+        return _this2.$emit('finish', false);
+      });
+    },
+    textToNumberRoles: function textToNumberRoles(element) {
+      switch (element) {
+        case 'Ninguno':
+          return 1;
+          break;
+
+        case 'Leer':
+          return 2;
+          break;
+
+        case 'Escribir':
+          return 3;
+          break;
+
+        case 'Actualizar':
+          return 4;
+          break;
+
+        case 'Eliminar':
+          return 5;
+          break;
+
+        default:
+          return element;
+          break;
+      }
+    },
+    destructureInfo: function destructureInfo() {
+      // +------------------+-------------------+---------+------+----------+------------+--------+------------------------+
+      // |                  | Este es titulos ↓ |         |      |          |            |        |                        |
+      // +------------------+-------------------+---------+------+----------+------------+--------+------------------------+
+      // |                  | Seccion           | Ninguno | Leer | Escribir | Actualizar | Borrar |                        |
+      // | ContadorText = 0 | Clasificacion     | ####    | #### | ####     | ####       | ####   | <- Input[ContadorText] |
+      // | ContadorText = 1 | Lotes             | ####    | #### | ####     | ####       | ####   | <- Input[ContadorText] |
+      // | ContadorText = 2 | Productos         | ####    | #### | ####     | ####       | ####   | <- Input[ContadorText] |
+      // | ContadorText = 3 | Reportes          | ####    | #### | ####     | ####       | ####   | <- Input[ContadorText] |
+      // +------------------+-------------------+---------+------+----------+------------+--------+------------------------+   
+      var elemento = this.defaultValues;
+      console.log(this.defaultValues);
+      var elementoTemporal = Object.assign({}, elemento);
+      this.titulo = this.nombre = elemento.nombre;
+      this.id = elementoTemporal.id; //Elimino las propiedades que no me interesan
+
+      delete elementoTemporal.nombre;
+      delete elementoTemporal.id;
+      delete elementoTemporal.administrador;
+      var Titulos = this.body; // =  ['Clasificacion', 'Lotes', 'Productos', 'Reportes', 'Usuarios']
+
+      for (var value in elementoTemporal) {
+        //  Iteracion en el objeto recibido del elemento el cual se dio click
+        var contadorText = 0; // Contador para saber la posicion actual del arreglo Titulos
+
+        for (var titulo in Titulos) {
+          if (value == Titulos[contadorText].toLowerCase()) {
+            // La propiedad y el titulo son iguales...
+            this.inputs[contadorText] = this.textToNumberRoles(elementoTemporal[value]); //  Se asigna el valor numerico del elemento al arreglo 
+
+            break; // Ya que matcheo, se sale del ciclo                         //  inputs segun la posicion segun el valor de contadorText       
+          }
+
+          contadorText++;
+        }
+      }
+    },
+    send: function send(event) {
+      var _this3 = this;
+
+      event.preventDefault();
+      var toSend = {
+        data: this.inputs,
+        info: {
+          nombre: this.nombre,
+          id: this.id
+        }
+      };
+
+      if (this.nombre == '') {
+        Alertar.ErrorMsg();
+        return null;
+      }
+
+      _sweetalert.default.fire({
+        title: '¿Está seguro?',
+        text: "¿Desea ingresar los datos?",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true,
+        showLoaderOnConfirm: true,
+        preConfirm: function preConfirm() {
+          return _axios.default.post("/roles/".concat(_this3.action), toSend).then(function (response) {
+            if (response.status !== 200) {
+              throw new Error(response.statusText);
+            }
+
+            return true;
+          }).catch(function (error) {
+            _sweetalert.default.showValidationMessage("Ocurri\xF3 un problema. Verifique sus datos e int\xE9ntelo m\xE1s tarde");
+
+            return false;
+          });
+        },
+        allowOutsideClick: function allowOutsideClick() {
+          return !_sweetalert.default.isLoading();
+        }
+      }).then(function (result) {
+        if (result.value) {
+          _sweetalert.default.fire('¡Éxito!', "Se ".concat(_this3.action == 'edit' ? 'editó' : 'añadió', " exitosamente."), 'success').then(function () {
+            _axios.default.post('/resetroles', {
+              id: _this3.id
+            });
+          }).then(function () {
+            return _this3.$emit('finish', true);
+          });
+        }
+      });
+    },
+    cancel: function cancel(event) {
+      event.preventDefault();
+      this.$emit('finish', false);
+    }
+  },
+  computed: {
+    filterSection: function filterSection() {
+      return this.titles.filter(function (title) {
+        if (title !== 'Seccion') {
+          return title;
+        }
+      });
+    }
+  }
+};
+exports.default = _default;
+        var $047560 = exports.default || module.exports;
+      
+      if (typeof $047560 === 'function') {
+        $047560 = $047560.options;
+      }
+    
+        /* template */
+        Object.assign($047560, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", { attrs: { action: "/roles/add", method: "POST" } }, [
+    _c("h2", { staticStyle: { "text-align": "center", color: "white" } }, [
+      _vm._v(
+        _vm._s(_vm.action == "add" ? "Añadir Rol" : "Editar rol " + _vm.titulo)
+      )
+    ]),
+    _vm._v(" "),
+    _c("table", [
+      _c("thead", [
+        _c(
+          "tr",
+          _vm._l(_vm.titles, function(titulos) {
+            return _c(
+              "th",
+              { key: titulos, staticClass: "color-header-tabla" },
+              [_vm._v(_vm._s(titulos))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        [
+          _vm._v(
+            "  \n                " + _vm._s(_vm.inputs) + "\n                "
+          ),
+          _vm._l(_vm.body, function(elemento, index_body) {
+            return _c(
+              "tr",
+              { key: index_body },
+              [
+                _c("td", { staticClass: "color-black" }, [
+                  _vm._v(_vm._s(elemento))
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.filterSection, function(titulo, index) {
+                  return _c("td", { key: index }, [
+                    _c("h1", [_vm._v(_vm._s(index))]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-container" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.inputs[elemento.name],
+                            expression: "inputs[elemento.name]"
+                          }
+                        ],
+                        attrs: {
+                          type: "radio",
+                          name: elemento.nombre,
+                          id: elemento.nombre + "_" + index
+                        },
+                        domProps: {
+                          value: index,
+                          checked: _vm._q(_vm.inputs[elemento.name], index)
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(_vm.inputs, elemento.name, index)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          class: [
+                            "border",
+                            elemento + "_" + index,
+                            {
+                              selected:
+                                _vm.inputs[index_body] > index && index !== 0
+                            },
+                            { red: _vm.inputs[index_body] == 5 && index == 4 }
+                          ],
+                          attrs: { for: elemento.nombre + "_" + index }
+                        },
+                        [
+                          (_vm.inputs[index_body] > index && index !== 0) ||
+                          _vm.inputs[index_body] == index + 1
+                            ? _c("div", [_vm._v("Si")])
+                            : _c("div", [_vm._v("NO")])
+                        ]
+                      )
+                    ])
+                  ])
+                })
+              ],
+              2
+            )
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "btn-container" } }, [
+      _c("label", { attrs: { for: "name-input", id: "name-label" } }, [
+        _vm._v("Nombre del rol")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.nombre,
+            expression: "nombre"
+          }
+        ],
+        staticClass: "input-default",
+        attrs: { type: "text", id: "name-input", name: "Nombre", required: "" },
+        domProps: { value: _vm.nombre },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.nombre = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn-default",
+        attrs: { type: "submit", value: "Enviar" },
+        on: {
+          click: function($event) {
+            return _vm.send($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn-default red",
+        attrs: { type: "submit", value: "Cancelar" },
+        on: {
+          click: function($event) {
+            return _vm.cancel($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      this.$store.state.Permissions.productos > 4
+        ? _c("input", {
+            staticClass: "btn-default red",
+            attrs: { type: "submit", value: "Eliminar" },
+            on: {
+              click: function($event) {
+                return _vm.eliminar($event)
+              }
+            }
+          })
+        : _vm._e()
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-047560",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$047560', $047560);
+          } else {
+            api.reload('$047560', $047560);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"axios":"../node_modules/axios/index.js","sweetalert2":"../node_modules/sweetalert2/dist/sweetalert2.all.js","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Components/TablaRolPermisoNew.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27613,21 +28115,142 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: {
+    secciones: Array,
+    titulos: Array
+  },
+  data: function data() {
+    return {
+      inputs: {}
+    };
+  },
+  computed: {
+    filterSection: function filterSection() {
+      return this.titulos.filter(function (title) {
+        if (title !== 'Seccion') {
+          return title;
+        }
+      });
+    }
+  }
+};
 exports.default = _default;
-        var $067312 = exports.default || module.exports;
+        var $5011d1 = exports.default || module.exports;
       
-      if (typeof $067312 === 'function') {
-        $067312 = $067312.options;
+      if (typeof $5011d1 === 'function') {
+        $5011d1 = $5011d1.options;
       }
     
         /* template */
-        Object.assign($067312, (function () {
+        Object.assign($5011d1, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("table", [
+      _c("thead", [
+        _c(
+          "tr",
+          _vm._l(_vm.titulos, function(titulo) {
+            return _c(
+              "th",
+              { key: titulo, staticClass: "color-header-tabla" },
+              [_vm._v(_vm._s(titulo))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.secciones, function(elemento, index) {
+          return _c(
+            "tr",
+            { key: elemento.nombre },
+            [
+              _c("td", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(elemento.nombre) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.filterSection, function(titulo, index2) {
+                return _c("td", { key: titulo }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputs[elemento.nombre],
+                        expression: "inputs[elemento.nombre]"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      id: elemento.nombre + index2,
+                      name: elemento.nombre,
+                      id: ""
+                    },
+                    domProps: {
+                      value: index2,
+                      checked: _vm._q(_vm.inputs[elemento.nombre], index2)
+                    },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.inputs, elemento.nombre, index2)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  (_vm.nputs[elemento.nombre] > index2 && index !== 0) ||
+                  _vm.inputs[index2] == index2
+                    ? _c("div", [_vm._v("SI")])
+                    : _vm.inputs[elemento.nombre] == null
+                    ? _c("div", [_vm._v("No")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: elemento.nombre + index2 } })
+                ])
+              })
+            ],
+            2
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -27636,7 +28259,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-067312",
+            _scopeId: "data-v-5011d1",
             functional: undefined
           };
         })());
@@ -27649,9 +28272,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$067312', $067312);
+            api.createRecord('$5011d1', $5011d1);
           } else {
-            api.reload('$067312', $067312);
+            api.reload('$5011d1', $5011d1);
           }
         }
 
@@ -27662,7 +28285,127 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Sections/Roles.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _TablaRolPermiso = _interopRequireDefault(require("../Components/TablaRolPermiso"));
+
+var _TablaRolPermisoNew = _interopRequireDefault(require("../Components/TablaRolPermisoNew"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data: function data() {
+    return {
+      AddTableTitle: ['Seccion', 'Ninguno', 'Leer', 'Escribir', 'Actualizar', 'Borrar'],
+      AddTableTexts: ['Clasificacion', 'Lotes', 'Productos', 'Reportes'],
+      actionRoles: 'add',
+      EditRolesInfo: [],
+      Secciones: []
+    };
+  },
+  methods: {
+    obtenerSecciones: function obtenerSecciones() {
+      var _this = this;
+
+      _axios.default.get('/api/permisos').then(function (respuesta) {
+        console.log(respuesta.data);
+        _this.Secciones = respuesta.data;
+      });
+    }
+  },
+  components: {
+    TablaRolPermiso: _TablaRolPermiso.default,
+    TablaRolPermisoNew: _TablaRolPermisoNew.default
+  },
+  created: function created() {
+    this.obtenerSecciones();
+  }
+};
+exports.default = _default;
+        var $3de089 = exports.default || module.exports;
+      
+      if (typeof $3de089 === 'function') {
+        $3de089 = $3de089.options;
+      }
+    
+        /* template */
+        Object.assign($3de089, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "contenedor" } },
+    [
+      _c("TablaRolPermisoNew", {
+        attrs: { secciones: _vm.Secciones, titulos: _vm.AddTableTitle }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-3de089",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$3de089', $3de089);
+          } else {
+            api.reload('$3de089', $3de089);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"../Components/TablaRolPermiso":"Components/TablaRolPermiso.vue","../Components/TablaRolPermisoNew":"Components/TablaRolPermisoNew.vue","axios":"../node_modules/axios/index.js","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"Routes/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28954,7 +29697,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "28955" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
