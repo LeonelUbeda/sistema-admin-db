@@ -32,9 +32,13 @@ import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
 // -------------------- Midlewares --------------------
 app.use(json())
-
-
-
+/*
+app.use('*', (req, res, next) => {
+    setTimeout(() => {
+        next()
+    }, 1000)
+})
+*/
 // -------------------- Rutas --------------------
 app.use('/api/clientes',        RutaCliente)
 app.use('/api/auth',            RutaAutenticacion)

@@ -1,5 +1,7 @@
 
-
+.contenedor{
+    width: 100% ;
+}
 
 .relative{
     position: relative;
@@ -140,8 +142,15 @@
     width: 80%;
 }
 
+.width-70{
+    width: 70%;
+}
 .width-100{
     width: 100%;
+}
+
+.width-60{
+    width: 60%;
 }
 
 .width-20px{
@@ -162,7 +171,9 @@
     cursor: pointer;
 }
 
-
+.blocked{
+    cursor:not-allowed
+}
 /*       BORDER LINES             */
 
 
@@ -234,3 +245,9 @@
 }
 
 
+
+.card{
+    padding:20px 0 20px 0;
+    box-sizing: border-box;
+    width: 100%;
+}
