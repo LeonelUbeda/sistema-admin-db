@@ -41,6 +41,15 @@
                 </InputTemplate>
             </div>
         </transition>
+         <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Vehiculo'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Nuevo Vehiculo</h2>
+                </div>
+                <InputTemplate v-bind="configCrearVehiculo">
+                </InputTemplate>
+            </div>
+        </transition>
     </div>
 
    
@@ -136,7 +145,7 @@ export default {
             configCrearVersion: {
                 urlFinal: '/versiones',
                 propiedadId: 'modeloId', //ID DEL INPUT A ENVIAR
-                urlCrear: 'api/vehiculos/modelos',
+                urlCrear: 'api/vehiculos/modelos/',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
@@ -147,6 +156,28 @@ export default {
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
                     ]
+                ]
+            },
+            configCrearVehiculo: {
+                urlFinal: '',
+                propiedadId: '', //ID DEL INPUT A ENVIAR
+                urlCrear: '',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                    [
+                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'number', max: 99, validacion: false, obligatorio: true}
+                    ],
+                    [
+                        {titulo: 'Version Id', nombre:'versionId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true},
+                        {titulo: 'Cliente Id', nombre:'clienteId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true}
+                    ],
+                    [
+                        {titulo: 'Tipo Id', nombre:'tipoId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true},
+                        {titulo: 'Matricula', nombre:'matricula', tipo:'text', max: 30, validacion: false, uno:false, obligatorio: true}
+                    ]
+
                 ]
             }
 
