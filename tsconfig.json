@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "watch": false,
+        "outDir": "build",
+        "module": "commonjs",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+    },
+    "types": ["jest"],
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/**/*.test.ts"
+    ]
+}
+
+
