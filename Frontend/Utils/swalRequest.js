@@ -39,7 +39,7 @@ const msjEliminar = function (url, objeto) {
                 confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm(login) {
-                    return axios.post(url, objeto)
+                    return axios.delete(url, objeto)
                         .then((res) => {
                             return res
                         }).catch((err) => {
@@ -88,7 +88,7 @@ const msjActualizar = function (url, objeto) {
                 confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm(login) {
-                    return axios.post(url, objeto)
+                    return axios.put(url, objeto)
                         .then((res) => {
                             return res
                         }).catch((err) => {
@@ -126,3 +126,5 @@ const msjActualizar = function (url, objeto) {
             })
         })
 }
+
+export { msjActualizar, msjCrear, msjEliminar }
