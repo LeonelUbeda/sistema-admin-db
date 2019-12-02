@@ -1,13 +1,19 @@
 <template>
-    <div class="relative">
-        <div v-if="bloquear === true" class="absolute width-100" id="mensaje-bloqueado" style="z-index: 10000">
-                <div>
-                    <h1 class="text-2xl">Selecciona un rol para editar</h1>
-                </div>
-            
+    <div class="relative flex flex-col">
+        <div v-if="bloquear === true && secciones.length > 0" class="absolute width-100" id="mensaje-bloqueado" style="z-index: 10000">
+            <div>
+                <h1 class="text-2xl">Selecciona un rol para editar</h1>
+                
+            </div>
         </div>
         <div class="flex items-center titulo">
             <h2 class="text-2xl">Editar Rol</h2>
+            <div class="ml-auto">
+
+                <input class="input-default ml-auto" style="max-width: 200px !important; min-width: 200px !important" type="text" v-model="rolEditar.nombre" v-if="!bloquear"> 
+            </div>
+          
+           
         </div>
         <table :class="[{'blur': bloquear == true}, 'sombra']">
             <thead>
@@ -53,9 +59,14 @@
                 </tr>
             </tbody>
         </table>
-        <div style="margin-left: auto" class="flex">
-            <input class="mt-2" type="submit"  @click="enviarEvento($event)" value="Guardar">
+            <div class="mensaje-rojo" v-if="secciones.length == 0">  
+                <h2>No hay elementos!</h2>
+            </div>
+        <div class="ml-auto" v-if="secciones.length > 0  && bloquear == false">
+            <input class="mt-2 btn-rojo" type="submit"  @click="eliminarEvento($event)" value="Eliminar">
+            <input class="mt-2 btn-azul" type="submit"  @click="enviarEvento($event)" value="Guardar">
         </div>
+        
     </div>
 </template>
 
@@ -65,9 +76,11 @@ export default {
     props: {
         secciones: Array,
         titulos: Array,
+        vacio: Boolean,
         valoresIniciales: Object,
         modo: String,
-        bloquear: Boolean
+        bloquear: Boolean,
+        rolEditar: Object
     },
     data: () => {
         return {
@@ -78,6 +91,10 @@ export default {
         enviarEvento: function(evento){
             evento.preventDefault()
             this.$emit('terminado', this.secciones)
+        },
+        eliminarEvento: function(evento){
+            evento.preventDefault()
+            this.$emit('eliminar', this.rolEditar)
         }
     },
     computed: {
@@ -112,24 +129,11 @@ export default {
         padding: 1px 50px;
     }
 }
-.blur{
-    //filter: blur(2px);
-}
+
 .max{
     max-width: 80px
 }
-input[type=submit]{
-    background:#398AD7;
-    padding:10px 30px;  
-    color: white;
-    width: auto;
-    border: 0;
-    margin-left: auto;
-    cursor: pointer;
-    &:hover{
-        background:rgb(71, 165, 253);
-    }
-}
+
 .blocked{
     cursor:not-allowed
 }

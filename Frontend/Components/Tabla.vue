@@ -46,7 +46,7 @@
             
         </table>
         <div class="mensaje-rojo" v-if="noELementos">  
-                <h2>No hay elementos!</h2>
+            <h2>No hay elementos!</h2>
         </div>
     </div>
 </template>

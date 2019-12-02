@@ -197,6 +197,8 @@ export default {
     align-items: center;
 }
 .contenedor-tabla{
+    
+
     width: 70%;
 }
 

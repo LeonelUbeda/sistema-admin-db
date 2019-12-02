@@ -1,50 +1,68 @@
 <template>
-    <div class="contenedor">
+    <div class="contenedor" v-if="cargando == false">
+
         <TopSection 
-            :opciones="opcionesTop"
-            :opcionSeleccionada="opcionSeleccionadaTop"
-            @elementoSeleccionado="clickOpciones"></TopSection>
-            <!--input type="text" v-model="rolId">
-            <h1 @click="buscar">BUSCAR</h1-->
-        <div class=" flex  padding-x-60 padding-y-20 flex-col items-center justify-center">
-
-            <!--TablaRolPermiso
-            :titles="AddTableTitle"
-            :action="actionRoles"
-            :body="urlObtenerSecciones"
-            :defaultValues="EditValues"
-            :editInfo="EditRolesInfo"   
-            @finish="RolesEnd"/-->
-            <div class="width-100 flex justify-between" >
-                <div class="width-70">
-                    <TablaRolPermisoNew 
-                    :secciones="secciones"
-                    :titulos="AddTableTitle"
-                    :valoresIniciales="valoresIniciales"
-                    :modo="modo"
-                    :bloquear="bloquearRolesEdicion"
-                    @terminado="enviarRolesPermisos"
-                    ></TablaRolPermisoNew>
-                </div>
-                <div id="sidebar" class="bg-white flex flex-col items-center sombra">
-                    <div class="bloque-titulo flex items-center">
-                        <h2 class="ml-8 text-xl">Selecciona un rol</h2>
-                    </div>
-                        <div class="divisor"></div>
-                    <div class="width-90">
-
-                        <BusquedaInput @buscarDebounce="buscarRoles"></BusquedaInput>
-                    </div>
-                    
-                    <div class="width-100 cursor-pointer" v-for="(resultado, index) of resultadobusquedaRoles" :key="index">
-                        <div @click="clickRol(resultado)" class="ml-8 width-100 resultado-box flex items-center padding-l-20">
-                            {{resultado.nombre}}
+        :opciones="opcionesTop"
+        :opcionSeleccionada="opcionSeleccionadaTop"
+        @elementoSeleccionado="clickOpciones">
+        </TopSection>
+           
+        <div class="width-100 relative">
+            <div v-if="resultadobusquedaRoles == 0 && opcionSeleccionadaTop === 'Editar Rol'" class="absolute width-100" id="mensaje-bloqueado" style="z-index: 10000">
+                    <div>
+                        <div class="mensaje-rojo">  
+                            <h1 class="text-2xl text-white">No hay roles!</h1>
                         </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="flex  padding-y-20 flex-col items-center relative" >
+            <transition  mode="out-in">
+                <div class="width-100 padding-x-60 absolute" v-if="opcionSeleccionadaTop === 'Añadir Rol'">
+                    <InputTemplate
+                    v-bind="configCrear" >
+
+                    </InputTemplate>
+                </div>
+            </transition>
+            <transition  mode="out-in">
+                <div class="width-100 flex justify-between absolute padding-x-60" v-if="resultadobusquedaRoles.length > 0 && opcionSeleccionadaTop == 'Editar Rol'">
+                    
+                    <div class="width-70">
+                        <TablaRolPermisoNew 
+                        :secciones="secciones"
+                        :titulos="AddTableTitle"
+                        :rolEditar="rolEditar"
+                        :valoresIniciales="valoresIniciales"
+                        :modo="modo"
+                        :bloquear="bloquearRolesEdicion"
+                        @eliminar="eliminarRol"
+                        @terminado="enviarRolesPermisos"
+
+                        ></TablaRolPermisoNew>
+                    </div>
+                    <div id="sidebar" class="bg-white flex flex-col items-center sombra">
+                        <div class="bloque-titulo flex items-center">
+                            <h2 class="ml-8 text-xl" >Selecciona un rol</h2>
+                        </div>
+                            <div class="divisor"></div>
                         
+                        <div class="width-100 flex flex-col items-center" >
+                            <div class="width-90">
+
+                                <BusquedaInput @buscarDebounce="buscarRoles"></BusquedaInput>
+                            </div>
+                           
+                            <div class="width-100 cursor-pointer" v-for="(resultado, index) of resultadobusquedaRoles" :key="index">
+                                <div @click="clickRol(resultado)" class="ml-8 mt-2 width-100 resultado-box flex items-center padding-l-20">
+                                    {{resultado.nombre}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </transition>
         
         </div>
     </div>
@@ -54,6 +72,7 @@
 <script>
 import _ from 'lodash'
 import TablaRolPermiso from '../Components/TablaRolPermiso'
+import InputTemplate from '../Components/InputTemplate'
 import Swal from 'sweetalert2'
 import TablaRolPermisoNew from '../Components/TablaRolPermisoNew'
 import TopSection from '../Components/TopSection'
@@ -63,23 +82,55 @@ import axios from 'axios'
 export default {
     data: () => {
         return{
-            opcionSeleccionadaTop: 'Añadir Rol',
-            opcionesTop: ['Añadir Rol', 'Editar Rol'],
+            opcionSeleccionadaTop: 'Editar Rol',
+            opcionesTop: ['Editar Rol', 'Añadir Rol'],
             AddTableTitle: ['Seccion','Ninguno', 'Leer' , 'Escribir', 'Actualizar', 'Borrar'],
             AddTableTexts: ['Clasificacion', 'Lotes', 'Productos', 'Reportes'],
             actionRoles: 'add',
             EditRolesInfo: [],
-            secciones: [],
+            secciones: [],      // Lista de todas las secciones o mejor dicho, los "permisos"
             valoresIniciales: {},
-            rolId: 0,
+            rolId: 0, 
+            rolEditar: {},
+            rolEditarOld: {},
             modo: 'edicion',
-            busquedaRoles: '',
-            resultadobusquedaRoles: [],
-            bloquearRolesEdicion: true
+            busquedaRoles: '', // Variable del input para hacer la busqueda de los roles
+            resultadobusquedaRoles: [],  // Contiene todos los roles existentes. AL menos los primeros 10
+            bloquearRolesEdicion: true,
+            cargando: true,
+            configCrear: {
+                urlCrear: 'api/roles',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre del rol', nombre:'nombre', tipo:'text', max: 50, validacion: true, uno:false, obligatorio: true},
+                      
+                  ]
+                ]  
+            }
         }
     },
     methods: {
+        eliminarRol: function(elemento){
+            axios.delete('/api/roles/' + elemento.id)
+            .then(() => {
+                Swal.fire({
+                    text: 'ELIMINAO'
+                })
+                .then(() => {
+                this.buscarRoles()
+                this.obtenerSeccionesYPermisos()
+                this.bloquearRolesEdicion = true
+            })
+            })
+            
+        },
         clickRol: function(resultado){
+            
+            this.rolEditar = {...resultado}
+            this.rolEditarOld = {...resultado}
             this.bloquearRolesEdicion = false
             this.rolId = resultado.id
             this.obtenerSeccionesYPermisos()
@@ -108,6 +159,12 @@ export default {
             //console.log(this.secciones)
         },
         enviarRolesPermisos:async function(){
+            console.log('/api/roles/' + this.rolEditar.id)
+            if(this.rolEditarOld.nombre != this.rolEditar.nombre){
+                axios.put('/api/roles/' + this.rolEditar.id , {nombre: this.rolEditar.nombre})
+                .then(response => console.log('respuesta', response))
+                .catch(error => console.log(error))
+            }
             if(/*this.modo == 'edicion' */ true){
                 let params = {
                     rolId: this.rolId
@@ -146,7 +203,9 @@ export default {
                 Swal.fire({
                     title: 'Completao',
 
-                })                
+                })
+                this.buscarRoles()
+                this.obtenerSeccionesYPermisos()   
                 //let respuesta = await axios.get('/api/rolpermiso', {params})
             }
             //console.log(this.secciones)
@@ -177,6 +236,7 @@ export default {
                 }
             }
             this.secciones = secciones
+            this.cargando = false
             console.log(secciones)
            
         }
@@ -185,7 +245,8 @@ export default {
         TablaRolPermiso,
         TablaRolPermisoNew,
         TopSection,
-        BusquedaInput
+        BusquedaInput,
+        InputTemplate
     },
     created(){
         this.buscarRoles()
@@ -197,6 +258,11 @@ export default {
 
 
 <style lang="scss" scoped>
+#mensaje-bloqueado{
+    height: 500px;
+}
+
+
 .contenedor{
     display: absolute;
 }
