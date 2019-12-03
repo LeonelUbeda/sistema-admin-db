@@ -1,4 +1,4 @@
-const switchF = function (error) {
+export const switchF = function (error) {
     texto = '';
     switch (error) {
 

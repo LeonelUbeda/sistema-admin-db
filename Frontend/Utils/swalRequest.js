@@ -1,9 +1,9 @@
-import "functions.js"
+import {switchF} from "./functions.js"
 import swal from 'sweetalert2'
 import axios from 'axios'
+
 const msjCrear = function (url, objeto) {
     return new Promise(
-
         function (resolve, reject) {
             procesando();
             axios.post(url, objeto)
@@ -40,40 +40,42 @@ const msjEliminar = function (url/*, objeto*/) {
                 confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm(login) {
-                    return axios.delete(url/*, objeto*/)
+                    return axios.delete(url /*, objeto*/)
                         .then((res) => {
                             return res
                         }).catch((err) => {
+                            
                             return err
                         })
                 }
-            }).then(({ value }) => {
+            }).then(({ value , dismiss}) => {
+                
+                if(typeof dismiss == 'undefined'){
+                    if (value.hasOwnProperty('response')) {
+                        throw value
+                    }
+                    //const { status, data } = respuesta.value
 
-                if (value.hasOwnProperty('response')) {
-                    throw value
+                    swal.fire({
+                        icon: 'success',
+                        title: "Actualizado correctamente",
+                        text: 'Tus datos han sido actualizados',
+                        showConfirmButton: true
+                    })
+                    .then(() => resolve())
                 }
-                const { status, data } = value;
-
-                swal.fire({
-                    icon: 'success',
-                    title: "Actualizado correctamente",
-                    text: 'Tus datos han sido actualizados',
-                    showConfirmButton: true
-                })
-                resolve(data);
             }).catch((err) => {
-
-                if (err.hasOwnProperty('value')) {
+                /*if (err.hasOwnProperty('value')) {
                     err = err.value;
                 }
-                //console.log(err.response.status)
+                console.log(err.response.status)
                 let texto = '';
-                //texto = switchF(err.response.status);
+                texto = switchF(err.response.status)   */
                 swal.fire({
-                    title: "Error",
-                    text: 'SOY UN TEXTO',
-                    icon: "error"
-                }).then(() => reject(err))
+                    title: 'Error', 
+                    text: 'Prueba',
+                    icon: 'error'
+                }).then(() => reject(/*err*/))
             })
         })
 }
