@@ -55,8 +55,8 @@ const msjEliminar = function (url, objeto) {
 
                 swal.fire({
                     icon: 'success',
-                    title: "Actualizado correctamente",
-                    text: 'Tus datos han sido actualizados',
+                    title: "Eliminado correctamente",
+                    text: 'Tus datos han sido eliminados',
                     showConfirmButton: true
                 })
                 resolve(data);
