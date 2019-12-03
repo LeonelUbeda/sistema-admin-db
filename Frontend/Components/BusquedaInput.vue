@@ -1,10 +1,10 @@
 <template>
     <div class="contenedor">
         <div id="contenedor-input" class="border-color-tema">
-            <input v-on:keyup.enter="buscar" @keypress="buscarDebounce" type="text" :placeholder="placeholder" v-model="busqueda">
-            <div @click="buscar" id="lupa" class="bg-color-tema">
+            <input v-on:keyup.enter="buscarDebounce" v-on:keyup.delete="buscarDebounce" @keypress="buscarDebounce" type="text" :placeholder="placeholder" v-model="busqueda">
+            <!--div @click="buscar" id="lupa" class="bg-color-tema">
                 <img src="../assets/img/lupa.svg" alt="">
-            </div>
+            </div-->
         </div>
     </div>
 </template>
@@ -28,15 +28,15 @@ export default {
     },
     methods:{
         buscarDebounce: _.debounce(function(){
-            this.$emit('buscarDebounce', this.busqueda)
+            this.$emit('buscar', this.busqueda)
         }, 700),
         buscar: function() {
         
-            this.$emit('buscar', this.busqueda)
+            //this.$emit('buscar', this.busqueda)
         },
         cambiarTexto: function(texto){
             this.busqueda = texto
-            console.log('ssssss')
+            
         }
     },
     mounted(){
@@ -59,7 +59,7 @@ export default {
     input{
         padding-left: 20px;
         outline: none;
-        height: 90%;
+        height: 30px;
         width: 85%;
         border-radius: 40px;
         margin-right: 20px;

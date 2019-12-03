@@ -74,6 +74,7 @@ const msjEliminar = function (url/*, objeto*/) {
                 })
                 resolve(data);
             }).catch((err) => {
+                console.log(err)
                 /*if (err.hasOwnProperty('value')) {
                     err = err.value;
                 }
