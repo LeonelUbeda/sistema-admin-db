@@ -82,14 +82,16 @@ import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
     props:{
-
+        encabezado: {
+            type: String,
+            default: 'PRIX PONELE TITULO'
+        },
         tablaTitulos: {
             type: Array,
             default: () => [{propiedad: 'id', titulo: 'Identificador'}, 
                             {propiedad: 'nombre', titulo: 'Nombre'}, 
                             {propiedad: 'apellido', titulo: 'Apellido'}]
         },
-
         // Direccion que utiliza el componente para obtener la informacion de la tabla
         tablaUrl: {
             type: String, 
