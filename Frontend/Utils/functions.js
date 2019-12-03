@@ -1,5 +1,5 @@
 const switchF = function (error) {
-    texto = '';
+    let texto = '';
     switch (error) {
 
         case 400: {
