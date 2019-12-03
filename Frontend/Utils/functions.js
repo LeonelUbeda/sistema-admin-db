@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 const switchF = function (error) {
     let texto = '';
+=======
+export const switchF = function (error) {
+    texto = '';
+>>>>>>> 89c617d1a0c71265b0a14abdc1257c62776fa1f8
     switch (error) {
 
         case 400: {

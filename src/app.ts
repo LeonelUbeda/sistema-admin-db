@@ -4,7 +4,7 @@ import {json} from 'body-parser'
 import dotenv from 'dotenv'
 import {join} from 'path'
 import verificarLogin from './Middlewares/verificarLogin'
-
+import cors from 'cors'
 dotenv.config()
 const app = express();
 
@@ -31,6 +31,7 @@ import RutaHerramienta from './Routes/Inventario/Herramienta'
 import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
 // -------------------- Midlewares --------------------
+app.use(cors())
 app.use(json())
 /*
 app.use('*', (req, res, next) => {
@@ -63,8 +64,13 @@ app.use('*', (req, res) => {
 
 
 
+<<<<<<< HEAD
 // Para eliminar y crear la base de datos
+database.sync(/*{force: true}*/)
+=======
+//Para eliminar y crear la base de datos
 //database.sync({force: true})
+>>>>>>> c0bdc8a1acd76ed698ef0d0ea1eb2a27700ebf7e
 
 // -------------------- Verificar DB --------------------
 database.authenticate()

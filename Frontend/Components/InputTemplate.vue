@@ -121,7 +121,10 @@ export default {
                     icon: 'success',
                     title: 'Elemento añadido exitosamente',
                     })
-                    this.$emit('elementoCreado')
+                    .then(() => {
+                        this.$emit('elementoCreado')
+                    })
+                    
                 })
                 .catch(e => {
                     Swal.fire({

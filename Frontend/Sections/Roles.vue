@@ -20,9 +20,12 @@
         <div class="flex  padding-y-20 flex-col items-center relative" >
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 absolute" v-if="opcionSeleccionadaTop === 'Añadir Rol'">
+                    <div  class="titulo">
+                        <h2 class="text-2xl">Crear Cliente</h2>
+                    </div>
                     <InputTemplate
-                    v-bind="configCrear" >
-
+                    v-bind="configCrear" 
+                    @elementoCreado="rolCreado">
                     </InputTemplate>
                 </div>
             </transition>
@@ -78,7 +81,7 @@ import TablaRolPermisoNew from '../Components/TablaRolPermisoNew'
 import TopSection from '../Components/TopSection'
 import BusquedaInput from '../Components/BusquedaInput'
 import axios from 'axios'
-
+import { msjEliminar } from '../Utils/swalRequest'
 export default {
     data: () => {
         return{
@@ -114,18 +117,28 @@ export default {
     },
     methods: {
         eliminarRol: function(elemento){
-            axios.delete('/api/roles/' + elemento.id)
+            msjEliminar('/api/roles/' + elemento.id)
+            .then(() => {
+                this.buscarRoles()
+                this.obtenerSeccionesYPermisos()
+                this.bloquearRolesEdicion = true
+            })
+            .catch(() => {
+                console.log('hel')
+            })
+            /*axios.delete('/api/roles/' + elemento.id)
             .then(() => {
                 Swal.fire({
                     text: 'ELIMINAO'
                 })
                 .then(() => {
-                this.buscarRoles()
-                this.obtenerSeccionesYPermisos()
-                this.bloquearRolesEdicion = true
+                
             })
-            })
+            })*/
             
+        },
+        rolCreado: function(){
+            this.opcionSeleccionadaTop = this.opcionesTop[0]
         },
         clickRol: function(resultado){
             
