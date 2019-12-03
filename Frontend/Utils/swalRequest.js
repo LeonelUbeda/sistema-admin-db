@@ -64,8 +64,6 @@ const msjEliminar = function (url/*, objeto*/) {
                     })
                     .then(() => resolve())
                 }
-<<<<<<< HEAD
-=======
                 const { status, data } = value;
 
                 swal.fire({
@@ -75,7 +73,6 @@ const msjEliminar = function (url/*, objeto*/) {
                     showConfirmButton: true
                 })
                 resolve(data);
->>>>>>> f9687230634de37c39edfbc861b10630920deb8e
             }).catch((err) => {
                 /*if (err.hasOwnProperty('value')) {
                     err = err.value;
