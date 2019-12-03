@@ -26,6 +26,9 @@
                             class="verde" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required :disabled="unit.editable == false"> 
+                            <button :hidden="unit.boton != true" @click="changeComponent('InputForanea')">
+                                    Buscar
+                            </button>
                             
                     </div>
                 </div>                   
@@ -43,6 +46,7 @@
 <script>
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import InputForanea from '../Components/InputForanea'
 export default {
     props: {
         inputs: { type: Array, required: true  },
@@ -215,13 +219,19 @@ export default {
             });
             
 
-        }
+        },
+        changeComponent(component) {
+this.currentComp === component
+}
     },
     beforeMount(){
 
         },
     created(){
         this.ValueIgualVModel()
+    },
+     components:{
+        InputForanea
     }
 }
 </script>

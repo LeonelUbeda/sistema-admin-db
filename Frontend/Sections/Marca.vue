@@ -37,8 +37,14 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVersion">
+                <InputTemplate v-bind="configCrearVersion"> 
+                <button>prueba</button>
                 </InputTemplate>
+                
+               <div >
+                   <InputForanea />
+               </div> 
+                
             </div>
         </transition>
          <transition  mode="out-in">
@@ -71,6 +77,9 @@ import InputTemplate from '../Components/InputTemplate'
 import BusquedaInput from '../Components/BusquedaInput.vue'
 import BusquedaRadio from '../Components/BusquedaRadio.vue'
 import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
+
+import InputForanea from '../Components/InputForanea'
+
 export default {
     data: () => {
         return {
@@ -135,7 +144,7 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'text', max: 99, validacion: false, uno:true, obligatorio: true}
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
@@ -151,7 +160,8 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'text', max: 9999, validacion: false, uno:true, obligatorio: true, url:'/api/vehiculos/modelos',
+                        foranea: true, editable: false, boton:true}
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
@@ -179,6 +189,10 @@ export default {
                     ]
 
                 ]
+            },
+            configIdModelo: {
+                url: '/api/vehiculos/modelos',
+                campo: 'id'
             }
 
         }
@@ -190,7 +204,8 @@ export default {
         InputTemplate,
         BusquedaInput,
         BusquedaRadio,
-        BusquedaTablaAll
+        BusquedaTablaAll,
+        InputForanea
     },
     methods: {
 
