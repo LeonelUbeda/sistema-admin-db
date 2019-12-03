@@ -19,13 +19,18 @@ Cliente.init({
     apellido: {
         type: Sequelize.STRING(50)
     },
+    cedula: {
+        type: Sequelize.STRING(30),
+        allowNull: true
+    },
     direccion: {
         type: Sequelize.STRING(100)
     },
     tipoCliente: {
         type: Sequelize.ENUM({
             values:['Persona', 'Empresa']
-        })
+        }),
+        defaultValue: 'Persona'
     }
     
 }, {

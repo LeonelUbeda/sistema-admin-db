@@ -32,7 +32,7 @@
             <caption></caption>
             <thead>
                 <tr>
-                    <th v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
+                    <th class="color-header-tabla" v-for="titulo of titulos" :key="titulo.propiedad">{{titulo.titulo}}</th>
                 </tr>
             </thead>  
            
@@ -42,10 +42,12 @@
                 </tr>
                 
             </tbody>
-          
+            
             
         </table>
-        
+        <div class="mensaje-rojo" v-if="noELementos">  
+            <h2>No hay elementos!</h2>
+        </div>
     </div>
 </template>
 
@@ -54,7 +56,7 @@
 export default {
     data: () => {
         return{
-
+            noELementos: false
         }
     },
     props: {
@@ -75,6 +77,9 @@ export default {
         siguiente: function(){
             this.$emit('siguiente')
         }
+    },
+    updated(){
+        this.noELementos = this.elementos.length == 0 ? true : false
     }
 }
 </script>
@@ -112,6 +117,7 @@ table{
     th{ // El head de la tabla
         background-color: #6c7ae0;
         color:#dedfe0;
+        color:white;
     }
 
     td{

@@ -5,7 +5,7 @@ import Router from './Routes/router'
 Vue.use(VueRouter)
 
 
-//import store from './Store/store'
+import store from './Store/store'
 
 
 const router = new VueRouter({
@@ -15,7 +15,8 @@ const router = new VueRouter({
 
 const app = new Vue({
     render: createElement => createElement(App),
-    router
+    router,
+    store
 }).$mount('#app')
 
 //new Vue({ render: createElement => createElement(App) }).$mount('#app');

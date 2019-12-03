@@ -15,6 +15,16 @@
                 <span class="texto">Login</span>
             </div>
         </router-link>
+        <router-link to="/marca">
+            <div class="boton">
+                <span class="texto">Marca</span>
+            </div>
+        </router-link>
+        <router-link to="/roles">
+            <div class="boton">
+                <span class="texto">Roles</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -55,6 +65,7 @@ a{
 }
 
 .boton{
-    margin: 10px 0
+    margin: 10px 0;
+    transition: 1s;
 }
 </style>

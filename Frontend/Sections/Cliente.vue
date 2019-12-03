@@ -8,10 +8,24 @@
     :opcionSeleccionada="opcionSeleccionada"
     @elementoSeleccionado="clickOpciones">
     </TopSection>
+    <div class="width-100 relative" >
+        <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
+                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+            </div>
+        </transition>
+        <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Crear Cliente'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Crear Cliente</h2>
+                </div>
+                <InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                </InputTemplate>
+            </div>
+        </transition>
+    </div>
 
-    <BusquedaTablaAll :configuracion="configuracion"></BusquedaTablaAll>
-    <InputTemplate :config="config"  v-if="opcionSeleccionada === 'Crear Cliente'"  >
-    </InputTemplate>
+   
 </div>
 
 </template>
@@ -33,77 +47,71 @@ import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 export default {
     data: () => {
         return {
-
-            configuracion: {
-                tabla: {
-
-                    url: '/api/clientes',
-                    
-                    tablaTitulos: [
-                        {propiedad: 'nombre',titulo: 'Nombre'},
-                        {propiedad: 'apellido',titulo: 'Apellido'},
-                        {propiedad: 'direccion',titulo: 'Direccion'}
+            BusquedaTablaAllConfig:{
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}, 
+                    {propiedad: 'apellido', titulo: 'Apellido'},
+                    {propiedad: 'tipoCliente', titulo: 'Tipo'},
+                ],
+                tablaUrl: '/api/clientes',
+                tablaUrlEliminar: '/api/clientes',
+                tablaUrlActualizar: '/api/clientes',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
+                        {value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'cedula', titulo: 'Cédula'}
+                ],
+                busquedaDefault: 'nombre',
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                inputsEditar: [
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
                     ],
-                    click: {
-                        urlDelete: '/api/clientes',
-                        propiedadAlEliminar: 'id',
-                        datosMostrar: ['id','nombre','apellido', 'direccion'],
-                        titulosMostrar: ['Identificador', 'Nombre', 'Apellido', 'direccionnn'],
-                        mandarEvento: false,
-                        opcionEditar: true,
-                        opcionEliminar: true
-                    }
-                    
-                },
-                busqueda: {
-                    tiposBusqueda: [
-                        [{value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'}],
-                        [{value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}]
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false},
+                        {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false }
                     ],
-                    busquedaSeleccionada: 'nombre'
-                }
+                    [
+                        {nombre: 'direccion', titulo: 'Direccion', max: 100, tipo: 'text', validacion: true, uno: false}
+                    ],
+                    [
+                        {nombre: 'cedula', titulo: 'Número de cédula', max: 30, tipo: 'text', uno: false, editable:true},
+                        {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 9999, validacion: false, valor:'', uno:true, 
+                        opciones: ['Persona', 'Empresa'], obligatorio: true},
+                    ]
+                ]
             },
 
-
-            busqueda: {
-                limite: 10,
-                offset: 0,
-                variable: '', // nombre  | apellido | ID
-                valor: '' // El valor de la variable
-            },
+            // Menu de arriba
             opciones: ['Buscar','Crear Cliente'],
             opcionSeleccionada: 'Buscar', 
-            clienteDatos: [],
-            clienteTitulos: [
-                {
-                    propiedad: 'nombre',
-                    titulo: 'Nombre'
-                },
-                {
-                    propiedad: 'apellido',
-                    titulo: 'Apellido'
-                },
-                {
-                    propiedad: 'direccion',
-                    titulo: 'Direccion'
-                }
-            ],
 
-            config: {
-                nameForm: 'Clientes',
-                nameButton: 'Que pedos',
+            // Configuracion de inputs para crear Clientes
+            configCrear: {
+                urlCrear: 'api/clientes',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
-                      {titulo: 'Nombre', name:'nombre', type:'text', length: 10, validacion: false, valor:''},
-                      {titulo: 'Apellido', name:'apellido', type:'text', length: 10,  validacion: false, valor:''}
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
+                      {titulo: 'Apellido', nombre:'apellido', tipo:'text', max: 50 ,  validacion: false, uno:false}
                   ],
                   [
-                      {titulo: 'Edad', name:'edad', type:'number', length: 99, validacion: false, valor:''}
+                      {nombre: 'cedula', titulo: 'Número de cédula', max: 30, tipo: 'text', uno: true}
                   ],
                   [
-                      {titulo: 'Telefono', name:'telefono', type:'number', length: 9999999999, validacion: false, valor:''},
-                      {titulo: 'ZIP Code', name:'zipcode', type:'number', length: 9999, validacion: false, valor:''},
-                      {titulo: 'Tarjeta', name:'tarjeta', type:'number', length: 9999999999999, validacion: false, valor:''}
+                      {titulo: 'Dirección', nombre:'direccion', tipo:'text', max: 100, validacion: false, uno:false},
+                      {titulo: 'Tipo de cliente', nombre:'tipoCliente', tipo:'text', max: 50, validacion: false, uno:false, 
+                        opciones: ['Persona', 'Empresa'] , obligatorio: true},
+                       
                   ]
                   
                 ]  
@@ -122,63 +130,17 @@ export default {
         BusquedaTablaAll
     },
     methods: {
-        recargarTablaClientes: function(){
-            this.busqueda.variable = ''
-            this.busqueda.valor = ''
-            this.$refs.BusquedaInputRef.cambiarTexto('')
-            this.inputBusquedaTexto = '';
-            this.obtenerClientes();
+        elementoCreado: function(){
+            this.$refs.inputTemplateCliente.borrarInputsData('')
+            //this.opcionSeleccionada = 'Buscar'
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
-        },
-        busquedaSearchBar: function (texto) {
-            this.busqueda.valor = texto
-            console.log(texto)
-            this.obtenerClientes()
-        },
-        tipoDeBusqueda: function(seleccion){
-            this.busqueda.variable = seleccion;
-        },
-        obtenerClientes: async function(){
-            try {
-                const params = {
-                    limite: this.busqueda.limite,
-                }
-                if(this.busqueda.offset !== 0) {
-                    params.offset = this.busqueda.limite * this.busqueda.offset;
-                }
-
-                if(this.busqueda.variable !== '' || this.busqueda.valor !== ''){
-                    params[this.busqueda.variable] = this.busqueda.valor
-                }
-                console.log(params)
-                const response = await axios.get('/api/clientes', {params} )
-
-                this.clienteDatos = response.data
-                if(response.data.length === 0 ){
-                    this.anteriorTablaCliente()
-                }
-            } catch (error) {
-                // INSERTAR ALERTA DE ERROR
-            }
-        },
-        siguienteTablaCliente: function(){
-            this.busqueda.offset = this.busqueda.offset + 1
-            console.log(this.busquedaCliente)
-            this.obtenerClientes()
-        },
-        anteriorTablaCliente: function(){
-            if(this.busqueda.offset !== 0){ 
-                this.busqueda.offset = this.busqueda.offset - 1 
-                this.obtenerClientes()
-            } 
         }
        
     },
     created(){
-        this.obtenerClientes();
-        
+    
     }
 }
 </script>
@@ -186,6 +148,42 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
+
+.v-leave { opacity: 1; }
+.v-leave-active { transition: opacity 0.7s }
+.v-leave-to { opacity: 0; }
+.v-enter { opacity: 0; }
+.v-enter-active  { transition: opacity 0.7s}
+.v-enter-to { opacity: 1; }
+
+/*
+
+.slide-enter-active {
+   
+   transition-duration: 1s;
+   transition-timing-function: linear;
+}
+
+.slide-leave-active {
+   transition-duration: 1s;
+
+   transition-timing-function: linear;
+}
+
+.slide-enter-to, .slide-leave {
+   max-height: 800px;
+   overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+    max-height: 0px;
+   overflow: hidden;
+}
+
+*/
+
 #sidebar{
     width: 25%;
     height: 200px;
@@ -193,12 +191,14 @@ export default {
 }
 
 #main{
-    padding: 20px 20px;
+    padding: 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .contenedor-tabla{
+    
+
     width: 70%;
 }
 

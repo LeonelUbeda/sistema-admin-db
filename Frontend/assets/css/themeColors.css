@@ -14,6 +14,7 @@
 }
 
 .bordeSeleccionado{
+
     border-bottom:2px solid #76c4f5 
 }
 
@@ -25,5 +26,10 @@
 }
 
 .bg-color-tema{
+    background-color: #6c7ae0;
+}
+
+
+.color-header-tabla{
     background-color: #6c7ae0;
 }

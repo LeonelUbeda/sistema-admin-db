@@ -27,9 +27,9 @@ router.put('/:id', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.ACT
 router.delete('/:id', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.ELIMINAR_POR_ID}))
 
 // Obtener la informacion del Rol junto a sus permisos
-router.get('/:rolId/permisos', manejadorGenerico({
+router.get('/:id/permisos', manejadorGenerico({
     modelo: Rol, 
-    accion: manejadorGenerico.LEER , 
+    accion: manejadorGenerico.LEER_PARAMETROS, 
     include: [{
         model: Permiso, 
         through: { attributes: ['nivelAcceso'] }
