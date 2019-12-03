@@ -48,6 +48,7 @@ export default {
     data: () => {
         return {
             BusquedaTablaAllConfig:{
+                encabezado:'Clientes',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}, 

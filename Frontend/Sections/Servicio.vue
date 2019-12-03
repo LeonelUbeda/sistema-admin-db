@@ -16,8 +16,8 @@
                     <div  class="titulo">
                         <h2 class="text-2xl">Añadir Servicio</h2>
                     </div>
-                    <!--InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
-                    </InputTemplate-->
+                    <InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                    </InputTemplate>
                 </div>
             </transition>
         </div>
@@ -28,11 +28,13 @@
 
 import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 import TopSection from '../Components/TopSection'
+import InputTemplate from '../Components/InputTemplate'
 
 export default {
     data: () =>{
         return{
             BusquedaTablaAllConfig:{
+                encabezado: 'Servicios',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'categoriaId', titulo: 'Categoria'}, 
@@ -67,7 +69,25 @@ export default {
                 ]
             },
             opciones: ['Buscar', 'Añadir Servicio'],
-            opcionSeleccionada: 'Buscar'
+            opcionSeleccionada: 'Buscar',
+            // Configuracion de inputs para crear
+            configCrear: {
+                urlCrear: 'api/servicios',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
+                      {titulo: 'Categoria', nombre:'categoriaId', tipo:'number', max: 99 ,  validacion: false, uno:false}
+                  ],
+                  [
+                      {titulo: 'Descripcion', nombre:'descripcion', tipo:'text', max: 200, validacion: false, uno:false}
+                       
+                  ]
+                  
+                ]  
+            }
         }
     },
     methods: {
@@ -81,7 +101,8 @@ export default {
     },
     components:{
         BusquedaTablaAll,
-        TopSection
+        TopSection,
+        InputTemplate
     }
 }
 </script>

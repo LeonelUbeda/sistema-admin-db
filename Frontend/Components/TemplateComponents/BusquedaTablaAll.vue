@@ -14,7 +14,7 @@
         <div class="width-100 flex justify-between">
 
              <div class="contenedor-tabla">
-                <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTabla"></TablaTitulo>
+                <TablaTitulo :titulo="encabezado" @recargar="reiniciarTabla"></TablaTitulo>
                 <Tabla 
                 :elementos="tablaDatos"
                 :titulos="tablaTitulos"
