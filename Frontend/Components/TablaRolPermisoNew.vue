@@ -1,9 +1,9 @@
 <template>
     <div class="relative flex flex-col">
+       
         <div v-if="bloquear === true && secciones.length > 0" class="absolute width-100" id="mensaje-bloqueado" style="z-index: 10000">
             <div>
                 <h1 class="text-2xl">Selecciona un rol para editar</h1>
-                
             </div>
         </div>
         <div class="flex items-center titulo">
@@ -59,8 +59,9 @@
                 </tr>
             </tbody>
         </table>
-            <div class="mensaje-rojo" v-if="secciones.length == 0">  
-                <h2>No hay elementos!</h2>
+          
+            <div class="mensaje-rojo" v-if="secciones.length == 0">
+                <h2>No hay secciones!</h2>
             </div>
         <div class="ml-auto" v-if="secciones.length > 0  && bloquear == false">
             <input class="mt-2 btn-rojo" type="submit"  @click="eliminarEvento($event)" value="Eliminar">

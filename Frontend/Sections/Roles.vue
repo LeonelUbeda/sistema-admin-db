@@ -144,7 +144,9 @@ export default {
             
             this.rolEditar = {...resultado}
             this.rolEditarOld = {...resultado}
-            this.bloquearRolesEdicion = false
+            if(this.secciones.length > 0){
+                this.bloquearRolesEdicion = false
+            }
             this.rolId = resultado.id
             this.obtenerSeccionesYPermisos()
         },

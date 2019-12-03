@@ -260,12 +260,12 @@ export default {
             this.clickEnTabla = false
             this.busqueda.valor = ''
             this.busqueda.variable = ''
-
+        
             this.$refs.BusquedaInputRef.cambiarTexto('')
 
             this.inputBusquedaTexto = ''
             
-            this.busquedaSeleccionada = 'apellido'
+            this.busquedaSeleccionada = this.tiposBusqueda[0].value
             this.$refs.busquedaRadioinput.reRender()
             this.obtenerDatos()
         },
