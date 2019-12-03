@@ -1,11 +1,9 @@
 <template>
     <div id="contenedor">
         
-             <div class="width-100 padding-x-60 padding-y-20 absolute"  >
-                <BusquedaInput></BusquedaInput>
+             <div class="width-100"  >
+                <BusquedaInput @buscar="manejarBusqueda" ></BusquedaInput>
                 <Tabla :elementos="elementos" :titulos="titulos" ></Tabla>
-                
-                
             </div>
         
         
@@ -30,7 +28,7 @@ export default {
         },
         titulos: {
             type: Array,
-            default: ()=> [{propiedad: 'nombre', titulo: 'nommbre'}]
+            default: ()=> [{propiedad: 'nombre', titulo: 'Nombre'}]
         }
     },
     data: ()=>{
@@ -43,14 +41,21 @@ export default {
                 
             },
             tablaUrl: '/api/vehiculos/versiones',
-            elementos: []   
+            elementos: [],
+            textoBuscar: ''   
         }
     },
     methods: {
         obtenerDatos: function() {
-            let url = this.tablaUrl
-            console.log(url)
-            axios.get(url)
+            let params = {
+                nombre: this.textoBuscar,
+
+            }
+
+
+            let url  = this.tablaUrl
+            console.log(params)
+            axios.get(url, {params})
             .then(response =>{
                 
                 this.elementos = response.data
@@ -58,7 +63,12 @@ export default {
             } )
             .catch(err => console.log(err))
 
+        },
+        manejarBusqueda: function(busqueda){
+            this.textoBuscar = busqueda
+            this.obtenerDatos()
         }
+
     },
     created(){
         this.obtenerDatos()
@@ -73,7 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 
 
 </style>

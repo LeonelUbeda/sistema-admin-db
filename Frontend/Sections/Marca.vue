@@ -38,14 +38,17 @@
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
                 <InputTemplate v-bind="configCrearVersion"> 
-                <button>prueba</button>
-                </InputTemplate>
                 
-               <div >
-                   <InputForanea />
-               </div> 
+                </InputTemplate>
+                <div class="width-80">
+                   
+                   <InputForanea ></InputForanea>
+               
+                </div>
+               
                 
             </div>
+    
         </transition>
          <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Vehiculo'" >
