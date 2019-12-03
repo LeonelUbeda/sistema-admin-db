@@ -1,6 +1,6 @@
 import "functions.js"
 import swal from 'sweetalert2'
-
+import axios from 'axios'
 const msjCrear = function (url, objeto) {
     return new Promise(
 
@@ -28,18 +28,19 @@ const msjCrear = function (url, objeto) {
         })
 }
 
-const msjEliminar = function (url, objeto) {
+const msjEliminar = function (url/*, objeto*/) {
     return new Promise(
         function (resolve, reject) {
             swal.fire({
-                title: 'Eliminar?',
+                title: 'Seguro que desea eliminar?',
+                text: 'No habrá vuelta atrás! :c',
                 icon: 'warning',
                 showCancelButton: true,
                 cancelButtonText: 'No',
                 confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm(login) {
-                    return axios.delete(url, objeto)
+                    return axios.delete(url/*, objeto*/)
                         .then((res) => {
                             return res
                         }).catch((err) => {
@@ -65,12 +66,12 @@ const msjEliminar = function (url, objeto) {
                 if (err.hasOwnProperty('value')) {
                     err = err.value;
                 }
-                console.log(err.response.status)
+                //console.log(err.response.status)
                 let texto = '';
-                texto = switchF(err.response.status);
+                //texto = switchF(err.response.status);
                 swal.fire({
                     title: "Error",
-                    text: texto,
+                    text: 'SOY UN TEXTO',
                     icon: "error"
                 }).then(() => reject(err))
             })
