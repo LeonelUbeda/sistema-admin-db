@@ -84,6 +84,7 @@ export default {
     data: () => {
         return {
             BusquedaTablaAllConfig:{
+                encabezado:'Marcas',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}   

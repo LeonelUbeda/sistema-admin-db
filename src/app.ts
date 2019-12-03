@@ -4,7 +4,7 @@ import {json} from 'body-parser'
 import dotenv from 'dotenv'
 import {join} from 'path'
 import verificarLogin from './Middlewares/verificarLogin'
-
+//import cors from 'cors'
 dotenv.config()
 const app = express();
 
@@ -30,7 +30,8 @@ import RutaVehiculo from './Routes/Vehiculo/Vehiculo'
 import RutaHerramienta from './Routes/Inventario/Herramienta'
 import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
-// -------------------- Midlewares --------------------
+// -------------------- Middlewares --------------------
+//app.use(cors())
 app.use(json())
 /*
 app.use('*', (req, res, next) => {

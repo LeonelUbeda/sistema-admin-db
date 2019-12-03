@@ -14,7 +14,7 @@
         <div class="width-100 flex justify-between">
 
              <div class="contenedor-tabla">
-                <TablaTitulo :titulo="'Cliente'" @recargar="reiniciarTabla"></TablaTitulo>
+                <TablaTitulo :titulo="encabezado" @recargar="reiniciarTabla"></TablaTitulo>
                 <Tabla 
                 :elementos="tablaDatos"
                 :titulos="tablaTitulos"
@@ -82,14 +82,16 @@ import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
     props:{
-
+        encabezado: {
+            type: String,
+            default: 'PRIX PONELE TITULO'
+        },
         tablaTitulos: {
             type: Array,
             default: () => [{propiedad: 'id', titulo: 'Identificador'}, 
                             {propiedad: 'nombre', titulo: 'Nombre'}, 
                             {propiedad: 'apellido', titulo: 'Apellido'}]
         },
-
         // Direccion que utiliza el componente para obtener la informacion de la tabla
         tablaUrl: {
             type: String, 
@@ -260,12 +262,12 @@ export default {
             this.clickEnTabla = false
             this.busqueda.valor = ''
             this.busqueda.variable = ''
-
+        
             this.$refs.BusquedaInputRef.cambiarTexto('')
 
             this.inputBusquedaTexto = ''
             
-            this.busquedaSeleccionada = 'apellido'
+            this.busquedaSeleccionada = this.tiposBusqueda[0].value
             this.$refs.busquedaRadioinput.reRender()
             this.obtenerDatos()
         },

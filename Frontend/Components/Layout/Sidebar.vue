@@ -25,6 +25,11 @@
                 <span class="texto">Roles</span>
             </div>
         </router-link>
+        <router-link to="/servicios">
+            <div class="boton">
+                <span class="texto">Servicios</span>
+            </div>
+        </router-link>
     </div>
 </template>
 

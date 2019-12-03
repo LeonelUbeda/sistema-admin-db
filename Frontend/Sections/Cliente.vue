@@ -48,6 +48,7 @@ export default {
     data: () => {
         return {
             BusquedaTablaAllConfig:{
+                encabezado:'Clientes',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}, 
@@ -197,6 +198,8 @@ export default {
     align-items: center;
 }
 .contenedor-tabla{
+    
+
     width: 70%;
 }
 

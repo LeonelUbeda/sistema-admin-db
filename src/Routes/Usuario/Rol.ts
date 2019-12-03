@@ -24,9 +24,12 @@ router.post('/', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.CREAR
 router.put('/:id', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.ACTUALIZAR_POR_ID}));
 
 // Borrar Rol por id
-router.delete('/:id', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.ELIMINAR_POR_ID}))
+router.delete('/:id', manejadorGenerico({modelo: Rol, accion: manejadorGenerico.ELIMINAR_POR_ID}) /*function(req, res) {
+    res.status(400).end()
+}*/)
 
 // Obtener la informacion del Rol junto a sus permisos
+
 router.get('/:id/permisos', manejadorGenerico({
     modelo: Rol, 
     accion: manejadorGenerico.LEER_PARAMETROS, 

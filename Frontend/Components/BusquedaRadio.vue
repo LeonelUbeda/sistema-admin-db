@@ -38,12 +38,12 @@ export default {
     },
     methods: {
         seleccion: function(inputValue){
-            console.log(inputValue)
+           
             this.$emit('seleccion', inputValue)
             //this.selected = this.seleccionado
         },
         reRender: function(){
-            console.log(this.seleccionado)
+            
             this.$forceUpdate()
         }
     },
