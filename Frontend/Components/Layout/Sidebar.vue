@@ -30,6 +30,11 @@
                 <span class="texto">Servicios</span>
             </div>
         </router-link>
+         <router-link to="/usuario">
+            <div class="boton">
+                <span class="texto">Usuarios</span>
+            </div>
+        </router-link>
     </div>
 </template>
 

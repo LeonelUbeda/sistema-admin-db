@@ -6,6 +6,7 @@ import Cliente from '../Sections/Cliente'
 import Marca from '../Sections/Marca'
 import Roles from '../Sections/Roles'
 import Servicio from '../Sections/Servicio'
+import Usuario from '../Sections/Usuario'
 // Cada objeto es una ruta, se le pasa un componente, una url y el nombre :D
 export default [
     {
@@ -37,5 +38,11 @@ export default [
         path: '/servicios',
         component: Servicio,
         name: 'servicio'
-    }
+    },
+    {
+        path: '/usuario',
+        component: Usuario,
+        name: 'usuario'
+    },
+
 ]
