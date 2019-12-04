@@ -28,7 +28,7 @@
             <h4 @click="atras">Atras</h4>
             <h4 @click="siguiente">Siguiente</h4>
         </div>
-        <table>
+        <table :class="[{'sombra-tabla': sombra}]">
             <caption></caption>
             <thead>
                 <tr>
@@ -62,6 +62,10 @@ export default {
     props: {
         elementos: Array,
         titulos: Array,
+        sombra: {
+            type: Boolean,
+            default: true
+        },
         paginacion: {
             type: Object, 
             required: false
@@ -97,11 +101,16 @@ caption{
     color: white;
     font-size: 1.5em;
 }
-
-table{
+.sombra-tabla{
+    border: 0;
     -webkit-box-shadow: 10px 14px 63px -49px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 14px 63px -49px rgba(0,0,0,0.75);
     box-shadow: 10px 14px 63px -49px rgba(0,0,0,0.75);
+}
+
+table{
+    border-radius: 8px;
+    border: 1px solid gray;
     border-collapse: collapse;
     width: 100%;
     

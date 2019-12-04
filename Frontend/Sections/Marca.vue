@@ -40,11 +40,7 @@
                 <InputTemplate v-bind="configCrearVersion"> 
                 
                 </InputTemplate>
-                <div class="width-80">
-                   
-                   <InputForanea ></InputForanea>
                
-                </div>
                
                 
             </div>
@@ -164,8 +160,27 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'text', max: 9999, validacion: false, uno:true, obligatorio: true, url:'/api/vehiculos/modelos',
-                        foranea: true, editable: false, boton:true}
+                        {
+                            titulo: 'ID Modelo', 
+                            nombre:'modeloId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:true, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/modelos',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/modelos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'Identificador'}, 
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        }
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}

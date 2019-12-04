@@ -357,10 +357,7 @@ export default {
     z-index: 10;
     background-color: rgba($color: #B7B7B7, $alpha: 0.5);
     //background-color: #B7B7B7;
-    
-    
 
-   
 }
 
 #popup{
