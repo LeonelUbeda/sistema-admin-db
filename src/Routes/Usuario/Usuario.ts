@@ -51,11 +51,18 @@ router.post('/', async (req: Request, res: Response) => {
 router.put('/:usuario', async (req: Request, res: Response) => {
     let {contrasena, ...elemento} = req.body;
     const {usuario} = req.params
+
+    let objetoAMandar = {
+        ...elemento
+    }
+    if(typeof contrasena !== 'undefined'){
+        objetoAMandar.contrasena = contrasena ? encriptar(contrasena) : null
+    }
     
-    contrasena = contrasena ? encriptar(contrasena) : null
- 
+
+
     try {
-        const resultado = await usuarioActualizar({contrasena, ...elemento}, {usuario})
+        const resultado = await usuarioActualizar(objetoAMandar, {usuario})
         res.status(201).json(resultado)
     } catch (error) {
         console.log(error)
