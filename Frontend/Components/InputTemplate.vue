@@ -20,13 +20,16 @@
                                 </option>
                                 
                             </select>
-                        
+                            <div class="width-100" v-else-if="unit.foranea">
+                                <InputForanea v-bind="unit.foranea" v-model="datosAEnviar[unit.nombre]"></InputForanea>
+                            </div>
+                            
                             <input v-else 
                             v-model="datosAEnviar[unit.nombre]"
                             class="verde" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required :disabled="unit.editable == false"> 
-                            
+                           
                     </div>
                 </div>                   
             </div>
@@ -43,6 +46,7 @@
 <script>
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import InputForanea from '../Components/InputForanea'
 export default {
     props: {
         inputs: { type: Array, required: true  },
@@ -98,7 +102,7 @@ export default {
     },
     methods:{
         borrarInputsData: function() {
-            console.log('INPUT DATAAA')
+            console.logconsole.log('INPUT DATAAA')
             this.datosAEnviar = {}
             
         },
@@ -218,13 +222,16 @@ export default {
             });
             
 
-        }
+        },
     },
     beforeMount(){
 
         },
     created(){
         this.ValueIgualVModel()
+    },
+     components:{
+        InputForanea
     }
 }
 </script>

@@ -159,11 +159,16 @@
 /* Padding Y */ 
 .padding-y-20{
     padding-top: 20px;
-    padding-top: 20px;
+
+}
+
+.padding-y-40{
+    padding-top: 40px;
+
 }
 .padding-y-10{
     padding-top: 10px;
-    padding-top: 10px;
+
 }
 
 

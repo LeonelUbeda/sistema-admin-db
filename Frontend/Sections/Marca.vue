@@ -37,9 +37,14 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVersion">
+                <InputTemplate v-bind="configCrearVersion"> 
+                
                 </InputTemplate>
+               
+               
+                
             </div>
+    
         </transition>
          <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Vehiculo'" >
@@ -71,6 +76,9 @@ import InputTemplate from '../Components/InputTemplate'
 import BusquedaInput from '../Components/BusquedaInput.vue'
 import BusquedaRadio from '../Components/BusquedaRadio.vue'
 import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
+
+import InputForanea from '../Components/InputForanea'
+
 export default {
     data: () => {
         return {
@@ -136,7 +144,7 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'text', max: 99, validacion: false, uno:true, obligatorio: true}
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
@@ -152,7 +160,27 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'number', max: 99, validacion: false, uno:true, obligatorio: true}
+                        {
+                            titulo: 'ID Modelo', 
+                            nombre:'modeloId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:true, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/modelos',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/modelos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'Identificador'}, 
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        }
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
@@ -180,6 +208,10 @@ export default {
                     ]
 
                 ]
+            },
+            configIdModelo: {
+                url: '/api/vehiculos/modelos',
+                campo: 'id'
             }
 
         }
@@ -191,7 +223,8 @@ export default {
         InputTemplate,
         BusquedaInput,
         BusquedaRadio,
-        BusquedaTablaAll
+        BusquedaTablaAll,
+        InputForanea
     },
     methods: {
 

@@ -1,7 +1,8 @@
 <template>
     <div class="contenedor">
         <div id="contenedor-input" class="border-color-tema">
-            <input v-on:keyup.enter="buscarDebounce" v-on:keyup.delete="buscarDebounce" @keypress="buscarDebounce" type="text" :placeholder="placeholder" v-model="busqueda">
+            <input v-on:keyup.enter="buscarDebounce" v-on:keyup.delete="buscarDebounce" @keypress="buscarDebounce"
+             type="text" :placeholder="placeholder" v-model="busqueda">
             <!--div @click="buscar" id="lupa" class="bg-color-tema">
                 <img src="../assets/img/lupa.svg" alt="">
             </div-->
