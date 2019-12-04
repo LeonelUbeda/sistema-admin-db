@@ -38,11 +38,7 @@
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
                 <InputTemplate v-bind="configCrearVersion"> 
-                
                 </InputTemplate>
-               
-               
-                
             </div>
     
         </transition>
@@ -52,6 +48,17 @@
                     <h2 class="text-2xl">Nuevo Vehiculo</h2>
                 </div>
                 <InputTemplate v-bind="configCrearVehiculo">
+                </InputTemplate>
+            </div>
+        </transition>
+
+        
+         <transition  mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Tipo'" >
+                <div  class="titulo">
+                    <h2 class="text-2xl">Nuevo Tipo</h2>
+                </div>
+                <InputTemplate v-bind="configCrearTipo">
                 </InputTemplate>
             </div>
         </transition>
@@ -117,7 +124,7 @@ export default {
             },
 
             // Menu de arriba
-            opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Vehiculo'],
+            opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
             opcionSeleccionada: 'Buscar', 
 
             
@@ -144,7 +151,26 @@ export default {
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Marca', nombre:'marcaId', tipo:'text', max: 99, validacion: false, uno:true, obligatorio: true}
+                          {
+                            titulo: 'Marca', 
+                            nombre:'marcaId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:true, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/marcas',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/marcas',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        }
                     ],
                     [
                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
@@ -161,7 +187,7 @@ export default {
                 inputs: [
                     [
                         {
-                            titulo: 'ID Modelo', 
+                            titulo: 'Modelo', 
                             nombre:'modeloId', 
                             tipo:'text', 
                             max: 9999, 
@@ -187,23 +213,115 @@ export default {
                     ]
                 ]
             },
-            configCrearVehiculo: {
-                urlFinal: '',
-                propiedadId: '', //ID DEL INPUT A ENVIAR
-                urlCrear: '',
+
+            configCrearTipo: {
+               
+                urlCrear: 'api/vehiculos/tipos',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
                 inputs: [
                     [
-                        {titulo: 'ID Modelo', nombre:'modeloId', tipo:'number', max: 99, validacion: false, obligatorio: true}
+                         {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
+                    ]
+                ]
+            },
+
+            configCrearVehiculo: {
+              
+                urlCrear: '/api/vehiculos/',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                    [
+                        {
+                            titulo: 'Modelo', 
+                            nombre:'modeloId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:true, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/modelos',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/modelos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'Identificador'}, 
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        }
+                    ],
+                    [ 
+                       {
+                            titulo: 'Version', 
+                            nombre:'versionId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/versiones',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/versiones',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                       },
+                       {
+                            titulo: 'Cliente', 
+                            nombre:'clienteId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/clientes',
+                            editable: false,
+                            foranea: {
+                                url: '/api/clientes',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                  
+                                ]
+                            }
+                       }
                     ],
                     [
-                        {titulo: 'Version Id', nombre:'versionId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true},
-                        {titulo: 'Cliente Id', nombre:'clienteId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true}
-                    ],
-                    [
-                        {titulo: 'Tipo Id', nombre:'tipoId', tipo:'number', max: 50, validacion: false, uno:false, obligatorio: true},
+                        
+                        {
+                            titulo: 'Tipo', 
+                            nombre:'tipoId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/clientes',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/tipos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        },
                         {titulo: 'Matricula', nombre:'matricula', tipo:'text', max: 30, validacion: false, uno:false, obligatorio: true}
                     ]
 
