@@ -217,7 +217,7 @@ export default {
     methods: {
         editarElementoSeleccionado: function(){
             
-            this.mostrarPopupEditar = true;
+            
             this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
@@ -232,10 +232,25 @@ export default {
                     
                     // Entonces el input que tiene el nombre 'id' tiene de valor el elemento 'id' del objeto elementoClickeado
                     this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+
+                    // Documentar esto pls
+                    if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                        let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                        
+                        let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                        axios.get(url)
+                        .then((respuesta) => {return respuesta.data})
+                        .then((respuesta) => {
+                            this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                            console.log(this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea)
+                        })
+
+                    }
                     // El componente InputTemplate se encarga de renderizar todo esto correctamente
                   
                 })
             })
+            this.mostrarPopupEditar = true;
          
         },
         eliminarElementoSeleccionado: async function() {

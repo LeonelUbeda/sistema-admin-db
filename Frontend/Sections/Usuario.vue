@@ -79,7 +79,7 @@ export default {
                     ],
                     [
                         {
-                             titulo: 'Rol', 
+                            titulo: 'Rol', 
                             nombre:'rolId', 
                             tipo:'text', 
                             max: 9999, 
@@ -89,7 +89,10 @@ export default {
                             url:'/api/usuarios/',
                             editable: false,
                             foranea: {
-                                url: 'api/roles',
+                                urlBuscar: '/api/roles',
+                                propiedadElementoBuscar: 'rolId',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/roles',
                                 buscarPor: 'nombre',
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
