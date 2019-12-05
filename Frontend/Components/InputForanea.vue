@@ -40,7 +40,7 @@ export default {
     props: {
         mostrar: {
             type: String | Number,
-            default: 'Clic para buscar...'
+            
         },
         value: String | Number,
         url: String /*'/api/vehiculos/modelos'*/,
@@ -87,7 +87,7 @@ export default {
             console.log(params)
             axios.get(url, {params})
             .then(response =>{
-                
+
                 this.elementos = response.data
                 console.log(response)
             } )
@@ -103,12 +103,16 @@ export default {
     created(){
         this.obtenerDatos()
 
-        if(this.value == null || this.value == ''){
+        if((this.value == null || this.value == '') && (this.mostrarValor == '')){
+        
             this.mostrarValor = 'Clic para buscar...'
+
         }else{
-            this.mostrarValor = this.mostrar
+            this.mostrarValor = this.value
+            //console.log('hey',this.mostrar)
+            
         }
-        console.log(this.mostrar)
+       
     },
     computed:{
         displayShow: function(){
@@ -118,8 +122,8 @@ export default {
     },
     watch: {
         mostrar: function(valor){
-            this.mostrarValor = valor
-            console.log(valor, 'hey')
+            //this.mostrarValor = valor
+            console.log('FUA CHAVAL')
         }
     },
     components:{

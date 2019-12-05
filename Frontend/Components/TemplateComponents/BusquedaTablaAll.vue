@@ -215,17 +215,70 @@ export default {
     },
     
     methods: {
-        editarElementoSeleccionado: function(){
-            
-            
+        editarElementoSeleccionado:async function(){
+        
+           
+
+            this.inputsEditar.filter 
             this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
             // [ [] ,  [] ,  [] ]
-            this.inputsEditar.forEach((arreglo, indexArreglo) => {
+         
+            //this.inputsEditar.map((arreglo, indexArreglo) => {
+            //arreglo.map((elemento, indexElemento) => {
+            //    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+                /*if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                    let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                    
+                    let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                    /*let respuesta = await axios.get(url)
+                    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                    console.log('YA TERMINE EL GET')
+                    .then((respuesta) => {return respuesta.data})
+                    .then((respuesta) => {
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                        
+                    })
+
+                }*/
+            //    })
+            //})
+
+
+            let promesas = this.inputsEditar.map(async (elementoArreglo, index) => {
+                let todo = await elementoArreglo.map(async (input, index2) => {
+                    input.valor = this.elementoClickeado[input.nombre]
+                    if(typeof input.foranea !== 'undefined'){
+                        let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
+                        console.log('Buscando')
+                        let respuesta = await axios.get(url)
+                        input.foranea.mostrar = respuesta.data[input.propiedadMostrarResultado]
+                        console.log('Asignando')
+                    }
+                    return input
+                })
+                return Promise.all(todo)
+            })  
+
+            Promise.all(promesas)
+            .then((respuesta) => {
+                console.log(respuesta)
+                this.configEditInputTemplate.inputs = respuesta
+                this.mostrarPopupEditar = true;
+            })         
+            
+         
+            
+            
+          
+            
+
+
+            /*this.inputsEditar.forEach(async (arreglo, indexArreglo) => {
                 // Itero sobre el arreglo de objetos
                 // [ {} , {}, {} ]
-                arreglo.forEach((elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
+                arreglo.forEach(async(elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
                     // Asigno el valor de  la propiedad correspondiente de elementoClickeado al valor inicial de un input
                     // Como ejemplo, al inicio del ciclo, una supuesta operacion sería esta
                     // configEditInputTemplate.inputs[0][0].valor = elementoClickeado.id;
@@ -238,19 +291,22 @@ export default {
                         let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
                         
                         let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
-                        axios.get(url)
-                        .then((respuesta) => {return respuesta.data})
+                        let respuesta = await axios.get(url)
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                        console.log('YA TERMINE EL GET')
+                        /*.then((respuesta) => {return respuesta.data})
                         .then((respuesta) => {
                             this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
-                            console.log(this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea)
+                            
                         })
 
                     }
+
                     // El componente InputTemplate se encarga de renderizar todo esto correctamente
                   
                 })
-            })
-            this.mostrarPopupEditar = true;
+            })*/
+            
          
         },
         eliminarElementoSeleccionado: async function() {
