@@ -8,7 +8,7 @@
         <div class="width-100 relative" >
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar Servicio'" >
-                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigServ" ></BusquedaTablaAll>
                 </div>
             </transition>
             <transition  mode="out-in">
@@ -22,7 +22,7 @@
             </transition>
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar Categoria'" >
-                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfig2" ></BusquedaTablaAll>
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigCateg" ></BusquedaTablaAll>
                 </div>
             </transition>
             <transition  mode="out-in">
@@ -44,12 +44,17 @@ import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 import TopSection from '../Components/TopSection'
 import InputTemplate from '../Components/InputTemplate'
 import InputForanea from '../Components/InputForanea'
+import BusquedaInput from '../Components/BusquedaInput.vue'
+import BusquedaRadio from '../Components/BusquedaRadio.vue'
+import Tabla from '../Components/Tabla'
+import TablaTitulo from '../Components/TablaTitulo'
 
 export default {
     data: () =>{
         return{
-            BusquedaTablaAllConfig:{
+            BusquedaTablaAllConfigServ:{
                 encabezado: 'Servicios',
+                tituloPopup: {titulo: 'Editar Servicio: ', propiedadElementoClickeado: 'nombre'},
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'categoriaId', titulo: 'Categoria'}, 
@@ -75,16 +80,17 @@ export default {
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
-                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false}
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false, obligatorio: true}
                     ],
                     [
-                        {nombre: 'categoriaId', titulo: 'Categoria', max: 99, tipo: 'number', validacion:true, uno: false, editable:true},
-                        {nombre:'descripcion', titulo: 'Descripcion', tipo:'text', max: 200, validacion: false, valor:'', uno:true, obligatorio: true},
+                        {nombre: 'categoriaId', titulo: 'Categoria', max: 99, tipo: 'number', validacion:true, uno: true, editable:true, obligatorio: true},
+                        {nombre:'descripcion', titulo: 'Descripcion', tipo:'text', max: 200, validacion: false, valor:'', uno:false},
                     ]
                 ]
             },
-            BusquedaTablaAllConfig2:{
+            BusquedaTablaAllConfigCateg:{
                 encabezado: 'Categorias',
+                tituloPopup: {titulo: 'Editar Categoria: ', propiedadElementoClickeado: 'nombre'},
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
@@ -94,7 +100,7 @@ export default {
                 tablaUrlActualizar: '/api/servicios/categorias',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
-                        {value: 'nombre', titulo: 'Nombre'},{value: 'categoriaId', titulo: 'Categoria'},
+                        {value: 'nombre', titulo: 'Nombre'},
                         {value: 'id', titulo: 'ID'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
@@ -108,7 +114,7 @@ export default {
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
-                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false}
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false, obligatorio: true}
                     ]
                 ]
             },
