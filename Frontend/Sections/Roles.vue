@@ -67,8 +67,8 @@
                 </div>
             </transition>
             <transition  mode="out-in">
-                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionadaTop === 'Ver Seccion'" >
-                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigSecc" ></BusquedaTablaAll>
+                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionadaTop === 'Ver Secciones'" >
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigSeccion" ></BusquedaTablaAll>
                 </div>
             </transition>
              
@@ -136,7 +136,7 @@ export default {
                   ]
                 ]  
             },
-            BusquedaTablaAllConfigSecc:{
+            BusquedaTablaAllConfigSeccion:{
                 encabezado: 'Secciones',
                 tituloPopup: {titulo: 'Editar Seccion: ', propiedadElementoClickeado: 'nombre'},
                 tablaTitulos: [
@@ -228,6 +228,10 @@ export default {
             })
 
             
+        },
+        elementoCreado: function(){
+            this.$refs.inputTemplateCliente.borrarInputsData('')
+            //this.opcionSeleccionada = 'Buscar'
         },
         buscar: function(){
             this.obtenerSeccionesYPermisos()
