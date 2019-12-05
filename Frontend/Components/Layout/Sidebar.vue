@@ -76,6 +76,11 @@ a{
 
 .boton{
     margin: 10px 0;
-    transition: 1s;
+    transition: 0.4s;
+}
+a:hover {
+  background-color: #76c4f5; 
+  color: black;
+  border-radius: 10px 20px;
 }
 </style>
