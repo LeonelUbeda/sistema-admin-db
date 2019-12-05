@@ -55,10 +55,10 @@ export default {
                     {propiedad: 'apellido', titulo: 'Apellido'},
                     {propiedad: 'rolId', titulo: 'Rol'},
                 ],
-                tablaUrl: '/api/usuarios',
-                tablaUrlEliminar: '/api/usuarios',
-                tablaUrlActualizar: '/api/usuarios',
-                
+                tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'apellido'},
+                tablaUrl: '/api/usuarios/',
+                tablaUrlEliminar: '/api/usuarios/',
+                tablaUrlActualizar: '/api/usuarios/',
                 tablaPropiedadAEliminar: 'usuario',
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},

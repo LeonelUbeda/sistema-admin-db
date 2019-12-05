@@ -108,6 +108,10 @@ export default {
             type: String,
             default: '/api/clientes'
         },
+        propiedadActualizar: {
+            type: String,
+            default: 'id'
+        },
         // Propiedad que se utiliza como condicional al eliminar, Ejemplo: 
         // DELETE FROM TABLA WHERE id = 2
         tablaPropiedadAEliminar: {
@@ -318,8 +322,8 @@ export default {
     },
     created(){
         this.obtenerDatos();
-
         this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar
+        this.configEditInputTemplate.propiedadActualizar = this.propiedadActualizar
         this.busquedaSeleccionada =             this.busquedaDefault
         this.busqueda.variable =                this.busquedaDefault
         /*const config =                          this.configuracion;
