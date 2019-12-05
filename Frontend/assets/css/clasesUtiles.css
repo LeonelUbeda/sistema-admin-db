@@ -1,4 +1,8 @@
 
+body{
+    min-width: 1200px !important;
+}
+
 .v-leave { opacity: 1; }
 .v-leave-active { transition: opacity 0.7s }
 .v-leave-to { opacity: 0; }

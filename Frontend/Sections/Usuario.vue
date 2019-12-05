@@ -55,6 +55,7 @@ export default {
                     {propiedad: 'apellido', titulo: 'Apellido'},
                     {propiedad: 'rolId', titulo: 'Rol'},
                 ],
+                tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'apellido'},
                 tablaUrl: '/api/usuarios/',
                 tablaUrlEliminar: '/api/usuarios/',
                 tablaUrlActualizar: '/api/usuarios/',

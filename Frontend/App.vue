@@ -32,6 +32,7 @@ export default {
 }
 
 #contenedora{
+  min-width: 800px;
   width: 100%;
   min-height: 100vh;
   display: flex;
