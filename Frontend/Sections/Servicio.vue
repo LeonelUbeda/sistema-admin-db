@@ -7,7 +7,7 @@
         </TopSection>
         <div class="width-100 relative" >
             <transition  mode="out-in">
-                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
+                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar Servicio'" >
                     <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
                 </div>
             </transition>
@@ -16,7 +16,21 @@
                     <div  class="titulo">
                         <h2 class="text-2xl">Añadir Servicio</h2>
                     </div>
-                    <InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                    <InputTemplate v-bind="configCrearServicio" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                    </InputTemplate>
+                </div>
+            </transition>
+            <transition  mode="out-in">
+                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar Categoria'" >
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfig2" ></BusquedaTablaAll>
+                </div>
+            </transition>
+            <transition  mode="out-in">
+                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Añadir Categoria'" >
+                    <div  class="titulo">
+                        <h2 class="text-2xl">Añadir Categoria </h2>
+                    </div>
+                    <InputTemplate v-bind="configCrearCategoria" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
                     </InputTemplate>
                 </div>
             </transition>
@@ -29,6 +43,7 @@
 import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 import TopSection from '../Components/TopSection'
 import InputTemplate from '../Components/InputTemplate'
+import InputForanea from '../Components/InputForanea'
 
 export default {
     data: () =>{
@@ -68,10 +83,39 @@ export default {
                     ]
                 ]
             },
-            opciones: ['Buscar', 'Añadir Servicio'],
-            opcionSeleccionada: 'Buscar',
-            // Configuracion de inputs para crear
-            configCrear: {
+            BusquedaTablaAllConfig2:{
+                encabezado: 'Categorias',
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                tablaUrl: '/api/servicios/categorias',
+                tablaUrlEliminar: '/api/servicios/categorias',
+                tablaUrlActualizar: '/api/servicios/categorias',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},{value: 'categoriaId', titulo: 'Categoria'},
+                        {value: 'id', titulo: 'ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                busquedaDefault: 'nombre',
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                inputsEditar: [
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false}
+                    ]
+                ]
+            },
+            opciones: ['Buscar Servicio', 'Añadir Servicio', 'Buscar Categoria','Añadir Categoria'],
+            opcionSeleccionada: 'Buscar Servicio',
+            // Configuracion de inputs para crear Servicio
+            configCrearServicio: {
                 urlCrear: 'api/servicios',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -79,11 +123,24 @@ export default {
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
-                      {titulo: 'Categoria', nombre:'categoriaId', tipo:'number', max: 99 ,  validacion: false, uno:false}
+                      {titulo: 'Categoria', nombre:'categoriaId', tipo:'number', max: 99 ,  validacion: false, uno:false, obligatorio: true}
                   ],
                   [
                       {titulo: 'Descripcion', nombre:'descripcion', tipo:'text', max: 200, validacion: false, uno:false}
                        
+                  ]
+                  
+                ]  
+            },
+            //Config para crear Categoria
+            configCrearCategoria: {
+                urlCrear: 'api/servicios/categorias',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
                   ]
                   
                 ]  
@@ -103,6 +160,9 @@ export default {
         BusquedaTablaAll,
         TopSection,
         InputTemplate
+    },
+    created(){
+    
     }
 }
 </script>

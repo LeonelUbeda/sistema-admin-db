@@ -21,7 +21,7 @@
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 absolute" v-if="opcionSeleccionadaTop === 'Añadir Rol'">
                     <div  class="titulo">
-                        <h2 class="text-2xl">Crear Cliente</h2>
+                        <h2 class="text-2xl">Añadir Rol</h2>
                     </div>
                     <InputTemplate
                     v-bind="configCrear" 
