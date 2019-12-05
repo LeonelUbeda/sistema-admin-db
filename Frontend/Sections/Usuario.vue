@@ -58,7 +58,7 @@ export default {
                 tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'apellido'},
                 tablaUrl: '/api/usuarios/',
                 tablaUrlEliminar: '/api/usuarios/',
-                tablaUrlActualizar: '/api/usuarios/',
+                tablaUrlActualizar: '/api/usuarios',
                 tablaPropiedadAEliminar: 'usuario',
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
@@ -69,6 +69,7 @@ export default {
                     {propiedad: 'usuario', titulo: 'Usuario'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
+                propiedadActualizar:'usuario',
                 busquedaDefault: 'usuario',
                 mostrarOpcionEditar: true,
                 mostrarOpcionEliminar: true,
