@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import BusquedaTablaAll from './TemplateComponents/BusquedaTablaAll'
+
 import Tabla from './Tabla'
 import BusquedaInput from './BusquedaInput'
 import axios from 'axios'
@@ -96,7 +96,6 @@ export default {
         this.obtenerDatos()
     },
      components:{
-        BusquedaTablaAll,
         Tabla,
         BusquedaInput
     }
