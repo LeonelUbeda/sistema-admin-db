@@ -72,16 +72,38 @@ export default {
                 busquedaDefault: 'usuario',
                 mostrarOpcionEditar: true,
                 mostrarOpcionEliminar: true,
+                tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'usuario'},
                 inputsEditar: [
                     [
-                        {nombre: 'rolId', titulo: 'Rol ID', max: 99, tipo: 'number', validacion: true, uno: true, obligatorio: true, editable: false}
+                        {nombre: 'usuario', titulo: 'Usuario', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
+                    ],
+                    [
+                        {
+                             titulo: 'Rol', 
+                            nombre:'rolId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/usuarios/',
+                            editable: false,
+                            foranea: {
+                                url: 'api/roles',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'id Rol'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                  
+                                ]
+                            }
+                        }
                     ],
                     [
                         {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false},
                         {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false }
-                    ],
-                    [
-                        {nombre: 'usuario', titulo: 'Usuario', max: 100, tipo: 'text', validacion: true, uno: false}
                     ]
                    
                 ]
