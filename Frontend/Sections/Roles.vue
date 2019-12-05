@@ -30,7 +30,7 @@
                 </div>
             </transition>
             <transition  mode="out-in">
-                <div class="width-100 flex justify-between absolute padding-x-60" v-if="resultadobusquedaRoles.length > 0 && opcionSeleccionadaTop == 'Editar Rol'">
+                <div class="width-100 flex justify-between absolute padding-x-60" v-if="resultadobusquedaRoles.length > 0 && opcionSeleccionadaTop == 'Ver Secciones'">
                     
                     <div class="width-70">
                         <TablaRolPermisoNew 
