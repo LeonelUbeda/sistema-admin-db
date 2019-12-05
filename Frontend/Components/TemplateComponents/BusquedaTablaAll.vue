@@ -4,7 +4,7 @@
             <div id="popup-container"  v-if="mostrarPopupEditar">
                 <div :class="['width-100 padding-x-20 padding-y-20 ',]" id="popup">
                     <h2 class="text-xl">{{tituloPopup.titulo}} {{elementoClickeado[tituloPopup.propiedadElementoClickeado]}}</h2>
-                    <InputTemplate v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false" 
+                    <InputTemplate name v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false" 
                     @elementoActualizado="() => {mostrarPopupEditar = false; reiniciarTabla()}"
                     @elementoCreado="elementoCreadoEvento">
                     </InputTemplate>
@@ -77,7 +77,7 @@ import {eliminarDialog} from '../../Utils/sweetAlert'
 import TopSection from '../../Components/TopSection'
 import Tabla from '../../Components/Tabla'
 import TablaTitulo from '../../Components/TablaTitulo'
-import InputTemplate from '../../Components/InputTemplate'
+import InputTemplate from '../../Components/InputTemplate.vue'
 import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
@@ -209,14 +209,7 @@ export default {
 
         }
     },
-    components: {
-        TopSection,
-        Tabla,
-        TablaTitulo,
-        InputTemplate,
-        BusquedaInput,
-        BusquedaRadio
-    },
+    
     methods: {
         editarElementoSeleccionado: function(){
             
@@ -334,6 +327,14 @@ export default {
         this.tiposBusqueda =                    config.busqueda.tiposBusqueda
         this.tablaTitulos =                     config.tabla.tablaTitulos*/
         
+    },
+    components: {
+        TopSection,
+        Tabla,
+        TablaTitulo,
+        InputTemplate,
+        BusquedaInput,
+        BusquedaRadio
     },
     
 }
