@@ -11,13 +11,18 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> <!--Modelo  -->
-                <br>
-                <BusquedaTablaAll v-bind="BusquedaTablaModelo" ></BusquedaTablaAll>  <!--Modelo  -->
-                <br>
-                <BusquedaTablaAll v-bind="BusquedaTablaVersion" ></BusquedaTablaAll>  <!--Version  -->
-                <br>
-                <BusquedaTablaAll v-bind="BusquedaTablaTipo" ></BusquedaTablaAll>  <!--Tipo  -->
+                <TopSection 
+                :opciones="opcionesBusqueda"
+                :opcionSeleccionada="opcionSeleccionadaBusqueda"
+                @elementoSeleccionado="clickOpcionesBusqueda">
+                </TopSection>
+                    <br>
+                    
+                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Marca'" v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> <!--Marca  -->
+                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Modelo'" v-bind="BusquedaTablaModelo" ></BusquedaTablaAll> <!--Modelo  -->
+                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Version'" v-bind="BusquedaTablaVersion" ></BusquedaTablaAll>  <!--Version  -->
+                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Tipo'" v-bind="BusquedaTablaTipo" ></BusquedaTablaAll>  <!--Tipo  -->
+     
             </div>
         </transition>
         <transition  mode="out-in">
@@ -130,6 +135,7 @@ export default {
             },
             //Inicio config de tabla version
             BusquedaTablaVersion:{
+                esconderBusqueda: false,
                 encabezado:'Version',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
@@ -194,6 +200,7 @@ export default {
             //Final config de tabla version
             //Inicio config modelo
             BusquedaTablaModelo:{
+                esconderBusqueda: false,
                 encabezado:'Modelo',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
@@ -216,7 +223,6 @@ export default {
                 ],
                 mostrarOpcionEditar: true,
                 mostrarOpcionEliminar: true,
-                
                 inputsEditar: [
                     
                     [
@@ -257,6 +263,7 @@ export default {
             //Fin config modelo 
             //Inicio config tipo
              BusquedaTablaTipo:{
+                esconderBusqueda: false,
                 encabezado:'Tipo',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
@@ -294,7 +301,13 @@ export default {
             opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
             opcionSeleccionada: 'Buscar', 
 
-            
+            //Menu de Tablas
+            opcionesBusqueda: ['Marca', 'Modelo', 'Version', 'Tipo'],
+            opcionSeleccionadaBusqueda: 'Marca',
+
+
+
+
             // Configuracion de inputs para crear Marcas
             configCrearMarca: {
                 urlCrear: 'api/vehiculos/marcas',
@@ -515,7 +528,13 @@ export default {
 
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
+  
+        },
+        clickOpcionesBusqueda: function (dato){
+            this.opcionSeleccionadaBusqueda = dato
+            
         }
+
        
     },
     created(){
