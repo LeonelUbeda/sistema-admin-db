@@ -219,8 +219,8 @@ export default {
         
            
 
-            this.inputsEditar.filter 
-            this.configEditInputTemplate.inputs = this.inputsEditar;
+          
+            //this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
             // [ [] ,  [] ,  [] ]
@@ -245,35 +245,23 @@ export default {
             //    })
             //})
 
+            for(let elementoArreglo of this.inputsEditar){
+                for(let input of elementoArreglo){
 
-            let promesas = this.inputsEditar.map(async (elementoArreglo, index) => {
-                let todo = await elementoArreglo.map(async (input, index2) => {
                     input.valor = this.elementoClickeado[input.nombre]
+
                     if(typeof input.foranea !== 'undefined'){
+
                         let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
-                        console.log('Buscando')
                         let respuesta = await axios.get(url)
-                        input.foranea.mostrar = respuesta.data[input.propiedadMostrarResultado]
-                        console.log('Asignando')
+                        input.foranea.mostrar = respuesta.data.nombre
+                        
                     }
-                    return input
-                })
-                return Promise.all(todo)
-            })  
-
-            Promise.all(promesas)
-            .then((respuesta) => {
-                console.log(respuesta)
-                this.configEditInputTemplate.inputs = respuesta
-                this.mostrarPopupEditar = true;
-            })         
+                }
+            }
             
-         
-            
-            
-          
-            
-
+            this.configEditInputTemplate.inputs = this.inputsEditar
+            this.mostrarPopupEditar = true;
 
             /*this.inputsEditar.forEach(async (arreglo, indexArreglo) => {
                 // Itero sobre el arreglo de objetos

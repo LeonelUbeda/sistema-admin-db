@@ -108,7 +108,7 @@ export default {
             this.mostrarValor = 'Clic para buscar...'
 
         }else{
-            this.mostrarValor = this.value
+            this.mostrarValor = this.mostrar
             //console.log('hey',this.mostrar)
             
         }
