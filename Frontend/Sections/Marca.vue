@@ -11,7 +11,13 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> <!--Modelo  -->
+                <br>
+                <BusquedaTablaAll v-bind="BusquedaTablaModelo" ></BusquedaTablaAll>  <!--Modelo  -->
+                <br>
+                <BusquedaTablaAll v-bind="BusquedaTablaVersion" ></BusquedaTablaAll>  <!--Version  -->
+                <br>
+                <BusquedaTablaAll v-bind="BusquedaTablaTipo" ></BusquedaTablaAll>  <!--Tipo  -->
             </div>
         </transition>
         <transition  mode="out-in">
@@ -122,6 +128,167 @@ export default {
                     
                 ]
             },
+            //Inicio config de tabla version
+            BusquedaTablaVersion:{
+                encabezado:'Version',
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'},
+                    {propiedad: 'modeloId', titulo: 'Modelo ID'}   
+                ],
+                tablaUrl: '/api/vehiculos/versiones',
+                tablaUrlEliminar: '/api/vehiculos/versiones',
+                tablaUrlActualizar: '/api/vehiculos/versiones',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'id', titulo: 'ID'},
+                        {value: 'modeloId', titulo: 'Modelo ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                
+                inputsEditar: [
+                    
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: false, editable: false}
+                    ],
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true, obligatorio: true},
+                    ],
+                    [
+                        {
+                            titulo: 'Modelo ID', 
+                            nombre:'modeloId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/modelos',
+                            editable: false,
+                            foranea: {
+                                urlBuscar: '/api/vehiculos/modelos',
+                                propiedadElementoBuscar: 'id',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/vehiculos/modelos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'id Modelo'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                  
+                                ]
+                            }
+                        }
+                    ]
+                ]
+            },
+
+            //Final config de tabla version
+            //Inicio config modelo
+            BusquedaTablaModelo:{
+                encabezado:'Modelo',
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'},
+                    {propiedad: 'marcaId', titulo: 'Marca ID'}   
+                ],
+                tablaUrl: '/api/vehiculos/modelos',
+                tablaUrlEliminar: '/api/vehiculos/modelos',
+                tablaUrlActualizar: '/api/vehiculos/modelos',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'id', titulo: 'ID'},
+                        {value: 'marcaId', titulo: 'Marca ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                
+                inputsEditar: [
+                    
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: false, editable: false}
+                    ],
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true, obligatorio: true},
+                    ],
+                    [
+                        {
+                            titulo: 'Marca ID', 
+                            nombre:'marcaId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/marcas',
+                            editable: false,
+                            foranea: {
+                                urlBuscar: '/api/vehiculos/marcas',
+                                propiedadElementoBuscar: 'id',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/vehiculos/marcas',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'id Marca'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                  
+                                ]
+                            }
+                        }
+                    ]
+                ]
+            },
+            //Fin config modelo 
+            //Inicio config tipo
+             BusquedaTablaTipo:{
+                encabezado:'Tipo',
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                tablaUrl: '/api/vehiculos/tipos',
+                tablaUrlEliminar: '/api/vehiculos/tipos',
+                tablaUrlActualizar: '/api/vehiculos/tipos',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'id', titulo: 'ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                
+                inputsEditar: [
+                    
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: false, editable: false}
+                    ],
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: true, obligatorio: true},
+                    ]
+                ]
+            },
+            //Final config tipo
 
             // Menu de arriba
             opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
