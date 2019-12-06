@@ -215,27 +215,86 @@ export default {
     },
     
     methods: {
-        editarElementoSeleccionado: function(){
-            
-            this.mostrarPopupEditar = true;
-            this.configEditInputTemplate.inputs = this.inputsEditar;
+        editarElementoSeleccionado:async function(){
+        
+           
+
+          
+            //this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
             // [ [] ,  [] ,  [] ]
-            this.inputsEditar.forEach((arreglo, indexArreglo) => {
+         
+            //this.inputsEditar.map((arreglo, indexArreglo) => {
+            //arreglo.map((elemento, indexElemento) => {
+            //    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+                /*if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                    let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                    
+                    let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                    /*let respuesta = await axios.get(url)
+                    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                    console.log('YA TERMINE EL GET')
+                    .then((respuesta) => {return respuesta.data})
+                    .then((respuesta) => {
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                        
+                    })
+
+                }*/
+            //    })
+            //})
+
+            for(let elementoArreglo of this.inputsEditar){
+                for(let input of elementoArreglo){
+
+                    input.valor = this.elementoClickeado[input.nombre]
+
+                    if(typeof input.foranea !== 'undefined'){
+
+                        let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
+                        let respuesta = await axios.get(url)
+                        input.foranea.mostrar = respuesta.data.nombre
+                        
+                    }
+                }
+            }
+            
+            this.configEditInputTemplate.inputs = this.inputsEditar
+            this.mostrarPopupEditar = true;
+
+            /*this.inputsEditar.forEach(async (arreglo, indexArreglo) => {
                 // Itero sobre el arreglo de objetos
                 // [ {} , {}, {} ]
-                arreglo.forEach((elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
+                arreglo.forEach(async(elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
                     // Asigno el valor de  la propiedad correspondiente de elementoClickeado al valor inicial de un input
                     // Como ejemplo, al inicio del ciclo, una supuesta operacion sería esta
                     // configEditInputTemplate.inputs[0][0].valor = elementoClickeado.id;
                     
                     // Entonces el input que tiene el nombre 'id' tiene de valor el elemento 'id' del objeto elementoClickeado
                     this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+
+                    // Documentar esto pls
+                    if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                        let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                        
+                        let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                        let respuesta = await axios.get(url)
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                        console.log('YA TERMINE EL GET')
+                        /*.then((respuesta) => {return respuesta.data})
+                        .then((respuesta) => {
+                            this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                            
+                        })
+
+                    }
+
                     // El componente InputTemplate se encarga de renderizar todo esto correctamente
                   
                 })
-            })
+            })*/
+            
          
         },
         eliminarElementoSeleccionado: async function() {

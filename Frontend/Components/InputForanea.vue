@@ -1,7 +1,8 @@
 <template>
     <div id="contenedor">
         <div class="input-foraneo" @click="modoBusqueda(true)">
-            <h2>{{display}}</h2>
+            <h2>{{mostrarValor}}</h2>
+            
         </div>
         <!--input type="text" class="input-foraneo" v-model="display" >
         <h3 @click="modoBusqueda(true)">Buscar</h3-->
@@ -37,6 +38,11 @@ import axios from 'axios'
 
 export default {
     props: {
+        mostrar: {
+            type: String | Number,
+            
+        },
+        value: String | Number,
         url: String /*'/api/vehiculos/modelos'*/,
         buscarPor: String /*'nombre'*/,
         insertarPropiedad: String/*'id'*/,
@@ -54,7 +60,8 @@ export default {
     },
     data: ()=>{
         return{
-            display: 'Clic para buscar...',
+        
+            mostrarValor: '', // Lo que muestro al usuario, value es el valor que se utiliza para mandar al server
             mostrarPop: false,
             elementos: [],
             textoBuscar: ''   
@@ -63,7 +70,8 @@ export default {
     methods: {
         filaSeleccionada: function(elemento){
            
-            this.display = elemento[this.mostrarPropiedad]
+            this.mostrarValor = elemento[this.mostrarPropiedad]
+
             this.$emit('input', elemento[this.insertarPropiedad])
             this.mostrarPop = false
 
@@ -79,7 +87,7 @@ export default {
             console.log(params)
             axios.get(url, {params})
             .then(response =>{
-                
+
                 this.elementos = response.data
                 console.log(response)
             } )
@@ -94,8 +102,31 @@ export default {
     },
     created(){
         this.obtenerDatos()
+
+        if((this.value == null || this.value == '') && (this.mostrarValor == '')){
+        
+            this.mostrarValor = 'Clic para buscar...'
+
+        }else{
+            this.mostrarValor = this.mostrar
+            //console.log('hey',this.mostrar)
+            
+        }
+       
     },
-     components:{
+    computed:{
+        displayShow: function(){
+            return this.mostrarValor
+            
+        }
+    },
+    watch: {
+        mostrar: function(valor){
+            //this.mostrarValor = valor
+            console.log('FUA CHAVAL')
+        }
+    },
+    components:{
         Tabla,
         BusquedaInput
     }

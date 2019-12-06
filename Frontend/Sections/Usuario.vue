@@ -57,7 +57,7 @@ export default {
                 ],
                 tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'apellido'},
                 tablaUrl: '/api/usuarios/',
-                tablaUrlEliminar: '/api/usuarios/',
+                tablaUrlEliminar: '/api/usuarios',
                 tablaUrlActualizar: '/api/usuarios',
                 tablaPropiedadAEliminar: 'usuario',
                 tiposBusqueda: [
@@ -90,8 +90,10 @@ export default {
                             url:'/api/usuarios/',
                             editable: false,
                             foranea: {
-                                display: '',
-                                url: 'api/roles',
+                                urlBuscar: '/api/roles',
+                                propiedadElementoBuscar: 'rolId',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/roles',
                                 buscarPor: 'nombre',
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
