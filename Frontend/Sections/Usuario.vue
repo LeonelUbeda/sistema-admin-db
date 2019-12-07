@@ -11,7 +11,7 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> //
+                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
             </div>
         </transition>
         <transition  mode="out-in">
@@ -125,7 +125,7 @@ export default {
                 estilo: true,
                 inputs: [
                   [
-                      {titulo: 'Usuario', nombre:'usuario', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true}
+                      {titulo: 'Usuario', nombre:'usuario', tipo:'text', max: 50, validacion: false, uno:true, obligatorio: true}
                   ],  
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
@@ -138,7 +138,7 @@ export default {
                             tipo:'text', 
                             max: 9999, 
                             validacion: false, 
-                            uno:false, 
+                            uno:true, 
                             obligatorio: true, 
                             url:'/api/usuarios/',
                             editable: false,
@@ -152,10 +152,8 @@ export default {
                                   
                                 ]
                             }
-                      }
-                  ],
-                  [
-                      {titulo: 'Contraseña', nombre:'contrasena', tipo:'password', max: 100, validacion: false, uno:false} 
+                      },
+                      {titulo: 'Contraseña', nombre:'contrasena', tipo:'password', max: 100, validacion: false, uno:true, obligatorio: true} 
                   ]
                   
                 ]  
