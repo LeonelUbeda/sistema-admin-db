@@ -4,7 +4,7 @@
         
             <h1>Bienvenido</h1>
 
-            
+            {{this.$store.state.Permisos}}
     </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
     data: () => {
         return{
             nombre: 'Holi',
-            cliente: Array
-            
+            cliente: Array,
+            prueba: ''
         }
     },
     methods:{

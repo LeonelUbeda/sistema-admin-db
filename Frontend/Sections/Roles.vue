@@ -116,7 +116,7 @@ export default {
             EditRolesInfo: [],
             secciones: [],      // Lista de todas las secciones o mejor dicho, los "permisos"
             valoresIniciales: {},
-            rolId: 0, 
+            rolId: 0,
             rolEditar: {},
             rolEditarOld: {},
             modo: 'edicion',

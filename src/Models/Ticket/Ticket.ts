@@ -20,6 +20,7 @@ Ticket.init({
     },
     fechaFinal: {
         type: Sequelize.DATEONLY,
+        allowNull: true
     }
 }, {
     sequelize: database,

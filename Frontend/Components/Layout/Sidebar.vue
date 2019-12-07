@@ -5,52 +5,69 @@
                 <span class="texto">Inicio</span>
             </div>
         </router-link>  
-        <router-link to="/cliente">
+        <router-link to="/cliente" v-if="esAdmin || tieneAcceso('Clientes', 1)">
             <div class="boton">
                 <span class="texto">Cliente</span>
             </div>
         </router-link>
-        <router-link to="/login">
+        <router-link to="/marca" v-if="esAdmin || tieneAcceso('Marcas', 1)">
             <div class="boton">
-                <span class="texto">Login</span>
+                <span class="texto">Vehiculo</span>
             </div>
         </router-link>
-        <router-link to="/marca">
-            <div class="boton">
-                <span class="texto">Marca</span>
-            </div>
-        </router-link>
-        <router-link to="/roles">
+        <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">
             <div class="boton">
                 <span class="texto">Roles</span>
             </div>
         </router-link>
-        <router-link to="/servicios">
+        <router-link to="/servicios" v-if="esAdmin || tieneAcceso('Servicios', 1)">
             <div class="boton">
                 <span class="texto">Servicios</span>
             </div>
         </router-link>
-         <router-link to="/usuario">
+         <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
             <div class="boton">
                 <span class="texto">Usuarios</span>
             </div>
         </router-link>
+        <div class="boton cursor-pointer" @click="cerrarSesion">
+            Cerrar Sesion {{$store.state.Permisos.Admin}}
+        </div>
+
     </div>
 </template>
 
 <script>
 
 import themeColors from '../../assets/css/themeColors.css'
-
+import {esAdmin, tieneAcceso} from '../../Utils/verificaciones'
 
 
 export default {
     data: () => {
         return{
-            nombre: 'Holi',
+           
             
         }
-    }
+    },
+    methods: {
+        tieneAcceso(seccion, minimoRequerido){
+            return tieneAcceso(this.$store.state.Permisos, seccion, minimoRequerido)
+        },
+        cerrarSesion: function(){
+           
+            this.$store.dispatch('Logout')
+            this.$router.push('login')
+            
+        }
+    },
+    computed:{
+        esAdmin: function(){
+            return esAdmin(this.$store.state.Permisos)
+        },
+       
+    },
+
 }
 </script>
 

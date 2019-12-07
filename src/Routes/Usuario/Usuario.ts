@@ -14,7 +14,12 @@ import { Rol, Permiso } from '../../Models/Usuario/RolPermiso';
 
 // -------------------- Rutas Usuario --------------------
 
-router.get('/',         manejadorGenerico({modelo: Usuario,     accion: manejadorGenerico.LEER}))
+router.get('/',         manejadorGenerico({modelo: Usuario,     accion: manejadorGenerico.LEER, 
+    include: [{
+        model: Rol
+    }]
+    
+}))
 
 router.get('/:nombre',  manejadorGenerico({modelo: Usuario,     accion: manejadorGenerico.LEER_PARAMETROS}))
 

@@ -4,7 +4,8 @@ import {json} from 'body-parser'
 import dotenv from 'dotenv'
 import {join} from 'path'
 import verificarLogin from './Middlewares/verificarLogin'
-//import cors from 'cors'
+import cors from 'cors'
+import cookieParser from 'cookie-parser'
 dotenv.config()
 const app = express();
 
@@ -31,15 +32,16 @@ import RutaHerramienta from './Routes/Inventario/Herramienta'
 import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
 // -------------------- Middlewares --------------------
-//app.use(cors())
+app.use(cors())
+app.use(cookieParser())
 app.use(json())
-/*
+
 app.use('*', (req, res, next) => {
     setTimeout(() => {
         next()
-    }, 1000)
+    }, 500)
 })
-*/
+
 // -------------------- Rutas --------------------
 app.use('/api/clientes',        RutaCliente)
 app.use('/api/auth',            RutaAutenticacion)

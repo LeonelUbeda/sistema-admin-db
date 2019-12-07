@@ -13,7 +13,7 @@ Usuario.init({
     },
     rolId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     nombre: {
         type: Sequelize.STRING(50),

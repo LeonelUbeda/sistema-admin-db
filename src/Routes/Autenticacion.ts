@@ -24,7 +24,7 @@ router.post('/login', async (req: Request, res: Response) => {
         }
     } catch (error) {
         console.log(error)
-        res.send('NEL')
+        res.status(400).send('NEL')
     }
 })
 
@@ -41,5 +41,30 @@ router.get('/inicio', (req: Request, res: Response) => {
 })
 
 
+
+router.get('/verificar', (req: Request, res: Response) => {
+    try {
+        let cookie = typeof req.get('Auth') == 'undefined' ? req.cookies.JWT : req.get('Auth')
+        const resultado: any = jwt.verify(cookie, process.env.SECRET_KEY_JWT)
+        res.status(200).send('OK')
+    } catch (error) {
+        res.status(400).send('NO')
+    }
+})
+
+router.get('/sesionpermisos', (req: Request, res: Response) => {
+    try {
+        let cookie = typeof req.get('Auth') == 'undefined' ? req.cookies.JWT : req.get('Auth')
+        const resultado: any = jwt.verify(cookie, process.env.SECRET_KEY_JWT)
+        if(resultado.data.usuario == 'admin'){
+            res.json({Admin: true})
+        }else{
+            res.json(resultado.data.Rol)
+        }
+        
+    } catch (error) {
+        
+    }
+})
 
 export default router

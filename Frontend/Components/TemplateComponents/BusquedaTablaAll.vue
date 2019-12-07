@@ -251,10 +251,14 @@ export default {
                     input.valor = this.elementoClickeado[input.nombre]
 
                     if(typeof input.foranea !== 'undefined'){
-
-                        let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
-                        let respuesta = await axios.get(url)
-                        input.foranea.mostrar = respuesta.data.nombre
+                        
+                        if(this.elementoClickeado[input.foranea.propiedadElementoBuscar] !== null){
+                            
+                            let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
+                            let respuesta = await axios.get(url)
+                            input.foranea.mostrar = respuesta.data.nombre
+                        }
+                        
                         
                     }
                 }
