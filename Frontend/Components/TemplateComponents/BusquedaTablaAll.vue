@@ -23,10 +23,10 @@
                 @filaSeleccionada="filaSeleccionada"
                 ></Tabla>
             </div>
-            <div id="sidebar" class="flex flex-col sombra" >
+            <div id="sidebar" class="flex flex-col sombra" :hidden="esconderBusqueda==true" >
                 <div class="bloque-titulo flex items-center ">
                     <h2 class="ml-8 text-xl">Busqueda</h2>
-                </div>
+               </div>
                 <div class="flex items-center bg-white flex-col">
                     <div class="divisor"></div>
                     <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
@@ -82,6 +82,10 @@ import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
     props:{
+        esconderBusqueda: { //Esconde todo el cuadro de la derecha de buscar, solo muestra la tabla 
+            type: Boolean,
+            default: false
+        },
         encabezado: {
             type: String,
             default: 'PRIX PONELE TITULO'
