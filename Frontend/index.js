@@ -14,39 +14,21 @@ const router = new VueRouter({
 })
 
 
-const iniciarSesion = async (usuario, contrasena) => {
-    axios.post('api/auth/login', {
-        usuario: "leonel",
-        contrasena: "leonel"
-    })
-    .then(respuesta => {
-        setCookie('JWT', respuesta.data, 15)
-        return respuesta.data
-    })
-}
 
 async function verificar(){
     try {
+        store.commit('LoadingTrue')
         // Verifica si existe una sesion, o mejor dicho, si el JWT que esta en cookies todavia es valido
         let respuesta = await axios.get('/api/auth/verificar')
         store.commit('LogginTrue')
         await store.dispatch('Permisos')
+        console.log('Termino el dispatch')
     } catch (error) {
         console.log('Token no valido')
         
     }finally {
+        console.log('Estado de la aplicacion: Carga = false')
         store.commit('LoadingFalse')
-    }
-}
-
-async function obtenerPermisos(){
-    try {
-        let respuesta = await axios.get('/api/auth/sesionpermisos')
-        if(respuesta.data == null){
-            console.log('NO TIENES ROL')
-        }
-    } catch (error) {
-        
     }
 }
 

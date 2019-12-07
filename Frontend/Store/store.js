@@ -45,27 +45,27 @@ export default new Vuex.Store({
         },
         async Permisos (context) {
                 try {
-                    console.log('Pasando por dispatch Permisos')
+                    context.commit('LoadingTrue')
                     let respuesta = await axios.get('/api/auth/sesionpermisos')
+                    console.log('Pasando por dispatch Permisos')
                     if(respuesta.data !== null ){
-                        console.log('NO ES NULLO ')
+                        console.log('El usuario tiene un rol, asignando roles...')
                         if(respuesta.data.Admin === true){
                             context.commit('AdminMode')
                         }else{
                             context.commit('PermisosIgual', respuesta.data)
                         }
                     }else{
-                        console.log('SI ES NULLO ')
+                        console.log('El usuario no tiene un rol!')
                         context.commit('SinPermisos')
-                        console.log('NO TIENES ROL')
+                   
                         
-                    }
-                    context.commit('LoadingFalse')
-                    
-                    
-                    
+                    }                                 
                 } catch (error) {
                     console.log(error)
+                }finally{
+                    context.commit('LoadingFalse')
+                    console.log('Proceso de asignacion de roles terminado!')
                 }
         
 

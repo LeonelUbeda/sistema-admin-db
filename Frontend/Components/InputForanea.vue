@@ -15,7 +15,7 @@
                     style="width: 350px"></BusquedaInput>
                 </div>
                 
-                    <div class="divisor mt-3" style="width: 100%"></div>
+                <div class="divisor mt-3" style="width: 100%"></div>
                
                 <Tabla :sombra="false" class="mt-6" :elementos="elementos" :titulos="propiedadesMostrarTabla" @filaSeleccionada="filaSeleccionada"></Tabla>
                 <div class="flex width-100 justify-center">

@@ -45,10 +45,12 @@ app.use(cors())
 app.use(cookieParser())
 app.use(json())
 
+
+// DELAY PARA SIMULAR RESPUESTA REMOTA
 app.use('*', (req, res, next) => {
     setTimeout(() => {
         next()
-    }, 500)
+    }, 1000)
 })
 
 // -------------------- Rutas --------------------

@@ -5,14 +5,14 @@
                 <span class="texto">Inicio</span>
             </div>
         </router-link>  
-        <router-link to="/cliente" v-if="esAdmin || tieneAcceso('Clientes', 1)">
+        <router-link to="/clientes" v-if="esAdmin || tieneAcceso('Clientes', 1)">
             <div class="boton">
                 <span class="texto">Cliente</span>
             </div>
         </router-link>
-        <router-link to="/marca" v-if="esAdmin || tieneAcceso('Marcas', 1)">
+        <router-link to="/vehiculos" v-if="esAdmin || tieneAcceso('Vehiculos', 1)">
             <div class="boton">
-                <span class="texto">Vehiculo</span>
+                <span class="texto">Vehiculos</span>
             </div>
         </router-link>
         <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">

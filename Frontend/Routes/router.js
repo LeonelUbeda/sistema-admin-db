@@ -3,7 +3,7 @@
 import Inicio from '../Sections/Inicio'
 import Login from '../Sections/Login'
 import Cliente from '../Sections/Cliente'
-import Marca from '../Sections/Marca'
+import Vehiculo from '../Sections/Vehiculo'
 import Roles from '../Sections/Roles'
 import Servicio from '../Sections/Servicio'
 import Usuario from '../Sections/Usuario'
@@ -20,14 +20,14 @@ export default [
         name: 'login'
     },
     {
-        path: '/cliente',
+        path: '/clientes',
         component: Cliente,
         name: 'cliente'
     },
     {
-        path: '/marca',
-        component: Marca,
-        name: 'marca'
+        path: '/vehiculos',
+        component: Vehiculo,
+        name: 'vehiculo'
     },
     {
         path: '/roles',
