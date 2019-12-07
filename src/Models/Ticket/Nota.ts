@@ -1,6 +1,6 @@
 import Sequelize, {Model} from 'sequelize'
 import database from '../../Database/database'
-import Ticket from './RespuestoCliente'
+import Ticket from './RepuestoCliente'
 
 class Nota extends Model{}
 Nota.init({
@@ -23,7 +23,7 @@ Nota.init({
     }
 }, {
     sequelize: database,
-    modelName: 'categoria'
+    modelName: 'nota'
 })
 
 Nota.belongsTo(Ticket, {foreignKey: 'ticketId', targetKey: 'id'})
