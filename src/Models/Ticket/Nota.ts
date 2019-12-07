@@ -23,7 +23,8 @@ Nota.init({
     }
 }, {
     sequelize: database,
-    modelName: 'nota'
+    modelName: 'nota',
+    schema: 'ticket'
 })
 
 Nota.belongsTo(Ticket, {foreignKey: 'ticketId', targetKey: 'id'})

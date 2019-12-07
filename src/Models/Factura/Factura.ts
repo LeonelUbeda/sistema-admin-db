@@ -35,7 +35,8 @@ Factura.init({
     }
 }, {
     sequelize: database,
-    tableName: 'factura'
+    tableName: 'factura',
+    schema: 'ventas'
 })
 
 Factura.belongsTo(Ticket, {

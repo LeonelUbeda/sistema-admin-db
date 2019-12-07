@@ -27,7 +27,8 @@ RepuestoCliente.init({
     }
 }, {
     sequelize: database,
-    modelName: 'repuestocliente'
+    modelName: 'repuestocliente',
+    schema: 'ticket'
 })
 
 RepuestoCliente.belongsTo(Ticket, {foreignKey: 'ticketId', targetKey: 'id'})

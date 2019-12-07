@@ -25,7 +25,8 @@ Cotizacion.init({
     },
 }, {
     sequelize: database,
-    tableName: 'cotizacion'
+    tableName: 'cotizacion',
+    schema: 'ventas'
 })
 
 Usuario.hasMany(Cotizacion, {

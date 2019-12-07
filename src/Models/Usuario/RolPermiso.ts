@@ -18,7 +18,8 @@ Rol.init({
     }
 }, {
     sequelize: database,
-    tableName: 'rol'
+    tableName: 'rol',
+    schema: 'sistema'
 })
 
 
@@ -37,7 +38,8 @@ Permiso.init({
     }
 }, {
     sequelize: database,
-    tableName: 'permiso'
+    tableName: 'permiso',
+    schema: 'sistema'
 })
 
 
@@ -55,7 +57,8 @@ RolPermiso.init({
     }
 }, {
     sequelize: database,
-    tableName: 'rolpermiso'
+    tableName: 'rolpermiso',
+    schema: 'sistema'
 })
 
 

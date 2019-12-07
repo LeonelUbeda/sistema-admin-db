@@ -32,6 +32,11 @@ import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
 import RutaTicket from './Routes/Ticket/Ticket'
 import RutaTicketServicio from './Routes/Ticket/TicketServicio'
+
+// --------------------- Schemas ---------------------
+import CreateSchemas from './Schemas/Schemas'
+CreateSchemas()
+
 // -------------------- Middlewares --------------------
 //app.use(cors())
 app.use(json())
@@ -69,7 +74,7 @@ app.use('*', (req, res) => {
 
 
 // Para eliminar y crear la base de datos
-//database.sync({force: true})
+// database.sync({force: true})
 
 // -------------------- Verificar DB --------------------
 database.authenticate()

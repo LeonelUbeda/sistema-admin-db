@@ -22,7 +22,8 @@ Modelo.init({
     }
 }, {
     sequelize: database,
-    modelName: 'modelo'
+    modelName: 'modelo',
+    schema: 'vehiculo'
 })
 
 Modelo.belongsTo(Marca, {foreignKey: 'marcaId', targetKey: 'id'} )
