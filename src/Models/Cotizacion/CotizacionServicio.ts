@@ -20,7 +20,7 @@ CotizacionServicio.init({
   },
 }, {
     sequelize: database,
-    tableName: 'cotizacion',
+    tableName: 'cotizacionservicio',
     schema: 'ventas'
 })
 

@@ -14,6 +14,10 @@ Ticket.init({
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    clienteId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     fechaInicio: {
         type: Sequelize.DATEONLY,
         allowNull: true

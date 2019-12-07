@@ -1,6 +1,6 @@
 import Sequelize, {Model} from 'sequelize'
 import database from '../../Database/database'
-import Usuario from '../Usuario/Usuario'
+import Cliente from '../Cliente';
 
 
 
@@ -23,13 +23,16 @@ Cotizacion.init({
         allowNull: false,
         defaultValue: Sequelize.NOW
     },
+    clienteId: {
+        type: Sequelize.INTEGER
+    }
 }, {
     sequelize: database,
     tableName: 'cotizacion',
     schema: 'ventas'
 })
 
-Usuario.hasMany(Cotizacion, {
+Cliente.hasMany(Cotizacion, {
   foreignKey: 'clienteId'
 })
 
