@@ -21,7 +21,8 @@ async function verificar(){
         // Verifica si existe una sesion, o mejor dicho, si el JWT que esta en cookies todavia es valido
         let respuesta = await axios.get('/api/auth/verificar')
         store.commit('LogginTrue')
-        await store.dispatch('Permisos')
+
+        await Promise.all([store.dispatch('Permisos'),store.dispatch('InformacionUsuario')])
         console.log('Termino el dispatch')
     } catch (error) {
         console.log('Token no valido')

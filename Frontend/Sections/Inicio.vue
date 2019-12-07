@@ -2,7 +2,7 @@
 <template>
     <div>
         
-            <h1>Bienvenido</h1>
+            <h1>Bienvenido {{$store.state.Usuario.nombre}}</h1>
 
             {{this.$store.state.Permisos}}
     </div>

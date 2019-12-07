@@ -29,6 +29,9 @@ export default new Vuex.Store({
             }
             state.Permisos = permisosFormateado
         },
+        InfoUsuario (state, permisos){
+            state.Usuario = permisos
+        },
         AdminMode (state) {
             state.Permisos.admin = true
         },
@@ -70,6 +73,14 @@ export default new Vuex.Store({
         
 
            
+        },
+        async InformacionUsuario(context){
+            try {
+                let respuesta = await axios.get('/api/auth/info')
+                context.commit('InfoUsuario', respuesta.data)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 })
