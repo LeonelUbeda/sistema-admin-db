@@ -6,9 +6,6 @@ const {database, user, password, host} = CredencialesDatabase;
 
 
 
-
-
-
 const sequelize = new Sequelize(database, user, password, {
     host,
     dialect: /*'mysql',*/'mysql',

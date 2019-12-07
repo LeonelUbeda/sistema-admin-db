@@ -487,7 +487,9 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'cedula', titulo: 'Cedula'},
                                     {propiedad: 'nombre', titulo: 'Nombre'},
+                                    {propiedad: 'apellido', titulo: 'Apellido'}
                                   
                                 ]
                             }

@@ -11,7 +11,7 @@
         <div class="flex flex-col">
 
             <input type="text" v-model="usuario" placeholder="Usuario">
-            <input type="text" v-model="contrasena" placeholder="Contraseña">
+            <input type="password" v-model="contrasena" placeholder="Contraseña">
         </div>
         <h2 @click="enviar">ENVIAR</h2>
     </div>
@@ -46,7 +46,7 @@ export default {
                 this.terminado = true
                 // Almacena la informacion en una Cookie llamada JWT
                 setCookie('JWT', respuesta.data, 15)
-
+              
                 // Obtiene los permisos de la sesion
                 await this.$store.dispatch('Permisos')
                 this.$router.push('inicio')

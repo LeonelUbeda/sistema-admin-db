@@ -69,8 +69,8 @@ export default {
                     {propiedad: 'cedula', titulo: 'Cédula'}
                 ],
                 busquedaDefault: 'nombre',
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+               // mostrarOpcionEditar: false,
+                //mostrarOpcionEliminar: true,
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
@@ -141,7 +141,13 @@ export default {
        
     },
     created(){
-    
+      
+        if(typeof this.$store.state.Permisos.Clientes !== 'undefined')
+        {
+            this.BusquedaTablaAllConfig.mostrarOpcionEditar = true;
+            this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+        }
+        
     }
 }
 </script>
