@@ -11,7 +11,7 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> //
+                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> 
             </div>
         </transition>
         <transition  mode="out-in">
@@ -53,7 +53,7 @@ export default {
                     {propiedad: 'usuario', titulo: 'Usuario'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}, 
                     {propiedad: 'apellido', titulo: 'Apellido'},
-                    {propiedad: 'rolId', titulo: 'Rol'},
+                    {propiedad: 'Rol.nombre', titulo: 'Rol', foranea: {propiedadRelacion: 'Rol', propiedadMostrar: 'nombre'}},
                 ],
                 tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'apellido'},
                 tablaUrl: '/api/usuarios/',
@@ -62,7 +62,8 @@ export default {
                 tablaPropiedadAEliminar: 'usuario',
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
-                        {value: 'rolId', titulo: 'Rol ID'},{value: 'usuario', titulo: 'Usuario'}],
+                        {value: 'usuario', titulo: 'Usuario'},
+                        {value: 'rol.nombre', titulo: 'Rol'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [

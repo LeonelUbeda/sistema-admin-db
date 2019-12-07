@@ -16,13 +16,30 @@
                 :opcionSeleccionada="opcionSeleccionadaBusqueda"
                 @elementoSeleccionado="clickOpcionesBusqueda">
                 </TopSection>
-                    <br>
-                    
-                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Marca'" v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll> <!--Marca  -->
-                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Modelo'" v-bind="BusquedaTablaModelo" ></BusquedaTablaAll> <!--Modelo  -->
-                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Version'" v-bind="BusquedaTablaVersion" ></BusquedaTablaAll>  <!--Version  -->
-                        <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Tipo'" v-bind="BusquedaTablaTipo" ></BusquedaTablaAll>  <!--Tipo  -->
-     
+                <br>
+            
+                <BusquedaTablaAll  
+                v-bind="BusquedaTablaAllConfig" 
+                v-if="opcionSeleccionadaBusqueda === 'Marca'" 
+                :key="'BusquedaTablaAllConfig'" > <!--Marca  -->
+                </BusquedaTablaAll>
+                
+              
+                <BusquedaTablaAll 
+                v-bind="BusquedaTablaModelo" 
+                v-if="opcionSeleccionadaBusqueda === 'Modelo'" 
+                :key="'BusquedaTablaModelo'">
+                </BusquedaTablaAll> <!--Modelo  -->
+              
+
+                <BusquedaTablaAll 
+                v-if="opcionSeleccionadaBusqueda === 'Version'" 
+                v-bind="BusquedaTablaVersion" 
+                :key="'BusquedaTablaVersion'">
+                </BusquedaTablaAll>  <!--Version  -->
+
+                <BusquedaTablaAll v-if="opcionSeleccionadaBusqueda === 'Tipo'" v-bind="BusquedaTablaTipo" >
+                </BusquedaTablaAll>  <!--Tipo  -->
             </div>
         </transition>
         <transition  mode="out-in">
@@ -39,7 +56,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Modelo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearModelo">
+                <InputTemplate v-bind="configCrearModelo" >
                 </InputTemplate>
             </div>
         </transition>
@@ -135,12 +152,11 @@ export default {
             },
             //Inicio config de tabla version
             BusquedaTablaVersion:{
-                esconderBusqueda: false,
                 encabezado:'Version',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'},
-                    {propiedad: 'modeloId', titulo: 'Modelo ID'}   
+                    {propiedad: 'modelo.nombre', titulo: 'Modelo', foranea: {propiedadRelacion: 'modelo', propiedadMostrar: 'nombre'}}   
                 ],
                 tablaUrl: '/api/vehiculos/versiones',
                 tablaUrlEliminar: '/api/vehiculos/versiones',
@@ -149,7 +165,7 @@ export default {
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},
                         {value: 'id', titulo: 'ID'},
-                        {value: 'modeloId', titulo: 'Modelo ID'}],
+                        {value: 'modelo.nombre', titulo: 'Modelo'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [
@@ -198,14 +214,14 @@ export default {
             },
 
             //Final config de tabla version
+
             //Inicio config modelo
             BusquedaTablaModelo:{
-                esconderBusqueda: false,
                 encabezado:'Modelo',
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'},
-                    {propiedad: 'marcaId', titulo: 'Marca ID'}   
+                    {propiedad: 'marca.nombre', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}} 
                 ],
                 tablaUrl: '/api/vehiculos/modelos',
                 tablaUrlEliminar: '/api/vehiculos/modelos',
@@ -214,7 +230,7 @@ export default {
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},
                         {value: 'id', titulo: 'ID'},
-                        {value: 'marcaId', titulo: 'Marca ID'}],
+                        {value: 'marca.nombre', titulo: 'Marca'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,
                 titulosClick: [
@@ -304,9 +320,6 @@ export default {
             //Menu de Tablas
             opcionesBusqueda: ['Marca', 'Modelo', 'Version', 'Tipo'],
             opcionSeleccionadaBusqueda: 'Marca',
-
-
-
 
             // Configuracion de inputs para crear Marcas
             configCrearMarca: {
@@ -537,9 +550,11 @@ export default {
 
        
     },
+    
     created(){
     
     }
+    
 }
 </script>
 

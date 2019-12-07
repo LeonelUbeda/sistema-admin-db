@@ -5,8 +5,20 @@ export const factoryModelTodos = ({ modelo,  include = [] }) =>  {  // Solo para
         let busquedaSubstring = {}
         
         for(let propiedad in busqueda){
-            busquedaSubstring[propiedad] = (propiedad.slice(propiedad.length-2) === 'Id' || propiedad === 'id') ? busqueda[propiedad] : { [Op.substring] : busqueda[propiedad] }  
-        }
+            if(propiedad.includes('.')){
+                let nuevoString =  '$'+ propiedad + '$'
+                busquedaSubstring[nuevoString] = {
+                    [Op.substring] : busqueda[propiedad]
+                }
+            }else{
+                busquedaSubstring[propiedad] = (propiedad.slice(propiedad.length-2) === 'Id' || propiedad === 'id') ? busqueda[propiedad] : { [Op.substring] : busqueda[propiedad] }  
+            }
+            console.log(propiedad, busqueda[propiedad])
+        }//'$items.itemId$': itemParam
+        
+        /*busquedaSubstring['$rol.nombre$'] = {
+            [Op.substring] : 'ca'
+        }*/
         try {
             const respuesta = await modelo.findAll({
                 where: busquedaSubstring,

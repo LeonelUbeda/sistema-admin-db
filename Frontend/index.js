@@ -32,9 +32,10 @@ async function verificar(){
         store.commit('LogginTrue')
         await store.dispatch('Permisos')
     } catch (error) {
-        console.log('ERROR VERIFICAR')
-    }finally {
+        console.log('Token no valido')
         
+    }finally {
+        store.commit('LoadingFalse')
     }
 }
 

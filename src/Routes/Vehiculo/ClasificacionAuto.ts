@@ -21,7 +21,7 @@ router.delete('/marcas/:id',   manejadorGenerico({modelo: Marca,     accion: man
 // -------------------- Rutas Marca/Modelo --------------------
 
 // Obtener modelos de una marca
-router.get('/marcas/:marcaId/modelos',         manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.LEER_PARAMETROS}))
+router.get('/marcas/:marcaId/modelos',         manejadorGenerico({modelo: Modelo,      accion: manejadorGenerico.LEER_PARAMETROS}))
 
 // Crear un modelo con la marca especificada
 router.post('/marcas/:marcaId/modelos',        manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.CREAR}))
@@ -31,7 +31,11 @@ router.delete('/marcas/:marcaId/modelos',      manejadorGenerico({modelo: Modelo
 
 
 // -------------------- Rutas Modelo --------------------
-router.get('/modelos',         manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.LEER}))
+router.get('/modelos',         manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.LEER,
+    include: [{
+        model: Marca
+    }]
+}))
 router.get('/modelos/:id',     manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.LEER_POR_ID}))
 router.put('/modelos/:id',     manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.ACTUALIZAR_POR_ID}))
 router.delete('/modelos/:id',  manejadorGenerico({modelo: Modelo,     accion: manejadorGenerico.ELIMINAR_POR_ID}))
@@ -52,7 +56,11 @@ router.delete('/modelos/:modeloId/versiones', manejadorGenerico({modelo: Version
 
 
 // -------------------- Rutas Version --------------------
-router.get('/versiones',         manejadorGenerico({modelo: Version,     accion: manejadorGenerico.LEER}))
+router.get('/versiones',         manejadorGenerico({modelo: Version,     accion: manejadorGenerico.LEER,
+    include: [{
+        model: Modelo
+    }]
+}))
 router.get('/versiones/:id',     manejadorGenerico({modelo: Version,     accion: manejadorGenerico.LEER_POR_ID}))
 router.put('/versiones/:id',     manejadorGenerico({modelo: Version,     accion: manejadorGenerico.ACTUALIZAR_POR_ID}))
 router.delete('/versiones/:id',  manejadorGenerico({modelo: Version,     accion: manejadorGenerico.ELIMINAR_POR_ID}))

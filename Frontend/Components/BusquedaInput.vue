@@ -24,7 +24,10 @@ export default {
         }
     },
     props:{
-        placeholder: String,
+        placeholder:{
+            type: String,
+            default: 'Clic para buscar'
+        },
         inputTexto: String
     },
     methods:{
@@ -53,12 +56,12 @@ export default {
 }
 #contenedor-input{
     
-    border-radius: 50px;
+    border-radius: 10px;
     width: 100%;
     display: flex;
     align-items: center;
     input{
-        padding-left: 20px;
+        padding-left: 10px;
         outline: none;
         height: 30px;
         width: 85%;

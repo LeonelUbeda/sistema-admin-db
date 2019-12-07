@@ -29,7 +29,9 @@
                </div>
                 <div class="flex items-center bg-white flex-col">
                     <div class="divisor"></div>
-                    <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
+                    <div class="flex justify-center mb-3" style="width: 90%">
+                        <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
+                    </div>
                     <div style="width: 90%">
                         <BusquedaInput ref="BusquedaInputRef" @buscar="busquedaSearchBar"></BusquedaInput>
                     </div>
@@ -220,10 +222,6 @@ export default {
     
     methods: {
         editarElementoSeleccionado:async function(){
-        
-           
-
-          
             //this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
@@ -399,6 +397,7 @@ export default {
         this.tablaTitulos =                     config.tabla.tablaTitulos*/
         
     },
+    
     components: {
         TopSection,
         Tabla,
