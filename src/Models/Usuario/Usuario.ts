@@ -28,7 +28,8 @@ Usuario.init({
     }
 }, {
     sequelize: database,
-    tableName: 'usuario'
+    tableName: 'usuario',
+    schema: 'sistema'
 })
 
 Usuario.belongsTo(Rol, {

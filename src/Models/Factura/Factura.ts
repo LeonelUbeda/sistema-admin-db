@@ -30,12 +30,13 @@ Factura.init({
         defaultValue: false
     },
     total: {
-      type: Sequelize.FLOAT(10,2),
+      type: Sequelize.FLOAT(12,2),
       allowNull: false
     }
 }, {
     sequelize: database,
-    tableName: 'factura'
+    tableName: 'factura',
+    schema: 'ventas'
 })
 
 Factura.belongsTo(Ticket, {

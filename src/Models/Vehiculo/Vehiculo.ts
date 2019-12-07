@@ -37,7 +37,8 @@ Vehiculo.init({
     }
 }, {
     sequelize: database,
-    modelName: 'auto'
+    modelName: 'auto',
+    schema: 'vehiculo'
 })
 
 Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id'})

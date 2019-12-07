@@ -35,7 +35,8 @@ Cliente.init({
     
 }, {
     sequelize: database,
-    modelName: 'cliente'
+    modelName: 'cliente',
+    schema: 'cliente'
 })
 
 

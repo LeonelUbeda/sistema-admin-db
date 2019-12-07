@@ -17,7 +17,8 @@ Tipo.init({
     }
 }, {
     sequelize: database,
-    modelName: 'tipo'
+    modelName: 'tipo',
+    schema: 'vehiculo'
 })
 
 

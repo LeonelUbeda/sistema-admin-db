@@ -14,6 +14,10 @@ Ticket.init({
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    clienteId: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     fechaInicio: {
         type: Sequelize.DATEONLY,
         allowNull: true
@@ -24,7 +28,8 @@ Ticket.init({
     }
 }, {
     sequelize: database,
-    modelName: 'categoria'
+    modelName: 'ticket',
+    schema: 'ticket'
 })
 
 Ticket.belongsTo(Cliente, {foreignKey: 'clienteId', targetKey: 'id'})

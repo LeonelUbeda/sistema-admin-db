@@ -13,9 +13,15 @@ CotizacionServicio.init({
         type: Sequelize.FLOAT(10,2),
         allowNull: false
     },
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+  },
 }, {
     sequelize: database,
-    tableName: 'cotizacion'
+    tableName: 'cotizacionservicio',
+    schema: 'ventas'
 })
 
 Servicio.belongsToMany(Cotizacion, {

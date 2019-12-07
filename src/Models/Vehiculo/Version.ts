@@ -22,7 +22,8 @@ Version.init({
     }
 }, {
     sequelize: database,
-    modelName: 'version'
+    modelName: 'version',
+    schema: 'vehiculo'
 })
 
 Version.belongsTo(Modelo, {foreignKey: 'modeloId', targetKey: 'id'} )

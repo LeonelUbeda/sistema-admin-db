@@ -31,6 +31,15 @@ import RutaVehiculo from './Routes/Vehiculo/Vehiculo'
 import RutaHerramienta from './Routes/Inventario/Herramienta'
 import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
+import RutaTicket from './Routes/Ticket/Ticket'
+import RutaTicketServicio from './Routes/Ticket/TicketServicio'
+import RutaCotizacion from './Routes/Cotizacion/Cotizacion'
+import RutaCotizacionServicio from './Routes/Cotizacion/CotizacionServicio'
+
+// --------------------- Schemas ---------------------
+import CreateSchemas from './Schemas/Schemas'
+CreateSchemas()
+
 // -------------------- Middlewares --------------------
 app.use(cors())
 app.use(cookieParser())
@@ -57,6 +66,10 @@ app.use('/api/vehiculos',               RutaVehiculo)
 app.use('/api/herramienta',             RutaHerramienta)
 app.use('/api/herramienta/categorias',  RutaCategoriaHerramienta)
 app.use('/api/insumo',                  RutaInsumo)
+app.use('/api/tickets/',                RutaTicket)
+app.use('/api/ticketservicio/',         RutaTicketServicio)
+app.use('/api/cotizacion',              RutaCotizacion)
+app.use('/api/cotizacionservicio/',     RutaCotizacionServicio)
 
 app.use(express.static(join(__dirname, '../public')))
 
@@ -67,7 +80,7 @@ app.use('*', (req, res) => {
 
 
 // Para eliminar y crear la base de datos
-//database.sync({force: true})
+// database.sync({force: true})
 
 // -------------------- Verificar DB --------------------
 database.authenticate()
