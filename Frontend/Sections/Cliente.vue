@@ -69,8 +69,8 @@ export default {
                     {propiedad: 'cedula', titulo: 'Cédula'}
                 ],
                 busquedaDefault: 'nombre',
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
@@ -91,7 +91,7 @@ export default {
             },
 
             // Menu de arriba
-            opciones: ['Buscar','Crear Cliente'],
+            opciones: [],
             opcionSeleccionada: 'Buscar', 
 
             // Configuracion de inputs para crear Clientes
@@ -141,7 +141,29 @@ export default {
        
     },
     created(){
-    
+
+        /* ------------- PERMISOS DE LA SECCION ------------- */
+        // Si el usuario tiene permisos en Clientes, entonces...
+        if(this.$store.state.Permisos.hasOwnProperty('Clientes')){
+            switch (this.$store.state.Permisos.Clientes) {
+                case 4:
+                    this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+                case 3: 
+                    this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
+                case 2:
+                    this.opciones.push('Crear Cliente')
+                case 1:
+                    this.opciones.push('Buscar')
+                case 0:
+                    break;
+                default:
+                    break
+            }
+        }
+        if(this.$store.state.Permisos.hasOwnProperty('admin')){
+            this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
+            this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+        }
     }
 }
 </script>
