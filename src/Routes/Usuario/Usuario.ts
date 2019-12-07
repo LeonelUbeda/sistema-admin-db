@@ -1,6 +1,6 @@
 import {Router, Response, Request} from 'express'
 const router = Router();
-
+import jwt from 'jsonwebtoken'
 import manejadorGenerico from '../../Controllers/manejadorGenerico'
 import Usuario from '../../Models/Usuario/Usuario';
 
@@ -52,6 +52,7 @@ router.post('/', async (req: Request, res: Response) => {
     }
 })
 
+
 // Actualizar un usuario.   Obligatorio: usuario     Opcional: campos a actualizar
 router.put('/:usuario', async (req: Request, res: Response) => {
     let {contrasena, ...elemento} = req.body;
@@ -60,20 +61,32 @@ router.put('/:usuario', async (req: Request, res: Response) => {
     let objetoAMandar = {
         ...elemento
     }
+    // Si en el body del request existe contraseña entonces se añade la propiedad contraseña
+    // y su respectivo valor al objeto objetoAMandar
     if(typeof contrasena !== 'undefined'){
         objetoAMandar.contrasena = contrasena ? encriptar(contrasena) : null
     }
-    
-
-
     try {
-        const resultado = await usuarioActualizar(objetoAMandar, {usuario})
-        res.status(201).json(resultado)
+        let cookie = typeof req.get('Auth') == 'undefined' ? req.cookies.JWT : req.get('Auth')
+        const resultadoJWT: any = jwt.verify(cookie, process.env.SECRET_KEY_JWT)
+        // Si el usuario que solicita modificar es el mismo que esta en el token 
+        //(o mejor dicho, el que esta en la sesion), entonces...
+        // O si el de la sesion es el usuario admin...
+        if(usuario == resultadoJWT.data.usuario || resultadoJWT.data.usuario == 'admin'){
+            const resultado = await usuarioActualizar(objetoAMandar, {usuario})
+            res.status(201).json(resultado)
+        }else{
+            throw 'Se esta intentando editar un usuario sin los permisos suficientes'
+        }
+        
+        
     } catch (error) {
         console.log(error)
         res.status(400).json({mensaje: 'Error'})
     }
 })
+
+
 
 router.delete('/:usuario', manejadorGenerico({modelo: Usuario, accion: manejadorGenerico.ELIMINAR_POR_PARAMETROS}))
 

@@ -40,7 +40,19 @@ router.get('/inicio', (req: Request, res: Response) => {
 
 })
 
-
+router.get('/info', (req: Request, res: Response) => {
+    try {
+        let cookie = typeof req.get('Auth') == 'undefined' ? req.cookies.JWT : req.get('Auth')
+        const resultado: any = jwt.verify(cookie, process.env.SECRET_KEY_JWT)
+        res.status(200).json({
+            nombre: resultado.data.nombre,
+            apellido: resultado.data.apellido,
+            usuario: resultado.data.usuario
+        })
+    } catch (error) {
+        res.status(400).json({mensaje: 'Cookie invalida'})
+    }
+})
 
 router.get('/verificar', (req: Request, res: Response) => {
     try {
