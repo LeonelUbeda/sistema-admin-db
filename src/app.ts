@@ -30,6 +30,8 @@ import RutaVehiculo from './Routes/Vehiculo/Vehiculo'
 import RutaHerramienta from './Routes/Inventario/Herramienta'
 import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
+import RutaTicket from './Routes/Ticket/Ticket'
+import RutaTicketServicio from './Routes/Ticket/TicketServicio'
 // -------------------- Middlewares --------------------
 //app.use(cors())
 app.use(json())
@@ -55,6 +57,8 @@ app.use('/api/vehiculos',               RutaVehiculo)
 app.use('/api/herramienta',             RutaHerramienta)
 app.use('/api/herramienta/categorias',  RutaCategoriaHerramienta)
 app.use('/api/insumo',                  RutaInsumo)
+app.use('/api/tickets/',                RutaTicket)
+app.use('/api/ticketservicio/',         RutaTicketServicio)
 
 app.use(express.static(join(__dirname, '../public')))
 

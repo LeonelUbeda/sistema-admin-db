@@ -23,7 +23,7 @@ Ticket.init({
     }
 }, {
     sequelize: database,
-    modelName: 'categoria'
+    modelName: 'ticket'
 })
 
 Ticket.belongsTo(Cliente, {foreignKey: 'clienteId', targetKey: 'id'})
