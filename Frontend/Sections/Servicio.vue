@@ -129,7 +129,31 @@ export default {
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: false, uno:false, obligatorio: true},
-                      {titulo: 'Categoria', nombre:'categoriaId', tipo:'number', max: 99 ,  validacion: false, uno:false, obligatorio: true}
+                      {
+                           titulo: 'Categoria', 
+                            nombre:'categoriaId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/servicios/categorias',
+                            editable: false,
+                            foranea: {
+                                urlBuscar: '/api/servicios/categorias',
+                                propiedadElementoBuscar: 'id',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/servicios/categorias',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'id Rol'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                  
+                                ]
+                            }
+                      }
                   ],
                   [
                       {titulo: 'Descripcion', nombre:'descripcion', tipo:'text', max: 200, validacion: false, uno:false}
@@ -168,7 +192,26 @@ export default {
         InputTemplate
     },
     created(){
-    
+           if(this.$store.state.Permisos.hasOwnProperty('Servicios')){
+            switch (this.$store.state.Permisos.Servicios) {
+                case 4:
+                    this.BusquedaTablaAllConfigServ.mostrarOpcionEliminar = true
+                case 3: 
+                    this.BusquedaTablaAllConfigServ.mostrarOpcionEditar = true
+                case 2:
+                    this.opciones.push('Crear Servicios')
+                case 1:
+                    this.opciones.push('Buscar')
+                case 0:
+                    break;
+                default:
+                    break
+            }
+        }
+        if(this.$store.state.Permisos.hasOwnProperty('admin')){
+            this.BusquedaTablaAllConfigServ.mostrarOpcionEditar = true
+            this.BusquedaTablaAllConfigServ.mostrarOpcionEliminar = true;
+        }
     }
 }
 </script>

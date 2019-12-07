@@ -50,7 +50,7 @@ app.use(json())
 app.use('*', (req, res, next) => {
     setTimeout(() => {
         next()
-    }, 1000)
+    }, 0)
 })
 
 // -------------------- Rutas --------------------
