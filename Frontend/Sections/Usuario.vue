@@ -174,8 +174,8 @@ export default {
     },
     methods: {
         elementoCreado: function(){
-            this.$refs.inputTemplateUsuario.borrarInputsData('')
-            //this.opcionSeleccionada = 'Buscar'
+            
+            this.opcionSeleccionada = 'Buscar'
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato

@@ -16,13 +16,13 @@
                     <div  class="titulo">
                         <h2 class="text-2xl">Añadir Servicio</h2>
                     </div>
-                    <InputTemplate v-bind="configCrearServicio" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                    <InputTemplate v-bind="configCrearServicio" @elementoCreado="elementoCreado('Buscar Servicio')" ref="inputTemplateCliente">
                     </InputTemplate>
                 </div>
             </transition>
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar Categoria'" >
-                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigCateg" ></BusquedaTablaAll>
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigCateg"  ></BusquedaTablaAll>
                 </div>
             </transition>
             <transition  mode="out-in">
@@ -30,7 +30,7 @@
                     <div  class="titulo">
                         <h2 class="text-2xl">Añadir Categoria </h2>
                     </div>
-                    <InputTemplate v-bind="configCrearCategoria" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                    <InputTemplate v-bind="configCrearCategoria" @elementoCreado="elementoCreado('Buscar Categoria')" ref="inputTemplateCliente">
                     </InputTemplate>
                 </div>
             </transition>
@@ -179,9 +179,8 @@ export default {
         }
     },
     methods: {
-        elementoCreado: function(){
-            this.$refs.inputTemplateCliente.borrarInputsData('')
-            //this.opcionSeleccionada = 'Buscar'
+        elementoCreado: function(nombreElemento){
+            this.opcionSeleccionada = nombreElemento
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato

@@ -47,7 +47,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Marca</h2>
                 </div>
-                <InputTemplate v-bind="configCrearMarca">
+                <InputTemplate v-bind="configCrearMarca" @elementoCreado="elementoCreado('Buscar', 'Marca')">
                 </InputTemplate>
             </div>
         </transition>
@@ -56,7 +56,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Modelo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearModelo" >
+                <InputTemplate v-bind="configCrearModelo" @elementoCreado="elementoCreado('Buscar', 'Modelo')"  >
                 </InputTemplate>
             </div>
         </transition>
@@ -65,7 +65,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVersion"> 
+                <InputTemplate v-bind="configCrearVersion" @elementoCreado="elementoCreado('Buscar', 'Version')"> 
                 </InputTemplate>
             </div>
     
@@ -75,7 +75,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Vehiculo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVehiculo">
+                <InputTemplate v-bind="configCrearVehiculo" @elementoCreado="elementoCreado('Buscar', 'Marca')">
                 </InputTemplate>
             </div>
         </transition>
@@ -86,7 +86,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Tipo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearTipo">
+                <InputTemplate v-bind="configCrearTipo" @elementoCreado="elementoCreado('Buscar', 'Tipo')">
                 </InputTemplate>
             </div>
         </transition>
@@ -542,7 +542,11 @@ export default {
         InputForanea
     },
     methods: {
-
+        elementoCreado: function(nombreElemento, elementoFinal){ //Cuando se hace un insert, se lleva a la direccion especificada en los parametros 
+            console.log('hjola queakj')
+            this.opcionSeleccionada = nombreElemento
+            this.opcionSeleccionadaBusqueda = elementoFinal
+        },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
   
