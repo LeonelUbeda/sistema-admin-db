@@ -260,7 +260,7 @@ export default {
                             editable: false,
                             foranea: {
                                 urlBuscar: '/api/vehiculos/marcas',
-                                propiedadElementoBuscar: 'id',
+                                propiedadElementoBuscar: 'marcaId',
                                 propiedadMostrarResultado: 'nombre',
                                 url: '/api/vehiculos/marcas',
                                 buscarPor: 'nombre',
