@@ -163,6 +163,7 @@ export default {
         if(this.$store.state.Permisos.hasOwnProperty('admin')){
             this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
             this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+            this.opciones.push('Crear Cliente')
         }
     }
 }

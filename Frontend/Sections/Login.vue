@@ -4,16 +4,16 @@
         <loading :active.sync="cargando" 
         :is-full-page="true"></loading>
 
-        {{incorrecto}}
-        <div class="mensaje-rojo" v-show="incorrecto == true">
+               <div class="mensaje-rojo" v-show="incorrecto == true">
             Credenciales incorrectas
         </div>
         <div class="flex flex-col">
-
+            <h2>EL LOGIN</h2>
             <input type="text" v-model="usuario" placeholder="Usuario">
             <input type="password" v-model="contrasena" placeholder="Contraseña">
         </div>
-        <h2 @click="enviar">ENVIAR</h2>
+        <button @click="enviar" >Entrar</button>
+        
     </div>
 
 </template>

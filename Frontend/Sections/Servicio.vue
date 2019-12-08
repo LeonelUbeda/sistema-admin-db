@@ -75,8 +75,8 @@ export default {
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
                 busquedaDefault: 'nombre',
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
@@ -109,8 +109,8 @@ export default {
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
                 busquedaDefault: 'nombre',
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 inputsEditar: [
                     [
                         {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
@@ -118,7 +118,8 @@ export default {
                     ]
                 ]
             },
-            opciones: ['Buscar Servicio', 'Añadir Servicio', 'Buscar Categoria','Añadir Categoria'],
+            //opciones: ['Buscar Servicio', 'Añadir Servicio', 'Buscar Categoria','Añadir Categoria'],
+            opciones: ['Buscar Servicio', 'Buscar Categoria'],
             opcionSeleccionada: 'Buscar Servicio',
             // Configuracion de inputs para crear Servicio
             configCrearServicio: {
@@ -196,12 +197,16 @@ export default {
             switch (this.$store.state.Permisos.Servicios) {
                 case 4:
                     this.BusquedaTablaAllConfigServ.mostrarOpcionEliminar = true
+                    this.BusquedaTablaAllConfigCateg.mostrarOpcionEliminar = true
                 case 3: 
                     this.BusquedaTablaAllConfigServ.mostrarOpcionEditar = true
+                    this.BusquedaTablaAllConfigCateg.mostrarOpcionEditar = true
                 case 2:
-                    this.opciones.push('Crear Servicios')
+                    this.opciones.push('Añadir Servicio')
+                    this.opciones.push('Añadir Categoria')
                 case 1:
-                    this.opciones.push('Buscar')
+                   //this.opciones.push('Buscar Servicio')
+                   //this.opciones.push('Buscar Categoria')
                 case 0:
                     break;
                 default:
@@ -211,6 +216,10 @@ export default {
         if(this.$store.state.Permisos.hasOwnProperty('admin')){
             this.BusquedaTablaAllConfigServ.mostrarOpcionEditar = true
             this.BusquedaTablaAllConfigServ.mostrarOpcionEliminar = true;
+            this.BusquedaTablaAllConfigCateg.mostrarOpcionEditar = true;
+            this.BusquedaTablaAllConfigCateg.mostrarOpcionEliminar = true;
+            this.opciones.push('Añadir Servicio', 'Añadir Categoria')
+           
         }
     }
 }

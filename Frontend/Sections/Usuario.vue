@@ -72,8 +72,8 @@ export default {
                 ],
                 propiedadActualizar:'usuario',
                 busquedaDefault: 'usuario',
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 tituloPopup: {titulo: 'Editar usuario: ', propiedadElementoClickeado: 'usuario'},
                 inputsEditar: [
                     [
@@ -115,7 +115,7 @@ export default {
             },
 
             // Menu de arriba
-            opciones: ['Buscar','Crear Usuario'],
+            opciones: ['Buscar'],
             opcionSeleccionada: 'Buscar', 
 
          
@@ -183,7 +183,27 @@ export default {
        
     },
     created(){
-    
+        if(this.$store.state.Permisos.hasOwnProperty('Usuarios')){
+            switch (this.$store.state.Permisos.Usuarios) {
+                case 4:
+                    this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true
+                case 3: 
+                    this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
+                case 2:
+                    this.opciones.push('Crear Usuario')
+                case 1:
+                    //this.opciones.push('Buscar')
+                case 0:
+                    break;
+                default:
+                    break
+            }
+        }
+        if(this.$store.state.Permisos.hasOwnProperty('admin')){
+            this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
+            this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+            this.opciones.push('Crear Usuario')
+        }
     }
 }
 </script>
