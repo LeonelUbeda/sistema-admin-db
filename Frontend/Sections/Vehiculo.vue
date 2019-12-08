@@ -136,8 +136,8 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 
                 inputsEditar: [
                     
@@ -172,8 +172,8 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 
                 inputsEditar: [
                     
@@ -237,8 +237,8 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                 mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 inputsEditar: [
                     
                     [
@@ -260,7 +260,7 @@ export default {
                             editable: false,
                             foranea: {
                                 urlBuscar: '/api/vehiculos/marcas',
-                                propiedadElementoBuscar: 'id',
+                                propiedadElementoBuscar: 'marcaId',
                                 propiedadMostrarResultado: 'nombre',
                                 url: '/api/vehiculos/marcas',
                                 buscarPor: 'nombre',
@@ -298,8 +298,8 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}
                 ],
-                mostrarOpcionEditar: true,
-                mostrarOpcionEliminar: true,
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
                 
                 inputsEditar: [
                     
@@ -555,7 +555,7 @@ export default {
     
     created(){
          if(this.$store.state.Permisos.hasOwnProperty('Vehiculos')){
-            switch (this.$store.state.Permisos.Servicios) {
+            switch (this.$store.state.Permisos.Vehiculos) {
                 case 4:
                     this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true //Marca
                     this.BusquedaTablaModelo.mostrarOpcionEliminar = true //Modelo
@@ -566,10 +566,13 @@ export default {
                     this.BusquedaTablaModelo.mostrarOpcionEditar = true //Modelo
                     this.BusquedaTablaVersion.mostrarOpcionEditar = true //Version
                     this.BusquedaTablaTipo.mostrarOpcionEditar = true //Tipo
+
+                    
                 case 2:
-                    this.opciones.push('Crear Servicios')
+                    this.opciones.push('Nuevo Vehiculos')
                 case 1:
-                    this.opciones.push('Buscar')
+                    this.opciones.push('Buscar') 
+
                 case 0:
                     break;
                 default:
