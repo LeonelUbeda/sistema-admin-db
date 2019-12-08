@@ -336,6 +336,8 @@ export default {
     created(){
         this.buscarRoles()
         this.obtenerSeccionesYPermisos()
+            ///
+         
     }
 }
 </script>

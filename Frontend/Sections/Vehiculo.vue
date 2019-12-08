@@ -590,6 +590,8 @@ export default {
             this.BusquedaTablaModelo.mostrarOpcionEliminar = true //Modelo
             this.BusquedaTablaVersion.mostrarOpcionEliminar = true //Version
             this.BusquedaTablaTipo.mostrarOpcionEliminar = true //Tipo
+
+            this.opciones.push('Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo')
         }
     }
     

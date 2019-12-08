@@ -218,10 +218,8 @@ export default {
             this.BusquedaTablaAllConfigServ.mostrarOpcionEliminar = true;
             this.BusquedaTablaAllConfigCateg.mostrarOpcionEditar = true;
             this.BusquedaTablaAllConfigCateg.mostrarOpcionEliminar = true;
-            //this.opciones.push('Buscar Servicio')
-            //this.opciones.push('Buscar Categoria')
-            //this.opciones.push('Añadir Servicio')
-            //this.opciones.push('Añadir Categoria')
+            this.opciones.push('Añadir Servicio', 'Añadir Categoria')
+           
         }
     }
 }
