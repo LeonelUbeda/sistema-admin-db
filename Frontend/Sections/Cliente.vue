@@ -147,7 +147,7 @@ export default {
         if(this.$store.state.Permisos.hasOwnProperty('Clientes')){
             switch (this.$store.state.Permisos.Clientes) {
                 case 4:
-                    this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+                    this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true
                 case 3: 
                     this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
                 case 2:

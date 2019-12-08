@@ -50,7 +50,7 @@ app.use(json())
 app.use('*', (req, res, next) => {
     setTimeout(() => {
         next()
-    }, 1000)
+    }, 0)
 })
 
 // -------------------- Rutas --------------------
@@ -82,7 +82,7 @@ app.use('*', (req, res) => {
 
 
 // Para eliminar y crear la base de datos
-// database.sync({force: true})
+ //database.sync({force: true})
 
 // -------------------- Verificar DB --------------------
 database.authenticate()

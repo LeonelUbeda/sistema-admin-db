@@ -487,7 +487,9 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'cedula', titulo: 'Cedula'},
                                     {propiedad: 'nombre', titulo: 'Nombre'},
+                                    {propiedad: 'apellido', titulo: 'Apellido'}
                                   
                                 ]
                             }
@@ -552,7 +554,39 @@ export default {
     },
     
     created(){
-    
+         if(this.$store.state.Permisos.hasOwnProperty('Vehiculos')){
+            switch (this.$store.state.Permisos.Servicios) {
+                case 4:
+                    this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true //Marca
+                    this.BusquedaTablaModelo.mostrarOpcionEliminar = true //Modelo
+                    this.BusquedaTablaVersion.mostrarOpcionEliminar = true //Version
+                    this.BusquedaTablaTipo.mostrarOpcionEliminar = true //Tipo
+                case 3: 
+                    this.BusquedaTablaAllConfig.mostrarOpcionEditar = true //Marca
+                    this.BusquedaTablaModelo.mostrarOpcionEditar = true //Modelo
+                    this.BusquedaTablaVersion.mostrarOpcionEditar = true //Version
+                    this.BusquedaTablaTipo.mostrarOpcionEditar = true //Tipo
+                case 2:
+                    this.opciones.push('Crear Servicios')
+                case 1:
+                    this.opciones.push('Buscar')
+                case 0:
+                    break;
+                default:
+                    break
+            }
+        }
+        if(this.$store.state.Permisos.hasOwnProperty('admin')){
+            this.BusquedaTablaAllConfig.mostrarOpcionEditar = true //Marca
+            this.BusquedaTablaModelo.mostrarOpcionEditar = true //Modelo
+            this.BusquedaTablaVersion.mostrarOpcionEditar = true //Version
+            this.BusquedaTablaTipo.mostrarOpcionEditar = true //Tipo
+
+            this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
+            this.BusquedaTablaModelo.mostrarOpcionEliminar = true //Modelo
+            this.BusquedaTablaVersion.mostrarOpcionEliminar = true //Version
+            this.BusquedaTablaTipo.mostrarOpcionEliminar = true //Tipo
+        }
     }
     
 }
