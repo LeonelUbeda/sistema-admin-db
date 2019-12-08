@@ -255,7 +255,6 @@ export default {
                     if(typeof input.foranea !== 'undefined'){
                         
                         if(this.elementoClickeado[input.foranea.propiedadElementoBuscar] !== null){
-                            
                             let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
                             console.log(url)
                             let respuesta = await axios.get(url)

@@ -336,10 +336,9 @@ export default {
                 ]  
             },
             configCrearModelo: {
-
-                urlFinal: '/modelos',
                 propiedadId: 'marcaId', //ID DEL INPUT A ENVIAR
                 urlCrear: 'api/vehiculos/marcas/',
+                urlFinal: '/modelos', 
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
@@ -353,7 +352,6 @@ export default {
                             validacion: false, 
                             uno:true, 
                             obligatorio: true, 
-                            url:'/api/vehiculos/marcas',
                             editable: false,
                             foranea: {
                                 url: '/api/vehiculos/marcas',
@@ -361,6 +359,7 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'Identificador'},
                                     {propiedad: 'nombre', titulo: 'Nombre'}
                                 ]
                             }
@@ -397,7 +396,8 @@ export default {
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
                                     {propiedad: 'id', titulo: 'Identificador'}, 
-                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}},
+                                    {propiedad: 'nombre', titulo: 'Modelo'}
                                 ]
                             }
                         }
@@ -422,7 +422,6 @@ export default {
             },
 
             configCrearVehiculo: {
-              
                 urlCrear: '/api/vehiculos/',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -446,7 +445,8 @@ export default {
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
                                     {propiedad: 'id', titulo: 'Identificador'}, 
-                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}},
+                                    {propiedad: 'nombre', titulo: 'Nombre Modelo'}
                                 ]
                             }
                         }
@@ -468,6 +468,7 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'modelo', propiedadMostrar: 'nombre'}},
                                     {propiedad: 'nombre', titulo: 'Nombre'}
                                 ]
                             }
