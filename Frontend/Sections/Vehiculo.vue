@@ -314,7 +314,8 @@ export default {
             //Final config tipo
 
             // Menu de arriba
-            opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
+            //opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
+            opciones: ['Buscar'],
             opcionSeleccionada: 'Buscar', 
 
             //Menu de Tablas
@@ -552,7 +553,7 @@ export default {
 
        
     },
-    
+    //opciones: ['Buscar','Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo'],
     created(){
          if(this.$store.state.Permisos.hasOwnProperty('Vehiculos')){
             switch (this.$store.state.Permisos.Vehiculos) {
@@ -566,12 +567,12 @@ export default {
                     this.BusquedaTablaModelo.mostrarOpcionEditar = true //Modelo
                     this.BusquedaTablaVersion.mostrarOpcionEditar = true //Version
                     this.BusquedaTablaTipo.mostrarOpcionEditar = true //Tipo
-
+                    
                     
                 case 2:
-                    this.opciones.push('Nuevo Vehiculos')
+                    this.opciones.push('Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo')
                 case 1:
-                    this.opciones.push('Buscar') 
+                    //this.opciones.push('Buscar') 
 
                 case 0:
                     break;
