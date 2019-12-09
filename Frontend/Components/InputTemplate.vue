@@ -73,7 +73,7 @@ export default {
             type: String,
             default: 'undefined'
         },
-        propiedadId: {
+        propiedadConcatenar: {
             type: String,
             default: ''
         },
@@ -113,7 +113,7 @@ export default {
         crear: function(event){
             let url = this.urlCrear
             if(this.urlFinal != 'undefined'){
-                url += this.datosAEnviar[this.propiedadId] + this.urlFinal
+                url += this.datosAEnviar[this.propiedadConcatenar] + this.urlFinal
             }
             event.preventDefault()
             try {

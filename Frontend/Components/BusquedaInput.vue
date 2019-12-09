@@ -33,7 +33,7 @@ export default {
     methods:{
         buscarDebounce: _.debounce(function(){
             this.$emit('buscar', this.busqueda)
-        }, 700),
+        }, 500),
         buscar: function() {
         
             //this.$emit('buscar', this.busqueda)

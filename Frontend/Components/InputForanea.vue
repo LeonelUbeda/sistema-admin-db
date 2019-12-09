@@ -40,7 +40,6 @@ export default {
     props: {
         mostrar: {
             type: String | Number,
-            
         },
         value: String | Number,
         url: String /*'/api/vehiculos/modelos'*/,
@@ -110,14 +109,13 @@ export default {
 
     },
     created(){
-        
-        if((this.value == null || this.value == '') && (this.mostrarValor == '')){
-        
+        console.log(this.value, this.mostrar)
+        if((this.value === null || this.value === '' ||typeof this.mostrar == 'undefined') /*&& (this.mostrarValor == '')*/){
             this.mostrarValor = 'Clic para buscar...'
 
         }else{
             this.mostrarValor = this.mostrar
-            //console.log('hey',this.mostrar)
+          
             
         }
        
