@@ -26,6 +26,11 @@
           <h3 class="texto">Servicios</h3>
         </div>
       </router-link>
+      <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Ticket', 1)">
+        <div class="boton">
+          <h3 class="texto">Ticket</h3>
+        </div>
+      </router-link>
       <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
         <div class="boton">
           <h3 class="texto">Usuarios</h3>

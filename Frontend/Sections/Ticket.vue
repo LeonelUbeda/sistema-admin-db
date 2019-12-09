@@ -19,31 +19,47 @@
                                 <input-foranea v-bind="vehiculoForanea" v-model="ticket.vehiculoId"></input-foranea>
                             </div>
                         </div>
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mt-5">
                             <div class="inputs-dobles">
-                                <h2>Fecha inicio</h2>
+                                <h2 class="text-lg">Fecha inicio</h2>
                                 <input type="date" name="" v-model="ticket.fechaInicio" id=""> 
                             </div>
                             <div class="inputs-dobles">
-                                <h2>Fecha final</h2>
+                                <h2 class="text-lg">Fecha final</h2>
                                 <input type="date" name="" v-model="ticket.fechaFinal" id=""> 
                             </div>
                         </div>
                     </div>
                     <div class="mt-3 flex flex-col">
-                        <div class="flex servicios-seleccionados items-center pl-8" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
-                            <h2>{{servicio.nombre}}</h2>
-                            <h2 class="cursor-pointer ml-auto mr-3" @click="eliminarServicioSeleccionado(servicio)">X</h2>
+                        <div class="flex flex-col servicios-seleccionados justify-center pl-8" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
+                            <div class="flex">
+                                <h2>{{serviciosMandar[index] = servicio.id}}</h2>
+                                <h2>{{servicio.nombre}}</h2>
+                                <h2 class="cursor-pointer ml-auto mr-3" @click="eliminarServicioSeleccionado(servicio)">X</h2>
+                            </div>
+                            <div class="flex my-3">
+                                <div>
+                                    <h2>Precio</h2>
+                                    <input type="text">
+                                </div>
+                                <div>
+                                    <h2>Terminado</h2>
+                                    <input type="checkbox" >
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div style="width: 42%">
+                    
                     <div class="titulo flex justify-between">
                         <div style="width:45%">
-                            <BusquedaInput></BusquedaInput>
+                            <BusquedaInput @buscar="busqueda"></BusquedaInput>
                         </div>
                         <div style="width:45%">
-                            <BusquedaRadio :opciones="opcionesBusqueda" :seleccionado="opcionSeleccionada"></BusquedaRadio>
+                            <BusquedaRadio :opciones="opcionesBusqueda" :seleccionado="opcionSeleccionadaRadio" 
+                            @seleccion="SeleccionTipoBusqueda"></BusquedaRadio>
                         </div>
                     </div>
                     <Tabla @filaSeleccionada="servicioSeleccionado" :elementos="elementos" :titulos="titulos"></Tabla>
@@ -69,18 +85,21 @@ export default {
         return {
             opciones: ['Ticket', 'Crear ticket'],
             opcionSeleccionada: 'Ticket',
-            opcionesBusqueda: [{value: 'nombre', titulo: 'Nombre'}, {value: 'categoria.nombre', titulo: 'Categoria'}],
-            opcionSeleccionada: 'categoria.nombre',
+            opcionesBusqueda: [{value: 'nombre', titulo: 'Nombre'}, {value: 'categorium.nombre', titulo: 'Categoria'}],
+            opcionSeleccionadaRadio: 'nombre',
             elementos: [],
+            textoBusqueda: '',
             serviciosSeleccionados: [],
             titulos: [{propiedad: 'nombre', titulo: 'Nombre'}, {propiedad: 'categoriaForanea', titulo: 'Categoria', foranea: {propiedadRelacion: 'categorium' , propiedadMostrar: 'nombre'}}],
+            serviciosMandar: [],
             ticket: {
                 clienteId: 0,
-                vehiculoId: 0,
-                fechaInicio: 0,
-                fechaFinal: 0
+                vehiculoId: null,
+                fechaInicio: null,
+                fechaFinal: null
             },
             clienteForanea: {
+                
                 url: '/api/clientes',
                 buscarPor: 'nombre',
                 insertarPropiedad: 'id',
@@ -128,6 +147,28 @@ export default {
     },
 
     methods: {
+        SeleccionTipoBusqueda(elemento){
+            this.opcionSeleccionadaRadio = elemento
+        },
+        SeleccionTipoBusqueda: function(elemento){
+
+        },
+        busqueda(texto){
+            this.textoBusqueda = texto
+            console.log('Realizando busqueda')
+            this.buscarServicios()
+        },
+        buscarServicios(){
+            let params = {}
+            
+            if(this.textoBusqueda !== ''){
+                params[this.opcionSeleccionadaRadio] = this.textoBusqueda
+            }
+            axios.get('/api/servicios', {params})
+            .then((respuesta) => {
+                this.elementos = respuesta.data
+            })
+        },
         eliminarServicioSeleccionado(elemento){
             let contador = 0
             for(let servicio of this.serviciosSeleccionados){
@@ -162,10 +203,7 @@ export default {
         }
     },
     created(){
-        axios.get('/api/servicios')
-        .then((respuesta) => {
-            this.elementos = respuesta.data
-        })
+        this.buscarServicios()
     },
     components: {
         TopSection,
@@ -182,8 +220,9 @@ export default {
 
 .servicios-seleccionados{
     width: 100%;
-    height: 50px;
-    background-color: aquamarine
+    height: auto;
+    background-color: #7798AB;
+    color: white;
 }
 
 .inputs-dobles{

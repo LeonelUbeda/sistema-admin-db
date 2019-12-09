@@ -325,7 +325,6 @@ export default {
             if(this.tablaMandarEventoClick === false){
                 this.elementoClickeado = elemento
                 this.clickEnTabla = true
-            }else{
                 this.$emit('clickTabla', elemento)
             }
         },

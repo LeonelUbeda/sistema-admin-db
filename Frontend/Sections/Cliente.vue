@@ -19,6 +19,7 @@
                 <br>
             
                 <BusquedaTablaAll  
+               
                 v-bind="BusquedaTablaAllConfig" 
                 v-if="opcionSeleccionadaBusqueda === 'Cliente'" 
                 :key="'BusquedaTablaAllConfig'" > <!--Cliente  -->
@@ -87,7 +88,7 @@ export default {
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
                         {value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}],
-                tablaMandarEventoClick: false,
+                tablaMandarEventoClick: true,
                 mostrarInformacionClick: true,
                 titulosClick: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
