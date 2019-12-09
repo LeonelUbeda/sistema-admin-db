@@ -125,7 +125,6 @@ export default {
             opcionSeleccionada: 'Buscar',
             //Menu abajo de arriba
             opcionesBusqueda: ['Cliente','Telefono'],
-            opcionesBusqueda2: ['Cliente'],
             opcionSeleccionadaBusqueda: 'Cliente',
 
             // Configuracion de inputs para crear Clientes
@@ -152,8 +151,9 @@ export default {
                 ]  
             },
             configCrearTel: {
+                urlCrear: '/api/clientes/',
                 url: '/api/clientes/',
-                propiedadId: 'clienteId',
+                propiedadConcatenar: 'clienteId',
                 urlFinal: '/telefono',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',

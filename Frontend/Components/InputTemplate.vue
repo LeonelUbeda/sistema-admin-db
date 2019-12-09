@@ -67,7 +67,7 @@ export default {
         mostrarTitulo: Boolean,
         urlCrear: {
             type: String,
-            default: '/api/clientes'
+            default: '/api/clientes/'
         },
         urlFinal:{
             type: String,
@@ -79,7 +79,7 @@ export default {
         },
         urlActualizar: {
             type: String, 
-            default: '/api/clientes'
+            default: '/api/clientes/'
         },
         // Actualizar where id = 1
         propiedadActualizar: {
