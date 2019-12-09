@@ -7,6 +7,7 @@ import Vehiculo from '../Sections/Vehiculo'
 import Roles from '../Sections/Roles'
 import Servicio from '../Sections/Servicio'
 import Usuario from '../Sections/Usuario'
+import EditarContra from '../Sections/EditarInfo'
 // Cada objeto es una ruta, se le pasa un componente, una url y el nombre :D
 export default [
     {
@@ -44,5 +45,10 @@ export default [
         component: Usuario,
         name: 'usuario'
     },
+    {
+        path: '/Editar',
+        component: EditarContra,
+        name: 'EditarContra'
+    }
 
 ]
