@@ -143,7 +143,16 @@ export default {
                 if(typeof titulo.foranea !== 'undefined'){
                     for(let elemento of nuevo){
                         if(elemento[titulo.foranea.propiedadRelacion] !== null){
-                            elemento[titulo.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.propiedadMostrar]
+                            // Si el titulo tiene dentro de foranea, una propiedad foranea, entonces...
+                            if(!titulo.foranea.hasOwnProperty('foranea')){
+                                elemento[titulo.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.propiedadMostrar]
+                            }else{ 
+                               
+                                if(elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion] !== null){
+                                    // WTF IM DOING WITH MY LIFE
+                                    elemento[titulo.foranea.foranea.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadMostrar]
+                                }
+                            }
                         }
                     }
                 }

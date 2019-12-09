@@ -25,7 +25,12 @@
                 <span class="texto">Servicios</span>
             </div>
         </router-link>
-         <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
+        <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Ticket', 1)">
+            <div class="boton">
+                <span class="texto">Ticket</span>
+            </div>
+        </router-link>
+        <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
             <div class="boton">
                 <span class="texto">Usuarios</span>
             </div>

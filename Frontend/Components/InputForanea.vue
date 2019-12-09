@@ -6,7 +6,7 @@
         </div>
         <!--input type="text" class="input-foraneo" v-model="display" >
         <h3 @click="modoBusqueda(true)">Buscar</h3-->
-        <div class="width-100"  id="popup-container" v-show="mostrarPop == true">
+        <div class="width-100"  id="popup-container" v-if="mostrarPop == true">
             <div id="popup" class="">
                 <div class="flex">
                     <h2 class="text-2xl">{{titulo}}</h2>
@@ -73,20 +73,25 @@ export default {
             this.mostrarValor = elemento[this.mostrarPropiedad]
 
             this.$emit('input', elemento[this.insertarPropiedad])
+            this.$emit('seleccionado')
             this.mostrarPop = false
 
         },
         modoBusqueda: function(toggle){
             
             this.mostrarPop = toggle
+            this.obtenerDatos()
         },
         obtenerDatos: function() {
+            
             let params = {
-                [this.buscarPor]: this.textoBuscar,
+                
             }
-            let url  = this.url
-            console.log(params)
-            axios.get(url, {params})
+            if(this.textoBuscar !== ''){
+                params[this.buscarPor] = this.textoBuscar
+            }
+            
+            axios.get(this.url, {params})
             .then(response =>{
 
                 this.elementos = response.data
@@ -105,8 +110,7 @@ export default {
 
     },
     created(){
-        this.obtenerDatos()
-
+        
         if((this.value == null || this.value == '') && (this.mostrarValor == '')){
         
             this.mostrarValor = 'Clic para buscar...'

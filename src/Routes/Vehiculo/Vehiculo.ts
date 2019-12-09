@@ -16,6 +16,7 @@ import Marca from '../../Models/Vehiculo/Marca'
 
 // -------------------- Rutas --------------------
 
+
 router.get('/',         manejadorGenerico({modelo: Vehiculo,     accion: manejadorGenerico.LEER}))
 
 router.get('/:id',      manejadorGenerico({modelo: Vehiculo,     accion: manejadorGenerico.LEER_POR_ID}))
@@ -48,6 +49,30 @@ router.get('/:id/cliente', manejadorGenerico({modelo: Vehiculo,
         attributes: ['nombre', 'apellido']
     }]
 }))
+
+
+router.get('/cliente/:clienteId/', manejadorGenerico({
+    accion: manejadorGenerico.LEER_PARAMETROS,
+    modelo: Vehiculo,
+    include: [
+        {   
+            model: Version,
+            include: [
+                {
+                    model: Modelo
+                }
+            ]
+        },
+        {
+            model: Tipo
+        },
+        
+    ]
+    
+}))
+
+
+
 
 router.post('/',        manejadorGenerico({modelo: Vehiculo,     accion: manejadorGenerico.CREAR}))
 
