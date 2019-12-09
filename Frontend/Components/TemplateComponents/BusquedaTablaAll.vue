@@ -322,11 +322,11 @@ export default {
             
         },
         filaSeleccionada: function(elemento){
-            if(this.tablaMandarEventoClick === false){
-                this.elementoClickeado = elemento
-                this.clickEnTabla = true
-                this.$emit('clickTabla', elemento)
-            }
+            
+            this.elementoClickeado = elemento
+            this.clickEnTabla = true
+            this.$emit('clickTabla', elemento)
+        
         },
         reiniciarTabla: function(){
             this.clickEnTabla = false
