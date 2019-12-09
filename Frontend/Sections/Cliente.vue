@@ -11,15 +11,37 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <BusquedaTablaAll v-bind="BusquedaTablaAllConfig" ></BusquedaTablaAll>
+                <TopSection 
+                :opciones="opcionesBusqueda"
+                :opcionSeleccionada="opcionSeleccionadaBusqueda"
+                @elementoSeleccionado="clickOpcionesBusqueda">
+                </TopSection>
+                <br>
+            
+                <BusquedaTablaAll  
+                v-bind="BusquedaTablaAllConfig" 
+                v-if="opcionSeleccionadaBusqueda === 'Cliente'" 
+                :key="'BusquedaTablaAllConfig'" > <!--Cliente  -->
+                </BusquedaTablaAll>
+                
+              
+                <BusquedaTablaAll 
+                v-bind="BusquedaTablaAllConfigTel" 
+                v-if="opcionSeleccionadaBusqueda === 'Telefono'" 
+                :key="'BusquedaTablaAllConfigTel'">
+                </BusquedaTablaAll> <!--Telefono  -->
             </div>
         </transition>
         <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Crear Cliente'" >
-                <div  class="titulo">
-                    <h2 class="text-2xl">Crear Cliente</h2>
-                </div>
-                <InputTemplate v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Crear'" >
+                <TopSection 
+                :opciones="opcionesBusqueda"
+                :opcionSeleccionada="opcionSeleccionadaBusqueda"
+                @elementoSeleccionado="clickOpcionesBusqueda">
+                </TopSection>
+                <InputTemplate v-if="opcionSeleccionadaBusqueda === 'Cliente'" v-bind="configCrear" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
+                </InputTemplate>
+                <InputTemplate v-if="opcionSeleccionadaBusqueda === 'Telefono'" v-bind="configCrearTel" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
                 </InputTemplate>
             </div>
         </transition>
@@ -44,6 +66,9 @@ import InputTemplate from '../Components/InputTemplate'
 import BusquedaInput from '../Components/BusquedaInput.vue'
 import BusquedaRadio from '../Components/BusquedaRadio.vue'
 import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
+import InputForanea from '../Components/InputForanea'
+import { async } from 'q'
+
 export default {
     data: () => {
         return {
@@ -53,7 +78,7 @@ export default {
                     {propiedad: 'id', titulo: 'Identificador'}, 
                     {propiedad: 'nombre', titulo: 'Nombre'}, 
                     {propiedad: 'apellido', titulo: 'Apellido'},
-                    {propiedad: 'tipoCliente', titulo: 'Tipo'},
+                    {propiedad: 'tipoCliente', titulo: 'Tipo'}
                 ],
                 tablaUrl: '/api/clientes',
                 tablaUrlEliminar: '/api/clientes',
@@ -88,11 +113,49 @@ export default {
                         opciones: ['Persona', 'Empresa'], obligatorio: true},
                     ]
                 ]
+            }, //Buscar telefono
+            BusquedaTablaAllConfigTel:{
+                encabezado:'Telefono',
+                tablaTitulos: [
+                    {propiedad: 'clienteId', titulo: 'ID Cliente'}, 
+                    {propiedad: 'telefono', titulo: 'Telefono'}
+                ],
+                tablaUrl: '/api/clientes/1/telefono',
+                tablaUrlEliminar: '/api/clientes/1/telefono/2222',
+                tablaUrlActualizar: '/api/clientes/1/telefono/22225978',
+                tablaPropiedadAEliminar: 'clienteId',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'telefono', titulo: 'Telefono'},{value: 'id', titulo: 'ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'clienteId', titulo: 'Identificador'},
+                    {propiedad: 'telefono', titulo: 'Telefono'},
+                ],
+                busquedaDefault: 'nombre',
+                mostrarOpcionEditar: false,
+                mostrarOpcionEliminar: false,
+                inputsEditar: [
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
+                    ],
+                    [
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false, editable: false},
+                        {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false, editable: false}
+                    ],
+                    [
+                        {nombre: 'telefono', titulo: 'Telefono', max: 15, tipo: 'number', validacion: true, uno: false}
+                    ]
+                ]
             },
 
             // Menu de arriba
             opciones: [],
-            opcionSeleccionada: 'Buscar', 
+            opcionSeleccionada: 'Buscar',
+            //Menu abajo de arriba
+            opcionesBusqueda: ['Cliente', 'Telefono'],
+            opcionSeleccionadaBusqueda: 'Cliente',
 
             // Configuracion de inputs para crear Clientes
             configCrear: {
@@ -116,6 +179,44 @@ export default {
                   ]
                   
                 ]  
+            },
+            configCrearTel: {
+                urlCrear: 'api/clientes/1/telefono',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {
+                            titulo: 'Nombre', 
+                            nombre:'clienteId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/clientes',
+                            editable: false,
+                            foranea: {
+                                urlBuscar: '/api/clientes',
+                                propiedadElementoBuscar: 'id',
+                                propiedadMostrarResultado: 'nombre',
+                                url: '/api/clientes',
+                                buscarPor: 'Nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'ID'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                    {propiedad: 'apellido', titulo: 'Apellido'}
+                                ]
+                            }
+                      },
+                      {nombre: 'telefono', titulo: 'Telefono', max: 15, tipo: 'number', uno: true}
+                  ]
+                  
+                  
+                ]  
             }
      
 
@@ -131,14 +232,18 @@ export default {
         BusquedaTablaAll
     },
     methods: {
-        elementoCreado: function(){
+        elementoCreado: function(elementoFinal){
 
            // this.$refs.inputTemplateCliente.borrarInputsData('')
-            
+            this.opcionSeleccionadaBusqueda = elementoFinal
             this.opcionSeleccionada = 'Buscar'
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
+        },
+        clickOpcionesBusqueda: function (dato){
+            this.opcionSeleccionadaBusqueda = dato
+            
         }
        
     },
@@ -151,9 +256,10 @@ export default {
                 case 4:
                     this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true
                 case 3: 
+                    this.BusquedaTablaAllConfig.mostrarOpcionVerPerfil = true
                     this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
                 case 2:
-                    this.opciones.push('Crear Cliente')
+                    this.opciones.push('Crear')
                 case 1:
                     this.opciones.push('Buscar')
                 case 0:
@@ -165,7 +271,7 @@ export default {
         if(this.$store.state.Permisos.hasOwnProperty('admin')){
             this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
             this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
-            this.opciones.push('Crear Cliente')
+            this.opciones.push('Crear')
             this.opciones.push('Buscar')
         }
     }

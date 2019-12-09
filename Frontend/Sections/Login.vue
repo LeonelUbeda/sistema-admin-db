@@ -42,7 +42,7 @@ export default {
                 contrasena: this.contrasena
             })
             .then(async (respuesta) => {
-                this.$store.commit('LogginTrue')
+                this.$store.commit('LoginTrue')
                 this.terminado = true
                 // Almacena la informacion en una Cookie llamada JWT
                 setCookie('JWT', respuesta.data, 15)
@@ -52,7 +52,7 @@ export default {
                 this.$router.push('inicio')
             })
             .catch(() => {
-                console.log('Loggin incorrecto')
+                console.log('Login incorrecto')
                 this.incorrecto = true
                 console.log(this.incorrecto)
             })
