@@ -323,9 +323,10 @@ export default {
         },
         filaSeleccionada: function(elemento){
             
-            this.elementoClickeado = elemento
-            this.clickEnTabla = true
-            this.$emit('clickTabla', elemento)
+        this.elementoClickeado = elemento
+        this.clickEnTabla = true
+        this.$emit('clickTabla', elemento)
+        console.log('FILA SELECCIONADA')
         
         },
         reiniciarTabla: function(){

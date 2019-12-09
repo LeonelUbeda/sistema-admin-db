@@ -409,7 +409,6 @@ export default {
             },
 
             configCrearTipo: {
-               
                 urlCrear: 'api/vehiculos/tipos',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -420,7 +419,6 @@ export default {
                     ]
                 ]
             },
-
             configCrearVehiculo: {
                 urlCrear: '/api/vehiculos/',
                 mostrarTitulo: false,

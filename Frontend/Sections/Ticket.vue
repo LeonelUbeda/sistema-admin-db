@@ -4,7 +4,7 @@
         <div class="width-100 padding-x-60 padding-y-20">
             <div class="titulo flex">
                 <h2>Crear Ticket</h2>
-                <button class="btn-azul" style="margin-left: auto">Guardar</button>
+                <button class="btn-azul" style="margin-left: auto" @click="enviarTicket">Guardar</button>
             </div> 
             <div class=" mt-3 pt-3 flex justify-between">
                 <div class="" style="width: 52%">
@@ -22,29 +22,38 @@
                         <div class="flex justify-between mt-5">
                             <div class="inputs-dobles">
                                 <h2 class="text-lg">Fecha inicio</h2>
-                                <input type="date" name="" v-model="ticket.fechaInicio" id=""> 
+                                <input type="date" name="" v-model="ticket.fechaInicio" id="" class="input-default"> 
                             </div>
                             <div class="inputs-dobles">
                                 <h2 class="text-lg">Fecha final</h2>
-                                <input type="date" name="" v-model="ticket.fechaFinal" id=""> 
+                                <input type="date" name="" v-model="ticket.fechaFinal" id="" class="input-default"> 
                             </div>
                         </div>
                     </div>
-                    <div class="mt-3 flex flex-col">
-                        <div class="flex flex-col servicios-seleccionados justify-center pl-8" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
-                            <div class="flex">
-                                <h2>{{serviciosMandar[index] = servicio.id}}</h2>
-                                <h2>{{servicio.nombre}}</h2>
-                                <h2 class="cursor-pointer ml-auto mr-3" @click="eliminarServicioSeleccionado(servicio)">X</h2>
+                    <div class="mt-3 flex flex-col" id="contenedor-servicios">
+                        <div class="flex flex-col servicios-seleccionados justify-center pl-8 mb-3" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
+                            <div class="flex pt-3">
+                                <h2 class="mr-4">{{servicio.id}}</h2>
+                                <h2 class="text-lg">{{servicio.nombre}}</h2>
+                                <h2 class="cursor-pointer ml-auto mr-3 text-xl" @click="eliminarServicioSeleccionado(servicio)" style="color: red">X</h2>
                             </div>
+                            <div class="divisor mt-3" style="margin-bottom: 5px"></div>
                             <div class="flex my-3">
-                                <div>
+                                <div class="flex flex-col">
                                     <h2>Precio</h2>
-                                    <input type="text">
+                                    <input type="text" v-model="servicio.precio" class="input-default">
                                 </div>
-                                <div>
+                                <div class="ml-3">
+                                    <h2>Prioridad</h2>
+                                    <select name="" id=""  class="mt-3">
+                                        <option value="Alta">Alta</option>
+                                        <option value="Normal" selected>Normal</option>
+                                        <option value="Baja">Baja</option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-col items-center ml-3">
                                     <h2>Terminado</h2>
-                                    <input type="checkbox" >
+                                    <input type="checkbox" v-model="servicio.terminado" class="mt-3">
                                 </div>
                             </div>
                         </div>
@@ -147,6 +156,9 @@ export default {
     },
 
     methods: {
+        enviarTicket(){
+            console.log(this.serviciosSeleccionados)
+        },
         SeleccionTipoBusqueda(elemento){
             this.opcionSeleccionadaRadio = elemento
         },
@@ -218,11 +230,32 @@ export default {
 
 <style lang="scss" scoped>
 
+input, select{
+    color: white;
+    color: black;
+    
+}
+
+#contenedor-servicios{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+input[type=text]{
+    height: 25px !important;
+    width: 150px ;
+}
+input[type=checkbox]{
+    height: 20px !important;
+    width: 50px
+}
 .servicios-seleccionados{
     width: 100%;
     height: auto;
     background-color: #7798AB;
     color: white;
+    background-color: white;
+    color: black
 }
 
 .inputs-dobles{

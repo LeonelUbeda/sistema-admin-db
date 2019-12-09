@@ -27,6 +27,7 @@
                 
               
                 <BusquedaTablaAll 
+                @clickTabla="prueba"
                 v-bind="BusquedaTablaAllConfigTel" 
                 v-if="opcionSeleccionadaBusqueda === 'Telefono'" 
                 :key="'BusquedaTablaAllConfigTel'">
@@ -233,6 +234,9 @@ export default {
         BusquedaTablaAll
     },
     methods: {
+        prueba: function(elemento){
+            console.log('HOLA')
+        },
         elementoCreado: function(elementoFinal){
 
            // this.$refs.inputTemplateCliente.borrarInputsData('')
