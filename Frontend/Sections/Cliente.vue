@@ -132,8 +132,10 @@ export default {
     },
     methods: {
         elementoCreado: function(){
-            this.$refs.inputTemplateCliente.borrarInputsData('')
-            //this.opcionSeleccionada = 'Buscar'
+
+           // this.$refs.inputTemplateCliente.borrarInputsData('')
+            
+            this.opcionSeleccionada = 'Buscar'
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
@@ -164,6 +166,7 @@ export default {
             this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
             this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true;
             this.opciones.push('Crear Cliente')
+            this.opciones.push('Buscar')
         }
     }
 }

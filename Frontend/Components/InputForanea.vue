@@ -18,9 +18,9 @@
                 <div class="divisor mt-3" style="width: 100%"></div>
                
                 <Tabla :sombra="false" class="mt-6" :elementos="elementos" :titulos="propiedadesMostrarTabla" @filaSeleccionada="filaSeleccionada"></Tabla>
+                
                 <div class="flex width-100 justify-center">
                     <button  @click="modoBusqueda(false)" class="btn-rojo ml-auto">Cancelar</button>
-
                 </div>
              
             </div>
@@ -77,6 +77,7 @@ export default {
 
         },
         modoBusqueda: function(toggle){
+            
             this.mostrarPop = toggle
         },
         obtenerDatos: function() {
@@ -90,7 +91,10 @@ export default {
 
                 this.elementos = response.data
                 console.log(response)
-            } )
+
+
+
+            })
             .catch(err => console.log(err))
 
         },

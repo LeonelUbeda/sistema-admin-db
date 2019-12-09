@@ -47,7 +47,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Marca</h2>
                 </div>
-                <InputTemplate v-bind="configCrearMarca">
+                <InputTemplate v-bind="configCrearMarca" @elementoCreado="elementoCreado('Buscar', 'Marca')">
                 </InputTemplate>
             </div>
         </transition>
@@ -56,7 +56,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Modelo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearModelo" >
+                <InputTemplate v-bind="configCrearModelo" @elementoCreado="elementoCreado('Buscar', 'Modelo')"  >
                 </InputTemplate>
             </div>
         </transition>
@@ -65,7 +65,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nueva Version</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVersion"> 
+                <InputTemplate v-bind="configCrearVersion" @elementoCreado="elementoCreado('Buscar', 'Version')"> 
                 </InputTemplate>
             </div>
     
@@ -75,7 +75,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Vehiculo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearVehiculo">
+                <InputTemplate v-bind="configCrearVehiculo" @elementoCreado="elementoCreado('Buscar', 'Marca')">
                 </InputTemplate>
             </div>
         </transition>
@@ -86,7 +86,7 @@
                 <div  class="titulo">
                     <h2 class="text-2xl">Nuevo Tipo</h2>
                 </div>
-                <InputTemplate v-bind="configCrearTipo">
+                <InputTemplate v-bind="configCrearTipo" @elementoCreado="elementoCreado('Buscar', 'Tipo')">
                 </InputTemplate>
             </div>
         </transition>
@@ -336,10 +336,9 @@ export default {
                 ]  
             },
             configCrearModelo: {
-
-                urlFinal: '/modelos',
                 propiedadId: 'marcaId', //ID DEL INPUT A ENVIAR
                 urlCrear: 'api/vehiculos/marcas/',
+                urlFinal: '/modelos', 
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
@@ -353,7 +352,6 @@ export default {
                             validacion: false, 
                             uno:true, 
                             obligatorio: true, 
-                            url:'/api/vehiculos/marcas',
                             editable: false,
                             foranea: {
                                 url: '/api/vehiculos/marcas',
@@ -361,6 +359,7 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'id', titulo: 'Identificador'},
                                     {propiedad: 'nombre', titulo: 'Nombre'}
                                 ]
                             }
@@ -397,7 +396,8 @@ export default {
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
                                     {propiedad: 'id', titulo: 'Identificador'}, 
-                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}},
+                                    {propiedad: 'nombre', titulo: 'Modelo'}
                                 ]
                             }
                         }
@@ -422,7 +422,6 @@ export default {
             },
 
             configCrearVehiculo: {
-              
                 urlCrear: '/api/vehiculos/',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -446,7 +445,8 @@ export default {
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
                                     {propiedad: 'id', titulo: 'Identificador'}, 
-                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}},
+                                    {propiedad: 'nombre', titulo: 'Nombre Modelo'}
                                 ]
                             }
                         }
@@ -468,6 +468,7 @@ export default {
                                 insertarPropiedad: 'id',
                                 mostrarPropiedad: 'nombre',
                                 propiedadesMostrarTabla: [
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'modelo', propiedadMostrar: 'nombre'}},
                                     {propiedad: 'nombre', titulo: 'Nombre'}
                                 ]
                             }
@@ -541,7 +542,11 @@ export default {
         InputForanea
     },
     methods: {
-
+        elementoCreado: function(nombreElemento, elementoFinal){ //Cuando se hace un insert, se lleva a la direccion especificada en los parametros 
+            console.log('hjola queakj')
+            this.opcionSeleccionada = nombreElemento
+            this.opcionSeleccionadaBusqueda = elementoFinal
+        },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
   

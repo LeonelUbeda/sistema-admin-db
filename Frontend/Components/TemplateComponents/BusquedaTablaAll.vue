@@ -249,15 +249,16 @@ export default {
 
             for(let elementoArreglo of this.inputsEditar){
                 for(let input of elementoArreglo){
-
+                    console.log(input.nombre)
                     input.valor = this.elementoClickeado[input.nombre]
 
                     if(typeof input.foranea !== 'undefined'){
                         
                         if(this.elementoClickeado[input.foranea.propiedadElementoBuscar] !== null){
-                            
                             let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
+                            console.log(url)
                             let respuesta = await axios.get(url)
+                            console.log(respuesta.data)
                             input.foranea.mostrar = respuesta.data.nombre
                         }
                         
