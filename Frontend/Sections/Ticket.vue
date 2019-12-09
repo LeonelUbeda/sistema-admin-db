@@ -38,8 +38,13 @@
                     </div>
                 </div>
                 <div style="width: 42%">
-                    <div class="titulo">
-                        Buscar
+                    <div class="titulo flex justify-between">
+                        <div style="width:45%">
+                            <BusquedaInput></BusquedaInput>
+                        </div>
+                        <div style="width:45%">
+                            <BusquedaRadio :opciones="opcionesBusqueda" :seleccionado="opcionSeleccionada"></BusquedaRadio>
+                        </div>
                     </div>
                     <Tabla @filaSeleccionada="servicioSeleccionado" :elementos="elementos" :titulos="titulos"></Tabla>
                 </div>
@@ -56,15 +61,19 @@
 import TopSection from '../Components/TopSection.vue'
 import InputForanea from '../Components/InputForanea.vue'
 import Tabla from '../Components/Tabla.vue'
+import BusquedaRadio from '../Components/BusquedaRadio'
+import BusquedaInput from '../Components/BusquedaInput'
 import axios from 'axios'
 export default {
     data: () => {
         return {
             opciones: ['Ticket', 'Crear ticket'],
             opcionSeleccionada: 'Ticket',
+            opcionesBusqueda: [{value: 'nombre', titulo: 'Nombre'}, {value: 'categoria.nombre', titulo: 'Categoria'}],
+            opcionSeleccionada: 'categoria.nombre',
             elementos: [],
             serviciosSeleccionados: [],
-            titulos: [{propiedad: 'nombre', titulo: 'Nombre'}, {propiedad: 'descripcion', titulo: 'Descripcion'}],
+            titulos: [{propiedad: 'nombre', titulo: 'Nombre'}, {propiedad: 'categoriaForanea', titulo: 'Categoria', foranea: {propiedadRelacion: 'categorium' , propiedadMostrar: 'nombre'}}],
             ticket: {
                 clienteId: 0,
                 vehiculoId: 0,
@@ -161,7 +170,9 @@ export default {
     components: {
         TopSection,
         InputForanea,
-        Tabla
+        Tabla,
+        BusquedaRadio,
+        BusquedaInput
     }
 }
 </script>

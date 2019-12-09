@@ -1,89 +1,48 @@
 <template>
-<<<<<<< HEAD
-    <div id="contenedor" class="colorPrincipal">
-        <router-link to="/">
-            <div class="boton">
-                <span class="texto">Inicio</span>
-            </div>
-        </router-link>  
-        <router-link to="/clientes" v-if="esAdmin || tieneAcceso('Clientes', 1)">
-            <div class="boton">
-                <span class="texto">Cliente</span>
-            </div>
-        </router-link>
-        <router-link to="/vehiculos" v-if="esAdmin || tieneAcceso('Vehiculos', 1)">
-            <div class="boton">
-                <span class="texto">Vehiculos</span>
-            </div>
-        </router-link>
-        <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">
-            <div class="boton">
-                <span class="texto">Roles</span>
-            </div>
-        </router-link>
-        <router-link to="/servicios" v-if="esAdmin || tieneAcceso('Servicios', 1)">
-            <div class="boton">
-                <span class="texto">Servicios</span>
-            </div>
-        </router-link>
-        <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Ticket', 1)">
-            <div class="boton">
-                <span class="texto">Ticket</span>
-            </div>
-        </router-link>
-        <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
-            <div class="boton">
-                <span class="texto">Usuarios</span>
-            </div>
-        </router-link>
-        <div class="boton cursor-pointer" @click="cerrarSesion">
-            Cerrar Sesion {{$store.state.Permisos.Admin}}
-        </div>
-
-    </div>
-=======
   <div id="contenedor" class="colorPrincipal">
-    <router-link to="/">
+    <div class="flex flex-col width-100">
+      <router-link to="/">
       <div class="boton">
-        <span class="texto">Inicio</span>
+        <h3 class="texto">Inicio</h3>
       </div>
-    </router-link>
-    <router-link to="/clientes" v-if="esAdmin || tieneAcceso('Clientes', 1)">
-      <div class="boton">
-        <span class="texto">Cliente</span>
-      </div>
-    </router-link>
-    <router-link to="/vehiculos" v-if="esAdmin || tieneAcceso('Vehiculos', 1)">
-      <div class="boton">
-        <span class="texto">Vehiculos</span>
-      </div>
-    </router-link>
-    <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">
-      <div class="boton">
-        <span class="texto">Roles</span>
-      </div>
-    </router-link>
-    <router-link to="/servicios" v-if="esAdmin || tieneAcceso('Servicios', 1)">
-      <div class="boton">
-        <span class="texto">Servicios</span>
-      </div>
-    </router-link>
-    <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
-      <div class="boton">
-        <span class="texto">Usuarios</span>
-      </div>
-    </router-link>
-    <router-link to="/editar">
-      <div class="boton">
-        <span class="texto">Cambiar contraseña</span>
-      </div>
-    </router-link>
-    <div
-      class="boton cursor-pointer"
-      @click="cerrarSesion"
-    >Cerrar Sesion {{$store.state.Permisos.Admin}}</div>
+      </router-link>
+      <router-link to="/clientes" v-if="esAdmin || tieneAcceso('Clientes', 1)">
+        <div class="boton">
+          <h3 class="texto">Cliente</h3>
+        </div>
+      </router-link>
+      <router-link to="/vehiculos" v-if="esAdmin || tieneAcceso('Vehiculos', 1)">
+        <div class="boton">
+          <h3 class="texto">Vehiculos</h3>
+        </div>
+      </router-link>
+      <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">
+        <div class="boton">
+          <h3 class="texto">Roles</h3>
+        </div>
+      </router-link>
+      <router-link to="/servicios" v-if="esAdmin || tieneAcceso('Servicios', 1)">
+        <div class="boton">
+          <h3 class="texto">Servicios</h3>
+        </div>
+      </router-link>
+      <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
+        <div class="boton">
+          <h3 class="texto">Usuarios</h3>
+        </div>
+      </router-link>
+      <router-link to="/editar">
+        <div class="boton">
+          <h3 class="texto">Cambiar contraseña</h3>
+        </div>
+      </router-link>
+      <div
+        class="boton cursor-pointer"
+        @click="cerrarSesion"
+      >Cerrar Sesion {{$store.state.Permisos.Admin}}</div>
+    </div>
   </div>
->>>>>>> dc2c29f721b96cc8ad1f8a8afc10a23983d535df
+    
 </template>
 
 <script>
@@ -118,7 +77,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+ 
 }
 
 .texto {
@@ -130,12 +89,18 @@ a {
 }
 
 .boton {
+
   margin: 10px 0;
+  width: 100%;
+  height: auto;
+  padding: 5px 0 ;
+  padding-left: 15px;
   transition: 0.4s;
 }
-a:hover {
-  background-color: #76c4f5;
-  color: black;
-  border-radius: 10px 20px;
+.boton:hover {
+  //background-color: #76c4f5;
+  background-color: rgb(228, 228, 228);
+  padding-left: 25px;
+
 }
 </style>

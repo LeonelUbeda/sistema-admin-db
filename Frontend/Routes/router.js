@@ -7,11 +7,8 @@ import Vehiculo from '../Sections/Vehiculo'
 import Roles from '../Sections/Roles'
 import Servicio from '../Sections/Servicio'
 import Usuario from '../Sections/Usuario'
-<<<<<<< HEAD
 import Ticket from '../Sections/Ticket'
-=======
 import EditarContra from '../Sections/EditarInfo'
->>>>>>> dc2c29f721b96cc8ad1f8a8afc10a23983d535df
 // Cada objeto es una ruta, se le pasa un componente, una url y el nombre :D
 export default [
     {
@@ -50,16 +47,14 @@ export default [
         name: 'usuario'
     },
     {
-<<<<<<< HEAD
         path: '/ticket',
         component: Ticket,
-        name: 'cotizacions'
+        name: 'ticket'
     },
-=======
+    {
         path: '/Editar',
         component: EditarContra,
         name: 'EditarContra'
     }
->>>>>>> dc2c29f721b96cc8ad1f8a8afc10a23983d535df
 
 ]
