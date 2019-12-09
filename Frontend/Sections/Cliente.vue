@@ -17,19 +17,13 @@
                 @elementoSeleccionado="clickOpcionesBusqueda">
                 </TopSection>
                 <br>
-            
-                <BusquedaTablaAll  
+
+                <BusquedaTablaAll @clickTabla="ver"
                 v-bind="BusquedaTablaAllConfig" 
                 v-if="opcionSeleccionadaBusqueda === 'Cliente'" 
                 :key="'BusquedaTablaAllConfig'" > <!--Cliente  -->
                 </BusquedaTablaAll>
-                
-              
-                <BusquedaTablaAll 
-                v-bind="BusquedaTablaAllConfigTel" 
-                v-if="opcionSeleccionadaBusqueda === 'Telefono'" 
-                :key="'BusquedaTablaAllConfigTel'">
-                </BusquedaTablaAll> <!--Telefono  -->
+            
             </div>
         </transition>
         <transition  mode="out-in">
@@ -46,8 +40,25 @@
             </div>
         </transition>
     </div>
+    <div class="width-100"  id="popup-container" v-if="popUpTelefono == true">
+            <div id="popup" class="">
+                <div class="flex">
+                    <h2 class="text-2xl">Telefonos</h2>
+                </div>
+                
+                <div class="divisor mt-3" style="width: 100%"></div>
+               
+                <Tabla :sombra="false" class="mt-6" :elementos="elementosTelefono" :titulos="propiedadesMostrarTelefono" @filaSeleccionada="clickTelefono"></Tabla>
+                
+                <div class="flex width-100 justify-center">
+                    <button  @click="() => {popUpTelefono=false}" class="btn-rojo ml-auto">Cancelar</button>
+                    <button v-if="telefonoTemporal.hasOwnProperty('telefono')" @click="eliminarTelefono" >Eliminar</button>
+                </div>
+             
+            </div>
+        </div>
 
-   
+   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerTelefono" style="position: absolute; top: 0; right : 0;">Telefono</h2>
 </div>
 
 </template>
@@ -87,7 +98,7 @@ export default {
                 tiposBusqueda: [
                         {value: 'nombre', titulo: 'Nombre'},{value: 'apellido', titulo: 'Apellido'},
                         {value: 'direccion', titulo: 'Direccion'},{value: 'id', titulo: 'ID'}],
-                tablaMandarEventoClick: false,
+                tablaMandarEventoClick: true,
                 mostrarInformacionClick: true,
                 titulosClick: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
@@ -114,47 +125,12 @@ export default {
                     ]
                 ]
             }, //Buscar telefono
-            BusquedaTablaAllConfigTel:{
-                encabezado:'Telefono',
-                tablaTitulos: [
-                    {propiedad: 'clienteId', titulo: 'ID Cliente'}, 
-                    {propiedad: 'telefono', titulo: 'Telefono'}
-                ],
-                tablaUrl: '/api/clientes/1/telefono',
-                tablaUrlEliminar: '/api/clientes/1/telefono/2222',
-                tablaUrlActualizar: '/api/clientes/1/telefono/22225978',
-                tablaPropiedadAEliminar: 'clienteId',
-                tiposBusqueda: [
-                        {value: 'nombre', titulo: 'Nombre'},
-                        {value: 'telefono', titulo: 'Telefono'},{value: 'id', titulo: 'ID'}],
-                tablaMandarEventoClick: false,
-                mostrarInformacionClick: true,
-                titulosClick: [
-                    {propiedad: 'clienteId', titulo: 'Identificador'},
-                    {propiedad: 'telefono', titulo: 'Telefono'},
-                ],
-                busquedaDefault: 'nombre',
-                mostrarOpcionEditar: false,
-                mostrarOpcionEliminar: false,
-                inputsEditar: [
-                    [
-                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false}
-                    ],
-                    [
-                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false, editable: false},
-                        {nombre: 'apellido', titulo: 'Apellido', max: 50, tipo: 'text', validacion: true, uno: false, editable: false}
-                    ],
-                    [
-                        {nombre: 'telefono', titulo: 'Telefono', max: 15, tipo: 'number', validacion: true, uno: false}
-                    ]
-                ]
-            },
 
             // Menu de arriba
             opciones: [],
             opcionSeleccionada: 'Buscar',
             //Menu abajo de arriba
-            opcionesBusqueda: ['Cliente', 'Telefono'],
+            opcionesBusqueda: ['Cliente','Telefono'],
             opcionSeleccionadaBusqueda: 'Cliente',
 
             // Configuracion de inputs para crear Clientes
@@ -217,9 +193,13 @@ export default {
                   
                   
                 ]  
-            }
-     
-
+            },
+            clienteTemporal: {},
+            popUpTelefono: false,
+            elementosTelefono: [],
+            propiedadesMostrarTelefono: [{propiedad: 'telefono', titulo: 'Telefono'}],
+            telefonoTemporal: {}
+            
         }
     },
     components:{
@@ -235,16 +215,35 @@ export default {
         elementoCreado: function(elementoFinal){
 
            // this.$refs.inputTemplateCliente.borrarInputsData('')
-            this.opcionSeleccionadaBusqueda = elementoFinal
+            // this.opcionSeleccionadaBusqueda = elementoFinal
             this.opcionSeleccionada = 'Buscar'
         },
         clickOpciones: function (dato){
             this.opcionSeleccionada = dato
+            this.clienteTemporal = {}
         },
         clickOpcionesBusqueda: function (dato){
             this.opcionSeleccionadaBusqueda = dato
             
         },
+        ver(elemento){
+            this.clienteTemporal = elemento
+        },//lo que se tiene del telefono del cliente
+        clickVerTelefono(){
+            let url = '/api/clientes/'+this.clienteTemporal.id+'/telefono'
+            axios.get(url).then(response => {
+                console.log(response.data)
+                this.elementosTelefono= response.data
+                this.popUpTelefono = true
+            })
+        },//cuando clickeas un telefono
+        clickTelefono(elemento){
+            this.telefonoTemporal = elemento
+        },
+        eliminarTelefono(){
+            let url = '/api/clientes/'+this.telefonoTemporal.clienteId+'/telefono/'+this.telefonoTemporal.telefono
+            axios.delete(url).then(response => this.clickVerTelefono())
+        }
        
     },
     created(){
@@ -315,6 +314,55 @@ export default {
 }
 
 */
+
+.input-foraneo{
+    cursor: pointer;
+}
+
+input, select, .input-foraneo {
+	margin:10px 0 15px 0;
+	padding:5px 10px;
+	width:100%;
+	outline:none;
+	border:1px solid rgb(77, 161, 77);
+    background-color: white;
+	border-radius:20px;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+#popup-container{
+    width: 100vw;
+    height: 100vh;;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba($color: #B7B7B7, $alpha: 0.5);
+    //background-color: #B7B7B7;
+
+}
+
+#popup{
+    border-radius: 10px;
+    opacity: 1;
+    width: 700px;
+    max-height: calc(100% - 100px);
+    top: 50px;
+    left: calc(50% - (700px / 2) );
+    z-index: 20;
+    position: fixed;
+    overflow-y: auto;
+    background-color: white;
+    padding: 30px 30px 20px 30px;
+  
+} 
 
 #sidebar{
     width: 25%;

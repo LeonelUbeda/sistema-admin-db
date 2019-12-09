@@ -310,16 +310,13 @@ export default {
             let url = `${this.tablaUrlEliminar}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`
             eliminarDialog(url)
             .then(() => {
-                this.reiniciarTabla()
+            this.reiniciarTabla()
             })
         },
         filaSeleccionada: function(elemento){
-            if(this.tablaMandarEventoClick === false){
-                this.elementoClickeado = elemento
-                this.clickEnTabla = true
-            }else{
-                this.$emit('clickTabla', elemento)
-            }
+            this.elementoClickeado = elemento
+            this.clickEnTabla = true
+            this.$emit('clickTabla', elemento)
         },
         reiniciarTabla: function(){
             this.clickEnTabla = false
