@@ -244,7 +244,7 @@ export default {
         clickOpcionesBusqueda: function (dato){
             this.opcionSeleccionadaBusqueda = dato
             
-        }
+        },
        
     },
     created(){
@@ -256,7 +256,6 @@ export default {
                 case 4:
                     this.BusquedaTablaAllConfig.mostrarOpcionEliminar = true
                 case 3: 
-                    this.BusquedaTablaAllConfig.mostrarOpcionVerPerfil = true
                     this.BusquedaTablaAllConfig.mostrarOpcionEditar = true
                 case 2:
                     this.opciones.push('Crear')

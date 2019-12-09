@@ -38,7 +38,7 @@
 
                     <div class="flex flex-col container items-center card" v-if="mostrarInformacionClick === true && clickEnTabla === true">
                         <div class="bloque-titulo flex items-center">
-                            <h2 class="ml-8 text-xl">Edicion</h2>
+                            <h2 class="ml-8 text-xl">Ver</h2>
                             <h2 class="ml-auto mr-8 cursor-pointer text-xl" style="color:red" @click="(clickEnTabla = false)">X</h2>
                         </div>
                         <div class="divisor"></div>
@@ -53,7 +53,6 @@
                         <div class="flex">
                             <button class="btn-rojo text-white" v-if="mostrarOpcionEliminar" @click="eliminarElementoSeleccionado">Eliminar</button>
                             <button class="btn-azul text-white" v-if="mostrarOpcionEditar" @click="editarElementoSeleccionado">Editar</button>
-                            <button class="btn-azul text-white" v-if="mostrarOpcionVerPerfil" @click="verElementoSeleccionado">Ver Perfil</button>
                         </div>
                     </div>
 
@@ -148,10 +147,6 @@ export default {
         mostrarOpcionEliminar: {
             type: Boolean,
             default: true
-        },
-        mostrarOpcionVerPerfil: {
-            type: Boolean,
-            default: false
         },
         // CONFIGURACION DE LOS INPUTS para editar
         inputsEditar: {
@@ -317,9 +312,6 @@ export default {
             .then(() => {
                 this.reiniciarTabla()
             })
-        },
-        verElementoSeleccionado: async function(){
-            
         },
         filaSeleccionada: function(elemento){
             if(this.tablaMandarEventoClick === false){
