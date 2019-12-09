@@ -11,12 +11,6 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-                <TopSection 
-                :opciones="opcionesBusqueda"
-                :opcionSeleccionada="opcionSeleccionadaBusqueda"
-                @elementoSeleccionado="clickOpcionesBusqueda">
-                </TopSection>
-                <br>
 
                 <BusquedaTablaAll @clickTabla="ver"
                 v-bind="BusquedaTablaAllConfig" 
@@ -51,14 +45,14 @@
                 <Tabla :sombra="false" class="mt-6" :elementos="elementosTelefono" :titulos="propiedadesMostrarTelefono" @filaSeleccionada="clickTelefono"></Tabla>
                 
                 <div class="flex width-100 justify-center">
-                    <button  @click="() => {popUpTelefono=false}" class="btn-rojo ml-auto">Cancelar</button>
-                    <button v-if="telefonoTemporal.hasOwnProperty('telefono')" @click="eliminarTelefono" >Eliminar</button>
+                    <button  @click="() => {popUpTelefono=false}" class="btn-azul ml-auto">Cancelar</button>
+                    <button class="btn-rojo ml-auto" v-if="telefonoTemporal.hasOwnProperty('telefono')" @click="eliminarTelefono" >Eliminar</button>
                 </div>
              
             </div>
         </div>
 
-   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerTelefono" style="position: absolute; top: 0; right : 0;">Telefono</h2>
+   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerTelefono" style="position: absolute; top: 65%; right : 10%;">Telefono</h2>
 </div>
 
 </template>
@@ -131,6 +125,7 @@ export default {
             opcionSeleccionada: 'Buscar',
             //Menu abajo de arriba
             opcionesBusqueda: ['Cliente','Telefono'],
+            opcionesBusqueda2: ['Cliente'],
             opcionSeleccionadaBusqueda: 'Cliente',
 
             // Configuracion de inputs para crear Clientes
@@ -157,7 +152,9 @@ export default {
                 ]  
             },
             configCrearTel: {
-                urlCrear: 'api/clientes/1/telefono',
+                url: '/api/clientes/',
+                propiedadId: 'clienteId',
+                urlFinal: '/telefono',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
                 estilo: true,
