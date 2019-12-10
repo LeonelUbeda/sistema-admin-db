@@ -42,34 +42,57 @@
                 </BusquedaTablaAll>  <!--Tipo  -->
             </div>
         </transition>
-        <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Añadir Marca'" >
-                <div  class="titulo">
-                    <h2 class="text-2xl">Nueva Marca</h2>
+
+        
+        <transition mode="out-in">
+            <div class="width-100 padding-x-60 padding-y-20 absolute" v-if="opcionSeleccionada === 'Añadir'" >
+                 <TopSection 
+                :opciones="opcionesAnadir"
+                :opcionSeleccionada="opcionSeleccionadaAnadir"
+                @elementoSeleccionado="clickOpcionesAnadir">
+                </TopSection>
+                <br>
+                <div v-if="opcionSeleccionadaAnadir === 'Añadir Marca'">
+                    <div class="titulo">
+                        <h2 class="text-2xl">Nueva Marca</h2>
+                    </div>
+                    
+                    <InputTemplate v-bind="configCrearMarca" @elementoCreado="elementoCreado('Buscar', 'Marca') ">
+                    </InputTemplate>
                 </div>
-                <InputTemplate v-bind="configCrearMarca" @elementoCreado="elementoCreado('Buscar', 'Marca')">
-                </InputTemplate>
+                
+                <!--Modelo-->
+                 <div v-if="opcionSeleccionadaAnadir === 'Añadir Modelo'">
+                    <div class="titulo">
+                        <h2 class="text-2xl">Nuevo Modelo</h2>
+                    </div>
+                    
+                    <InputTemplate v-bind="configCrearModelo" @elementoCreado="elementoCreado('Buscar', 'Modelo') ">
+                    </InputTemplate>
+                </div>
+                <!--version-->
+                  <div v-if="opcionSeleccionadaAnadir === 'Añadir Version'">
+                    <div class="titulo">
+                        <h2 class="text-2xl">Nueva Version</h2>
+                    </div>
+                    
+                    <InputTemplate v-bind="configCrearVersion" @elementoCreado="elementoCreado('Buscar', 'Version') ">
+                    </InputTemplate>
+                </div>
+                <!--tipo-->    
+                 <div v-if="opcionSeleccionadaAnadir === 'Añadir Tipo'">
+                    <div class="titulo">
+                        <h2 class="text-2xl">Nuevo Tipo</h2>
+                    </div>
+                    
+                    <InputTemplate v-bind="configCrearTipo" @elementoCreado="elementoCreado('Buscar', 'Tipo') ">
+                    </InputTemplate>
+                </div>
+                </InputTemplate> 
+                
             </div>
         </transition>
-       <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Modelo'" >
-                <div  class="titulo">
-                    <h2 class="text-2xl">Nuevo Modelo</h2>
-                </div>
-                <InputTemplate v-bind="configCrearModelo" @elementoCreado="elementoCreado('Buscar', 'Modelo')"  >
-                </InputTemplate>
-            </div>
-        </transition>
-        <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nueva Version'" >
-                <div  class="titulo">
-                    <h2 class="text-2xl">Nueva Version</h2>
-                </div>
-                <InputTemplate v-bind="configCrearVersion" @elementoCreado="elementoCreado('Buscar', 'Version')"> 
-                </InputTemplate>
-            </div>
-    
-        </transition>
+
          <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Vehiculo'" >
                 <div  class="titulo">
@@ -81,15 +104,7 @@
         </transition>
 
         
-         <transition  mode="out-in">
-            <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Nuevo Tipo'" >
-                <div  class="titulo">
-                    <h2 class="text-2xl">Nuevo Tipo</h2>
-                </div>
-                <InputTemplate v-bind="configCrearTipo" @elementoCreado="elementoCreado('Buscar', 'Tipo')">
-                </InputTemplate>
-            </div>
-        </transition>
+ 
     </div>
 
    
@@ -322,6 +337,10 @@ export default {
             opcionesBusqueda: ['Marca', 'Modelo', 'Version', 'Tipo'],
             opcionSeleccionadaBusqueda: 'Marca',
 
+            //Menu tablas anadir
+            opcionesAnadir: ['Añadir Marca', 'Añadir Modelo', 'Añadir Version', 'Añadir Tipo'],
+            opcionSeleccionadaAnadir: 'Añadir Marca', 
+
             // Configuracion de inputs para crear Marcas
             configCrearMarca: {
                 urlCrear: 'api/vehiculos/marcas',
@@ -528,6 +547,9 @@ export default {
         clickOpcionesBusqueda: function (dato){
             this.opcionSeleccionadaBusqueda = dato
             
+        },
+        clickOpcionesAnadir: function(dato){
+            this.opcionSeleccionadaAnadir = dato;
         }
 
        
@@ -549,7 +571,7 @@ export default {
                     
                     
                 case 2:
-                    this.opciones.push('Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo')
+                    this.opciones.push('Añadir')
                 case 1:
                     //this.opciones.push('Buscar') 
 
@@ -570,7 +592,7 @@ export default {
             this.BusquedaTablaVersion.mostrarOpcionEliminar = true //Version
             this.BusquedaTablaTipo.mostrarOpcionEliminar = true //Tipo
 
-            this.opciones.push('Añadir Marca','Nuevo Modelo','Nueva Version', 'Nuevo Tipo', 'Nuevo Vehiculo')
+            this.opciones.push('Añadir', 'Nuevo Vehiculo')
         }
     }
     
