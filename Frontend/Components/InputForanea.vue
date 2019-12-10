@@ -70,7 +70,7 @@ export default {
         filaSeleccionada: function(elemento){
            
             this.mostrarValor = elemento[this.mostrarPropiedad]
-
+            console.log(elemento[this.insertarPropiedad])
             this.$emit('input', elemento[this.insertarPropiedad])
             this.$emit('seleccionado')
             this.mostrarPop = false

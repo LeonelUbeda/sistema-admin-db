@@ -147,7 +147,6 @@ export default {
                             if(!titulo.foranea.hasOwnProperty('foranea')){
                                 elemento[titulo.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.propiedadMostrar]
                             }else{ 
-                               
                                 if(elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion] !== null){
                                     // WTF IM DOING WITH MY LIFE
                                     elemento[titulo.foranea.foranea.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadMostrar]
@@ -160,7 +159,7 @@ export default {
         }
     },
     updated(){
-        console.log(this.elementos)
+       
         /*for(let elemento of this.elementos){
             if(elemento.Rol !== null){
                 elemento.rolId = elemento.Rol.nombre

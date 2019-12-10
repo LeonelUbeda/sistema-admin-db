@@ -1,9 +1,9 @@
 <template>
     <div id="contenedor" class="width-100 ">
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
-        <div class="width-100 padding-x-60 padding-y-20">
+        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket'">
             <div class="titulo flex">
-                <h2>Crear Ticket</h2>
+                <h2 class="text-xl">Crear Ticket</h2>
                 <button class="btn-azul" style="margin-left: auto" @click="enviarTicket">Guardar</button>
             </div> 
             <div class=" mt-3 pt-3 flex justify-between">
@@ -31,7 +31,13 @@
                         </div>
                     </div>
                     <div class="mt-3 flex flex-col" id="contenedor-servicios">
-                        <div class="flex flex-col servicios-seleccionados justify-center pl-8 mb-3" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
+                        <div :class="[
+                        'flex flex-col servicios-seleccionados justify-center pl-8 mb-3', 
+                        {'borde-verde': !(servicio.precio === '' || typeof servicio.precio == 'undefined')} , 
+                        {'borde-rojo': servicio.precio === '' || typeof servicio.precio == 'undefined'}]" 
+
+                        v-for="(servicio, index) of serviciosSeleccionados" :key="index">
+
                             <div class="flex pt-3">
                                 <h2 class="mr-4">{{servicio.id}}</h2>
                                 <h2 class="text-lg">{{servicio.nombre}}</h2>
@@ -41,11 +47,12 @@
                             <div class="flex my-3">
                                 <div class="flex flex-col">
                                     <h2>Precio</h2>
+                                 
                                     <input type="text" v-model="servicio.precio" class="input-default">
                                 </div>
                                 <div class="ml-3">
                                     <h2>Prioridad</h2>
-                                    <select name="" id=""  class="mt-3">
+                                    <select name="" id=""  class="mt-3" v-model="servicio.prioridad">
                                         <option value="Alta">Alta</option>
                                         <option value="Normal" selected>Normal</option>
                                         <option value="Baja">Baja</option>
@@ -77,12 +84,33 @@
             
         </div>
 
-        
-        
+        <div class="width-100 padding-x-60 padding-y-20 flex justify-between" v-if="opcionSeleccionada == 'Ticket'">
+            <div style="width:100%">
+                <div style="width: 100%">
+                    <div class="titulo flex justify-between">
+                        <div style="width:45%">
+                            <BusquedaInput @buscar="busquedaInputTicket"></BusquedaInput>
+                        </div>
+                        <div style="width:30%">
+                            <BusquedaRadio :opciones="opcionesBusquedaTicket" :seleccionado="opcionSeleccionadaTicket" 
+                            @seleccion="SeleccionTipoBusqueda"></BusquedaRadio>
+                        </div>
+                        <div style="width:10%">
+                            <BusquedaRadio :opciones="opcionLimite" :seleccionado="opcionSeleccionadaLimite" 
+                            @seleccion="SeleccionTipoLimite"></BusquedaRadio>
+                        </div>
+                    </div>
+                </div>
+                <tabla :elementos="elementosTablaTicket" :titulos="titulosTablaTicket"><tabla>
+
+            </div>
+            
+        </div>
     </div>
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import TopSection from '../Components/TopSection.vue'
 import InputForanea from '../Components/InputForanea.vue'
 import Tabla from '../Components/Tabla.vue'
@@ -92,8 +120,27 @@ import axios from 'axios'
 export default {
     data: () => {
         return {
+            opcionSeleccionadaLimite: '10',
+            busquedaTicket: '',
+            opcionesBusquedaTicket: [{value: 'auto.matricula', titulo: 'Matricula'}, {value: 'id', titulo: 'Identificador'}],
+            opcionSeleccionadaTicket: 'auto.matricula',
+            opcionLimite: [
+                {value: '10', titulo: 'Limite 10'},
+                {value: '20', titulo: 'Limite 20'},
+                {value: '50', titulo: 'Limite 50'},
+                {value: '100', titulo: 'Limite 100'},
+            ],
+            modoEdicion: false,
             opciones: ['Ticket', 'Crear ticket'],
             opcionSeleccionada: 'Ticket',
+            elementosTablaTicket: [],
+            titulosTablaTicket: [
+                {propiedad: 'id',           titulo: 'Identificador'},
+                {propiedad: 'matricula',    titulo: 'Matricula'},
+                {propiedad: 'marca',        titulo: 'Marca'},
+                {propiedad: 'modelo',       titulo: 'Modelo'},
+                {propiedad: 'version',       titulo: 'Version'},
+            ],
             opcionesBusqueda: [{value: 'nombre', titulo: 'Nombre'}, {value: 'categorium.nombre', titulo: 'Categoria'}],
             opcionSeleccionadaRadio: 'nombre',
             elementos: [],
@@ -154,13 +201,106 @@ export default {
             
         }
     },
-
     methods: {
+        busquedaInputTicket(elemento){
+            this.busquedaTicket = elemento
+            this.obtenerTickets()
+            console.log('Evento input')
+        },
+        obtenerTickets(){
+            let params = {}
+            
+            params.limite = this.opcionSeleccionadaLimite
+
+            if(this.busquedaTicket !== ''){
+                params[this.opcionSeleccionadaTicket] = this.busquedaTicket
+            }
+            console.log('Obteniendo tickets', params)
+            axios.get('/api/tickets/', {params})
+            .then((respuesta) => {
+                this.elementosTablaTicket = []
+                let tickets = respuesta.data
+                let contador = 0
+                for(let ticket of tickets){
+                    let temp = {}
+                    temp.matricula = ticket.auto.matricula,
+                    temp.version = ticket.auto.version.nombre
+                    temp.marca = ticket.auto.version.modelo.marca.nombre
+                    temp.modelo = ticket.auto.version.modelo.nombre
+                    temp.fechaInicio = ticket.fechaInicio,
+                    temp.fechaFinal = ticket.fechaFinal,
+                    temp.id = ticket.id
+                    this.elementosTablaTicket.unshift(temp)
+                }
+            })
+        },
+
+
         enviarTicket(){
-            console.log(this.serviciosSeleccionados)
+            let enviados = 0
+            //axios.post('/api', ticket)
+            if(!this.modoEdicion){
+                Swal.fire({
+                    title: 'Desea enviar ticket?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Exactamente',
+                    showLoaderOnConfirm: true,
+                    preConfirm: () => {
+                        if(this.ticket.fechaInicio === null) this.ticket.fechaInicio = new Date()
+                        return axios.post('/api/tickets', this.ticket)
+                        .then(async (respuesta) => {
+                            console.log(respuesta.data)
+                            if(this.serviciosSeleccionados.length > 0){
+                                for(let servicio of this.serviciosSeleccionados){
+                                    try {  
+
+                                        let elementoAEnviar = {
+                                            categoriaId: servicio.categoriaId,
+                                            servicioId: servicio.id,
+                                            ticketId: respuesta.data.id,
+                                            prioridad: servicio.prioridad,
+                                            precio: servicio.precio,
+                                           
+                                        }
+                                        console.log('ELEMENTO SERVICIO', elementoAEnviar)
+                                        let ticketServicioCreado = await axios.post('/api/ticketservicio/', elementoAEnviar)
+                                        console.log(ticketServicioCreado)
+
+                                    } catch (error) {
+                                        throw error
+                                        console.log(error)
+                                    }
+                                    
+                                }
+                                return 'yeih'
+                            }
+                            
+
+                        })
+                        .catch(() => {
+                            Swal.showValidationMessage('Error, intentelo de nuevo')
+                        })
+                    }
+                })
+                .then((resultado) => {
+                    if(resultado.value){
+                        Swal.fire({
+                            title: 'Terminado!',
+                            icon: 'success'
+                        })
+                    }
+                })
+            
+            }else{
+                console.log(this.serviciosSeleccionados)
+            }
+        
         },
         SeleccionTipoBusqueda(elemento){
             this.opcionSeleccionadaRadio = elemento
+        },
+        SeleccionTipoLimite(elemento){
+            this.opcionSeleccionadaLimite = elemento
         },
         SeleccionTipoBusqueda: function(elemento){
 
@@ -185,7 +325,7 @@ export default {
             let contador = 0
             for(let servicio of this.serviciosSeleccionados){
                 if(servicio.id === elemento.id){
-                    console.log('IGUAL')
+                   
                     this.serviciosSeleccionados.splice(contador,1)
                     break
                 }
@@ -199,7 +339,6 @@ export default {
                     repetido = true
                     break;
                 }
-                
             }
             if (!repetido) this.serviciosSeleccionados.unshift(elemento)
             
@@ -215,6 +354,7 @@ export default {
         }
     },
     created(){
+        this.obtenerTickets()
         this.buscarServicios()
     },
     components: {
@@ -239,6 +379,17 @@ input, select{
 #contenedor-servicios{
     overflow-y: auto;
     max-height: 500px;
+    >div{
+        
+    }
+}
+
+.borde-rojo{
+    border: 0.5px tomato solid;
+}
+
+.borde-verde{
+    border: 0.5px greenyellow solid;
 }
 
 input[type=text]{

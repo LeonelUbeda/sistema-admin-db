@@ -14,6 +14,10 @@ Ticket.init({
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    terminado: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    },
     clienteId: {
         type: Sequelize.INTEGER,
         allowNull: false

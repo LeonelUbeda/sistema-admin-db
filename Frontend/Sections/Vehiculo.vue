@@ -336,7 +336,7 @@ export default {
                 ]  
             },
             configCrearModelo: {
-                propiedadId: 'marcaId', //ID DEL INPUT A ENVIAR
+                propiedadConcatenar: 'marcaId', //ID DEL INPUT A ENVIAR
                 urlCrear: 'api/vehiculos/marcas/',
                 urlFinal: '/modelos', 
                 mostrarTitulo: false,
@@ -372,7 +372,7 @@ export default {
             },
             configCrearVersion: {
                 urlFinal: '/versiones',
-                propiedadId: 'modeloId', //ID DEL INPUT A ENVIAR
+                propiedadConcatenar: 'modeloId', //ID DEL INPUT A ENVIAR
                 urlCrear: 'api/vehiculos/modelos/',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -425,30 +425,6 @@ export default {
                 nombreBoton: 'Enviar',
                 estilo: true,
                 inputs: [
-                    [
-                        {
-                            titulo: 'Modelo', 
-                            nombre:'modeloId', 
-                            tipo:'text', 
-                            max: 9999, 
-                            validacion: false, 
-                            uno:true, 
-                            obligatorio: true, 
-                            url:'/api/vehiculos/modelos',
-                            editable: false,
-                            foranea: {
-                                url: '/api/vehiculos/modelos',
-                                buscarPor: 'nombre',
-                                insertarPropiedad: 'id',
-                                mostrarPropiedad: 'nombre',
-                                propiedadesMostrarTabla: [
-                                    {propiedad: 'id', titulo: 'Identificador'}, 
-                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'marca', propiedadMostrar: 'nombre'}},
-                                    {propiedad: 'nombre', titulo: 'Nombre Modelo'}
-                                ]
-                            }
-                        }
-                    ],
                     [ 
                        {
                             titulo: 'Version', 

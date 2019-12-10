@@ -115,15 +115,24 @@ export default {
             if(this.urlFinal != 'undefined'){
                 url += this.datosAEnviar[this.propiedadConcatenar] + this.urlFinal
             }
+            console.log(url)
             event.preventDefault()
             try {
                 this.verificarInputs()
                 console.log('Posteando')
                 axios.post(url, this.datosAEnviar)
                 .then(response => {
+                    /*this.$swal({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        icon: 'success',
+                        title: 'Elemento añadido exitosamente',
+                        
+                    })*/
                     Swal.fire({
-                    icon: 'success',
-                    title: 'Elemento añadido exitosamente',
+                        icon: 'success',
+                        title: 'Elemento añadido exitosamente',
                     })
                     .then(() => {
                         this.$emit('elementoCreado')

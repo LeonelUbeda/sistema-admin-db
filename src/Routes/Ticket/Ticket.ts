@@ -6,11 +6,35 @@ import Ticket from '../../Models/Ticket/Ticket';
 import RepuestoCliente from '../../Models/Ticket/RepuestoCliente';
 import manejadorGenerico from '../../Controllers/manejadorGenerico'
 import Nota from '../../Models/Ticket/Nota';
+import Cliente from '../../Models/Cliente';
+import Vehiculo from '../../Models/Vehiculo/Vehiculo';
+import Version from '../../Models/Vehiculo/Version';
+import Marca from '../../Models/Vehiculo/Marca';
+import Modelo from '../../Models/Vehiculo/Modelo';
 
 // Ruta generica para buscar tickets
 
 
-router.get('/',         manejadorGenerico({modelo: Ticket,     accion: manejadorGenerico.LEER}))
+router.get('/',         manejadorGenerico({modelo: Ticket,     accion: manejadorGenerico.LEER,
+    include: [
+        {
+            model: Cliente
+        },
+        {
+            model: Vehiculo,
+            include: {
+                model: Version,
+                include: {
+                    model: Modelo,
+                    include: {
+                        model: Marca
+                    }
+                }
+            }
+        }
+    ]
+
+}))
 router.get('/:id',      manejadorGenerico({modelo: Ticket,     accion: manejadorGenerico.LEER_POR_ID}))
 router.post('/',        manejadorGenerico({modelo: Ticket,     accion: manejadorGenerico.CREAR}))
 router.put('/:id',      manejadorGenerico({modelo: Ticket,     accion: manejadorGenerico.ACTUALIZAR_POR_ID}))

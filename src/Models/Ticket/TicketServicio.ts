@@ -16,6 +16,10 @@ TicketServicio.init({
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    descripcion: {
+        type: Sequelize.STRING(150),
+        allowNull: true
+    },
     servicioId: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -28,7 +32,7 @@ TicketServicio.init({
         type: Sequelize.INTEGER,
     },
     prioridad: {
-        type: Sequelize.ENUM('Alta', 'Media', 'Baja'),
+        type: Sequelize.ENUM('Alta', 'Normal', 'Baja'),
         defaultValue: 'Baja'
     }
 }, {
@@ -40,4 +44,4 @@ TicketServicio.init({
 TicketServicio.belongsTo(Ticket, {foreignKey: 'ticketId', targetKey: 'id'})
 TicketServicio.belongsTo(Servicio, {foreignKey: 'servicioId', targetKey: 'id'})
 
-export default Ticket;
+export default TicketServicio;

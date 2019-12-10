@@ -57,7 +57,7 @@ export default {
                 tituloPopup: {titulo: 'Editar Servicio: ', propiedadElementoClickeado: 'nombre'},
                 tablaTitulos: [
                     {propiedad: 'id', titulo: 'Identificador'}, 
-                    {propiedad: 'categoriaId', titulo: 'Categoria'}, 
+                    {propiedad: 'categoriaNombre', titulo: 'Categoria', foranea: {propiedadRelacion: 'categorium', propiedadMostrar: 'nombre'}}, 
                     {propiedad: 'nombre', titulo: 'Nombre'},
                     {propiedad: 'descripcion', titulo: 'Descripcion'},
                 ],
@@ -66,7 +66,7 @@ export default {
                 tablaUrlActualizar: '/api/servicios',
                 tablaPropiedadAEliminar: 'id',
                 tiposBusqueda: [
-                        {value: 'nombre', titulo: 'Nombre'},{value: 'categoriaId', titulo: 'Categoria'},
+                        {value: 'nombre', titulo: 'Nombre'},{value: 'categorium.nombre', titulo: 'Categoria'},
                         {value: 'id', titulo: 'ID'}],
                 tablaMandarEventoClick: false,
                 mostrarInformacionClick: true,

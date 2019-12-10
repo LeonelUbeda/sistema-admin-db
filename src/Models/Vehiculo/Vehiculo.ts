@@ -14,10 +14,6 @@ Vehiculo.init({
         primaryKey: true,
         autoIncrement: true
     },
-    modeloId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     versionId: {
         type: Sequelize.INTEGER,
         allowNull: true
@@ -43,7 +39,6 @@ Vehiculo.init({
 
 Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id'})
 Vehiculo.belongsTo(Tipo,    {foreignKey: 'tipoId',      targetKey: 'id'})
-Vehiculo.belongsTo(Modelo,  {foreignKey: 'modeloId',    targetKey: 'id'})
 Vehiculo.belongsTo(Version, {foreignKey: 'versionId',   targetKey: 'id'})
 
 
