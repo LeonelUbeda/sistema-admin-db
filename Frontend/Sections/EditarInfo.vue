@@ -87,7 +87,7 @@ export default {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-
+  margin-left: 10px !important;
   resize: both;
   overflow: auto;
 }
