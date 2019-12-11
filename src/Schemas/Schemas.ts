@@ -5,7 +5,7 @@ import database from '../Database/database'
 const createSchemas = () => {
     database.createSchema('cliente',{logging: false});
     database.createSchema('ticket',{logging: false});
-    database.createSchema('ventas',{logging: false});
+    database.createSchema('registro',{logging: false});
     database.createSchema('sistema',{logging: false});
     database.createSchema('vehiculo',{logging: false});
 }
