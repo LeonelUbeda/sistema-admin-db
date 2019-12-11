@@ -11,8 +11,8 @@ const createViews = async () => {
     await database.query(syncSumaServicios)
     await database.query(dropMarcarFinalizado)
     await database.query(syncMarcarFinalizado)
-    await database.query(dropBorrarTicket)
-    await database.query(syncBorrarTicket)
+    //await database.query(dropBorrarTicket)
+    //await database.query(syncBorrarTicket)
 }
 
 export default createViews

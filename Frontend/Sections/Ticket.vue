@@ -1,15 +1,15 @@
 <template>
     <div id="contenedor" class="width-100 ">
         <div class="absolute top-0 right-0 flex mt-1 mr-3" v-if="ticketSeleccionado">
-            <div class="btn-azul-no-margin mx-3" @click="trabajarSeleccionado">
+            <div class="btn-azul-no-margin mx-3" v-if="puedeActualizar" @click="trabajarSeleccionado">
                 <h2>Trabajar</h2>
             </div>
-            <div class="btn-rojo-no-margin" @click="editarSeleccionado">
+            <div class="btn-rojo-no-margin" v-if="puedeEliminar" @click="editarSeleccionado">
                 <h2>Editar</h2>
             </div>
         </div>
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
-        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket' || opcionSeleccionada == 'Editar'">
+        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear Ticket' || opcionSeleccionada == 'Editar'">
             <div class="titulo flex">
                 <h2 class="text-xl" v-if="!modoEdicion">Crear Ticket</h2>
                 <h2 v-else class="text-xl">Eliminar Servicios</h2>
@@ -186,7 +186,8 @@ export default {
     data: () => {
         return {
             opcionSeleccionadaLimite: '10',
-
+            puedeEliminar: false,
+            puedeActualizar: false,
             // Cuando vas a buscar y le das clic a un ticket...
             ticketSeleccionado: false,
 
@@ -204,7 +205,7 @@ export default {
                 {value: '100', titulo: 'Limite 100'},
             ],
             modoEdicion: false,
-            opciones: ['Ticket', 'Crear ticket'],
+            opciones: [],
             opcionSeleccionada: 'Ticket',
             elementosTablaTicket: [],
             titulosTablaTicket: [
@@ -296,7 +297,7 @@ export default {
                     return axios.delete('/api/tickets/' + this.elementoTicketClickeado.id)
                     .then((respuesta) => console.log(respuesta.data))
                     .catch(error => {throw error})
-
+                    console.log(this.elementoTicketClickeado)
                 }
             })
             .then((value) => {
@@ -338,7 +339,7 @@ export default {
                         icon: 'success'
                     })
                 }else{
-                
+                    
                     valor.ticketservicio.terminado = !valor.ticketservicio.terminado
                 }
             })
@@ -586,7 +587,7 @@ export default {
             
         },
         cambioDeSeccion(elemento){
-            if(elemento === 'Crear ticket'){
+            if(elemento === 'Crear Ticket'){
                 this.buscarServicios()
             }else if(elemento === 'Ticket'){
                 this.obtenerTickets()
@@ -609,7 +610,26 @@ export default {
 
         }
     },
-    created(){
+    created(){//['Ticket', 'Crear ticket']
+        switch (this.$store.state.Permisos.Tickets) {
+            case 4:
+                this.puedeEliminar = true
+            case 3:
+                this.puedeActualizar = true
+            case 2:
+                this.opciones.unshift('Crear Ticket')       
+            case 1: 
+                this.opciones.unshift('Ticket')
+                
+        }
+        
+        if(this.$store.state.Permisos.admin == true){
+            this.opciones.unshift('Crear Ticket')
+            this.opciones.unshift('Ticket')
+            this.puedeEliminar = true
+            this.puedeActualizar = true
+        }
+
         if(this.opcionSeleccionada === 'Ticket'){
             this.obtenerTickets()
         }else{

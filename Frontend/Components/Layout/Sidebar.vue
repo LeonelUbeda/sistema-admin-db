@@ -49,7 +49,8 @@
         @click="cerrarSesion"
       >Cerrar Sesion {{$store.state.Permisos.Admin}}</div>
     </div>
-    {{$store.state.Permisos}}
+    
+    
   </div>
     
 </template>
