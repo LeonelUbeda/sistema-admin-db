@@ -1,4 +1,4 @@
-create procedure ticket.generarTicket
+const syncGenerarTickets = `create procedure ticket.generarTicket
 	@cotizacionId int,
 	@autoId int
 AS
@@ -32,4 +32,4 @@ AS
 	deallocate cur
 	
 	DELETE FROM ventas.cotizacion where id = @cotizacionId
-GO
+GO`

@@ -1,4 +1,4 @@
-import { factoryModelNuevo, factoryModelTodos, factoryModelActualizarId, factoryModelEliminarCondicionAnd, factoryModelID, factoryModelActualizarPorCampo } from './genericos.controller'
+import { factoryModelNuevo, factoryModelTodos, factoryModelActualizarId, factoryModelEliminarCondicionAnd, factoryModelID, factoryModelActualizarPorCampo, factoryModelNuevoInclude } from './genericos.controller'
 import {Request, Response} from 'express'
 
 
@@ -51,7 +51,17 @@ const manejadorGenerico = ({modelo, accion, include = [] }) => {
                 res.status(400).json({mensaje: 'Error'})
             }
         },
-        //
+        crearInclude : async (req: Request, res: Response ) => {
+            const elemento = req.body
+            const query = req.params
+            const modeloCrear = factoryModelNuevoInclude({modelo, include})
+            try {
+                const resultado = await modeloCrear({...elemento, ...query})
+                res.status(201).json(resultado)
+            } catch (error) {
+                res.status(400).json({mensaje: 'Error include'})
+            }
+        },
         actualizarPorId: async (req: Request, res: Response) => {
             const identificador = req.params
             const elemento = req.body;
@@ -113,6 +123,7 @@ const manejadorGenerico = ({modelo, accion, include = [] }) => {
 manejadorGenerico.LEER =                'leer'
 manejadorGenerico.LEER_POR_ID =         'leerId'
 manejadorGenerico.CREAR =               'crear'
+manejadorGenerico.CREAR_INCLUDE =       'crearInclude'
 manejadorGenerico.ELIMINAR_POR_ID =     'eliminarPorId'
 manejadorGenerico.ACTUALIZAR_POR_PARAMETROS = 'actualizarPorParametros'
 manejadorGenerico.ACTUALIZAR_POR_ID =   'actualizarPorId'
