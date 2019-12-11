@@ -21,7 +21,7 @@ async function verificar(){
     try {
         store.commit('LoadingTrue')
         // Verifica si existe una sesion, o mejor dicho, si el JWT que esta en cookies todavia es valido
-        let respuesta = await axios.get('/api/auth/verificar')
+        await axios.get('/api/auth/verificar')
         store.commit('LogginTrue')
 
         await Promise.all([store.dispatch('Permisos'),store.dispatch('InformacionUsuario')])
@@ -59,7 +59,12 @@ router.beforeEach( async (to, from, next) => {
         next('inicio')
         // Si esta loggeado, no va a login, entonces lo deja pasar
     }else{
-        next()
+        if(to.path == '/'){
+            next('inicio')
+        }else{
+
+            next()
+        }
     }
        
 

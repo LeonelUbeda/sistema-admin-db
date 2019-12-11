@@ -1,10 +1,10 @@
 
 <template>
     <div>
-            
+        <div class="titulo">
             <h1>Bienvenido {{$store.state.Usuario.nombre}}</h1>
-            
-            {{this.$store.state.Permisos}}
+        </div>
+        
     </div>
 </template>
 

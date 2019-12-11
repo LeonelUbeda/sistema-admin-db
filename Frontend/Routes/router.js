@@ -12,7 +12,7 @@ import EditarContra from '../Sections/EditarInfo'
 // Cada objeto es una ruta, se le pasa un componente, una url y el nombre :D
 export default [
     {
-        path: '/',
+        path: '/inicio',
         component: Inicio,
         name: 'inicio'
     },

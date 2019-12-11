@@ -1,6 +1,9 @@
 <template>
   <div id="contenedor" class="colorPrincipal">
     <div class="flex flex-col width-100">
+      <div class="imagen width-100 flex justify-center mb-3 mt-1">
+        <img src="../../assets/img/logo.png" alt="">
+      </div>
       <router-link to="/inicio">
       <div class="boton">
         <h3 class="texto">Inicio</h3>
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+import Logo from '../../assets/img/logo.png'
 import themeColors from "../../assets/css/themeColors.css";
 import { esAdmin, tieneAcceso } from "../../Utils/verificaciones";
 
@@ -77,6 +81,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+img{
+  width: 70%;
+  height: auto;
+}
+
 #contenedor {
   z-index: 99999999999999;
   width: 100%;
