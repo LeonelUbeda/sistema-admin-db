@@ -14,7 +14,6 @@ Modelo.init({
     },
     marcaId:{
         type: Sequelize.INTEGER,
-        allowNull: false
     },
     nombre: {
         type: Sequelize.STRING(50),
@@ -26,6 +25,6 @@ Modelo.init({
     schema: 'vehiculo'
 })
 
-Modelo.belongsTo(Marca, {foreignKey: 'marcaId', targetKey: 'id'} )
+Modelo.belongsTo(Marca, {foreignKey: 'marcaId', targetKey: 'id',onDelete:'SET NULL'} )
 
 export default Modelo;
