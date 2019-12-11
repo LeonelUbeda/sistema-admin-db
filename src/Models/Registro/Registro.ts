@@ -31,7 +31,8 @@ Registro.init({
 }, {
     sequelize: database,
     tableName: 'registro',
-    schema: 'registro'
+    schema: 'registro',
+    hasTrigger: true
 })
 
 Registro.belongsTo(Ticket, {

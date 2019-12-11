@@ -34,7 +34,8 @@ TicketServicio.init({
 }, {
     sequelize: database,
     modelName: 'ticketservicio',
-    schema: 'ticket'
+    schema: 'ticket',
+    hasTrigger: true
 })
 
 Ticket.belongsToMany(Servicio, {through: {
