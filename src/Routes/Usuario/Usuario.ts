@@ -58,9 +58,6 @@ router.put('/:usuario', async (req: Request, res: Response) => {
     if(typeof contrasena !== 'undefined'){
         objetoAMandar.contrasena = contrasena ? encriptar(contrasena) : null
     }
-    
-
-
     try {
         const resultado = await usuarioActualizar(objetoAMandar, {usuario})
         res.status(201).json(resultado)
