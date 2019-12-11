@@ -88,19 +88,11 @@ app.use('*', (req, res) => {
 import createViews from "./Views/createViews";
 
 // Para eliminar y crear la base de datos
-database.sync({force: true}).then(() => {
+/*database.sync({force: true}).then(() => {
     if(database.getDialect() == 'mssql') {
         createViews()
     }
-})
-
-
-
-
-
-
-
-
+})*/
 
 
 // -------------------- Verificar DB --------------------

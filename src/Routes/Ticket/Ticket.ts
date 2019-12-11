@@ -12,6 +12,7 @@ import Version from '../../Models/Vehiculo/Version';
 import Marca from '../../Models/Vehiculo/Marca';
 import Modelo from '../../Models/Vehiculo/Modelo';
 import Servicio from '../../Models/Servicio/Servicio'
+import TicketServicio from '../../Models/Ticket/TicketServicio';
 
 // Ruta generica para buscar tickets
 
@@ -55,7 +56,10 @@ router.get('/:id',      manejadorGenerico({modelo: Ticket,     accion: manejador
                 }
             },
             {
-                model: Servicio
+                model: TicketServicio,
+                include: {
+                    model: Servicio
+                }
             }
         ]}))
         

@@ -80,3 +80,13 @@ export const ServiciosDatos = [
     {nombre: 'Reparacion de parte chocada', descripcion: 'Se le reparan las partes que esten afectadas por un choque', categoriaId: 2},
     {nombre: 'Cambio de aceite', descripcion: 'Se le cambia el aceite',categoriaId: 1 },
 ]
+
+
+export const UsuariosDatos = [
+    {nombre: 'admin', usuario: 'admin', contrasena: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'}
+]
+
+
+export const usuarioRoles = [
+    {nombre: ''}
+]

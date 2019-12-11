@@ -2,7 +2,7 @@
 <template>
 
 <div id="contenedor">
-
+    
     <TopSection 
     :opciones="opciones"
     :opcionSeleccionada="opcionSeleccionada"
@@ -11,13 +11,11 @@
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
-
                 <BusquedaTablaAll @clickTabla="ver"
                 v-bind="BusquedaTablaAllConfig" 
                 v-if="opcionSeleccionadaBusqueda === 'Cliente'" 
                 :key="'BusquedaTablaAllConfig'" > <!--Cliente  -->
                 </BusquedaTablaAll>
-            
             </div>
         </transition>
         <transition  mode="out-in">
@@ -39,7 +37,6 @@
                 <div class="flex">
                     <h2 class="text-2xl">Telefonos</h2>
                 </div>
-                
                 <div class="divisor mt-3" style="width: 100%"></div>
                
                 <Tabla :sombra="false" class="mt-6" :elementos="elementosTelefono" :titulos="propiedadesMostrarTelefono" @filaSeleccionada="clickTelefono"></Tabla>

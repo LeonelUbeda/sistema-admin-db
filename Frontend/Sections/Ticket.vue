@@ -1,5 +1,13 @@
 <template>
     <div id="contenedor" class="width-100 ">
+        <div class="absolute top-0 right-0 flex mt-1 mr-3" v-if="ticketSeleccionado">
+            <div class="btn-azul-no-margin mx-3" @click="trabajarSeleccionado">
+                <h2>Trabajar</h2>
+            </div>
+            <div class="btn-rojo-no-margin">
+                <h2>Editar</h2>
+            </div>
+        </div>
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
         <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket'">
             <div class="titulo flex">
@@ -30,45 +38,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-3 flex flex-col" id="contenedor-servicios">
-                        <div :class="[
-                        'flex flex-col servicios-seleccionados justify-center pl-8 mb-3', 
-                        {'borde-verde': !(servicio.precio === '' || typeof servicio.precio == 'undefined')} , 
-                        {'borde-rojo': servicio.precio === '' || typeof servicio.precio == 'undefined'}]" 
-
-                        v-for="(servicio, index) of serviciosSeleccionados" :key="index">
-
-                            <div class="flex pt-3">
-                                <h2 class="mr-4">{{servicio.id}}</h2>
-                                <h2 class="text-lg">{{servicio.nombre}}</h2>
-                                <h2 class="cursor-pointer ml-auto mr-3 text-xl" @click="eliminarServicioSeleccionado(servicio)" style="color: red">X</h2>
-                            </div>
-                            <div class="divisor mt-3" style="margin-bottom: 5px"></div>
-                            <div class="flex my-3">
-                                <div class="flex flex-col">
-                                    <h2>Precio</h2>
-                                 
-                                    <input type="text" v-model="servicio.precio" class="input-default">
-                                </div>
-                                <div class="ml-3">
-                                    <h2>Prioridad</h2>
-                                    <select name="" id=""  class="mt-3" v-model="servicio.prioridad">
-                                        <option value="Alta">Alta</option>
-                                        <option value="Normal" selected>Normal</option>
-                                        <option value="Baja">Baja</option>
-                                    </select>
-                                </div>
-                                <div class="flex flex-col items-center ml-3">
-                                    <h2>Terminado</h2>
-                                    <input type="checkbox" v-model="servicio.terminado" class="mt-3">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mt-3 flex flex-col" id="contenedor-servicios" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
+                        <Servicio :elemento="servicio" @eliminado="eliminarServicioSeleccionado"></Servicio>
                     </div>
                 </div>
 
-                <div style="width: 42%">
-                    
+                <div style="width: 42%">  
                     <div class="titulo flex justify-between">
                         <div style="width:45%">
                             <BusquedaInput @buscar="busqueda"></BusquedaInput>
@@ -83,7 +58,7 @@
             </div>
             
         </div>
-
+    
         <div class="width-100 padding-x-60 padding-y-20 flex justify-between" v-if="opcionSeleccionada == 'Ticket'">
             <div style="width:100%">
                 <div style="width: 100%">
@@ -93,7 +68,7 @@
                         </div>
                         <div style="width:30%">
                             <BusquedaRadio :opciones="opcionesBusquedaTicket" :seleccionado="opcionSeleccionadaTicket" 
-                            @seleccion="SeleccionTipoBusqueda"></BusquedaRadio>
+                            @seleccion="SeleccionTipoBusquedaTicket"></BusquedaRadio>
                         </div>
                         <div style="width:10%">
                             <BusquedaRadio :opciones="opcionLimite" :seleccionado="opcionSeleccionadaLimite" 
@@ -101,11 +76,17 @@
                         </div>
                     </div>
                 </div>
-                <tabla :elementos="elementosTablaTicket" :titulos="titulosTablaTicket"><tabla>
+                <tabla :elementos="elementosTablaTicket" :titulos="titulosTablaTicket" @filaSeleccionada="ticketSeleccionadoEvento"><tabla>
 
             </div>
             
         </div>
+
+
+        <div class="width-100 padding-x-60 padding-y-20 flex justify-between" v-if="opcionSeleccionada == 'Trabajar'">
+
+        </div>
+
     </div>
 </template>
 
@@ -116,13 +97,18 @@ import InputForanea from '../Components/InputForanea.vue'
 import Tabla from '../Components/Tabla.vue'
 import BusquedaRadio from '../Components/BusquedaRadio'
 import BusquedaInput from '../Components/BusquedaInput'
+import Servicio from '../Components/Minicomponents/Servicio'
 import axios from 'axios'
 export default {
     data: () => {
         return {
             opcionSeleccionadaLimite: '10',
+
+            // Cuando vas a buscar y le das clic a un ticket...
+            ticketSeleccionado: false,
+            elementoTicketClickeado: {},
             busquedaTicket: '',
-            opcionesBusquedaTicket: [{value: 'auto.matricula', titulo: 'Matricula'}, {value: 'id', titulo: 'Identificador'}],
+            opcionesBusquedaTicket: [{value: 'auto.matricula', titulo: 'Matricula'}, {value: 'id', titulo: 'Identificadorr'}],
             opcionSeleccionadaTicket: 'auto.matricula',
             opcionLimite: [
                 {value: '10', titulo: 'Limite 10'},
@@ -202,6 +188,20 @@ export default {
         }
     },
     methods: {
+
+        toggle(elemento){
+            elemento = !elemento
+        },
+        trabajarSeleccionado(){
+            this.opcionSeleccionada = 'Trabajar'
+        },
+        obtenerDetalleTicket(){
+
+        },
+        ticketSeleccionadoEvento(elemento){
+            this.elementoTicketClickeado = elemento
+            this.ticketSeleccionado = true;
+        },
         busquedaInputTicket(elemento){
             this.busquedaTicket = elemento
             this.obtenerTickets()
@@ -209,7 +209,6 @@ export default {
         },
         obtenerTickets(){
             let params = {}
-            
             params.limite = this.opcionSeleccionadaLimite
 
             if(this.busquedaTicket !== ''){
@@ -234,11 +233,8 @@ export default {
                 }
             })
         },
-
-
         enviarTicket(){
             let enviados = 0
-            //axios.post('/api', ticket)
             if(!this.modoEdicion){
                 Swal.fire({
                     title: 'Desea enviar ticket?',
@@ -260,8 +256,9 @@ export default {
                                             ticketId: respuesta.data.id,
                                             prioridad: servicio.prioridad,
                                             precio: servicio.precio,
-                                           
+                                            descripcion: servicio.descripcion
                                         }
+                                        
                                         console.log('ELEMENTO SERVICIO', elementoAEnviar)
                                         let ticketServicioCreado = await axios.post('/api/ticketservicio/', elementoAEnviar)
                                         console.log(ticketServicioCreado)
@@ -302,8 +299,8 @@ export default {
         SeleccionTipoLimite(elemento){
             this.opcionSeleccionadaLimite = elemento
         },
-        SeleccionTipoBusqueda: function(elemento){
-
+        SeleccionTipoBusquedaTicket: function(elemento){
+            this.opcionSeleccionadaTicket = elemento
         },
         busqueda(texto){
             this.textoBusqueda = texto
@@ -345,6 +342,7 @@ export default {
         },
         cambioDeSeccion(elemento){
             this.opcionSeleccionada = elemento
+            this.ticketSeleccionado = false
         },
         clienteSeleccionado(){
             let clienteId = this.clienteForanea.clienteId
@@ -362,7 +360,8 @@ export default {
         InputForanea,
         Tabla,
         BusquedaRadio,
-        BusquedaInput
+        BusquedaInput,
+        Servicio
     }
 }
 </script>
@@ -384,30 +383,6 @@ input, select{
     }
 }
 
-.borde-rojo{
-    border: 0.5px tomato solid;
-}
-
-.borde-verde{
-    border: 0.5px greenyellow solid;
-}
-
-input[type=text]{
-    height: 25px !important;
-    width: 150px ;
-}
-input[type=checkbox]{
-    height: 20px !important;
-    width: 50px
-}
-.servicios-seleccionados{
-    width: 100%;
-    height: auto;
-    background-color: #7798AB;
-    color: white;
-    background-color: white;
-    color: black
-}
 
 .inputs-dobles{
     width: 40%;
