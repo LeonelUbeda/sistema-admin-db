@@ -56,10 +56,7 @@ router.get('/:id',      manejadorGenerico({modelo: Ticket,     accion: manejador
                 }
             },
             {
-                model: TicketServicio,
-                include: {
-                    model: Servicio
-                }
+                model: Servicio
             }
         ]}))
         

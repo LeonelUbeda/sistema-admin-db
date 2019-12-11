@@ -266,6 +266,17 @@ body{
 }
 
 
+.rojo{
+    color: tomato
+}
+
+.verde{
+    color: greenyellow
+}
+
+.turquoise{
+    color: turquoise
+}
 
 .btn-rojo{
     background-color: #e66f66;
@@ -329,4 +340,21 @@ body{
     padding:20px 0 20px 0;
     box-sizing: border-box;
     width: 100%;
+}
+
+.borde-rojo{
+    border: 0.5px tomato solid;
+}
+
+.borde-verde{
+    border: 0.5px greenyellow solid;
+}
+
+
+.borde-terminado{
+    border: 0.5px #47A8BD solid
+}
+
+.borde-noterminado{
+    border: 0.5px #F991CC solid
 }

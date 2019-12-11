@@ -20,6 +20,10 @@ TicketServicio.init({
         type: Sequelize.FLOAT(12,2),
         allowNull: true
     },
+    terminado: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    },
     tiempoAproximado: {
         type: Sequelize.INTEGER,
     },

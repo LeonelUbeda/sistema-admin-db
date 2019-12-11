@@ -18,9 +18,8 @@
             </div>
             <div class="ml-3">
                 <h2>Prioridad</h2>
-                <h2 v-show="false">{{elemento.prioridad = 'Normal'}}</h2>
+                
                 <select name="prioridad" id="prioridad" class="mt-3" v-model="elemento.prioridad" style="border: 1px #bbb solid; border-radius: 15px">
-                    
                     <option value="Alta">Alta</option>
                     <option value="Normal">Normal</option>
                     <option value="Baja">Baja</option>
@@ -40,7 +39,7 @@
         </div>
         <div class="flex items-center" v-if="descripcionSelect">
             <h2 class="mr-3">Descripcion</h2>
-            <textarea cols="40" rows="5" v-model="elemento.detalle" class="mt-3 input-default" style="width: 70%">
+            <textarea cols="40" rows="5" v-model="elemento.descripcion" class="mt-3 input-default" style="width: 70%">
             </textarea>
         </div>
     </div>
@@ -57,6 +56,7 @@ export default {
             this.descripcionSelect = !this.descripcionSelect
         },
         eliminarelementoSeleccionado(){
+            console.log(this.elemento)
             this.$emit('eliminado', this.elemento)
         }
     },

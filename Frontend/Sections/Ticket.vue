@@ -4,12 +4,12 @@
             <div class="btn-azul-no-margin mx-3" @click="trabajarSeleccionado">
                 <h2>Trabajar</h2>
             </div>
-            <div class="btn-rojo-no-margin">
+            <div class="btn-rojo-no-margin" @click="editarSeleccionado">
                 <h2>Editar</h2>
             </div>
         </div>
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
-        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket'">
+        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket' || opcionSeleccionada == 'Editar'">
             <div class="titulo flex">
                 <h2 class="text-xl">Crear Ticket</h2>
                 <button class="btn-azul" style="margin-left: auto" @click="enviarTicket">Guardar</button>
@@ -39,26 +39,26 @@
                         </div>
                     </div>
                     <div class="mt-3 flex flex-col" id="contenedor-servicios" v-for="(servicio, index) of serviciosSeleccionados" :key="index">
-                        <Servicio :elemento="servicio" @eliminado="eliminarServicioSeleccionado"></Servicio>
+                        <Servicio :elemento="servicio" @eliminado="eliminarServicioSeleccionado" :key="servicio.nombre"></Servicio>
                     </div>
                 </div>
 
                 <div style="width: 42%">  
                     <div class="titulo flex justify-between">
                         <div style="width:45%">
-                            <BusquedaInput @buscar="busqueda"></BusquedaInput>
+                            <BusquedaInput @buscar="busquedaServicios"></BusquedaInput>
                         </div>
                         <div style="width:45%">
                             <BusquedaRadio :opciones="opcionesBusqueda" :seleccionado="opcionSeleccionadaRadio" 
                             @seleccion="SeleccionTipoBusqueda"></BusquedaRadio>
                         </div>
                     </div>
-                    <Tabla @filaSeleccionada="servicioSeleccionado" :elementos="elementos" :titulos="titulos"></Tabla>
+                    <Tabla @filaSeleccionada="servicioSeleccionado" :elementos="elementosServicios" :titulos="titulos" :key="'TABLASERVICIOS'"></Tabla>
                 </div>
             </div>
             
         </div>
-    
+
         <div class="width-100 padding-x-60 padding-y-20 flex justify-between" v-if="opcionSeleccionada == 'Ticket'">
             <div style="width:100%">
                 <div style="width: 100%">
@@ -83,8 +83,77 @@
         </div>
 
 
-        <div class="width-100 padding-x-60 padding-y-20 flex justify-between" v-if="opcionSeleccionada == 'Trabajar'">
+        <div class="width-100 padding-x-60 padding-y-20 flex flex-col justify-between" v-if="opcionSeleccionada == 'Trabajar'">
+            <div class="titulo">
+                Editar {{elementoTicketClickeado.id}}
+            </div>
+            <div class="flex width-100 justify-between">
+                <div class="flex flex-col width-100" style="width: 75%">
+                    <div :class="['flex flex-col sombra px-4 pt-4 pb-1 mb-5', {'borde-noterminado': !servicio.ticketservicio.terminado} , {'borde-terminado': servicio.ticketservicio.terminado}]" style="min-height: 130px; border-radius:10px" 
+                    v-for="servicio of elementoTicketClickeado.servicios" :key="servicio.id">
+                        <div class="flex flex-no-wrap">
+                            <div class="flex">
+                                <div class="width-100 mb-3 mr-8 items" v-if="servicio.nombre">
+                                    <h2 class="text-xl mb-1">Servicio:</h2>
+                                    <h2>{{servicio.nombre}}</h2>
+                                </div>
+                                <div class="width-100 mb-3 mr-8 items" v-if="servicio.descripcion">
+                                    <h2 class="text-xl mb-1">Descripcion:</h2>
+                                    <h2>{{servicio.descripcion}}</h2>
+                                </div>
+                            </div>
+                            <div class="width-100 mb-3 mr-8 items">
+                                <h2 class="text-xl">Detalles:</h2>
+                                <h2 v-if="servicio.ticketservicio.descripcion">{{servicio.ticketservicio.descripcion}}</h2>
+                                <h2 v-else>Ninguno</h2>
+                            </div>
+                            <div v-if="servicio.ticketservicio.prioridad" class="mb-3 ml-auto">
+                                <h2 class="text-xl">Prioridad</h2>
+                                <h2 :class="[
+                                {'rojo': servicio.ticketservicio.prioridad == 'Alta'},
+                                {'turquoise': servicio.ticketservicio.prioridad == 'Normal'},
+                                {'verde': servicio.ticketservicio.prioridad == 'Baja'}
+                                ]">{{servicio.ticketservicio.prioridad}}</h2>
+                            </div>
+                        </div>
+                        <div class="divisor" style="margin-bottom: 8px; width: 100%"></div>
+                        <div class="flex">
+                            <div>
+                                <h2>Precio</h2>
+                                <h2 class="pl-1">{{servicio.ticketservicio.precio}}</h2>
+                            </div>
+                            <div class="ml-auto flex flex-col items-center">
+                                <h2>Terminado</h2>
+                                <input type="checkbox" name="" v-model="servicio.ticketservicio.terminado" id="" style="height:25px; width: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="sombra rounded" style="width: 22%; height: 330px;">
+                    <h2 class="text-2xl pt-4 pl-4 pb-2">Vehiculo</h2>
+                    <div class="width-100 flex flex-col items-center">
+                        <div class="divisor" style="margin-bottom: 5px"></div>
+                    </div>
+                    <div class="mb-2">
+                        <h2 class="text-xl  p-2 pl-4">Matricula:</h2>
+                        <h2 class="pl-6 text-sm">>{{elementoTicketClickeado.auto.matricula}}</h2>
+                    </div>
+                    <div class="mb-2">
+                        <h2 class="text-xl  p-2 pl-4">Marca:</h2>
+                        <h2 class="pl-6 text-sm">>{{elementoTicketClickeado.auto.version.modelo.marca.nombre}}</h2>
+                    </div>
+                    <div class="mb-2">
+                        <h2 class="text-xl  p-2 pl-4">Modelo:</h2>
+                        <h2 class="pl-6 text-sm">>{{elementoTicketClickeado.auto.version.modelo.nombre}}</h2>
+                    </div>
+                    <div class="mb-2">
+                        <h2 class="text-xl  p-2 pl-4">Version:</h2>
+                        <h2 class="pl-6 text-sm">>{{elementoTicketClickeado.auto.version.nombre}}</h2>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
     </div>
@@ -106,9 +175,13 @@ export default {
 
             // Cuando vas a buscar y le das clic a un ticket...
             ticketSeleccionado: false,
+
             elementoTicketClickeado: {},
             busquedaTicket: '',
-            opcionesBusquedaTicket: [{value: 'auto.matricula', titulo: 'Matricula'}, {value: 'id', titulo: 'Identificadorr'}],
+            opcionesBusquedaTicket: [
+                {value: 'auto.matricula', titulo: 'Matricula'}, 
+                {value: 'id', titulo: 'Identificadorr'}
+            ],
             opcionSeleccionadaTicket: 'auto.matricula',
             opcionLimite: [
                 {value: '10', titulo: 'Limite 10'},
@@ -127,12 +200,19 @@ export default {
                 {propiedad: 'modelo',       titulo: 'Modelo'},
                 {propiedad: 'version',       titulo: 'Version'},
             ],
-            opcionesBusqueda: [{value: 'nombre', titulo: 'Nombre'}, {value: 'categorium.nombre', titulo: 'Categoria'}],
+            opcionesBusqueda: [
+                {value: 'nombre', titulo: 'Nombre'}, 
+                {value: 'categorium.nombre', titulo: 'Categoria'}
+            ],
+            titulos: [
+                {propiedad: 'nombre', titulo: 'Nombre'}, 
+                {propiedad: 'categoriaForaneaa', titulo: 'Categoria', foranea: {propiedadRelacion: 'categorium' , propiedadMostrar: 'nombre'}
+            }],
+            elementosServicios: [],
             opcionSeleccionadaRadio: 'nombre',
-            elementos: [],
             textoBusqueda: '',
             serviciosSeleccionados: [],
-            titulos: [{propiedad: 'nombre', titulo: 'Nombre'}, {propiedad: 'categoriaForanea', titulo: 'Categoria', foranea: {propiedadRelacion: 'categorium' , propiedadMostrar: 'nombre'}}],
+            serviciosSeleccionadosTemporal: [],
             serviciosMandar: [],
             ticket: {
                 clienteId: 0,
@@ -140,8 +220,9 @@ export default {
                 fechaInicio: null,
                 fechaFinal: null
             },
+
+            ticketTemporal: {},
             clienteForanea: {
-                
                 url: '/api/clientes',
                 buscarPor: 'nombre',
                 insertarPropiedad: 'id',
@@ -189,14 +270,72 @@ export default {
     },
     methods: {
 
+        async eliminarServicio(url){
+            Swal.fire({
+                title: 'Desea eliminar?',
+                showCancelButton: true,
+                confirmButtonText: 'Exactamente',
+                showLoaderOnConfirm: true,
+                preConfirm:() => {
+                    
+                    return axios.delete(url)
+                    .then((respuesta) => console.log(respuesta.data))
+                    .catch(error => {throw error})
+
+                }
+            })
+            .then((value) => {
+                if(value.value){
+                    Swal.fire({
+                        text: 'Eliminado exitosamente!',
+                        icon: 'success'
+                    })
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                        text: 'Ha ocurrido un error!',
+                        icon: 'error'
+                    })
+            })
+        },
+        async editarSeleccionado(){
+            this.modoEdicion = true
+            this.elementosServicios = {}
+            await this.buscarServicios()
+            
+            let respuesta = await axios.get('/api/tickets/' + this.elementoTicketClickeado.id)
+            let servicios = respuesta.data.servicios
+            this.vehiculoForanea.url = '/api/vehiculos/cliente/' + respuesta.data.cliente.id
+            this.vehiculoForanea.mostrar =  respuesta.data.auto.matricula
+            this.clienteForanea.mostrar =   respuesta.data.cliente.nombre
+
+
+
+            this.ticket = {
+                clienteId: respuesta.data.clienteId,
+                vehiculoId: respuesta.data.vehiculoId,
+                fechaInicio: respuesta.data.fechaInicio,
+                fechaFinal: respuesta.data.fechaFinal
+            }
+
+        
+            for(let servicio of servicios){
+                let elementoNuevo = servicio.ticketservicio
+                elementoNuevo.nombre = servicio.nombre
+                elementoNuevo.id = servicio.id
+                this.serviciosSeleccionados.unshift(elementoNuevo)
+            }
+            console.log(this.serviciosSeleccionados)
+            this.opcionSeleccionada = 'Editar'
+        },
         toggle(elemento){
             elemento = !elemento
         },
-        trabajarSeleccionado(){
+        async trabajarSeleccionado(){
+            await this.obtenerTicketDetalle()
             this.opcionSeleccionada = 'Trabajar'
-        },
-        obtenerDetalleTicket(){
-
+            this.ticketSeleccionado = false
         },
         ticketSeleccionadoEvento(elemento){
             this.elementoTicketClickeado = elemento
@@ -233,6 +372,10 @@ export default {
                 }
             })
         },
+        async obtenerTicketDetalle(){
+            let respuesta = await axios.get('/api/tickets/' + this.elementoTicketClickeado.id)
+            this.elementoTicketClickeado = respuesta.data
+        },
         enviarTicket(){
             let enviados = 0
             if(!this.modoEdicion){
@@ -249,16 +392,16 @@ export default {
                             if(this.serviciosSeleccionados.length > 0){
                                 for(let servicio of this.serviciosSeleccionados){
                                     try {  
-
                                         let elementoAEnviar = {
                                             categoriaId: servicio.categoriaId,
                                             servicioId: servicio.id,
                                             ticketId: respuesta.data.id,
                                             prioridad: servicio.prioridad,
                                             precio: servicio.precio,
-                                            descripcion: servicio.descripcion
+                                            descripcion: servicio.descripcion,
+                                            terminado: servicio.terminado
                                         }
-                                        
+                                        console.log(elementoAEnviar)
                                         console.log('ELEMENTO SERVICIO', elementoAEnviar)
                                         let ticketServicioCreado = await axios.post('/api/ticketservicio/', elementoAEnviar)
                                         console.log(ticketServicioCreado)
@@ -289,7 +432,7 @@ export default {
                 })
             
             }else{
-                console.log(this.serviciosSeleccionados)
+                
             }
         
         },
@@ -302,31 +445,36 @@ export default {
         SeleccionTipoBusquedaTicket: function(elemento){
             this.opcionSeleccionadaTicket = elemento
         },
-        busqueda(texto){
+        busquedaServicios(texto){
             this.textoBusqueda = texto
             console.log('Realizando busqueda')
             this.buscarServicios()
         },
-        buscarServicios(){
+        async buscarServicios(){
             let params = {}
             
             if(this.textoBusqueda !== ''){
                 params[this.opcionSeleccionadaRadio] = this.textoBusqueda
             }
-            axios.get('/api/servicios', {params})
-            .then((respuesta) => {
-                this.elementos = respuesta.data
-            })
+
+            let respuesta = await axios.get('/api/servicios', {params})
+            this.elementosServicios = respuesta.data
+            
         },
-        eliminarServicioSeleccionado(elemento){
-            let contador = 0
-            for(let servicio of this.serviciosSeleccionados){
-                if(servicio.id === elemento.id){
-                   
-                    this.serviciosSeleccionados.splice(contador,1)
-                    break
+        async eliminarServicioSeleccionado(elemento){
+            if(this.modoEdicion){
+                console.log('/api/ticketservicio/ticket/' + this.elementoTicketClickeado.id +'/servicio/'+ elemento.id)
+                await this.eliminarServicio('/api/ticketservicio/ticket/' + this.elementoTicketClickeado.id +'/servicio/'+ elemento.id)
+            }else{
+                let contador = 0
+                for(let servicio of this.serviciosSeleccionados){
+                    if(servicio.id === elemento.id){
+                       
+                        this.serviciosSeleccionados.splice(contador,1)
+                        break
+                    }
+                    contador++
                 }
-                contador++
             }
         },     
         servicioSeleccionado(elemento) {
@@ -337,12 +485,21 @@ export default {
                     break;
                 }
             }
-            if (!repetido) this.serviciosSeleccionados.unshift(elemento)
+            delete elemento.descripcion
+            if (!repetido) {
+                elemento.prioridad = 'Normal'
+                this.serviciosSeleccionados.unshift(elemento)
+            }
             
         },
         cambioDeSeccion(elemento){
+            if(elemento === 'Crear ticket'){
+                this.buscarServicios()
+            }
             this.opcionSeleccionada = elemento
             this.ticketSeleccionado = false
+            this.elementoTicketClickeado = {}
+            this.serviciosSeleccionados = []
         },
         clienteSeleccionado(){
             let clienteId = this.clienteForanea.clienteId
@@ -352,8 +509,11 @@ export default {
         }
     },
     created(){
-        this.obtenerTickets()
-        this.buscarServicios()
+        if(this.opcionSeleccionada === 'Ticket'){
+            this.obtenerTickets()
+        }else{
+            
+        }
     },
     components: {
         TopSection,
@@ -368,6 +528,12 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.items{
+    width: 250px;
+    height: 100%;
+
+}
 
 input, select{
     color: white;
