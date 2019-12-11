@@ -24,9 +24,9 @@ TicketServicio.init({
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    tiempoAproximado: {
+    /*tiempoAproximado: {
         type: Sequelize.INTEGER,
-    },
+    },*/
     prioridad: {
         type: Sequelize.ENUM('Alta', 'Normal', 'Baja'),
         defaultValue: 'Baja'

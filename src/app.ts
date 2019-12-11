@@ -28,12 +28,12 @@ import RutaCategoriaServicio from './Routes/Servicio/Categoria'
 import RutaServicio from './Routes/Servicio/Servicio'
 import RutaClasificacionVehiculo from './Routes/Vehiculo/ClasificacionAuto'
 import RutaVehiculo from './Routes/Vehiculo/Vehiculo'
-import RutaHerramienta from './Routes/Inventario/Herramienta'
-import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
-import RutaInsumo from './Routes/Inventario/Insumo'
+//import RutaHerramienta from './Routes/Inventario/Herramienta'
+//import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
+//import RutaInsumo from './Routes/Inventario/Insumo'
 import RutaTicket from './Routes/Ticket/Ticket'
 import RutaTicketServicio from './Routes/Ticket/TicketServicio'
-import RutaRegistro from './Routes/Registro/Registro'
+//import RutaRegistro from './Routes/Registro/Registro'
 // import RutaCotizacion from './Routes/Cotizacion/Cotizacion'
 // import RutaCotizacionServicio from './Routes/Cotizacion/CotizacionServicio'
 import './Models/Registro/Registro'
@@ -70,12 +70,12 @@ app.use('/api/servicios/categorias',    RutaCategoriaServicio)
 app.use('/api/servicios/',              RutaServicio)
 app.use('/api/vehiculos/',              RutaClasificacionVehiculo) // Dentro de esta ruta esta /marca /modelo /version
 app.use('/api/vehiculos',               RutaVehiculo)
-app.use('/api/herramienta',             RutaHerramienta)
-app.use('/api/herramienta/categorias',  RutaCategoriaHerramienta)
-app.use('/api/insumo',                  RutaInsumo)
+//app.use('/api/herramienta',             RutaHerramienta)
+//app.use('/api/herramienta/categorias',  RutaCategoriaHerramienta)
+//app.use('/api/insumo',                  RutaInsumo)
 app.use('/api/ticketservicio/',         RutaTicketServicio)
 app.use('/api/tickets/',                RutaTicket)
-app.use('/api/registros/',              RutaRegistro)
+//app.use('/api/registros/',              RutaRegistro)
 // app.use('/api/cotizacion',              RutaCotizacion)
 // app.use('/api/cotizacionservicio/',     RutaCotizacionServicio)
 
@@ -92,13 +92,13 @@ import createStoredProcedures from "./StoredProcedures/createStoredProcedures"
 import createTriggers from "./Trigger/createTriggers"
 
 // Para eliminar y crear la base de datos
-/*database.sync({force: true}).then( async () => {
+database.sync({force: true}).then( async () => {
     if(database.getDialect() == 'mssql') {
         await createViews()
         await createStoredProcedures()
         await createTriggers()
     }
-})*/
+})
 
 
 // -------------------- Verificar DB --------------------

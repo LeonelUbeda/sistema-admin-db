@@ -306,7 +306,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 input[type=submit]{
-    color: black !important;
+    color: white !important;
     background:#398AD7;
     padding:10px 30px;  
     color: white;

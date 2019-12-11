@@ -1,17 +1,17 @@
 
 <template>
   <div>
-    <div>
-      <div>
-        <div class="titulo">
+    <div class="titulo">
           <h2 class="text-2xl">Editar usuario {{$store.state.Usuario.usuario}}</h2>
         </div>
+    <div class="flex flex-col items-center">
+      <div>
+        
       </div>
-      <div class="w-full max-w-xs flex content-start">
+      <div class="w-full max-w-xs flex content-start width-100 justify-center">
         <div
           class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex content-start"
-          id="contenedor"
-        >
+          id="contenedor">
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-4" for="nueva">Nueva Contraseña</label>
             <input

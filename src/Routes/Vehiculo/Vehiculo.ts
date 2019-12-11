@@ -59,7 +59,10 @@ router.get('/cliente/:clienteId/', manejadorGenerico({
             model: Version,
             include: [
                 {
-                    model: Modelo
+                    model: Modelo,
+                    include: {
+                        model: Marca
+                    }
                 }
             ]
         },

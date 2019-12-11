@@ -1,19 +1,20 @@
 <template>
     <div id="contenedor" class="width-100 ">
         <div class="absolute top-0 right-0 flex mt-1 mr-3" v-if="ticketSeleccionado">
-            <div class="btn-azul-no-margin mx-3" @click="trabajarSeleccionado">
+            <div class="btn-azul-no-margin mx-3" v-if="puedeActualizar" @click="trabajarSeleccionado">
                 <h2>Trabajar</h2>
             </div>
-            <div class="btn-rojo-no-margin" @click="editarSeleccionado">
+            <div class="btn-rojo-no-margin" v-if="puedeEliminar" @click="editarSeleccionado">
                 <h2>Editar</h2>
             </div>
         </div>
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
-        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket' || opcionSeleccionada == 'Editar'">
+        <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear Ticket' || opcionSeleccionada == 'Editar'">
             <div class="titulo flex">
                 <h2 class="text-xl" v-if="!modoEdicion">Crear Ticket</h2>
                 <h2 v-else class="text-xl">Eliminar Servicios</h2>
-                <button class="btn-azul" style="margin-left: auto" @click="enviarTicket" v-if="!modoEdicion">Guardar</button>
+                <button class="btn-azul"  @click="enviarTicket" v-if="!modoEdicion" style="margin-left: auto">Guardar</button>
+                <button v-else class="btn-rojo" style="margin-left: auto" @click="eliminarTicket">Eliminar ticket</button>
             </div> 
             <div class=" mt-3 pt-3 flex justify-between">
                 <div class="" style="width: 52%">
@@ -46,7 +47,7 @@
 
                 <div style="width: 42%">  
                     <div class="titulo flex justify-between relative" v-if="!modoEdicion">
-                        <div class="absolute top-0 width-100  flex justify-center items-center blur" style="z-index: 9999; height: 100%" v-if="modoEdicion">
+                        <div class="absolute top-0 width-100  flex justify-center items-center blur" style="z-index: -1; height: 100%" v-if="modoEdicion">
                             
                         </div>
                         <div style="width:45%">
@@ -58,7 +59,7 @@
                         </div>
                     </div>
                     <div class="relative ">
-                        <div class="absolute top-0 width-100  flex justify-center items-center" style="z-index: 9999; height: 100%" v-if="modoEdicion">
+                        <div class="absolute top-0 width-100  flex justify-center items-center" style="z-index: 1; height: 100%" v-if="modoEdicion">
                             <div class="mensaje-rojo">
                                 Desactivado!
                             </div>
@@ -137,7 +138,7 @@
                             </div>
                             <div class="ml-auto flex flex-col items-center">
                                 <h2>Terminado</h2>
-                                <input type="checkbox" :disabled="$store.state.Permisos.Tickets > 3" v-on:change="marcarServicio('/api/ticketservicio/ticket/'+ elementoTicketClickeado.id + '/servicio/' + servicio.id , servicio.ticketservicio.terminado)" name="" v-model="servicio.ticketservicio.terminado" id="" style="height:25px; width: 20px;">
+                                <input type="checkbox" :disabled="$store.state.Permisos.Tickets > 3" v-on:change="marcarServicio('/api/ticketservicio/ticket/'+ elementoTicketClickeado.id + '/servicio/' + servicio.id , servicio)" name="" v-model="servicio.ticketservicio.terminado" id="" style="height:25px; width: 20px;">
                             </div>
                         </div>
                     </div>
@@ -185,7 +186,8 @@ export default {
     data: () => {
         return {
             opcionSeleccionadaLimite: '10',
-
+            puedeEliminar: false,
+            puedeActualizar: false,
             // Cuando vas a buscar y le das clic a un ticket...
             ticketSeleccionado: false,
 
@@ -203,7 +205,7 @@ export default {
                 {value: '100', titulo: 'Limite 100'},
             ],
             modoEdicion: false,
-            opciones: ['Ticket', 'Crear ticket'],
+            opciones: [],
             opcionSeleccionada: 'Ticket',
             elementosTablaTicket: [],
             titulosTablaTicket: [
@@ -282,27 +284,30 @@ export default {
         }
     },
     methods: {
-        marcarServicio(url, valor){
-            console.log(url, valor)
+        eliminarTicket(){
+
             Swal.fire({
-                title: 'Desea cambiar?',
-                text: 'Puede rehacer en cualquier momento',
+                title: 'Seguro que desea eliminar?',
+                text: 'No se puede deshacer!',
                 showCancelButton: true,
-                icon: 'info',
+                icon: 'question',
                 confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm:() => {
-                    return axios.put(url, {terminado: valor})
+                    return axios.delete('/api/tickets/' + this.elementoTicketClickeado.id)
                     .then((respuesta) => console.log(respuesta.data))
                     .catch(error => {throw error})
-
+                    console.log(this.elementoTicketClickeado)
                 }
             })
             .then((value) => {
                 if(value.value){
                     Swal.fire({
-                        text: 'Se ha cambiado la prioridad',
+                        text: 'Se ha eliminado correctamente',
                         icon: 'success'
+                    })
+                    .then(() => {
+                        this.cambioDeSeccion('Ticket')
                     })
                 }
             })
@@ -313,36 +318,41 @@ export default {
                 })
             })
         },
-        async eliminarServicio(url){
+        marcarServicio(url, valor){
             Swal.fire({
-                title: 'Desea eliminar?',
+                title: 'Desea cambiar?',
+                text: 'Puede rehacer en cualquier momento',
                 showCancelButton: true,
-                confirmButtonText: 'Exactamente',
+                icon: 'info',
+                confirmButtonText: 'Si',
                 showLoaderOnConfirm: true,
                 preConfirm:() => {
-                    
-                    return axios.delete(url)
+                    return axios.put(url, {terminado: valor.ticketservicio.terminado})
                     .then((respuesta) => console.log(respuesta.data))
                     .catch(error => {throw error})
-
                 }
             })
             .then((value) => {
                 if(value.value){
                     Swal.fire({
-                        text: 'Eliminado exitosamente!',
+                        text: 'Se ha cambiado la prioridad',
                         icon: 'success'
                     })
+                }else{
+                    
+                    valor.ticketservicio.terminado = !valor.ticketservicio.terminado
                 }
             })
             .catch(() => {
                 Swal.fire({
-                        text: 'Ha ocurrido un error!',
-                        icon: 'error'
-                    })
+                    text: 'Ha ocurrido un error!',
+                    icon: 'error'
+                })
             })
         },
+       
         async editarSeleccionado(){
+            this.ticketSeleccionado = false
             this.modoEdicion = true
             this.elementosServicios = {}
             await this.buscarServicios()
@@ -466,12 +476,17 @@ export default {
                     }
                 })
                 .then((resultado) => {
+                    this.selected
                     if(resultado.value){
                         Swal.fire({
                             title: 'Terminado!',
                             icon: 'success'
                         })
                     }
+                })
+                .then(() => {
+                    
+                    this.cambioDeSeccion('Ticket')
                 })
             
             }else{
@@ -506,19 +521,55 @@ export default {
         },
         async eliminarServicioSeleccionado(elemento){
             if(this.modoEdicion){
-                console.log('/api/ticketservicio/ticket/' + this.elementoTicketClickeado.id +'/servicio/'+ elemento.id)
-                await this.eliminarServicio('/api/ticketservicio/ticket/' + this.elementoTicketClickeado.id +'/servicio/'+ elemento.id)
+                let url = '/api/ticketservicio/ticket/' + this.elementoTicketClickeado.id +'/servicio/'+ elemento.id
+                    Swal.fire({
+                    title: 'Desea eliminar?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Exactamente',
+                    showLoaderOnConfirm: true,
+                    preConfirm:() => {
+                        return axios.delete(url)
+                        .then((respuesta) => console.log(respuesta.data))
+                        .catch(error => {throw error})
+                    }
+                })
+                .then((value) => {
+                    if(value.value){
+                        Swal.fire({
+                            text: 'Eliminado exitosamente!',
+                            icon: 'success'
+                        })
+                        .then(() => {
+                            let contador = 0
+                            for(let servicio of this.serviciosSeleccionados){
+                                if(servicio.id === elemento.id){
+                                    
+                                    this.serviciosSeleccionados.splice(contador,1)
+                                    break
+                                }
+                                contador++
+                            }
+                        })
+                    }
+                })
+                .catch(() => {
+                    Swal.fire({
+                            text: 'Ha ocurrido un error!',
+                            icon: 'error'
+                        })
+                })
             }else{
-                let contador = 0
+                 let contador = 0
                 for(let servicio of this.serviciosSeleccionados){
                     if(servicio.id === elemento.id){
-                       
+                        
                         this.serviciosSeleccionados.splice(contador,1)
                         break
                     }
                     contador++
                 }
             }
+           
         },     
         servicioSeleccionado(elemento) {
             let repetido = false
@@ -536,13 +587,17 @@ export default {
             
         },
         cambioDeSeccion(elemento){
-            if(elemento === 'Crear ticket'){
+            if(elemento === 'Crear Ticket'){
                 this.buscarServicios()
             }else if(elemento === 'Ticket'){
                 this.obtenerTickets()
             }
             this.opcionSeleccionada = elemento
             this.ticketSeleccionado = false
+            this.ticket.clienteId = 0,
+            this.ticket.vehiculoId = null,
+            this.ticket.fechaInicio = null,
+            this.ticket.fechaFinal  = null,
             this.elementoTicketClickeado = {}
             this.serviciosSeleccionados = []
             this.modoEdicion = false;
@@ -555,7 +610,26 @@ export default {
 
         }
     },
-    created(){
+    created(){//['Ticket', 'Crear ticket']
+        switch (this.$store.state.Permisos.Tickets) {
+            case 4:
+                this.puedeEliminar = true
+            case 3:
+                this.puedeActualizar = true
+            case 2:
+                this.opciones.unshift('Crear Ticket')       
+            case 1: 
+                this.opciones.unshift('Ticket')
+                
+        }
+        
+        if(this.$store.state.Permisos.admin == true){
+            this.opciones.unshift('Crear Ticket')
+            this.opciones.unshift('Ticket')
+            this.puedeEliminar = true
+            this.puedeActualizar = true
+        }
+
         if(this.opcionSeleccionada === 'Ticket'){
             this.obtenerTickets()
         }else{

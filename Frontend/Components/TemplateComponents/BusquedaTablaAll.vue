@@ -329,6 +329,7 @@ export default {
             
             this.busquedaSeleccionada = this.tiposBusqueda[0].value
             this.$refs.busquedaRadioinput.reRender()
+            this.$emit('tablaReiniciada')
             this.obtenerDatos()
         },
         clickOpciones: function (dato){

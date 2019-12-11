@@ -55,7 +55,7 @@ export default {
     display: flex;
 }
 #contenedor-input{
-    
+    padding: 1px 2px 1px 2px;
     border-radius: 10px;
     width: 100%;
     display: flex;

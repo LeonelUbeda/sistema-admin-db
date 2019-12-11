@@ -1,10 +1,12 @@
 
 <template>
     <div>
-            
+        <div class="titulo">
             <h1>Bienvenido {{$store.state.Usuario.nombre}}</h1>
-            
-            {{this.$store.state.Permisos}}
+        </div>
+        <div class="width-100 flex justify-center">
+            <h1>Sistema de gestión de taller</h1>
+        </div>
     </div>
 </template>
 
