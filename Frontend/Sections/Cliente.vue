@@ -13,7 +13,8 @@
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >
                 <BusquedaTablaAll @clickTabla="ver"
-                v-bind="BusquedaTablaAllConfig" 
+                v-bind="BusquedaTablaAllConfig"
+                @tablaReiniciada="() => {clienteTemporal = {}}" 
                 v-if="opcionSeleccionadaBusqueda === 'Cliente'" 
                 :key="'BusquedaTablaAllConfig'" > <!--Cliente  -->
                 </BusquedaTablaAll>
@@ -30,6 +31,8 @@
                 </InputTemplate>
                 <InputTemplate v-if="opcionSeleccionadaBusqueda === 'Telefono'" v-bind="configCrearTel" @elementoCreado="elementoCreado" ref="inputTemplateCliente">
                 </InputTemplate>
+                <InputTemplate v-if="opcionSeleccionadaBusqueda === 'Vehiculo'" v-bind="configCrearVehiculo" @elementoCreado="elementoCreado" ref="inputTemplateCliente" >
+                </InputTemplate>
             </div>
         </transition>
     </div>
@@ -42,6 +45,7 @@
                
                 <Tabla :sombra="false" class="mt-6" :elementos="elementosTelefono" :titulos="propiedadesMostrarTelefono" @filaSeleccionada="clickTelefono"></Tabla>
                 
+            
                 <div class="flex width-100 justify-center">
                     <button  @click="() => {popUpTelefono=false}" class="btn-azul ml-auto">Cancelar</button>
                     <button class="btn-rojo ml-auto" v-if="telefonoTemporal.hasOwnProperty('telefono')" @click="eliminarTelefono" >Eliminar</button>
@@ -49,8 +53,24 @@
              
             </div>
         </div>
+         <div class="width-100"  id="popup-container" v-if="popUpVehiculo == true">
+            <div id="popup" class="">
+                <div class="flex">
+                    <h2 class="text-2xl">Vehiculos</h2>
+                </div>
+                <div class="divisor mt-3" style="width: 100%"></div>
+               
+                <Tabla :sombra="false" class="mt-6" :elementos="elementosVehiculo" :titulos="propiedadesMostrarVehiculo" @filaSeleccionada="clickVehiculo" :key="'tablaVehiculo'"></Tabla>
+                <div class="flex width-100 justify-center">
+                    <button  @click="() => {popUpVehiculo=false}" class="btn-azul ml-auto">Cancelar</button>
+                    <button class="btn-rojo ml-auto" v-if="vehiculoTemporal.hasOwnProperty('id')" @click="eliminarVehiculo" >Eliminar</button>
+                </div>
+             
+            </div>
+        </div>
 
-   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerTelefono" style="position: absolute; top: 65%; right : 10%;">Telefono</h2>
+   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerTelefono" style="position: absolute; top: 68%; right : 5%;">Telefono</h2>
+   <h2 v-if="clienteTemporal.hasOwnProperty('id')" class="btn-azul text-white" @click="clickVerVehiculo" style="position: absolute; top: 68%; right : 14%;">Vehiculo</h2>
 </div>
 
 </template>
@@ -122,7 +142,7 @@ export default {
             opciones: [],
             opcionSeleccionada: 'Buscar',
             //Menu abajo de arriba
-            opcionesBusqueda: ['Cliente','Telefono'],
+            opcionesBusqueda: ['Cliente','Telefono','Vehiculo'],
             opcionSeleccionadaBusqueda: 'Cliente',
 
             // Configuracion de inputs para crear Clientes
@@ -189,11 +209,100 @@ export default {
                   
                 ]  
             },
+            configCrearVehiculo: {
+                urlCrear: '/api/vehiculos/',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                    [ 
+                       {
+                            titulo: 'Version', 
+                            nombre:'versionId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/vehiculos/versiones',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/versiones',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'marcaTitulo', titulo: 'Marca', foranea: {propiedadRelacion: 'modelo', propiedadMostrar: 'nombre'}},
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                       },
+                       {
+                            titulo: 'Cliente', 
+                            nombre:'clienteId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/clientes',
+                            editable: false,
+                            foranea: {
+                                url: '/api/clientes',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'cedula', titulo: 'Cedula'},
+                                    {propiedad: 'nombre', titulo: 'Nombre'},
+                                    {propiedad: 'apellido', titulo: 'Apellido'}
+                                  
+                                ]
+                            }
+                       }
+                    ],
+                    [
+                        
+                        {
+                            titulo: 'Tipo', 
+                            nombre:'tipoId', 
+                            tipo:'text', 
+                            max: 9999, 
+                            validacion: false, 
+                            uno:false, 
+                            obligatorio: true, 
+                            url:'/api/clientes',
+                            editable: false,
+                            foranea: {
+                                url: '/api/vehiculos/tipos',
+                                buscarPor: 'nombre',
+                                insertarPropiedad: 'id',
+                                mostrarPropiedad: 'nombre',
+                                propiedadesMostrarTabla: [
+                                    {propiedad: 'nombre', titulo: 'Nombre'}
+                                ]
+                            }
+                        },
+                        {titulo: 'Matricula', nombre:'matricula', tipo:'text', max: 30, validacion: false, uno:false, obligatorio: true}
+                    ]
+
+                ]
+            },
             clienteTemporal: {},
             popUpTelefono: false,
+            popUpVehiculo: false,
             elementosTelefono: [],
             propiedadesMostrarTelefono: [{propiedad: 'telefono', titulo: 'Telefono'}],
-            telefonoTemporal: {}
+            telefonoTemporal: {},
+            elementosVehiculo: [],
+            propiedadesMostrarVehiculo: [
+                 {propiedad: 'matricula', titulo: 'Matricula'},
+                 {propiedad: 'marca', titulo: 'Marca'},
+                 {propiedad: 'modelo', titulo:'Modelo'},
+                 {propiedad: 'version', titulo: 'Version'},
+                 {propiedad: 'tipo', titulo: 'Tipo'}
+            ],
+            vehiculoTemporal: {}
             
         }
     },
@@ -238,6 +347,32 @@ export default {
         eliminarTelefono(){
             let url = '/api/clientes/'+this.telefonoTemporal.clienteId+'/telefono/'+this.telefonoTemporal.telefono
             axios.delete(url).then(response => this.clickVerTelefono())
+        },
+        clickVerVehiculo(){
+            let url = '/api/vehiculos/cliente/'+this.clienteTemporal.id
+            axios.get(url).then(response => {
+               
+                this.elementosVehiculo
+                for(let elementos of response.data){
+                    let elementoInsertar = {
+                        marca: elementos.version.modelo.marca.nombre,
+                        modelo: elementos.version.modelo.nombre,
+                        version: elementos.version.nombre,
+                        tipo: elementos.tipo.nombre,
+                        matricula: elementos.matricula
+                    }
+                    this.elementosVehiculo.unshift(elementoInsertar)
+                }
+                this.popUpVehiculo = true
+            })
+        },//cuando clickeas un telefono
+        clickVehiculo(elemento){
+            this.vehiculoTemporal = elemento
+            console.log(this.vehiculoTemporal)
+        },
+        eliminarVehiculo(){
+            let url = '/api/vehiculos/cliente/'+this.vehiculoTemporal.Id
+            axios.delete(url).then(response => this.clickVerVehiculo())
         }
        
     },

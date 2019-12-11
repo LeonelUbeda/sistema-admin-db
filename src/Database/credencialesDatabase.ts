@@ -1,8 +1,8 @@
 
 export default {
-    host: 'localhost',
+    host: 'envy',
     user: 'sa',
-    password: '1234',
+    password: '123',
     database: 'taller'
 }
 
