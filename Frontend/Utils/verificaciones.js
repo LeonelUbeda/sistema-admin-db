@@ -8,9 +8,11 @@ export const esAdmin = function(Permisos){
 
 
 export const tieneAcceso = function(Permisos, Seccion, minimoRequerido){
-    if(Permisos.hasOwnProperty(Seccion)){
-        return Permisos[Seccion] >= minimoRequerido ? true : false
-    }else{
-        return false
+    for(let permiso in Permisos){
+        if(permiso.toLowerCase() == Seccion.toLowerCase()){
+            return Permisos[Seccion] >= minimoRequerido ? true : false
+        }
     }
+    return false
+    
 }

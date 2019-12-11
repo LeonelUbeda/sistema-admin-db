@@ -55,13 +55,30 @@ router.beforeEach( async (to, from, next) => {
         // Si esta loggeado y intenta entrar /login lo redirige a /inicio
     }else if(store.state.Loggeado && to.path == '/login' ){
         next('inicio')
-    }else{
+    }else if(!(comparar(store.state.Permisos, to.path.split('/')[1]) || to.path !== '/inicio' || to.path !== '/login')){
+        next('inicio')
         // Si esta loggeado, no va a login, entonces lo deja pasar
+    }else{
         next()
     }
        
 
 })
+
+function comparar(objeto, propiedadAComparar) {
+    for(let propiedad in objeto){
+        if(propiedad.toLowerCase() == 'admin'){
+            return true;
+        }
+        if(propiedad.toLowerCase() === propiedadAComparar.toLowerCase()){
+            if(objeto[propiedad] >= 1){
+                return true
+            }
+        }
+    }
+    return false
+}
+
 
 new Vue({
     render: createElement => createElement(App),

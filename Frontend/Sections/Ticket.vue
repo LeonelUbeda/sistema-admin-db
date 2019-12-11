@@ -11,8 +11,9 @@
         <TopSection :opciones="opciones"  :opcionSeleccionada="opcionSeleccionada" @elementoSeleccionado="cambioDeSeccion"></TopSection>
         <div class="width-100 padding-x-60 padding-y-20" v-if="opcionSeleccionada == 'Crear ticket' || opcionSeleccionada == 'Editar'">
             <div class="titulo flex">
-                <h2 class="text-xl">Crear Ticket</h2>
-                <button class="btn-azul" style="margin-left: auto" @click="enviarTicket">Guardar</button>
+                <h2 class="text-xl" v-if="!modoEdicion">Crear Ticket</h2>
+                <h2 v-else class="text-xl">Eliminar Servicios</h2>
+                <button class="btn-azul" style="margin-left: auto" @click="enviarTicket" v-if="!modoEdicion">Guardar</button>
             </div> 
             <div class=" mt-3 pt-3 flex justify-between">
                 <div class="" style="width: 52%">
@@ -44,7 +45,10 @@
                 </div>
 
                 <div style="width: 42%">  
-                    <div class="titulo flex justify-between">
+                    <div class="titulo flex justify-between relative" v-if="!modoEdicion">
+                        <div class="absolute top-0 width-100  flex justify-center items-center blur" style="z-index: 9999; height: 100%" v-if="modoEdicion">
+                            
+                        </div>
                         <div style="width:45%">
                             <BusquedaInput @buscar="busquedaServicios"></BusquedaInput>
                         </div>
@@ -53,7 +57,14 @@
                             @seleccion="SeleccionTipoBusqueda"></BusquedaRadio>
                         </div>
                     </div>
-                    <Tabla @filaSeleccionada="servicioSeleccionado" :elementos="elementosServicios" :titulos="titulos" :key="'TABLASERVICIOS'"></Tabla>
+                    <div class="relative ">
+                        <div class="absolute top-0 width-100  flex justify-center items-center" style="z-index: 9999; height: 100%" v-if="modoEdicion">
+                            <div class="mensaje-rojo">
+                                Desactivado!
+                            </div>
+                        </div>
+                        <Tabla :desactivado="modoEdicion" @filaSeleccionada="servicioSeleccionado" :elementos="elementosServicios" :titulos="titulos" :key="'TABLASERVICIOS'"></Tabla>
+                    </div>
                 </div>
             </div>
             
@@ -76,7 +87,9 @@
                         </div>
                     </div>
                 </div>
-                <tabla :elementos="elementosTablaTicket" :titulos="titulosTablaTicket" @filaSeleccionada="ticketSeleccionadoEvento"><tabla>
+                <div>
+                    <tabla :elementos="elementosTablaTicket" :titulos="titulosTablaTicket" @filaSeleccionada="ticketSeleccionadoEvento"><tabla>
+                </div>
 
             </div>
             
@@ -124,7 +137,7 @@
                             </div>
                             <div class="ml-auto flex flex-col items-center">
                                 <h2>Terminado</h2>
-                                <input type="checkbox" name="" v-model="servicio.ticketservicio.terminado" id="" style="height:25px; width: 20px;">
+                                <input type="checkbox" :disabled="$store.state.Permisos.Tickets > 3" v-on:change="marcarServicio('/api/ticketservicio/ticket/'+ elementoTicketClickeado.id + '/servicio/' + servicio.id , servicio.ticketservicio.terminado)" name="" v-model="servicio.ticketservicio.terminado" id="" style="height:25px; width: 20px;">
                             </div>
                         </div>
                     </div>
@@ -269,7 +282,37 @@ export default {
         }
     },
     methods: {
+        marcarServicio(url, valor){
+            console.log(url, valor)
+            Swal.fire({
+                title: 'Desea cambiar?',
+                text: 'Puede rehacer en cualquier momento',
+                showCancelButton: true,
+                icon: 'info',
+                confirmButtonText: 'Si',
+                showLoaderOnConfirm: true,
+                preConfirm:() => {
+                    return axios.put(url, {terminado: valor})
+                    .then((respuesta) => console.log(respuesta.data))
+                    .catch(error => {throw error})
 
+                }
+            })
+            .then((value) => {
+                if(value.value){
+                    Swal.fire({
+                        text: 'Se ha cambiado la prioridad',
+                        icon: 'success'
+                    })
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    text: 'Ha ocurrido un error!',
+                    icon: 'error'
+                })
+            })
+        },
         async eliminarServicio(url){
             Swal.fire({
                 title: 'Desea eliminar?',
@@ -495,11 +538,15 @@ export default {
         cambioDeSeccion(elemento){
             if(elemento === 'Crear ticket'){
                 this.buscarServicios()
+            }else if(elemento === 'Ticket'){
+                this.obtenerTickets()
             }
             this.opcionSeleccionada = elemento
             this.ticketSeleccionado = false
             this.elementoTicketClickeado = {}
             this.serviciosSeleccionados = []
+            this.modoEdicion = false;
+
         },
         clienteSeleccionado(){
             let clienteId = this.clienteForanea.clienteId

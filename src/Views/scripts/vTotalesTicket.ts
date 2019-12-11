@@ -5,7 +5,7 @@ const syncTotales =
 `
 
 const dropTotales =
-`if exists(select 1 from sys.views where name='vCotizacion' and type='v')
+`if exists(select 1 from sys.views where name='vTotalesTicket' and type='v')
 drop view ticket.vTotalesTicket;
 `
 

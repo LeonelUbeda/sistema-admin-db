@@ -4,6 +4,7 @@ ON ticket.ticketservicio
 AFTER  UPDATE, INSERT, DELETE
 AS
 begin
+	SET NOCOUNT ON
 	declare @tid as int,
 			@numS as int,
 			@numC as int

@@ -4,6 +4,7 @@ ON ticket.ticketservicio
 AFTER DELETE
 AS
 begin
+	SET NOCOUNT ON
 	declare @tid as int,
 			@numS as int
 

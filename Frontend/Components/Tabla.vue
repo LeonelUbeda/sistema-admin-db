@@ -23,7 +23,7 @@
 -->
 
 <template>
-    <div id="contenedor">
+    <div id="contenedor" :class="{'blur': desactivado}">
         <div id="paginacion">
             <h4 @click="atras">Atras</h4>
             <h4 @click="siguiente">Siguiente</h4>
@@ -124,17 +124,28 @@ export default {
         paginacion: {
             type: Object, 
             required: false
+        },
+        desactivado: {
+            type: Boolean,
+            default: false
         }
     },
     methods:{
         enviarInformacionFila(elemento){
-            this.$emit('filaSeleccionada', elemento)
+            if(!this.desactivado){
+                this.$emit('filaSeleccionada', elemento)
+            }
         },
         atras: function(){
-            this.$emit('atras')
+            if(!this.desactivado){
+                this.$emit('atras')
+            }
         },
         siguiente: function(){
-            this.$emit('siguiente')
+            if(!this.desactivado){
+                this.$emit('siguiente')
+            }
+            
         }
     },
     watch:{

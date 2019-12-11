@@ -3,7 +3,7 @@
     'flex flex-col bg-white elementos-seleccionados justify-center pl-8 mb-3', 
     {'borde-verde': !(elemento.precio === '' || typeof elemento.precio == 'undefined')} , 
     {'borde-rojo': elemento.precio === '' || typeof elemento.precio == 'undefined'}]">
-
+        
         <div class="flex pt-3">
             <h2 class="mr-4">{{elemento.id}}</h2>
             <h2 class="text-lg">{{elemento.nombre}}</h2>

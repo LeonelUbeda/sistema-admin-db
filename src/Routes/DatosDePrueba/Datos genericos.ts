@@ -81,12 +81,20 @@ export const ServiciosDatos = [
     {nombre: 'Cambio de aceite', descripcion: 'Se le cambia el aceite',categoriaId: 1 },
 ]
 
+export const SeccionesDatos = [
+    {nombre: 'Tickets'},
+    {nombre: 'Clientes'},
+    {nombre: 'Clasificacion'},
+    {nombre: 'Servicios'}
+]
+
+export const RolDatos = [
+    {nombre: 'Mecanico'}
+]
+
 
 export const UsuariosDatos = [
-    {nombre: 'admin', usuario: 'admin', contrasena: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'}
+    {nombre: 'admin', usuario: 'admin', contrasena: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'},
+    {nombre: 'Mecanico', usuario: 'mecanico', contrasena: '58a079806b1d6210a928b004237cea21e998e879dad7d342667471cb8ac07bb8'}
 ]
 
-
-export const usuarioRoles = [
-    {nombre: ''}
-]

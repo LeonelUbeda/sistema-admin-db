@@ -1,7 +1,7 @@
 <template>
   <div id="contenedor" class="colorPrincipal">
     <div class="flex flex-col width-100">
-      <router-link to="/">
+      <router-link to="/inicio">
       <div class="boton">
         <h3 class="texto">Inicio</h3>
       </div>
@@ -11,12 +11,12 @@
           <h3 class="texto">Cliente</h3>
         </div>
       </router-link>
-      <router-link to="/vehiculos" v-if="esAdmin || tieneAcceso('Vehiculos', 1)">
+      <router-link to="/clasificacion" v-if="esAdmin || tieneAcceso('Clasificacion', 1)">
         <div class="boton">
-          <h3 class="texto">Vehiculos</h3>
+          <h3 class="texto">Clasificacion</h3>
         </div>
       </router-link>
-      <router-link to="/roles" v-if="esAdmin || tieneAcceso('Roles', 1)">
+      <router-link to="/roles" v-if="esAdmin">
         <div class="boton">
           <h3 class="texto">Roles</h3>
         </div>
@@ -26,7 +26,7 @@
           <h3 class="texto">Servicios</h3>
         </div>
       </router-link>
-      <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Ticket', 1)">
+      <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Tickets', 1)">
         <div class="boton">
           <h3 class="texto">Ticket</h3>
         </div>
@@ -46,6 +46,7 @@
         @click="cerrarSesion"
       >Cerrar Sesion {{$store.state.Permisos.Admin}}</div>
     </div>
+    {{$store.state.Permisos}}
   </div>
     
 </template>

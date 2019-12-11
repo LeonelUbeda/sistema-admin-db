@@ -8,6 +8,7 @@
     :opcionSeleccionada="opcionSeleccionada"
     @elementoSeleccionado="clickOpciones">
     </TopSection>
+   
     <div class="width-100 relative" >
         <transition  mode="out-in">
             <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionada === 'Buscar'" >

@@ -4,6 +4,7 @@ ON registro.registro
 AFTER  INSERT
 AS
 begin
+SET NOCOUNT ON
 declare @id as int , @numFac as int
 	set @id=(select ticketId  from inserted)
 	set @numFac=(select id from inserted)
