@@ -63,6 +63,19 @@ export const factoryModelNuevo = ({ modelo }) => {
     }
 }
 
+export const factoryModelNuevoInclude = ({ modelo, include = [] }) => {
+    return async (elemento: object) => {
+        try {
+            const respuesta = await modelo.create({ ...elemento, include })
+            return respuesta
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    }
+}
+
+
 /* WIP no se si sea necesario la verdad, luego de terminar lo de inventario veo si la implemento
 // Recibe los campos de la tabla principal y la de su tabla de movimiento. 
 export const factoryModelNuevoMovimiento = ({ modelo, modeloMovimiento, llaveForanea = "string" }) => {

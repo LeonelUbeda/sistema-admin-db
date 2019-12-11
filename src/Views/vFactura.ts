@@ -6,7 +6,7 @@ class vFactura extends Model{
     id: number;
     cantidad: number;
 }
-const x = vFactura.init({
+vFactura.init({
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

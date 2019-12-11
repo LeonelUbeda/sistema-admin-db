@@ -33,6 +33,7 @@ import RutaCategoriaHerramienta from './Routes/Inventario/Categoria'
 import RutaInsumo from './Routes/Inventario/Insumo'
 import RutaTicket from './Routes/Ticket/Ticket'
 import RutaTicketServicio from './Routes/Ticket/TicketServicio'
+import RutaRegistro from './Routes/Registro/Registro'
 // import RutaCotizacion from './Routes/Cotizacion/Cotizacion'
 // import RutaCotizacionServicio from './Routes/Cotizacion/CotizacionServicio'
 import './Models/Registro/Registro'
@@ -74,6 +75,7 @@ app.use('/api/herramienta/categorias',  RutaCategoriaHerramienta)
 app.use('/api/insumo',                  RutaInsumo)
 app.use('/api/ticketservicio/',         RutaTicketServicio)
 app.use('/api/tickets/',                RutaTicket)
+app.use('/api/registros/',              RutaRegistro)
 // app.use('/api/cotizacion',              RutaCotizacion)
 // app.use('/api/cotizacionservicio/',     RutaCotizacionServicio)
 
@@ -84,13 +86,15 @@ app.use('*', (req, res) => {
 })
 
 
-// ----------- Vistas -----------------------
+// ----------- Vistas / Procedimientos -----------------------
 import createViews from "./Views/createViews";
+import createStoredProcedures from "./StoredProcedures/createStoredProcedures"
 
 // Para eliminar y crear la base de datos
 database.sync({force: true}).then(() => {
     if(database.getDialect() == 'mssql') {
         createViews()
+        createStoredProcedures()
     }
 })
 
