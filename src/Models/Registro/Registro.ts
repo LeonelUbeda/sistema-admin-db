@@ -26,8 +26,7 @@ Registro.init({
         defaultValue: false
     },
     total: {
-      type: Sequelize.FLOAT(12,2),
-      allowNull: false
+      type: Sequelize.FLOAT(12,2)
     }
 }, {
     sequelize: database,

@@ -89,14 +89,16 @@ app.use('*', (req, res) => {
 // ----------- Vistas / Procedimientos -----------------------
 import createViews from "./Views/createViews";
 import createStoredProcedures from "./StoredProcedures/createStoredProcedures"
+import createTriggers from "./Trigger/createTriggers"
 
 // Para eliminar y crear la base de datos
-/*database.sync({force: true}).then(() => {
+database.sync({force: true}).then( async () => {
     if(database.getDialect() == 'mssql') {
-        createViews()
-        createStoredProcedures()
+        await createViews()
+        await createStoredProcedures()
+        await createTriggers()
     }
-})*/
+})
 
 
 // -------------------- Verificar DB --------------------
