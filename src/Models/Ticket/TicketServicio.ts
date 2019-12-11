@@ -12,17 +12,9 @@ TicketServicio.init({
         primaryKey: true,
         autoIncrement: true
     },
-    ticketId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     descripcion: {
         type: Sequelize.STRING(150),
         allowNull: true
-    },
-    servicioId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
     },
     precio: {
         type: Sequelize.FLOAT(12,2),
@@ -41,7 +33,13 @@ TicketServicio.init({
     schema: 'ticket'
 })
 
-TicketServicio.belongsTo(Ticket, {foreignKey: 'ticketId', targetKey: 'id'})
-TicketServicio.belongsTo(Servicio, {foreignKey: 'servicioId', targetKey: 'id'})
+Ticket.belongsToMany(Servicio, {through: {
+    model: TicketServicio
+},
+foreignKey: 'ticketId'})
+Servicio.belongsToMany(Ticket, {through: {
+    model: TicketServicio
+},
+foreignKey: 'servicioId'})
 
 export default TicketServicio;
