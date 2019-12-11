@@ -6,6 +6,14 @@ export default {
     database: 'taller'
 }
 
+/*
+export default {
+    host: 'lcpm',
+    user: 'sa',
+    password: '123',
+    database: 'taller'
+}
+*/
 
 /*
 export default {

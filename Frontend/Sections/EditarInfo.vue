@@ -1,21 +1,32 @@
+
 <template>
-  <div id="contenedor">
-    <div class="width-100 flex flex-col">
+  <div>
+    <div>
       <div>
         <div class="titulo">
           <h2 class="text-2xl">Editar usuario {{$store.state.Usuario.usuario}}</h2>
         </div>
       </div>
-
-      <div>
-        <div>
-          <input type="password" v-model="contrasena" />
-          <button @click="actualizar">Actualizar</button>
+      <div class="w-full max-w-xs md:items-center">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="contenedor">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-4" for="nueva">Nueva Contraseña</label>
+            <input
+              type="password"
+              class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Contraseña"
+            />
+            <button
+              class="flex items-center justify-between button mb-4"
+              @click="actualizar"
+            >Actualizar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import clasesUtilesCSS from "../assets/css/clasesUtiles";
@@ -46,63 +57,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-leave {
-  opacity: 1;
-}
-.v-leave-active {
-  transition: opacity 0.7s;
-}
-.v-leave-to {
-  opacity: 0;
-}
-.v-enter {
-  opacity: 0;
-}
-.v-enter-active {
-  transition: opacity 0.7s;
-}
-.v-enter-to {
-  opacity: 1;
-}
-
-/*
-
-.slide-enter-active {
-   
-   transition-duration: 1s;
-   transition-timing-function: linear;
-}
-
-.slide-leave-active {
-   transition-duration: 1s;
-
-   transition-timing-function: linear;
-}
-
-.slide-enter-to, .slide-leave {
-   max-height: 800px;
-   overflow: hidden;
-}
-
-.slide-enter, .slide-leave-to {
-    max-height: 0px;
-   overflow: hidden;
-}
-
-*/
-
-#sidebar {
-  width: 25%;
-  height: 200px;
-}
-
-#main {
-  padding: 20px 60px;
+// input {
+//   border: 1px solid black;
+//   height: 25px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+.button {
+  background-color: rgb(18, 68, 233);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
 }
-.contenedor-tabla {
-  width: 70%;
-}
+// .contenedor {
+//   justify-content: center;
+// }
 </style>
