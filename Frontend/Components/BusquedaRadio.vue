@@ -1,5 +1,7 @@
-<template>
-    <div id="contenedor" >
+
+
+<template >
+    <div id="contenedor"  >
         <!--div class="flex" v-for="(opcion, index) of opciones" :key="index" >
             <div class="container mr-8" v-for="(unitario) of opcion" :key="unitario.value">
                 
@@ -14,16 +16,16 @@
         <select  v-model="selected" @change="seleccion(selected)" required>
             <option  value="null" selected disabled hidden>Selecciona una opcion</option>
             <option  v-for="(select) of opciones" :value="select.value" :key="select.value">
-                {{select.titulo}}
+                <h2>{{select.titulo}}</h2>
             </option>
             
         </select>
+        
     </div>
 </template>
 
 
 
-</form>
 <script>
 export default {
     data: () => {
@@ -68,58 +70,23 @@ export default {
 
 <style lang="scss" scoped>
 #contenedor{
-    input{
-
+    
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    select{
+        border-radius: 5px;
+        height: 30px;
+        
+        appearance: none;
+        width: 100%; 
+      
     }
 }
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
-}
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
-}
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #fff;
-}
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #F87DA9;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
+
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+
 </style>

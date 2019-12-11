@@ -21,10 +21,10 @@
             <transition  mode="out-in">
                 <div class="width-100 padding-x-60 absolute" v-if="opcionSeleccionadaTop === 'Añadir Rol'">
                     <div  class="titulo">
-                        <h2 class="text-2xl">Crear Cliente</h2>
+                        <h2 class="text-2xl">Añadir Rol</h2>
                     </div>
                     <InputTemplate
-                    v-bind="configCrear" 
+                    v-bind="configCrearRol" 
                     @elementoCreado="rolCreado">
                     </InputTemplate>
                 </div>
@@ -66,6 +66,23 @@
                     </div>
                 </div>
             </transition>
+            <transition  mode="out-in">
+                <div class="width-100 padding-x-60 padding-y-20 absolute"  v-if="opcionSeleccionadaTop === 'Ver Secciones'" >
+                    <BusquedaTablaAll v-bind="BusquedaTablaAllConfigSeccion" ></BusquedaTablaAll>
+                </div>
+            </transition>
+             
+            <transition  mode="out-in">
+                <div class="width-100 padding-x-60 absolute" v-if="opcionSeleccionadaTop === 'Añadir Seccion'">
+                    <div  class="titulo">
+                        <h2 class="text-2xl">Añadir Seccion</h2>
+                    </div>
+                    <InputTemplate
+                    v-bind="configCrearSeccion" 
+                    @elementoCreado="rolCreado">
+                    </InputTemplate>
+                </div>
+            </transition>
         
         </div>
     </div>
@@ -74,6 +91,7 @@
 
 <script>
 import _ from 'lodash'
+import BusquedaTablaAll from '../Components/TemplateComponents/BusquedaTablaAll'
 import TablaRolPermiso from '../Components/TablaRolPermiso'
 import InputTemplate from '../Components/InputTemplate'
 import Swal from 'sweetalert2'
@@ -82,18 +100,23 @@ import TopSection from '../Components/TopSection'
 import BusquedaInput from '../Components/BusquedaInput'
 import axios from 'axios'
 import { msjEliminar } from '../Utils/swalRequest'
+import BusquedaRadio from '../Components/BusquedaRadio.vue'
+import Tabla from '../Components/Tabla'
+import TablaTitulo from '../Components/TablaTitulo'
+
+
 export default {
     data: () => {
         return{
             opcionSeleccionadaTop: 'Editar Rol',
-            opcionesTop: ['Editar Rol', 'Añadir Rol'],
+            opcionesTop: ['Editar Rol', 'Añadir Rol', 'Ver Secciones','Añadir Seccion'],
             AddTableTitle: ['Seccion','Ninguno', 'Leer' , 'Escribir', 'Actualizar', 'Borrar'],
             AddTableTexts: ['Clasificacion', 'Lotes', 'Productos', 'Reportes'],
             actionRoles: 'add',
             EditRolesInfo: [],
             secciones: [],      // Lista de todas las secciones o mejor dicho, los "permisos"
             valoresIniciales: {},
-            rolId: 0, 
+            rolId: 0,
             rolEditar: {},
             rolEditarOld: {},
             modo: 'edicion',
@@ -101,7 +124,7 @@ export default {
             resultadobusquedaRoles: [],  // Contiene todos los roles existentes. AL menos los primeros 10
             bloquearRolesEdicion: true,
             cargando: true,
-            configCrear: {
+            configCrearRol: {
                 urlCrear: 'api/roles',
                 mostrarTitulo: false,
                 nombreBoton: 'Enviar',
@@ -109,6 +132,48 @@ export default {
                 inputs: [
                   [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
                       {titulo: 'Nombre del rol', nombre:'nombre', tipo:'text', max: 50, validacion: true, uno:false, obligatorio: true},
+                      
+                  ]
+                ]  
+            },
+            BusquedaTablaAllConfigSeccion:{
+                encabezado: 'Secciones',
+                tituloPopup: {titulo: 'Editar Seccion: ', propiedadElementoClickeado: 'nombre'},
+                tablaTitulos: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'},
+                ],
+                tablaUrl: '/api/permisos',
+                tablaUrlEliminar: '/api/permisos',
+                tablaUrlActualizar: '/api/permisos',
+                tablaPropiedadAEliminar: 'id',
+                tiposBusqueda: [
+                        {value: 'nombre', titulo: 'Nombre'},
+                        {value: 'id', titulo: 'ID'}],
+                tablaMandarEventoClick: false,
+                mostrarInformacionClick: true,
+                titulosClick: [
+                    {propiedad: 'id', titulo: 'Identificador'}, 
+                    {propiedad: 'nombre', titulo: 'Nombre'}
+                ],
+                busquedaDefault: 'nombre',
+                mostrarOpcionEditar: true,
+                mostrarOpcionEliminar: true,
+                inputsEditar: [
+                    [
+                        {nombre: 'id', titulo: 'Identificador', max: 99, tipo: 'text', validacion: true, uno: true, obligatorio: true, editable: false},
+                        {nombre: 'nombre', titulo: 'Nombre', max: 50, tipo: 'text', validacion: true, uno: false}
+                    ]
+                ]
+            },
+            configCrearSeccion: {
+                urlCrear: 'api/permisos',
+                mostrarTitulo: false,
+                nombreBoton: 'Enviar',
+                estilo: true,
+                inputs: [
+                  [/*El length en caso de texto es la cantidad maxima de caracteres y en el caso de numeros el numero maximo*/ 
+                      {titulo: 'Nombre', nombre:'nombre', tipo:'text', max: 50, validacion: true, uno:false, obligatorio: true},
                       
                   ]
                 ]  
@@ -163,6 +228,10 @@ export default {
             })
 
             
+        },
+        elementoCreado: function(){
+            this.$refs.inputTemplateCliente.borrarInputsData('')
+            //this.opcionSeleccionada = 'Buscar'
         },
         buscar: function(){
             this.obtenerSeccionesYPermisos()
@@ -261,11 +330,14 @@ export default {
         TablaRolPermisoNew,
         TopSection,
         BusquedaInput,
-        InputTemplate
+        InputTemplate,
+        BusquedaTablaAll
     },
     created(){
         this.buscarRoles()
         this.obtenerSeccionesYPermisos()
+            ///
+         
     }
 }
 </script>

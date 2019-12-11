@@ -1,11 +1,12 @@
 <template>
     <div id="contenedor">
         <div class="input-foraneo" @click="modoBusqueda(true)">
-            <h2>{{display}}</h2>
+            <h2>{{mostrarValor}}</h2>
+            
         </div>
         <!--input type="text" class="input-foraneo" v-model="display" >
         <h3 @click="modoBusqueda(true)">Buscar</h3-->
-        <div class="width-100"  id="popup-container" v-show="mostrarPop == true">
+        <div class="width-100"  id="popup-container" v-if="mostrarPop == true">
             <div id="popup" class="">
                 <div class="flex">
                     <h2 class="text-2xl">{{titulo}}</h2>
@@ -14,12 +15,12 @@
                     style="width: 350px"></BusquedaInput>
                 </div>
                 
-                    <div class="divisor mt-3" style="width: 100%"></div>
+                <div class="divisor mt-3" style="width: 100%"></div>
                
                 <Tabla :sombra="false" class="mt-6" :elementos="elementos" :titulos="propiedadesMostrarTabla" @filaSeleccionada="filaSeleccionada"></Tabla>
+                
                 <div class="flex width-100 justify-center">
                     <button  @click="modoBusqueda(false)" class="btn-rojo ml-auto">Cancelar</button>
-
                 </div>
              
             </div>
@@ -30,13 +31,17 @@
 </template>
 
 <script>
-import BusquedaTablaAll from './TemplateComponents/BusquedaTablaAll'
+
 import Tabla from './Tabla'
 import BusquedaInput from './BusquedaInput'
 import axios from 'axios'
 
 export default {
     props: {
+        mostrar: {
+            type: String | Number,
+        },
+        value: String | Number,
         url: String /*'/api/vehiculos/modelos'*/,
         buscarPor: String /*'nombre'*/,
         insertarPropiedad: String/*'id'*/,
@@ -54,7 +59,8 @@ export default {
     },
     data: ()=>{
         return{
-            display: 'Clic para buscar...',
+        
+            mostrarValor: '', // Lo que muestro al usuario, value es el valor que se utiliza para mandar al server
             mostrarPop: false,
             elementos: [],
             textoBuscar: ''   
@@ -63,26 +69,36 @@ export default {
     methods: {
         filaSeleccionada: function(elemento){
            
-            this.display = elemento[this.mostrarPropiedad]
+            this.mostrarValor = elemento[this.mostrarPropiedad]
+            console.log(elemento[this.insertarPropiedad])
             this.$emit('input', elemento[this.insertarPropiedad])
+            this.$emit('seleccionado')
             this.mostrarPop = false
 
         },
         modoBusqueda: function(toggle){
+            
             this.mostrarPop = toggle
+            this.obtenerDatos()
         },
         obtenerDatos: function() {
+            
             let params = {
-                [this.buscarPor]: this.textoBuscar,
-            }
-            let url  = this.url
-            console.log(params)
-            axios.get(url, {params})
-            .then(response =>{
                 
+            }
+            if(this.textoBuscar !== ''){
+                params[this.buscarPor] = this.textoBuscar
+            }
+            
+            axios.get(this.url, {params})
+            .then(response =>{
+
                 this.elementos = response.data
                 console.log(response)
-            } )
+
+
+
+            })
             .catch(err => console.log(err))
 
         },
@@ -93,10 +109,30 @@ export default {
 
     },
     created(){
-        this.obtenerDatos()
+        console.log(this.value, this.mostrar)
+        if((this.value === null || this.value === '' ||typeof this.mostrar == 'undefined') /*&& (this.mostrarValor == '')*/){
+            this.mostrarValor = 'Clic para buscar...'
+
+        }else{
+            this.mostrarValor = this.mostrar
+          
+            
+        }
+       
     },
-     components:{
-        BusquedaTablaAll,
+    computed:{
+        displayShow: function(){
+            return this.mostrarValor
+            
+        }
+    },
+    watch: {
+        mostrar: function(valor){
+            //this.mostrarValor = valor
+            console.log('FUA CHAVAL')
+        }
+    },
+    components:{
         Tabla,
         BusquedaInput
     }

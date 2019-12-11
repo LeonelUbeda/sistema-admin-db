@@ -17,7 +17,8 @@ Marca.init({
     }
 }, {
     sequelize: database,
-    modelName: 'marca'
+    modelName: 'marca',
+    schema: 'vehiculo'
 })
 
 

@@ -26,7 +26,8 @@ Servicio.init({
     }
 }, {
     sequelize: database,
-    modelName: 'servicio'
+    modelName: 'servicio',
+    schema: 'ticket'
 })
 
 Servicio.belongsTo(Categoria, {foreignKey: 'categoriaId', targetKey: 'id'})

@@ -1,11 +1,19 @@
 
 export default {
     host: 'localhost',
-    user: 'root',
-    password: 'admin',
+    user: 'sa',
+    password: '1234',
     database: 'taller'
 }
 
+/*
+export default {
+    host: 'lcpm',
+    user: 'sa',
+    password: '123',
+    database: 'taller'
+}
+*/
 
 /*
 export default {

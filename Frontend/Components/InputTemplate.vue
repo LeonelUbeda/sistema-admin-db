@@ -26,7 +26,7 @@
                             
                             <input v-else 
                             v-model="datosAEnviar[unit.nombre]"
-                            class="verde" 
+                            class="verdeTuaniTuani" 
                             :placeholder="unit.titulo" :type="unit.tipo"  :maxlength="unit.max"  min="1" :max="unit.max" 
                             required :disabled="unit.editable == false"> 
                            
@@ -67,19 +67,19 @@ export default {
         mostrarTitulo: Boolean,
         urlCrear: {
             type: String,
-            default: '/api/clientes'
+            default: '/api/clientes/'
         },
         urlFinal:{
             type: String,
             default: 'undefined'
         },
-        propiedadId: {
+        propiedadConcatenar: {
             type: String,
             default: ''
         },
         urlActualizar: {
             type: String, 
-            default: '/api/clientes'
+            default: '/api/clientes/'
         },
         // Actualizar where id = 1
         propiedadActualizar: {
@@ -113,17 +113,26 @@ export default {
         crear: function(event){
             let url = this.urlCrear
             if(this.urlFinal != 'undefined'){
-                url += this.datosAEnviar[this.propiedadId] + this.urlFinal
+                url += this.datosAEnviar[this.propiedadConcatenar] + this.urlFinal
             }
+            console.log(url)
             event.preventDefault()
             try {
                 this.verificarInputs()
                 console.log('Posteando')
                 axios.post(url, this.datosAEnviar)
                 .then(response => {
+                    /*this.$swal({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        icon: 'success',
+                        title: 'Elemento añadido exitosamente',
+                        
+                    })*/
                     Swal.fire({
-                    icon: 'success',
-                    title: 'Elemento añadido exitosamente',
+                        icon: 'success',
+                        title: 'Elemento añadido exitosamente',
                     })
                     .then(() => {
                         this.$emit('elementoCreado')
@@ -260,12 +269,12 @@ export default {
     }
 
 }
-.verde{
+.verdeTuaniTuani{
     padding-top: 5px;
     outline: 0;
     height: 60%;
 }
-.verde:focus{
+.verdeTuaniTuani:focus{
     padding-top: 5px;
     border: 1px solid green;
     height: 60%;
@@ -297,6 +306,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 }
 
 input[type=submit]{
+    color: black !important;
     background:#398AD7;
     padding:10px 30px;  
     color: white;

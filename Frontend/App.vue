@@ -1,18 +1,27 @@
 <template>
   <div id="contenedora" class="colorSecundario">
     <!--div class="width-100"-->
-      <div id="sidebar">
+      <div id="sidebar" v-if="this.$store.state.Loggeado && !$store.state.Loading">
         <Sidebar>
       </div>
-      <div id="main">
+      <div id="main" 
+      :class="[{'width-100 temp flex justify-center items-center': !$store.state.Loggeado},
+      {'margin': this.$store.state.Loggeado}]" v-if="!$store.state.Loading">
         <router-view></router-view>
       </div>
+      <loading :active.sync="$store.state.Loading" 
+        
+        :is-full-page="true"></loading>
     </div>
   <!--/div-->
 </template>
 
 <script>
 import Sidebar from './Components/Layout/Sidebar.vue'
+import Login from './Sections/Login.vue'
+import Loading from 'vue-loading-overlay';
+  
+import 'vue-loading-overlay/dist/vue-loading.css';
 export default {
   data() {
     return {
@@ -20,7 +29,9 @@ export default {
     }
   },
   components: {
-    Sidebar
+    Sidebar,
+    Login,
+    Loading
   }
 };
 </script>
@@ -32,6 +43,7 @@ export default {
 }
 
 #contenedora{
+  min-width: 800px;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -49,6 +61,10 @@ export default {
 #main{
   width: 100%;
 
+  
+}
+
+.margin{
   margin-left: 150px;
 }
 </style>

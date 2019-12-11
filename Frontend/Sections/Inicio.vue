@@ -1,10 +1,10 @@
 
 <template>
     <div>
-        
-            <h1>Bienvenido</h1>
-
             
+            <h1>Bienvenido {{$store.state.Usuario.nombre}}</h1>
+            
+            {{this.$store.state.Permisos}}
     </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
     data: () => {
         return{
             nombre: 'Holi',
-            cliente: Array
-            
+            cliente: Array,
+            prueba: ''
         }
     },
     methods:{

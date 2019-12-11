@@ -1,76 +1,112 @@
 <template>
-    <div id="contenedor" class="colorPrincipal">
-        <router-link to="/">
-            <div class="boton">
-                <span class="texto">Inicio</span>
-            </div>
-        </router-link>  
-        <router-link to="/cliente">
-            <div class="boton">
-                <span class="texto">Cliente</span>
-            </div>
-        </router-link>
-        <router-link to="/login">
-            <div class="boton">
-                <span class="texto">Login</span>
-            </div>
-        </router-link>
-        <router-link to="/marca">
-            <div class="boton">
-                <span class="texto">Marca</span>
-            </div>
-        </router-link>
-        <router-link to="/roles">
-            <div class="boton">
-                <span class="texto">Roles</span>
-            </div>
-        </router-link>
-        <router-link to="/servicios">
-            <div class="boton">
-                <span class="texto">Servicios</span>
-            </div>
-        </router-link>
+  <div id="contenedor" class="colorPrincipal">
+    <div class="flex flex-col width-100">
+      <router-link to="/inicio">
+      <div class="boton">
+        <h3 class="texto">Inicio</h3>
+      </div>
+      </router-link>
+      <router-link to="/clientes" v-if="esAdmin || tieneAcceso('Clientes', 1)">
+        <div class="boton">
+          <h3 class="texto">Cliente</h3>
+        </div>
+      </router-link>
+      <router-link to="/clasificacion" v-if="esAdmin || tieneAcceso('Clasificacion', 1)">
+        <div class="boton">
+          <h3 class="texto">Clasificacion</h3>
+        </div>
+      </router-link>
+      <router-link to="/roles" v-if="esAdmin">
+        <div class="boton">
+          <h3 class="texto">Roles</h3>
+        </div>
+      </router-link>
+      <router-link to="/servicios" v-if="esAdmin || tieneAcceso('Servicios', 1)">
+        <div class="boton">
+          <h3 class="texto">Servicios</h3>
+        </div>
+      </router-link>
+      <router-link to="/ticket" v-if="esAdmin || tieneAcceso('Tickets', 1)">
+        <div class="boton">
+          <h3 class="texto">Ticket</h3>
+        </div>
+      </router-link>
+      <router-link to="/usuario" v-if="esAdmin || tieneAcceso('Usuarios', 1)">
+        <div class="boton">
+          <h3 class="texto">Usuarios</h3>
+        </div>
+      </router-link>
+      <router-link to="/editar">
+        <div class="boton">
+          <h3 class="texto">Cambiar contraseña</h3>
+        </div>
+      </router-link>
+      <div
+        class="boton cursor-pointer"
+        @click="cerrarSesion"
+      >Cerrar Sesion {{$store.state.Permisos.Admin}}</div>
     </div>
+    {{$store.state.Permisos}}
+  </div>
+    
 </template>
 
 <script>
-
-import themeColors from '../../assets/css/themeColors.css'
-
-
+import themeColors from "../../assets/css/themeColors.css";
+import { esAdmin, tieneAcceso } from "../../Utils/verificaciones";
 
 export default {
-    data: () => {
-        return{
-            nombre: 'Holi',
-            
-        }
+  data: () => {
+    return {};
+  },
+  methods: {
+    tieneAcceso(seccion, minimoRequerido) {
+      return tieneAcceso(this.$store.state.Permisos, seccion, minimoRequerido);
+    },
+    cerrarSesion: function() {
+      this.$store.dispatch("Logout");
+      this.$router.push("login");
     }
-}
+  },
+  computed: {
+    esAdmin: function() {
+      return esAdmin(this.$store.state.Permisos);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-
-
-#contenedor{
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#contenedor {
+  z-index: 99999999999999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+ 
 }
 
-.texto{
-    color: black;
+.texto {
+  color: black;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.boton{
-    margin: 10px 0;
-    transition: 1s;
+.boton {
+
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+  padding: 5px 0 ;
+  padding-left: 15px;
+  transition: 0.4s;
+}
+.boton:hover {
+  //background-color: #76c4f5;
+  background-color: rgb(228, 228, 228);
+  padding-left: 25px;
+
 }
 </style>

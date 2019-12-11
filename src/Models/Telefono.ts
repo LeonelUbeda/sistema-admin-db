@@ -18,7 +18,8 @@ Telefono.init({
     }
 }, {
     sequelize: database,
-    modelName: 'telefono'
+    modelName: 'telefono',
+    schema: 'cliente'
 
 })
 

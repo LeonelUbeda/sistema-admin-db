@@ -4,7 +4,7 @@
             <div id="popup-container"  v-if="mostrarPopupEditar">
                 <div :class="['width-100 padding-x-20 padding-y-20 ',]" id="popup">
                     <h2 class="text-xl">{{tituloPopup.titulo}} {{elementoClickeado[tituloPopup.propiedadElementoClickeado]}}</h2>
-                    <InputTemplate v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false" 
+                    <InputTemplate name v-bind="configEditInputTemplate" @clickBotonSecundario="mostrarPopupEditar = false" 
                     @elementoActualizado="() => {mostrarPopupEditar = false; reiniciarTabla()}"
                     @elementoCreado="elementoCreadoEvento">
                     </InputTemplate>
@@ -23,20 +23,22 @@
                 @filaSeleccionada="filaSeleccionada"
                 ></Tabla>
             </div>
-            <div id="sidebar" class="flex flex-col sombra" >
+            <div id="sidebar" class="flex flex-col sombra" :hidden="esconderBusqueda==true" >
                 <div class="bloque-titulo flex items-center ">
                     <h2 class="ml-8 text-xl">Busqueda</h2>
-                </div>
+               </div>
                 <div class="flex items-center bg-white flex-col">
                     <div class="divisor"></div>
-                    <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
+                    <div class="flex justify-center mb-3" style="width: 90%">
+                        <BusquedaRadio @seleccion="manejarTipoBusqueda" ref="busquedaRadioinput" :seleccionado="busquedaSeleccionada" :opciones="tiposBusqueda"></BusquedaRadio>
+                    </div>
                     <div style="width: 90%">
                         <BusquedaInput ref="BusquedaInputRef" @buscar="busquedaSearchBar"></BusquedaInput>
                     </div>
 
                     <div class="flex flex-col container items-center card" v-if="mostrarInformacionClick === true && clickEnTabla === true">
                         <div class="bloque-titulo flex items-center">
-                            <h2 class="ml-8 text-xl">Edicion</h2>
+                            <h2 class="ml-8 text-xl">Ver</h2>
                             <h2 class="ml-auto mr-8 cursor-pointer text-xl" style="color:red" @click="(clickEnTabla = false)">X</h2>
                         </div>
                         <div class="divisor"></div>
@@ -77,11 +79,15 @@ import {eliminarDialog} from '../../Utils/sweetAlert'
 import TopSection from '../../Components/TopSection'
 import Tabla from '../../Components/Tabla'
 import TablaTitulo from '../../Components/TablaTitulo'
-import InputTemplate from '../../Components/InputTemplate'
+import InputTemplate from '../../Components/InputTemplate.vue'
 import BusquedaInput from '../../Components/BusquedaInput.vue'
 import BusquedaRadio from '../../Components/BusquedaRadio.vue'
 export default {
     props:{
+        esconderBusqueda: { //Esconde todo el cuadro de la derecha de buscar, solo muestra la tabla 
+            type: Boolean,
+            default: false
+        },
         encabezado: {
             type: String,
             default: 'PRIX PONELE TITULO'
@@ -107,6 +113,10 @@ export default {
         tablaUrlActualizar: {
             type: String,
             default: '/api/clientes'
+        },
+        propiedadActualizar: {
+            type: String,
+            default: 'id'
         },
         // Propiedad que se utiliza como condicional al eliminar, Ejemplo: 
         // DELETE FROM TABLA WHERE id = 2
@@ -209,36 +219,89 @@ export default {
 
         }
     },
-    components: {
-        TopSection,
-        Tabla,
-        TablaTitulo,
-        InputTemplate,
-        BusquedaInput,
-        BusquedaRadio
-    },
+    
     methods: {
-        editarElementoSeleccionado: function(){
-            
-            this.mostrarPopupEditar = true;
-            this.configEditInputTemplate.inputs = this.inputsEditar;
+        editarElementoSeleccionado:async function(){
+            //this.configEditInputTemplate.inputs = this.inputsEditar;
 
             // Itero sobre el arreglo de arreglos
             // [ [] ,  [] ,  [] ]
-            this.inputsEditar.forEach((arreglo, indexArreglo) => {
+         
+            //this.inputsEditar.map((arreglo, indexArreglo) => {
+            //arreglo.map((elemento, indexElemento) => {
+            //    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+                /*if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                    let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                    
+                    let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                    /*let respuesta = await axios.get(url)
+                    this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                    console.log('YA TERMINE EL GET')
+                    .then((respuesta) => {return respuesta.data})
+                    .then((respuesta) => {
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                        
+                    })
+
+                }*/
+            //    })
+            //})
+
+            for(let elementoArreglo of this.inputsEditar){
+                for(let input of elementoArreglo){
+                    console.log(input.nombre)
+                    input.valor = this.elementoClickeado[input.nombre]
+
+                    if(typeof input.foranea !== 'undefined'){
+                        
+                        if(this.elementoClickeado[input.foranea.propiedadElementoBuscar] !== null){
+                            let url = input.foranea.urlBuscar + '/'+ this.elementoClickeado[input.foranea.propiedadElementoBuscar]
+                            console.log(url)
+                            let respuesta = await axios.get(url)
+                            console.log(respuesta.data)
+                            input.foranea.mostrar = respuesta.data.nombre
+                        }
+                        
+                        
+                    }
+                }
+            }
+            
+            this.configEditInputTemplate.inputs = this.inputsEditar
+            this.mostrarPopupEditar = true;
+
+            /*this.inputsEditar.forEach(async (arreglo, indexArreglo) => {
                 // Itero sobre el arreglo de objetos
                 // [ {} , {}, {} ]
-                arreglo.forEach((elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
+                arreglo.forEach(async(elemento, indexElemento) => {  // Esto se puede refactorizar de alguna manera, al rato lo hago
                     // Asigno el valor de  la propiedad correspondiente de elementoClickeado al valor inicial de un input
                     // Como ejemplo, al inicio del ciclo, una supuesta operacion sería esta
                     // configEditInputTemplate.inputs[0][0].valor = elementoClickeado.id;
                     
                     // Entonces el input que tiene el nombre 'id' tiene de valor el elemento 'id' del objeto elementoClickeado
                     this.configEditInputTemplate.inputs[indexArreglo][indexElemento].valor = this.elementoClickeado[elemento.nombre]
+
+                    // Documentar esto pls
+                    if(typeof this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea !== 'undefined'){
+                        let temp = this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea
+                        
+                        let url = temp.urlBuscar + '/'+ this.elementoClickeado[temp.propiedadElementoBuscar]
+                        let respuesta = await axios.get(url)
+                        this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta.data[temp.propiedadMostrarResultado]
+                        console.log('YA TERMINE EL GET')
+                        /*.then((respuesta) => {return respuesta.data})
+                        .then((respuesta) => {
+                            this.configEditInputTemplate.inputs[indexArreglo][indexElemento].foranea.mostrar = respuesta[temp.propiedadMostrarResultado]
+                            
+                        })
+
+                    }
+
                     // El componente InputTemplate se encarga de renderizar todo esto correctamente
                   
                 })
-            })
+            })*/
+            
          
         },
         eliminarElementoSeleccionado: async function() {
@@ -247,16 +310,13 @@ export default {
             let url = `${this.tablaUrlEliminar}/${this.elementoClickeado[this.tablaPropiedadAEliminar]}`
             eliminarDialog(url)
             .then(() => {
-                this.reiniciarTabla()
+            this.reiniciarTabla()
             })
-        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        },
         filaSeleccionada: function(elemento){
-            if(this.tablaMandarEventoClick === false){
-                this.elementoClickeado = elemento
-                this.clickEnTabla = true
-            }else{
-                this.$emit('clickTabla', elemento)
-            }
+            this.elementoClickeado = elemento
+            this.clickEnTabla = true
+            this.$emit('clickTabla', elemento)
         },
         reiniciarTabla: function(){
             this.clickEnTabla = false
@@ -325,8 +385,8 @@ export default {
     },
     created(){
         this.obtenerDatos();
-
         this.configEditInputTemplate.urlActualizar = this.tablaUrlActualizar
+        this.configEditInputTemplate.propiedadActualizar = this.propiedadActualizar
         this.busquedaSeleccionada =             this.busquedaDefault
         this.busqueda.variable =                this.busquedaDefault
         /*const config =                          this.configuracion;
@@ -334,6 +394,15 @@ export default {
         this.tiposBusqueda =                    config.busqueda.tiposBusqueda
         this.tablaTitulos =                     config.tabla.tablaTitulos*/
         
+    },
+    
+    components: {
+        TopSection,
+        Tabla,
+        TablaTitulo,
+        InputTemplate,
+        BusquedaInput,
+        BusquedaRadio
     },
     
 }

@@ -14,13 +14,8 @@ Vehiculo.init({
         primaryKey: true,
         autoIncrement: true
     },
-    modeloId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     versionId: {
         type: Sequelize.INTEGER,
-        allowNull: true
     },
     clienteId: {
         type: Sequelize.INTEGER,
@@ -28,7 +23,6 @@ Vehiculo.init({
     },
     tipoId: {
         type: Sequelize.INTEGER,
-        allowNull: true
     },
     matricula: {
         type: Sequelize.STRING(30),
@@ -37,13 +31,13 @@ Vehiculo.init({
     }
 }, {
     sequelize: database,
-    modelName: 'auto'
+    modelName: 'auto',
+    schema: 'vehiculo'
 })
 
-Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id'})
-Vehiculo.belongsTo(Tipo,    {foreignKey: 'tipoId',      targetKey: 'id'})
-Vehiculo.belongsTo(Modelo,  {foreignKey: 'modeloId',    targetKey: 'id'})
-Vehiculo.belongsTo(Version, {foreignKey: 'versionId',   targetKey: 'id'})
+Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id',onDelete:'SET NULL'})
+Vehiculo.belongsTo(Tipo,    {foreignKey: 'tipoId',      targetKey: 'id',onDelete:'SET NULL'})
+Vehiculo.belongsTo(Version, {foreignKey: 'versionId',   targetKey: 'id',onDelete:'SET NULL'})
 
 
 export default Vehiculo

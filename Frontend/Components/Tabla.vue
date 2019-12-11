@@ -23,7 +23,7 @@
 -->
 
 <template>
-    <div id="contenedor">
+    <div id="contenedor" :class="{'blur': desactivado}">
         <div id="paginacion">
             <h4 @click="atras">Atras</h4>
             <h4 @click="siguiente">Siguiente</h4>
@@ -54,6 +54,61 @@
 <script>
 
 export default {
+
+    /* 
+    Consejo: 
+    Antes, necesitaran saber como está estructurada la respuesta del servidor y sus respectivas
+    relaciones, asi que intenten hacer un GET simple en la direccion correspondiente de la api. 
+    La direccion de este ejemplo es /api/vehiculos/versiones
+
+
+    Supongamos que el prop elementos tiene esto 
+    [
+        {
+            id: 1,
+            modeloId: 1,
+            nombre: "Deportiva",
+            modelo: {
+                id: 1,
+                marcaId: 1,
+                nombre: "Corolla"
+            }
+        },
+        {
+            id: 2,
+            modeloId: 1,
+            nombre: "Campera",
+            modelo: {
+                id: 1,
+                marcaId: 1,
+                nombre: "Corolla"
+            }
+        }
+    ]
+    Supongamos que el prop tablaTitulos tiene esta estructura
+
+    tablaTitulos: [
+        {propiedad: 'id', titulo: 'Identificador'}, 
+        {propiedad: 'nombre', titulo: 'Nombre'},
+        {propiedad: 'NombreModeloForaneo', titulo: 'Modelo', foranea: {
+            propiedadRelacion: 'modelo', 
+            propiedadMostrar: 'nombre'
+        }}   
+    ]
+
+    Lo que va a suceder es que el componente va a inyectar la propiedad NombreModeloForaneo
+    en cada elemento de 'elementos' con el valor de [propiedadrelacion][propiedadMostrar] 
+    o que es lo mismo modelo.nombre
+
+    Para que el componente haga todo esto, el titulo debe de tener la propiedad foranea con su 
+    respectiva configuracion.
+
+    Otra cosa a mencionar, es que esto no modifica el funcionamiento de inputForanea, debido a que no se modifica la
+    propiedad del id foraneo. Por lo tanto, en este ejemplo, todavia existe la propiedad modeloId que es la que
+    utiliza el componente InputTemplate para pasarlo a InputForanea
+
+    */
+
     data: () => {
         return{
             noELementos: false
@@ -69,20 +124,58 @@ export default {
         paginacion: {
             type: Object, 
             required: false
+        },
+        desactivado: {
+            type: Boolean,
+            default: false
         }
     },
     methods:{
         enviarInformacionFila(elemento){
-            this.$emit('filaSeleccionada', elemento)
+            if(!this.desactivado){
+                this.$emit('filaSeleccionada', elemento)
+            }
         },
         atras: function(){
-            this.$emit('atras')
+            if(!this.desactivado){
+                this.$emit('atras')
+            }
         },
         siguiente: function(){
-            this.$emit('siguiente')
+            if(!this.desactivado){
+                this.$emit('siguiente')
+            }
+            
+        }
+    },
+    watch:{
+        elementos: function(nuevo, antiguo){
+            for(let titulo of this.titulos){
+                if(typeof titulo.foranea !== 'undefined'){
+                    for(let elemento of nuevo){
+                        if(elemento[titulo.foranea.propiedadRelacion] !== null){
+                            // Si el titulo tiene dentro de foranea, una propiedad foranea, entonces...
+                            if(!titulo.foranea.hasOwnProperty('foranea')){
+                                elemento[titulo.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.propiedadMostrar]
+                            }else{ 
+                                if(elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion] !== null){
+                                    // WTF IM DOING WITH MY LIFE
+                                    elemento[titulo.foranea.foranea.propiedad] = elemento[titulo.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadRelacion][titulo.foranea.foranea.propiedadMostrar]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     updated(){
+       
+        /*for(let elemento of this.elementos){
+            if(elemento.Rol !== null){
+                elemento.rolId = elemento.Rol.nombre
+            }
+        }*/
         this.noELementos = this.elementos.length == 0 ? true : false
     }
 }

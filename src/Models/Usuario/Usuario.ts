@@ -13,7 +13,7 @@ Usuario.init({
     },
     rolId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     nombre: {
         type: Sequelize.STRING(50),
@@ -28,7 +28,8 @@ Usuario.init({
     }
 }, {
     sequelize: database,
-    tableName: 'usuario'
+    tableName: 'usuario',
+    schema: 'sistema'
 })
 
 Usuario.belongsTo(Rol, {

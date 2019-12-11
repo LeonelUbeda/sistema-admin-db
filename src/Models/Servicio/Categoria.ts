@@ -17,7 +17,8 @@ Categoria.init({
     }
 }, {
     sequelize: database,
-    modelName: 'categoria'
+    modelName: 'categoria',
+    schema: 'ticket'
 })
 
 

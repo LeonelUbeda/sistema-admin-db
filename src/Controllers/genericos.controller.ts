@@ -5,8 +5,20 @@ export const factoryModelTodos = ({ modelo,  include = [] }) =>  {  // Solo para
         let busquedaSubstring = {}
         
         for(let propiedad in busqueda){
-            busquedaSubstring[propiedad] = (propiedad.slice(propiedad.length-2) === 'Id' || propiedad === 'id') ? busqueda[propiedad] : { [Op.substring] : busqueda[propiedad] }  
-        }
+            if(propiedad.includes('.')){
+                let nuevoString =  '$'+ propiedad + '$'
+                busquedaSubstring[nuevoString] = {
+                    [Op.substring] : busqueda[propiedad]
+                }
+            }else{
+                busquedaSubstring[propiedad] = (propiedad.slice(propiedad.length-2) === 'Id' || propiedad === 'id') ? busqueda[propiedad] : { [Op.substring] : busqueda[propiedad] }  
+            }
+            console.log(propiedad, busqueda[propiedad])
+        }//'$items.itemId$': itemParam
+        
+        /*busquedaSubstring['$rol.nombre$'] = {
+            [Op.substring] : 'ca'
+        }*/
         try {
             const respuesta = await modelo.findAll({
                 where: busquedaSubstring,
@@ -50,6 +62,19 @@ export const factoryModelNuevo = ({ modelo }) => {
         }
     }
 }
+
+export const factoryModelNuevoInclude = ({ modelo, include = [] }) => {
+    return async (elemento: object) => {
+        try {
+            const respuesta = await modelo.create({ ...elemento, include })
+            return respuesta
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    }
+}
+
 
 /* WIP no se si sea necesario la verdad, luego de terminar lo de inventario veo si la implemento
 // Recibe los campos de la tabla principal y la de su tabla de movimiento. 
