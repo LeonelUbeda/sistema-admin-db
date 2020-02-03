@@ -1,8 +1,8 @@
 
 export default {
     host: 'localhost',
-    user: 'sa',
-    password: '1234',
+    user: 'root',
+    password: 'admin',
     database: 'taller'
 }
 

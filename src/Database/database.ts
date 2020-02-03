@@ -8,7 +8,7 @@ const {database, user, password, host} = CredencialesDatabase;
 
 const sequelize = new Sequelize(database, user, password, {
     host,
-    dialect: 'mssql'/*'mysql'*/,
+    dialect: 'mysql',
     pool: {
         max: 5,
         min: 0,

@@ -92,7 +92,7 @@ import createStoredProcedures from "./StoredProcedures/createStoredProcedures"
 import createTriggers from "./Trigger/createTriggers"
 
 // Para eliminar y crear la base de datos
-database.sync({force: true}).then( async () => {
+database.sync({force: false}).then( async () => {
     if(database.getDialect() == 'mssql') {
         await createViews()
         await createStoredProcedures()

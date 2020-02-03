@@ -35,9 +35,9 @@ Vehiculo.init({
     schema: 'vehiculo'
 })
 
-Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id',onDelete:'SET NULL'})
-Vehiculo.belongsTo(Tipo,    {foreignKey: 'tipoId',      targetKey: 'id',onDelete:'SET NULL'})
-Vehiculo.belongsTo(Version, {foreignKey: 'versionId',   targetKey: 'id',onDelete:'SET NULL'})
+Vehiculo.belongsTo(Cliente, {foreignKey: 'clienteId',   targetKey: 'id', })
+Vehiculo.belongsTo(Tipo,    {foreignKey: 'tipoId',      targetKey: 'id', })
+Vehiculo.belongsTo(Version, {foreignKey: 'versionId',   targetKey: 'id', })
 
 
 export default Vehiculo
