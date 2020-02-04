@@ -10,7 +10,8 @@
     },
     "types": ["jest"],
     "include": [
-        "src/**/*"
+        "src/**/*",
+        
     ],
     "exclude": [
         "node_modules",

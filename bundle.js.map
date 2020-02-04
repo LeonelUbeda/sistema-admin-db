@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sourceRoot":"","sources":["src/Middlewares/index.ts","src/Models/Ticket/Foto.ts","src/StoredProcedures/scripts/GenerarTicket.ts"],"names":[],"mappings":"AAAA,cAAc;ACAd,wBAAwB;ACAxB,MAAM,kBAAkB,GAAG;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAkCxB,CAAA"}

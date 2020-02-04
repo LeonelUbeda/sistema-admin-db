@@ -1,9 +1,11 @@
 import {Sequelize} from 'sequelize'
-import CredencialesDatabase from './credencialesDatabase'
+import dotenv from 'dotenv'
+dotenv.config({path: './../.env'})
 
-
-const {database, user, password, host} = CredencialesDatabase;
-
+let database =    process.env.DB_DB
+let user =        process.env.DB_USER
+let password =    process.env.DB_PASSWORD
+let host =        process.env.DB_HOST
 
 
 const sequelize = new Sequelize(database, user, password, {
