@@ -6,11 +6,12 @@
   "scripts": {
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
+    "start": "node ./build/index.js",
     "dev": "nodemon",
     "build": "tsc",
+    "build:frontend": "parcel build ./Frontend/index.js ./Frontend/index.html --out-dir public",
     "script:defaultData": "tsc ./src/Scripts/DefaultData.ts --allowSyntheticDefaultImports --outDir ./build",
     "dev:parcel": "parcel ./Frontend/index.js ./Frontend/index.html --out-dir public",
-    "dev:parcel-build": "parcel build ./Frontend/index.js ./Frontend/index.html --out-dir public",
     "dev:parcel-watch": "parcel watch ./Frontend/index.js ./Frontend/index.html --out-dir public",
     "dev:all": "npm run dev & npm run dev:parcel-watch"
   },
